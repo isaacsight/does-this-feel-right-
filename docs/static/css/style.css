@@ -559,10 +559,36 @@ th {
     nav {
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+        order: 1;
     }
 
     .mobile-menu-btn {
         display: block;
+        order: 2;
+    }
+
+    /* Search wrapper - full width on new row */
+    .search-wrapper {
+        order: 3;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .search-input {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+        display: block;
+        /* Ensure visible */
+    }
+
+    .search-input:focus {
+        width: 100%;
     }
 
     .nav-links {
@@ -575,25 +601,11 @@ th {
         padding-top: 1.5rem;
         border-top: 1px solid var(--border);
         margin-top: 1rem;
+        order: 4;
     }
 
     .nav-links.active {
         display: flex;
-    }
-
-    .logo {
-        font-size: 1.1rem;
-    }
-
-    /* Search box - full width in menu */
-    .search-input {
-        width: 100%;
-        font-size: 1rem;
-        padding: 0.75rem;
-    }
-
-    .search-input:focus {
-        width: 100%;
     }
 
     /* Container padding */
