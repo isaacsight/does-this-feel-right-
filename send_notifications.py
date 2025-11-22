@@ -118,7 +118,7 @@ def mark_post_as_emailed(supabase: Client, post_slug, recipient_count):
 
 def main():
     # Initialize Supabase
-   supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+    supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
     
     # Get all posts and find new ones
     all_posts = get_all_posts()
