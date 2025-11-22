@@ -205,16 +205,24 @@ def build():
         write_file(os.path.join(OUTPUT_DIR, 'about.html'), full_about)
 
     # 9. Generate RSS Feed
+    import html
+    
     rss_items = ""
     for post in posts:
         if post['slug'] == 'about':
             continue
+        
+        # Escape XML special characters
+        title = html.escape(post.get('title', 'Untitled'))
+        excerpt = html.escape(post.get('excerpt', ''))
+        category = html.escape(post.get('category', 'General'))
+        
         rss_items += f"""
         <item>
-            <title>{post.get('title', 'Untitled')}</title>
+            <title>{title}</title>
             <link>{BASE_URL}/posts/{post['slug']}.html</link>
-            <description>{post.get('excerpt', '')}</description>
-            <category>{post.get('category', 'General')}</category>
+            <description>{excerpt}</description>
+            <category>{category}</category>
             <guid>{BASE_URL}/posts/{post['slug']}.html</guid>
         </item>
         """
