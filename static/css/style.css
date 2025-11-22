@@ -374,3 +374,83 @@ th {
 .save-note-btn:hover {
     opacity: 0.8;
 }
+
+/* Share Section */
+.share-section {
+    margin: 3rem 0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.share-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.share-btn:hover {
+    background: var(--text-main);
+    color: var(--bg-color);
+    border-color: var(--text-main);
+}
+
+.share-btn svg {
+    flex-shrink: 0;
+}
+
+/* Related Posts */
+.related-posts {
+    margin: 3rem 0 2rem;
+}
+
+.related-posts h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.related-card {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text-main);
+    transition: border-color 0.2s;
+}
+
+.related-card:hover {
+    border-color: var(--text-main);
+}
+
+.related-card .post-meta {
+    font-size: 0.75rem;
+}
+
+.related-card h4 {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
