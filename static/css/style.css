@@ -536,3 +536,152 @@ th {
     font-size: 1.1rem;
     line-height: 1.4;
 }
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    /* Header improvements */
+    .header-content {
+        padding: 1rem 1.5rem;
+    }
+    
+    nav {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Search box - more compact on mobile */
+    .search-input {
+        width: 150px;
+        font-size: 0.85rem;
+        padding: 0.4rem 0.75rem;
+    }
+    
+    .search-input:focus {
+        width: 180px;
+    }
+    
+    /* Container padding */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* Post cards */
+    .post-card {
+        padding: 1.25rem;
+    }
+    
+    /* Share buttons - 2 column grid on mobile */
+    .share-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+    
+    .share-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+        justify-content: center;
+    }
+    
+    .share-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    /* Support section */
+    .support-section {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+    
+    /* Related posts - ensure single column */
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .related-card {
+        padding: 1rem;
+    }
+    
+    /* Typography adjustments */
+    body {
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.35rem;
+    }
+    
+    h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* Newsletter box */
+    .newsletter-box {
+        padding: 1.5rem;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-input {
+        width: 100%;
+    }
+    
+    .newsletter-btn {
+        width: 100%;
+    }
+    
+    /* Hide Buy Me a Coffee floating widget on mobile */
+    iframe[src*="buymeacoffee"] {
+        display: none !important;
+    }
+}
+
+/* Small mobile (< 480px) */
+@media (max-width: 480px) {
+    .header-content {
+        padding: 0.75rem 1rem;
+    }
+    
+    .logo {
+        font-size: 0.95rem;
+    }
+    
+    .nav-links {
+        gap: 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Hide search on very small screens to save space */
+    .search-input {
+        display: none;
+    }
+    
+    /* Make RSS icon more prominent since search is hidden */
+    .rss-link {
+        opacity: 0.8;
+    }
+    
+    /* Share buttons - stack on very small screens */
+    .share-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .share-btn {
+        width: 100%;
+    }
+}
