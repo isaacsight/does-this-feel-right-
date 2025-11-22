@@ -7,19 +7,22 @@
     <title>Login - Does This Feel Right?</title>
     <meta name="description" content="Login to your account.">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.doesthisfeelright.com/login.html">
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Login - Does This Feel Right?">
     <meta property="og:description" content="Login to your account.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.doesthisfeelright.com/login.html">
     <meta property="og:image" content="https://www.doesthisfeelright.com/static/images/og-default.jpg">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.doesthisfeelright.com/login.html">
-    <meta property="twitter:title" content="Login - Does This Feel Right?">
-    <meta property="twitter:description" content="Login to your account.">
-    <meta property="twitter:image" content="https://www.doesthisfeelright.com/static/images/og-default.jpg">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.doesthisfeelright.com/login.html">
+    <meta name="twitter:title" content="Login - Does This Feel Right?">
+    <meta name="twitter:description" content="Login to your account.">
+    <meta name="twitter:image" content="https://www.doesthisfeelright.com/static/images/og-default.jpg">
+
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="Does This Feel Right? RSS Feed" href="feed.xml">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -27,15 +30,16 @@
 <body>
     <div class="container">
         <header>
-            <nav>
-                <a href="index.html" class="logo">Does This Feel Right?</a>
-                <div style="display: flex; gap: 1.5rem; align-items: center;">
-                    <a href="about.html"
-                        style="color: var(--text-main); text-decoration: none; font-weight: 500;">About</a>
-                    <a href="login.html" id="auth-link"
-                        style="font-size: 0.9rem; color: var(--text-muted); text-decoration: none;">Login</a>
-                </div>
-            </nav>
+            <div class="header-content">
+                <nav>
+                    <a href="index.html" class="logo">Does This Feel Right?</a>
+                    <div class="nav-links">
+                        <input type="search" id="search-box" placeholder="Search essays..." class="search-input">
+                        <a href="about.html">About</a>
+                        <a href="library.html" id="auth-link">Login</a>
+                    </div>
+                </nav>
+            </div>
         </header>
 
         <main>
@@ -70,6 +74,7 @@
     <script src="js/bookmarks.js"></script>
     <script src="js/reading-progress.js"></script>
     <script src="js/share.js"></script>
+    <script src="js/search.js"></script>
 </body>
 
 </html>

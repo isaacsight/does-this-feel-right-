@@ -204,6 +204,34 @@ def build():
         
         write_file(os.path.join(OUTPUT_DIR, 'about.html'), full_about)
 
+    # 9. Generate RSS Feed
+    rss_items = ""
+    for post in posts:
+        if post['slug'] == 'about':
+            continue
+        rss_items += f"""
+        <item>
+            <title>{post.get('title', 'Untitled')}</title>
+            <link>{BASE_URL}/posts/{post['slug']}.html</link>
+            <description>{post.get('excerpt', '')}</description>
+            <category>{post.get('category', 'General')}</category>
+            <guid>{BASE_URL}/posts/{post['slug']}.html</guid>
+        </item>
+        """
+    
+    rss_feed = f"""<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+    <title>Does This Feel Right?</title>
+    <link>{BASE_URL}</link>
+    <description>Thoughts on business, technology, and the human condition.</description>
+    <language>en-us</language>
+    {rss_items}
+</channel>
+</rss>"""
+    
+    write_file(os.path.join(OUTPUT_DIR, 'feed.xml'), rss_feed)
+
     print("Build complete.")
 
 if __name__ == "__main__":

@@ -32,26 +32,61 @@ body {
     padding: 0 1.5rem;
 }
 
+/* Header */
 header {
-    padding: 2rem 0;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 3rem;
+}
+
+.header-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: var(--font-sans);
 }
 
 .logo {
     font-family: var(--font-sans);
-    font-weight: 800;
-    font-size: 1.3rem;
+    font-weight: 600;
+    font-size: 1.1rem;
     text-decoration: none;
     color: var(--text-main);
-    letter-spacing: -0.03em;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--text-main);
+}
+
+/* Search Box */
+.search-input {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    width: 200px;
+    transition: all 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--text-main);
+    width: 250px;
 }
 
 /* Typography */

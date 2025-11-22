@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+    <title>Does This Feel Right?</title>
+    <link>https://www.doesthisfeelright.com</link>
+    <description>Thoughts on business, technology, and the human condition.</description>
+    <language>en-us</language>
+    
+        <item>
+            <title>Social Media is Our "First Contact"</title>
+            <link>https://www.doesthisfeelright.com/posts/social-media-first-contact.html</link>
+            <description>What happens when AI meets humanity? We're already living it—on Twitter, TikTok, and Instagram.</description>
+            <category>Culture & Tech</category>
+            <guid>https://www.doesthisfeelright.com/posts/social-media-first-contact.html</guid>
+        </item>
+        
+        <item>
+            <title>The Importance of Friendship and Conversation in the AI World</title>
+            <link>https://www.doesthisfeelright.com/posts/ai-friendship.html</link>
+            <description>In the era of the "Perfect Companion," the most radical act is to have a messy, real conversation.</description>
+            <category>Philosophy & Tech</category>
+            <guid>https://www.doesthisfeelright.com/posts/ai-friendship.html</guid>
+        </item>
+        
+        <item>
+            <title>There Are Richest Women—But They're Often Overshadowed</title>
+            <link>https://www.doesthisfeelright.com/posts/richest-women-overshadowed.html</link>
+            <description>Women make up just 13-15% of billionaires. A data-driven look at why they are less visible in the media.</description>
+            <category>Economics & Society</category>
+            <guid>https://www.doesthisfeelright.com/posts/richest-women-overshadowed.html</guid>
+        </item>
+        
+        <item>
+            <title>Building This Blog with Antigravity: A Meta Reflection</title>
+            <link>https://www.doesthisfeelright.com/posts/building-with-antigravity.html</link>
+            <description>I built this entire platform in one evening with an AI coding assistant. Here's what I learned about the future</description>
+            <category>Technology & Process</category>
+            <guid>https://www.doesthisfeelright.com/posts/building-with-antigravity.html</guid>
+        </item>
+        
+        <item>
+            <title>How to Scale a Coffee Shop (The Alex Hormozi Way)</title>
+            <link>https://www.doesthisfeelright.com/posts/scaling-coffee-shop.html</link>
+            <description>Stop selling commodities. Start selling Offers. A guide to applying the Value Equation to your local cafe.</description>
+            <category>Business Strategy</category>
+            <guid>https://www.doesthisfeelright.com/posts/scaling-coffee-shop.html</guid>
+        </item>
+        
+</channel>
+</rss>
