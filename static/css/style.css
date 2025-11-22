@@ -464,6 +464,41 @@ th {
     flex-shrink: 0;
 }
 
+/* Support Section */
+.support-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.support-section p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+    font-style: italic;
+}
+
+.support-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    width: fit-content;
+}
+
+.support-btn:hover {
+    color: #FF813F;
+    /* Buy Me a Coffee brand color, but subtle */
+    text-decoration: underline;
+}
+
 /* Related Posts */
 .related-posts {
     margin: 3rem 0 2rem;
