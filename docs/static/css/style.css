@@ -466,19 +466,24 @@ th {
 
 /* Support Section */
 .support-section {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px dashed var(--border);
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid var(--border);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 1rem;
 }
 
 .support-section p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
+    font-size: 1rem;
+    color: var(--text-main);
     margin: 0;
-    font-style: italic;
+    font-style: normal;
+    max-width: 500px;
 }
 
 .support-btn {
@@ -486,17 +491,34 @@ th {
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-    color: var(--text-main);
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.2s;
+    color: white;
+    background-color: #FF813F;
+    /* BMC Brand Color */
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    transition: transform 0.2s, box-shadow 0.2s;
     width: fit-content;
 }
 
 .support-btn:hover {
-    color: #FF813F;
-    /* Buy Me a Coffee brand color, but subtle */
-    text-decoration: underline;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 129, 63, 0.3);
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+}
+
+/* Nav Support Link */
+.nav-support-link {
+    color: #FF813F !important;
+    /* Make it pop slightly */
+    font-weight: 500;
+}
+
+.nav-support-link:hover {
+    opacity: 0.8;
 }
 
 /* Related Posts */
