@@ -7,8 +7,8 @@ CONTENT_DIR = 'content'
 TEMPLATE_DIR = 'templates'
 OUTPUT_DIR = 'docs'
 STATIC_DIR = 'static'
-BASE_URL = 'https://celadon-sawine-ccb91a.netlify.app'
-DEFAULT_IMAGE = 'https://celadon-sawine-ccb91a.netlify.app/static/images/og-default.jpg' # Placeholder
+BASE_URL = 'https://www.doesthisfeelright.com'
+DEFAULT_IMAGE = 'https://www.doesthisfeelright.com/static/images/og-default.jpg' # Placeholder
 
 def read_file(path):
     with open(path, 'r', encoding='utf-8') as f:
