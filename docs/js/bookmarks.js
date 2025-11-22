@@ -73,10 +73,11 @@ const Bookmarks = {
         const container = document.getElementById('library-container');
         if (!container) return;
 
-        // Show loading state?
         container.innerHTML = '<p style="color: var(--text-muted);">Loading your library...</p>';
 
         const posts = await Bookmarks.getSavedPosts();
+        const readPosts = await ReadingProgress.getReadPosts();
+        const readSlugs = new Set(readPosts.map(p => p.post_slug));
         const emptyState = '<p id="empty-state" style="color: var(--text-muted); font-style: italic;">You haven\'t saved any posts yet. Go explore!</p>';
 
         if (posts.length === 0) {
@@ -86,16 +87,52 @@ const Bookmarks = {
 
         let html = '';
         posts.forEach(post => {
-            // post_slug, post_title, post_category come from DB
+            const isRead = readSlugs.has(post.post_slug);
+            const readBadge = isRead ? '<span class="read-badge">✓ Read</span>' : '';
+
             html += `
-                <a href="posts/${post.post_slug}.html" class="post-card">
-                    <span class="post-meta">${post.post_category || 'General'}</span>
-                    <h2>${post.post_title || 'Untitled'}</h2>
-                </a>
+                <div class="saved-post-item">
+                    <a href="posts/${post.post_slug}.html" class="post-card" style="border-bottom: none; padding: 1rem 0;">
+                        <span class="post-meta">${post.post_category || 'General'} ${readBadge}</span>
+                        <h2 style="margin-top: 0.5rem;">${post.post_title || 'Untitled'}</h2>
+                    </a>
+                    <div class="note-section">
+                        <textarea 
+                            class="note-input" 
+                            placeholder="Add a note about this essay..."
+                            data-post-id="${post.id}"
+                            data-slug="${post.post_slug}"
+                        >${post.notes || ''}</textarea>
+                        <button class="save-note-btn" data-post-id="${post.id}">Save Note</button>
+                    </div>
+                </div>
             `;
         });
 
         container.innerHTML = html;
+
+        // Add event listeners for save note buttons
+        document.querySelectorAll('.save-note-btn').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                const postId = e.target.dataset.postId;
+                const textarea = document.querySelector(`textarea[data-post-id="${postId}"]`);
+                const note = textarea.value;
+
+                const { error } = await supabaseClient
+                    .from('user_bookmarks')
+                    .update({ notes: note })
+                    .eq('id', postId);
+
+                if (!error) {
+                    e.target.textContent = '✓ Saved';
+                    e.target.style.backgroundColor = '#2e7d32';
+                    setTimeout(() => {
+                        e.target.textContent = 'Save Note';
+                        e.target.style.backgroundColor = '';
+                    }, 2000);
+                }
+            });
+        });
     },
 
     initSaveButton: async () => {
