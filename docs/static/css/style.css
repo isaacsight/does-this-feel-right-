@@ -542,9 +542,30 @@ th {
     display: none;
     background: none;
     border: none;
+    background: none;
+    border: none;
     cursor: pointer;
     color: var(--text-main);
     padding: 0.5rem;
+}
+
+/* Mobile Actions Container */
+.mobile-actions {
+    display: none;
+    /* Hidden on desktop */
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.search-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-main);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Mobile Optimizations */
@@ -564,27 +585,47 @@ th {
 
     .logo {
         font-size: 1.1rem;
-        order: 1;
+    }
+
+    .mobile-actions {
+        display: flex;
     }
 
     .mobile-menu-btn {
         display: block;
-        order: 2;
+        /* Ensure visible within container */
     }
 
-    /* Search wrapper - full width on new row */
+    /* Search wrapper - Hidden by default on mobile */
     .search-wrapper {
-        order: 3;
         width: 100%;
         margin-top: 1rem;
+        display: none;
+        /* Hidden! */
+    }
+
+    .search-wrapper.active {
+        display: block;
+        /* Show when toggled */
+        animation: slideDown 0.2s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .search-input {
         width: 100%;
         font-size: 1rem;
         padding: 0.6rem 1rem;
-        display: block;
-        /* Ensure visible */
     }
 
     .search-input:focus {
@@ -601,7 +642,6 @@ th {
         padding-top: 1.5rem;
         border-top: 1px solid var(--border);
         margin-top: 1rem;
-        order: 4;
     }
 
     .nav-links.active {
