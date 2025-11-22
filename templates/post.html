@@ -1,0 +1,23 @@
+<article>
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+        <a href="{{ root }}index.html" class="back-link">← Back to Home</a>
+        <button id="save-btn" class="save-btn" data-slug="{{ slug }}" data-title="{{ title }}"
+            data-category="{{ category }}">
+            <span class="icon">🔖</span> <span class="text">Save</span>
+        </button>
+    </div>
+    <span class="post-meta">{{ category }}</span>
+    <h1>{{ title }}</h1>
+
+    {{ post_content }}
+
+    <div class="newsletter-box">
+        <h3>Get the Signal.</h3>
+        <p>Smart analysis for curious minds. Unsubscribe anytime.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Your best email" required class="newsletter-input">
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+        <p class="success-message">You're on the list. Welcome.</p>
+    </div>
+</article>

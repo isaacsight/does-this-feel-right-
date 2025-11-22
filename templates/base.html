@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ image }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url }}">
+    <meta property="twitter:title" content="{{ title }}">
+    <meta property="twitter:description" content="{{ description }}">
+    <meta property="twitter:image" content="{{ image }}">
+
+    <link rel="stylesheet" href="{{ root }}css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="{{ root }}index.html" class="logo">Does This Feel Right?</a>
+                <div style="display: flex; gap: 1.5rem; align-items: center;">
+                    <a href="{{ root }}about.html"
+                        style="color: var(--text-main); text-decoration: none; font-weight: 500;">About</a>
+                    <a href="{{ root }}login.html" id="auth-link"
+                        style="font-size: 0.9rem; color: var(--text-muted); text-decoration: none;">Login</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            {{ content }}
+        </main>
+    </div>
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- App Scripts -->
+    <script src="{{ root }}js/config.js"></script>
+    <script src="{{ root }}js/main.js"></script>
+    <script src="{{ root }}js/auth.js"></script>
+    <script src="{{ root }}js/bookmarks.js"></script>
+</body>
+
+</html>

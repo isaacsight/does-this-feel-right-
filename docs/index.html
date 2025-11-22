@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Does This Feel Right?</title>
+    <meta name="description" content="Thoughts on business, technology, and the human condition.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://celadon-sawine-ccb91a.netlify.app/index.html">
+    <meta property="og:title" content="Does This Feel Right?">
+    <meta property="og:description" content="Thoughts on business, technology, and the human condition.">
+    <meta property="og:image" content="https://celadon-sawine-ccb91a.netlify.app/static/images/og-default.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://celadon-sawine-ccb91a.netlify.app/index.html">
+    <meta property="twitter:title" content="Does This Feel Right?">
+    <meta property="twitter:description" content="Thoughts on business, technology, and the human condition.">
+    <meta property="twitter:image" content="https://celadon-sawine-ccb91a.netlify.app/static/images/og-default.jpg">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Does This Feel Right?</a>
+                <div style="display: flex; gap: 1.5rem; align-items: center;">
+                    <a href="about.html"
+                        style="color: var(--text-main); text-decoration: none; font-weight: 500;">About</a>
+                    <a href="login.html" id="auth-link"
+                        style="font-size: 0.9rem; color: var(--text-muted); text-decoration: none;">Login</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Latest Essays</h1>
+<p style="color: var(--text-muted); margin-bottom: 2rem;">Thoughts on business, technology, and the human condition.</p>
+
+<div class="filter-bar"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="Business Strategy">Business Strategy</button><button class="filter-btn" data-filter="Culture & Psychology">Culture & Psychology</button><button class="filter-btn" data-filter="Economics & Society">Economics & Society</button><button class="filter-btn" data-filter="Philosophy & Tech">Philosophy & Tech</button></div>
+
+
+            <a href="posts/social-media-first-contact.html" class="post-card" data-category="Culture & Psychology">
+                <span class="post-meta">Culture & Psychology • 5 min read</span>
+                <h2>Social Media is Our "First Contact"</h2>
+                <p class="post-excerpt">Indigenous people met ships; we met screens. A parallel between colonial history and our digital present.</p>
+            </a>
+        
+            <a href="posts/ai-friendship.html" class="post-card" data-category="Philosophy & Tech">
+                <span class="post-meta">Philosophy & Tech • 5 min read</span>
+                <h2>The Importance of Friendship and Conversation in the AI World</h2>
+                <p class="post-excerpt">In the era of the "Perfect Companion," the most radical act is to have a messy, real conversation.</p>
+            </a>
+        
+            <a href="posts/richest-women-overshadowed.html" class="post-card" data-category="Economics & Society">
+                <span class="post-meta">Economics & Society • 5 min read</span>
+                <h2>There Are Richest Women—But They're Often Overshadowed</h2>
+                <p class="post-excerpt">Women make up just 13-15% of billionaires. A data-driven look at why they are less visible in the media.</p>
+            </a>
+        
+            <a href="posts/scaling-coffee-shop.html" class="post-card" data-category="Business Strategy">
+                <span class="post-meta">Business Strategy • 5 min read</span>
+                <h2>How to Scale a Coffee Shop (The Alex Hormozi Way)</h2>
+                <p class="post-excerpt">Stop selling commodities. Start selling Offers. A guide to applying the Value Equation to your local cafe.</p>
+            </a>
+        
+
+<div class="newsletter-box">
+    <h3>Get the Signal.</h3>
+    <p>Smart analysis for curious minds. Unsubscribe anytime.</p>
+    <form class="newsletter-form">
+        <input type="email" placeholder="Your best email" required class="newsletter-input">
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+    </form>
+    <p class="success-message">You're on the list. Welcome.</p>
+</div>
+        </main>
+    </div>
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- App Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/bookmarks.js"></script>
+</body>
+
+</html>
