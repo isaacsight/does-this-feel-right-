@@ -42,6 +42,7 @@ const Auth = {
     updateUI: async () => {
         const user = await Auth.getUser();
         const authLink = document.getElementById('auth-link');
+        const navLogout = document.getElementById('nav-logout');
 
         if (authLink) {
             if (user) {
@@ -50,19 +51,30 @@ const Auth = {
                 if (currentHref.includes('login.html')) {
                     authLink.href = currentHref.replace('login.html', 'library.html');
                 }
+                if (navLogout) navLogout.style.display = 'inline-block';
             } else {
                 authLink.textContent = 'Login';
                 const currentHref = authLink.getAttribute('href');
                 if (currentHref.includes('library.html')) {
                     authLink.href = currentHref.replace('library.html', 'login.html');
                 }
+                if (navLogout) navLogout.style.display = 'none';
             }
         }
 
-        // Handle Logout Button
+        // Handle Logout Button (Library Page)
         const logoutBtn = document.getElementById('logout-btn');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                Auth.logout();
+            });
+        }
+
+        // Handle Nav Logout Link
+        const navLogout = document.getElementById('nav-logout');
+        if (navLogout) {
+            navLogout.addEventListener('click', (e) => {
                 e.preventDefault();
                 Auth.logout();
             });
