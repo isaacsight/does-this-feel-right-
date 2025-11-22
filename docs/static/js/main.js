@@ -69,4 +69,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    // Search Toggle
+    const searchBtn = document.querySelector('.search-toggle-btn');
+    const searchWrapper = document.querySelector('.search-wrapper');
+    const searchInput = document.querySelector('#search-box');
+
+    if (searchBtn && searchWrapper) {
+        searchBtn.addEventListener('click', () => {
+            searchWrapper.classList.toggle('active');
+
+            // Auto-focus input when opened
+            if (searchWrapper.classList.contains('active') && searchInput) {
+                setTimeout(() => searchInput.focus(), 100);
+            }
+        });
+    }
 });
