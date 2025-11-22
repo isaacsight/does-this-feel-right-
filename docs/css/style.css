@@ -537,11 +537,19 @@ th {
     line-height: 1.4;
 }
 
+.note-display {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f8f8;
+    border-left: 3px solid var(--text-main);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
 /* Mobile Menu Button */
 .mobile-menu-btn {
     display: none;
-    background: none;
-    border: none;
     background: none;
     border: none;
     cursor: pointer;
@@ -593,7 +601,6 @@ th {
 
     .mobile-menu-btn {
         display: block;
-        /* Ensure visible within container */
     }
 
     /* Search wrapper - Hidden by default on mobile */
@@ -630,22 +637,6 @@ th {
 
     .search-input:focus {
         width: 100%;
-    }
-
-    .nav-links {
-        display: none;
-        /* Hidden by default on mobile */
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid var(--border);
-        margin-top: 1rem;
-    }
-
-    .nav-links.active {
-        display: flex;
     }
 
     /* Container padding */
@@ -729,6 +720,22 @@ th {
     iframe[src*="buymeacoffee"] {
         display: none !important;
     }
+
+    .nav-links {
+        display: none;
+        /* Hidden by default on mobile */
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        margin-top: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
 }
 
 /* Small mobile (< 480px) */
@@ -744,11 +751,6 @@ th {
     .nav-links {
         gap: 0.75rem;
         font-size: 0.85rem;
-    }
-
-    /* Hide search on very small screens to save space */
-    .search-input {
-        display: none;
     }
 
     /* Make RSS icon more prominent since search is hidden */
