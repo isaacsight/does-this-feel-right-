@@ -41,18 +41,21 @@
         <main>
             <div style="max-width: 400px; margin: 4rem auto; text-align: center;">
     <h1>Welcome Back.</h1>
-    <p style="color: var(--text-muted); margin-bottom: 2rem;">Sign in to access your library.</p>
+    <p style="color: var(--text-muted); margin-bottom: 2rem;">Sign in to save essays and build your personal library.
+    </p>
 
     <form id="login-form" class="newsletter-form" style="flex-direction: column; align-items: stretch;">
         <input type="email" id="email" placeholder="Enter your email" required class="newsletter-input"
             style="width: 100%; margin-bottom: 1rem;">
-        <input type="password" id="password" placeholder="Enter your password" required class="newsletter-input"
-            style="width: 100%; margin-bottom: 1rem;">
-        <button type="submit" class="newsletter-btn" style="width: 100%;">Sign In / Sign Up</button>
+        <input type="password" id="password" placeholder="Create a password (6+ characters)" required
+            class="newsletter-input" style="width: 100%; margin-bottom: 1rem;">
+        <button type="submit" class="newsletter-btn" style="width: 100%;">Continue</button>
     </form>
 
-    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
-        (This is a prototype. Any email works.)
+    <p id="login-message" style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-main); display: none;"></p>
+
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+        New here? Just enter your email and choose a password to get started.
     </p>
 </div>
         </main>

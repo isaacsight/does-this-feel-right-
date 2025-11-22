@@ -1,5 +1,5 @@
 /**
- * Authentication using Supabase
+ * Authentication using Supabase - Improved UX
  */
 
 const Auth = {
@@ -8,6 +8,9 @@ const Auth = {
         const { data, error } = await supabaseClient.auth.signUp({
             email: email,
             password: password,
+            options: {
+                emailRedirectTo: window.location.origin + '/library.html'
+            }
         });
         return { data, error };
     },
@@ -44,21 +47,19 @@ const Auth = {
             if (user) {
                 authLink.textContent = 'My Library';
                 const currentHref = authLink.getAttribute('href');
-                // Replace login.html with library.html
                 if (currentHref.includes('login.html')) {
                     authLink.href = currentHref.replace('login.html', 'library.html');
                 }
             } else {
                 authLink.textContent = 'Login';
                 const currentHref = authLink.getAttribute('href');
-                // Replace library.html with login.html
                 if (currentHref.includes('library.html')) {
                     authLink.href = currentHref.replace('library.html', 'login.html');
                 }
             }
         }
 
-        // Handle Logout Button (only exists on Library page)
+        // Handle Logout Button
         const logoutBtn = document.getElementById('logout-btn');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', (e) => {
@@ -76,15 +77,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle Login Form
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
+        const messageEl = document.getElementById('login-message');
+
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const emailInput = document.getElementById('email');
-            const passwordInput = document.getElementById('password'); // We need to add this to HTML
+            const passwordInput = document.getElementById('password');
             const btn = loginForm.querySelector('button');
             const originalText = btn.textContent;
 
             if (!emailInput.value || !passwordInput.value) {
-                alert('Please enter both email and password.');
+                if (messageEl) {
+                    messageEl.style.display = 'block';
+                    messageEl.style.color = '#d32f2f';
+                    messageEl.textContent = 'Please enter both email and password.';
+                }
+                return;
+            }
+
+            if (passwordInput.value.length < 6) {
+                if (messageEl) {
+                    messageEl.style.display = 'block';
+                    messageEl.style.color = '#d32f2f';
+                    messageEl.textContent = 'Password must be at least 6 characters.';
+                }
                 return;
             }
 
@@ -94,30 +110,59 @@ document.addEventListener('DOMContentLoaded', () => {
             // Try to Sign In first
             let { data, error } = await Auth.signIn(emailInput.value, passwordInput.value);
 
-            if (error) {
-                // If user doesn't exist (or wrong password), maybe try to sign up?
-                // For simplicity in this prototype, let's just alert the error.
-                // In a real app, we'd have separate Sign Up / Login flows.
-                // Let's try to Sign Up if the error implies "Invalid login credentials" but we don't know if user exists.
-                // Actually, let's just ask them to Sign Up if Login fails for now, or handle it explicitly.
-
-                // Let's try to Sign Up automatically if Login fails (Lazy Registration)
-                // WARNING: This is a bit hacky but good for prototypes.
-                console.log("Login failed, trying signup...", error.message);
+            if (error && error.message.includes('Invalid login credentials')) {
+                // User doesn't exist, try to sign up
+                btn.textContent = 'Creating account...';
                 const signUpResult = await Auth.signUp(emailInput.value, passwordInput.value);
 
                 if (signUpResult.error) {
-                    alert('Error: ' + signUpResult.error.message);
+                    if (messageEl) {
+                        messageEl.style.display = 'block';
+                        messageEl.style.color = '#d32f2f';
+                        messageEl.textContent = 'Error: ' + signUpResult.error.message;
+                    }
                     btn.textContent = originalText;
                     btn.disabled = false;
                 } else {
-                    alert('Account created! Please check your email to confirm.');
-                    btn.textContent = originalText;
-                    btn.disabled = false;
+                    // Check if email confirmation is required
+                    if (signUpResult.data.user && !signUpResult.data.session) {
+                        if (messageEl) {
+                            messageEl.style.display = 'block';
+                            messageEl.style.color = '#2e7d32';
+                            messageEl.textContent = '✓ Account created! Check your email to confirm, then come back to log in.';
+                        }
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                    } else {
+                        // No email confirmation needed, sign in was successful
+                        if (messageEl) {
+                            messageEl.style.display = 'block';
+                            messageEl.style.color = '#2e7d32';
+                            messageEl.textContent = '✓ Welcome! Redirecting...';
+                        }
+                        setTimeout(() => {
+                            window.location.href = 'library.html';
+                        }, 1000);
+                    }
                 }
+            } else if (error) {
+                if (messageEl) {
+                    messageEl.style.display = 'block';
+                    messageEl.style.color = '#d32f2f';
+                    messageEl.textContent = 'Error: ' + error.message;
+                }
+                btn.textContent = originalText;
+                btn.disabled = false;
             } else {
                 // Success
-                window.location.href = 'library.html';
+                if (messageEl) {
+                    messageEl.style.display = 'block';
+                    messageEl.style.color = '#2e7d32';
+                    messageEl.textContent = '✓ Welcome back! Redirecting...';
+                }
+                setTimeout(() => {
+                    window.location.href = 'library.html';
+                }, 1000);
             }
         });
     }
