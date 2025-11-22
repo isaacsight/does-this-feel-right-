@@ -73,6 +73,18 @@ nav {
     color: var(--text-main);
 }
 
+/* RSS Link */
+.rss-link {
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.rss-link:hover {
+    opacity: 1;
+}
+
 /* Search Box */
 .search-input {
     padding: 0.5rem 1rem;
