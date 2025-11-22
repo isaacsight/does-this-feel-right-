@@ -536,115 +536,143 @@ th {
     font-size: 1.1rem;
     line-height: 1.4;
 }
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-main);
+    padding: 0.5rem;
+}
+
 /* Mobile Optimizations */
 @media (max-width: 768px) {
+
     /* Header improvements */
     .header-content {
         padding: 1rem 1.5rem;
+        position: relative;
     }
-    
+
     nav {
         flex-wrap: wrap;
-        gap: 0.75rem;
+        justify-content: space-between;
     }
-    
-    .logo {
-        font-size: 1rem;
+
+    .mobile-menu-btn {
+        display: block;
     }
-    
+
     .nav-links {
-        gap: 1rem;
-        font-size: 0.9rem;
+        display: none;
+        /* Hidden by default on mobile */
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        margin-top: 1rem;
     }
-    
-    /* Search box - more compact on mobile */
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    /* Search box - full width in menu */
     .search-input {
-        width: 150px;
-        font-size: 0.85rem;
-        padding: 0.4rem 0.75rem;
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.75rem;
     }
-    
+
     .search-input:focus {
-        width: 180px;
+        width: 100%;
     }
-    
+
     /* Container padding */
     .container {
         padding: 0 1rem;
     }
-    
+
     /* Post cards */
     .post-card {
         padding: 1.25rem;
     }
-    
+
     /* Share buttons - 2 column grid on mobile */
     .share-buttons {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
     }
-    
+
     .share-btn {
         padding: 0.4rem 0.75rem;
         font-size: 0.8rem;
         justify-content: center;
     }
-    
+
     .share-btn svg {
         width: 14px;
         height: 14px;
     }
-    
+
     /* Support section */
     .support-section {
         margin-top: 1.5rem;
         padding-top: 1.5rem;
     }
-    
+
     /* Related posts - ensure single column */
     .related-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .related-card {
         padding: 1rem;
     }
-    
+
     /* Typography adjustments */
     body {
         font-size: 16px;
     }
-    
+
     h1 {
         font-size: 1.75rem;
     }
-    
+
     h2 {
         font-size: 1.35rem;
     }
-    
+
     h3 {
         font-size: 1.1rem;
     }
-    
+
     /* Newsletter box */
     .newsletter-box {
         padding: 1.5rem;
     }
-    
+
     .newsletter-form {
         flex-direction: column;
     }
-    
+
     .newsletter-input {
         width: 100%;
     }
-    
+
     .newsletter-btn {
         width: 100%;
     }
-    
+
     /* Hide Buy Me a Coffee floating widget on mobile */
     iframe[src*="buymeacoffee"] {
         display: none !important;
@@ -656,31 +684,31 @@ th {
     .header-content {
         padding: 0.75rem 1rem;
     }
-    
+
     .logo {
         font-size: 0.95rem;
     }
-    
+
     .nav-links {
         gap: 0.75rem;
         font-size: 0.85rem;
     }
-    
+
     /* Hide search on very small screens to save space */
     .search-input {
         display: none;
     }
-    
+
     /* Make RSS icon more prominent since search is hidden */
     .rss-link {
         opacity: 0.8;
     }
-    
+
     /* Share buttons - stack on very small screens */
     .share-buttons {
         grid-template-columns: 1fr;
     }
-    
+
     .share-btn {
         width: 100%;
     }
