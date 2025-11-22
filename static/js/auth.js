@@ -72,7 +72,6 @@ const Auth = {
         }
 
         // Handle Nav Logout Link
-        const navLogout = document.getElementById('nav-logout');
         if (navLogout) {
             navLogout.addEventListener('click', (e) => {
                 e.preventDefault();
