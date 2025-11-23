@@ -1,13 +1,31 @@
 :root {
+    /* Light Mode (Default) */
     --bg-color: #ffffff;
     --text-main: #222222;
     --text-muted: #737373;
     --accent: #000000;
     --border: #eaeaea;
+    --code-bg: #f5f5f5;
+    --card-hover: #fafafa;
+    --input-bg: #ffffff;
+
+    /* Fonts & Layout */
     --font-serif: "Merriweather", "Georgia", serif;
     --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --max-width: 720px;
     --spacing-unit: 1rem;
+}
+
+[data-theme="dark"] {
+    /* Dark Mode */
+    --bg-color: #111111;
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --accent: #ffffff;
+    --border: #333333;
+    --code-bg: #1a1a1a;
+    --card-hover: #1a1a1a;
+    --input-bg: #1a1a1a;
 }
 
 * {
@@ -23,6 +41,7 @@ body {
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Layout */
@@ -752,7 +771,9 @@ th {
     .share-btn {
         width: 100%;
     }
-}/* Custom Floating Support Tab */
+}
+
+/* Custom Floating Support Tab */
 .floating-support-tab {
     position: fixed;
     bottom: 2rem;
@@ -799,4 +820,45 @@ th {
         width: 20px;
         height: 20px;
     }
+}/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--text-main);
+}
+
+.mobile-theme-btn {
+    /* Adjustments for mobile header if needed */
+}
+
+.desktop-theme-btn {
+    /* Adjustments for desktop nav if needed */
+}
+
+/* Hide/Show icons based on theme is handled by JS toggling display, 
+   but we can also do it with CSS if we put a class on the button */
+[data-theme="dark"] .sun-icon {
+    display: none;
+}
+
+[data-theme="dark"] .moon-icon {
+    display: block !important;
+}
+
+[data-theme="light"] .moon-icon {
+    display: none;
+}
+
+[data-theme="light"] .sun-icon {
+    display: block !important;
 }
