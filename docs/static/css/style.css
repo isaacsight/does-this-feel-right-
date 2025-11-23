@@ -752,4 +752,51 @@ th {
     .share-btn {
         width: 100%;
     }
+}/* Custom Floating Support Tab */
+.floating-support-tab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #FFDD00;
+    /* BMC Yellow */
+    color: #000000;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-family: "Cookie", cursive;
+    /* Fallback to sans if Cookie not loaded, but BMC uses Cookie usually. Let's use var(--font-sans) for consistency or import Cookie */
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1000;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.floating-support-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.floating-support-tab img {
+    display: block;
+}
+
+/* Mobile adjustment for floating tab */
+@media (max-width: 768px) {
+    .floating-support-tab {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .floating-support-tab img {
+        width: 20px;
+        height: 20px;
+    }
 }
