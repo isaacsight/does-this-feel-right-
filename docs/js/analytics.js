@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         // 1. Increment View Count
         // We use 'rpc' to call the stored procedure
-        const { error: incrementError } = await supabase
+        const { error: incrementError } = await supabaseClient
             .rpc('increment_page_view', { page_slug: slug });
 
         if (incrementError) {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         // 2. Fetch Updated Count
-        const { data, error: fetchError } = await supabase
+        const { data, error: fetchError } = await supabaseClient
             .from('page_views')
             .select('view_count')
             .eq('slug', slug)
