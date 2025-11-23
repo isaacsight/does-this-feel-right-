@@ -705,10 +705,7 @@ th {
         width: 100%;
     }
 
-    /* Hide Buy Me a Coffee floating widget on mobile */
-    iframe[src*="buymeacoffee"] {
-        display: none !important;
-    }
+
 
     .nav-links {
         display: none;
