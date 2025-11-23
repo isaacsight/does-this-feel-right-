@@ -70,22 +70,45 @@ nav {
 
 .logo {
     font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 1.1rem;
+    font-weight: 700;
+    font-size: 1.25rem;
     text-decoration: none;
     color: var(--text-main);
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s;
+}
+
+.logo:hover {
+    opacity: 0.7;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
+}
+
+.nav-links button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--text-muted);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links button:hover {
+    color: var(--text-main);
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-muted);
     transition: color 0.2s;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
 }
 
 .nav-links a:hover {
@@ -105,19 +128,39 @@ nav {
 }
 
 /* Search Box */
+.search-wrapper {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 1rem;
+    z-index: 100;
+}
+
+.search-wrapper.active {
+    display: block;
+}
+
 .search-input {
     padding: 0.5rem 1rem;
     border: 1px solid var(--border);
+    background: var(--input-bg);
+    color: var(--text-main);
     font-family: var(--font-sans);
     font-size: 0.9rem;
-    width: 200px;
+    width: 250px;
     transition: all 0.2s;
+    border-radius: 4px;
 }
 
 .search-input:focus {
     outline: none;
     border-color: var(--text-main);
-    width: 250px;
+}
+
+.desktop-search-btn {
+    display: flex;
+    align-items: center;
 }
 
 /* Typography */
@@ -589,11 +632,16 @@ th {
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--text-main);
+    color: var(--text-muted);
     padding: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: color 0.2s;
+}
+
+.search-toggle-btn:hover {
+    color: var(--text-main);
 }
 
 /* Mobile Optimizations */

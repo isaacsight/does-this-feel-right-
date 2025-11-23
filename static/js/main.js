@@ -69,18 +69,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    // Search Toggle
-    const searchBtn = document.querySelector('.search-toggle-btn');
+    // Search Toggle (handles both mobile and desktop)
+    const searchBtns = document.querySelectorAll('.search-toggle-btn');
     const searchWrapper = document.querySelector('.search-wrapper');
     const searchInput = document.querySelector('#search-box');
 
-    if (searchBtn && searchWrapper) {
-        searchBtn.addEventListener('click', () => {
-            searchWrapper.classList.toggle('active');
+    if (searchBtns.length > 0 && searchWrapper) {
+        searchBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                searchWrapper.classList.toggle('active');
 
-            // Auto-focus input when opened
-            if (searchWrapper.classList.contains('active') && searchInput) {
-                setTimeout(() => searchInput.focus(), 100);
+                // Auto-focus input when opened
+                if (searchWrapper.classList.contains('active') && searchInput) {
+                    setTimeout(() => searchInput.focus(), 100);
+                }
+            });
+        });
+
+        // Close search when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchWrapper.contains(e.target) && !Array.from(searchBtns).some(btn => btn.contains(e.target))) {
+                searchWrapper.classList.remove('active');
             }
         });
     }
