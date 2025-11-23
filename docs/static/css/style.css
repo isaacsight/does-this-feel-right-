@@ -820,7 +820,9 @@ th {
         width: 20px;
         height: 20px;
     }
-}/* Theme Toggle Button */
+}
+
+/* Theme Toggle Button */
 .theme-toggle-btn {
     background: none;
     border: none;
@@ -835,14 +837,6 @@ th {
 
 .theme-toggle-btn:hover {
     color: var(--text-main);
-}
-
-.mobile-theme-btn {
-    /* Adjustments for mobile header if needed */
-}
-
-.desktop-theme-btn {
-    /* Adjustments for desktop nav if needed */
 }
 
 /* Hide/Show icons based on theme is handled by JS toggling display, 
