@@ -464,7 +464,7 @@ th {
     flex-shrink: 0;
 }
 
-/* Support Section (Classic Minimalist) */
+/* Support Section (Official Widget) */
 .support-section {
     margin-top: 4rem;
     padding: 2rem;
@@ -486,54 +486,6 @@ th {
     color: var(--text-main);
     font-style: italic;
     margin: 0;
-}
-
-.support-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    color: var(--text-main);
-    background-color: transparent;
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    transition: all 0.2s ease;
-}
-
-.support-btn:hover {
-    background-color: var(--bg-secondary);
-    border-color: var(--text-main);
-    transform: translateY(-1px);
-    text-decoration: none;
-    color: var(--text-main);
-}
-
-/* Nav Support Link Badge */
-.nav-support-link {
-    color: var(--text-main) !important;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.nav-support-link::before {
-    content: '';
-    display: block;
-    width: 6px;
-    height: 6px;
-    background-color: var(--text-main);
-    border-radius: 50%;
-    opacity: 0.5;
-    transition: opacity 0.3s;
-}
-
-.nav-support-link:hover::before {
-    opacity: 1;
 }
 
 /* Related Posts */
