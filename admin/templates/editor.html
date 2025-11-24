@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor - Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- SimpleMDE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+</head>
+
+<body>
+    <div class="editor-container">
+        <form action="{{ url_for('save') }}" method="POST" class="editor-form">
+            <header class="editor-header">
+                <a href="{{ url_for('dashboard') }}" class="back-link">← Back</a>
+                <div class="actions">
+                    <button type="submit" class="btn-primary">Save Post</button>
+                </div>
+            </header>
+
+            <div class="meta-inputs">
+                <input type="hidden" name="filename" value="{{ filename if filename else '' }}">
+
+                <div class="input-group full-width">
+                    <input type="text" name="title" placeholder="Post Title"
+                        value="{{ post.title if post.title else '' }}" required class="title-input">
+                </div>
+
+                <div class="meta-row">
+                    <div class="input-group">
+                        <label>Date</label>
+                        <input type="date" name="date" value="{{ post.date if post.date else '' }}">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Category</label>
+                        <input type="text" name="category" placeholder="e.g. Technology"
+                            value="{{ post.category if post.category else '' }}">
+                    </div>
+
+                    <div class="input-group flex-grow">
+                        <label>Tags (comma separated)</label>
+                        <input type="text" name="tags" placeholder="e.g. AI, Future, Design"
+                            value="{{ post.tags if post.tags else '' }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-area">
+                <textarea name="content" id="markdown-editor">{{ content }}</textarea>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        var simplemde = new SimpleMDE({ element: document.getElementById("markdown-editor") });
+    </script>
+</body>
+
+</html>

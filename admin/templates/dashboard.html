@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Does This Feel Right?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">Admin</div>
+            <nav>
+                <a href="{{ url_for('dashboard') }}" class="active">Dashboard</a>
+                <a href="{{ url_for('new_post') }}">New Post</a>
+                <a href="#" onclick="publishSite()">🚀 Publish Site</a>
+            </nav>
+            <div class="status-bar" id="status-bar">
+                Connected to GitHub
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="top-bar">
+                <h1>All Posts</h1>
+                <a href="{{ url_for('new_post') }}" class="btn-primary">Write New</a>
+            </header>
+
+            <div class="posts-list">
+                {% for post in posts %}
+                <a href="{{ url_for('edit', filename=post.filename) }}" class="post-item">
+                    <div class="post-info">
+                        <h3>{{ post.title }}</h3>
+                        <span class="meta">{{ post.date }} • {{ post.category }}</span>
+                    </div>
+                    <div class="post-status">
+                        <span class="badge published">Published</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+
+    <script>
+        async function publishSite() {
+            const statusBar = document.getElementById('status-bar');
+            statusBar.textContent = 'Publishing...';
+            statusBar.style.color = '#fbbf24';
+
+            try {
+                const response = await fetch('/publish', { method: 'POST' });
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    statusBar.textContent = 'Published Successfully!';
+                    statusBar.style.color = '#34d399';
+                    setTimeout(() => {
+                        statusBar.textContent = 'Connected to GitHub';
+                        statusBar.style.color = 'inherit';
+                    }, 3000);
+                } else {
+                    statusBar.textContent = 'Error: ' + result.message;
+                    statusBar.style.color = '#f87171';
+                }
+            } catch (e) {
+                statusBar.textContent = 'Network Error';
+                statusBar.style.color = '#f87171';
+            }
+        }
+    </script>
+</body>
+
+</html>
