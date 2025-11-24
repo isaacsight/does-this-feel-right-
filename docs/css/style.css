@@ -21,21 +21,7 @@
     --spacing-unit: 1rem;
 }
 
-[data-theme="dark"] {
-    /* Dark Mode */
-    --bg-color: #111111;
-    --text-main: #e5e5e5;
-    --text-muted: #a3a3a3;
-    --accent: #ffffff;
-    --border: #333333;
-    --code-bg: #1a1a1a;
-    --card-hover: #1a1a1a;
-    --input-bg: #1a1a1a;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-    --glass-bg: rgba(17, 17, 17, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.1);
-}
+
 
 * {
     box-sizing: border-box;
@@ -263,10 +249,6 @@ a:hover {
     border-bottom-color: var(--text-main);
     background-color: rgba(0, 0, 0, 0.03);
     /* Subtle highlight */
-}
-
-[data-theme="dark"] a:hover {
-    background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Components */
@@ -938,22 +920,7 @@ th {
 
 
 
-/* Theme Toggle Button */
-.theme-toggle-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-muted);
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s;
-}
 
-.theme-toggle-btn:hover {
-    color: var(--text-main);
-}
 
 /* Hide/Show icons based on theme is handled by JS toggling display, 
    but we can also do it with CSS if we put a class on the button */
