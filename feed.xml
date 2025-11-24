@@ -7,6 +7,14 @@
     <language>en-us</language>
     
         <item>
+            <title>How I Use AI to Run This Blog</title>
+            <link>https://www.doesthisfeelright.com/posts/how-i-use-ai-to-run-this-blog.html</link>
+            <description>Most people use AI to write. I use it to build, debug, deploy, and iterate. Here&#x27;s how.</description>
+            <category>Process &amp; AI</category>
+            <guid>https://www.doesthisfeelright.com/posts/how-i-use-ai-to-run-this-blog.html</guid>
+        </item>
+        
+        <item>
             <title>How I Built This Blog - A Human-AI Partnership</title>
             <link>https://www.doesthisfeelright.com/posts/how-i-built-this-blog-a-human-ai-partnership.html</link>
             <description>I didn&#x27;t build this blog alone. I built it with an AI. Not as a consultant, but as a partner. This is the story</description>
@@ -76,14 +84,6 @@
             <description>In an age of algorithmic noise, the simple XML feed has become a sanctuary for intentional consumption.</description>
             <category>Technology &amp; Culture</category>
             <guid>https://www.doesthisfeelright.com/posts/rss-in-2025.html</guid>
-        </item>
-        
-        <item>
-            <title>How I Use AI to Run This Blog</title>
-            <link>https://www.doesthisfeelright.com/posts/how-i-use-ai-to-run-this-blog.html</link>
-            <description></description>
-            <category>&#x27;Process &#x27;</category>
-            <guid>https://www.doesthisfeelright.com/posts/how-i-use-ai-to-run-this-blog.html</guid>
         </item>
         
 </channel>
