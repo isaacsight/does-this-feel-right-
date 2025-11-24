@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sortBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                
+
                 // Update active state
                 sortBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
@@ -90,14 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile Menu Toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    const navCenter = document.querySelector('.nav-center');
 
-    if (mobileBtn && navLinks) {
+    if (mobileBtn && navCenter) {
         mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navCenter.classList.toggle('active');
 
             // Toggle icon between hamburger and X
-            const isOpen = navLinks.classList.contains('active');
+            const isOpen = navCenter.classList.contains('active');
             if (isOpen) {
                 mobileBtn.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
             } else {
