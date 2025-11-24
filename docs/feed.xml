@@ -7,11 +7,11 @@
     <language>en-us</language>
     
         <item>
-            <title>Social Media is Our &quot;First Contact&quot;</title>
-            <link>https://www.doesthisfeelright.com/posts/social-media-first-contact.html</link>
-            <description>What happens when AI meets humanity? We&#x27;re already living it—on Twitter, TikTok, and Instagram.</description>
+            <title>Why Most Content Feels Like &quot;People Are Irresponsible&quot;</title>
+            <link>https://www.doesthisfeelright.com/posts/irresponsibility-content.html</link>
+            <description>Negativity is the strongest attention magnet. A look at why algorithms overrepresent the edges and make the</description>
             <category>Culture &amp; Tech</category>
-            <guid>https://www.doesthisfeelright.com/posts/social-media-first-contact.html</guid>
+            <guid>https://www.doesthisfeelright.com/posts/irresponsibility-content.html</guid>
         </item>
         
         <item>
@@ -23,11 +23,19 @@
         </item>
         
         <item>
-            <title>Why Most Content Feels Like &quot;People Are Irresponsible&quot;</title>
-            <link>https://www.doesthisfeelright.com/posts/irresponsibility-content.html</link>
-            <description>Negativity is the strongest attention magnet. A look at why algorithms overrepresent the edges and make the</description>
+            <title>Social Media is Our &quot;First Contact&quot;</title>
+            <link>https://www.doesthisfeelright.com/posts/social-media-first-contact.html</link>
+            <description>What happens when AI meets humanity? We&#x27;re already living it—on Twitter, TikTok, and Instagram.</description>
             <category>Culture &amp; Tech</category>
-            <guid>https://www.doesthisfeelright.com/posts/irresponsibility-content.html</guid>
+            <guid>https://www.doesthisfeelright.com/posts/social-media-first-contact.html</guid>
+        </item>
+        
+        <item>
+            <title>How to Scale a Coffee Shop (The Alex Hormozi Way)</title>
+            <link>https://www.doesthisfeelright.com/posts/scaling-coffee-shop.html</link>
+            <description>Stop selling commodities. Start selling Offers. A guide to applying the Value Equation to your local cafe.</description>
+            <category>Business Strategy</category>
+            <guid>https://www.doesthisfeelright.com/posts/scaling-coffee-shop.html</guid>
         </item>
         
         <item>
@@ -52,14 +60,6 @@
             <description>In an age of algorithmic noise, the simple XML feed has become a sanctuary for intentional consumption.</description>
             <category>Technology &amp; Culture</category>
             <guid>https://www.doesthisfeelright.com/posts/rss-in-2025.html</guid>
-        </item>
-        
-        <item>
-            <title>How to Scale a Coffee Shop (The Alex Hormozi Way)</title>
-            <link>https://www.doesthisfeelright.com/posts/scaling-coffee-shop.html</link>
-            <description>Stop selling commodities. Start selling Offers. A guide to applying the Value Equation to your local cafe.</description>
-            <category>Business Strategy</category>
-            <guid>https://www.doesthisfeelright.com/posts/scaling-coffee-shop.html</guid>
         </item>
         
 </channel>

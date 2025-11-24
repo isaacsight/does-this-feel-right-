@@ -118,8 +118,8 @@ def build():
         posts.append(metadata)
 
     # 5. Generate Homepage
-    # Sort posts by date (descending) if date exists
-    # For now, just list them.
+    # Sort posts by date (descending)
+    posts.sort(key=lambda x: x.get('date', '0000-00-00'), reverse=True)
     
     # Generate Filter HTML
     categories = sorted(list(set(p.get('category', 'General') for p in posts if p.get('slug') != 'about')))
@@ -140,10 +140,21 @@ def build():
         tags = post.get('tags', '').split(',') if post.get('tags') else [post.get('category', 'General')]
         tags = [t.strip() for t in tags if t.strip()]
         primary_tag = tags[0] if tags else 'General'
+        
+        # Format date
+        date_str = post.get('date', '')
+        if date_str:
+            try:
+                date_obj = datetime.datetime.strptime(date_str, '%Y-%m-%d')
+                date_display = date_obj.strftime('%b %d, %Y')
+            except:
+                date_display = date_str
+        else:
+            date_display = ""
             
         posts_html += f"""
             <a href="posts/{post['slug']}.html" class="post-card" data-category="{post.get('category', 'General')}">
-                <span class="post-meta">{primary_tag} • {post.get('read_time', '5 min read')}</span>
+                <span class="post-meta">{primary_tag} • {date_display} • {post.get('read_time', '5 min read')}</span>
                 <h2>{post.get('title', 'Untitled')}</h2>
                 <p class="post-excerpt">{post.get('excerpt', '')}</p>
             </a>
