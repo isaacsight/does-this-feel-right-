@@ -7,6 +7,22 @@
     <language>en-us</language>
     
         <item>
+            <title>&#x27;How I Built This Blog: A Human-AI Partnership&#x27;</title>
+            <link>https://www.doesthisfeelright.com/posts/how-i-built-this-blog-a-human-ai-partnership.html</link>
+            <description></description>
+            <category>Technology &amp; Process</category>
+            <guid>https://www.doesthisfeelright.com/posts/how-i-built-this-blog-a-human-ai-partnership.html</guid>
+        </item>
+        
+        <item>
+            <title>&#x27;System Check: Admin Dashboard&#x27;</title>
+            <link>https://www.doesthisfeelright.com/posts/system-check-admin-dashboard.html</link>
+            <description></description>
+            <category>Technology</category>
+            <guid>https://www.doesthisfeelright.com/posts/system-check-admin-dashboard.html</guid>
+        </item>
+        
+        <item>
             <title>Why Most Content Feels Like &quot;People Are Irresponsible&quot;</title>
             <link>https://www.doesthisfeelright.com/posts/irresponsibility-content.html</link>
             <description>Negativity is the strongest attention magnet. A look at why algorithms overrepresent the edges and make the</description>
@@ -60,22 +76,6 @@
             <description>In an age of algorithmic noise, the simple XML feed has become a sanctuary for intentional consumption.</description>
             <category>Technology &amp; Culture</category>
             <guid>https://www.doesthisfeelright.com/posts/rss-in-2025.html</guid>
-        </item>
-        
-        <item>
-            <title>&#x27;How I Built This Blog: A Human-AI Partnership&#x27;</title>
-            <link>https://www.doesthisfeelright.com/posts/how-i-built-this-blog-a-human-ai-partnership.html</link>
-            <description></description>
-            <category>&#x27;Technology &#x27;</category>
-            <guid>https://www.doesthisfeelright.com/posts/how-i-built-this-blog-a-human-ai-partnership.html</guid>
-        </item>
-        
-        <item>
-            <title>&#x27;System Check: Admin Dashboard&#x27;</title>
-            <link>https://www.doesthisfeelright.com/posts/system-check-admin-dashboard.html</link>
-            <description></description>
-            <category>Technology</category>
-            <guid>https://www.doesthisfeelright.com/posts/system-check-admin-dashboard.html</guid>
         </item>
         
 </channel>
