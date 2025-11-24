@@ -114,7 +114,11 @@
             <span class="icon">🔖</span> <span class="text">Save</span>
         </button>
     </div>
-    <span class="post-meta">About</span>
+    <div class="post-tags">
+        {% for tag in tags %}
+        <a href="../tags/{{ tag|lower|replace(' ', '-') }}.html" class="tag">{{ tag }}</a>
+        {% endfor %}
+    </div>
     <h1>Signal Over Noise.</h1>
 
     <p style="font-size: 1.4rem; line-height: 1.5; color: var(--text-main); font-weight: 500;">

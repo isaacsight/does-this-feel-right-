@@ -116,6 +116,7 @@ def build():
     filter_html += '<button class="filter-btn active" data-filter="all">All</button>'
     for cat in categories:
         filter_html += f'<button class="filter-btn" data-filter="{cat}">{cat}</button>'
+    filter_html += '<a href="collections.html" class="filter-btn" style="text-decoration: none;">View All Collections</a>'
     filter_html += '</div>'
     
     posts_html = ""
@@ -124,9 +125,14 @@ def build():
         if post['slug'] == 'about': 
             continue
             
+        # Handle tags for display
+        tags = post.get('tags', '').split(',') if post.get('tags') else [post.get('category', 'General')]
+        tags = [t.strip() for t in tags if t.strip()]
+        primary_tag = tags[0] if tags else 'General'
+            
         posts_html += f"""
             <a href="posts/{post['slug']}.html" class="post-card" data-category="{post.get('category', 'General')}">
-                <span class="post-meta">{post.get('category', 'General')} • {post.get('read_time', '5 min read')}</span>
+                <span class="post-meta">{primary_tag} • {post.get('read_time', '5 min read')}</span>
                 <h2>{post.get('title', 'Untitled')}</h2>
                 <p class="post-excerpt">{post.get('excerpt', '')}</p>
             </a>
@@ -144,7 +150,76 @@ def build():
     
     write_file(os.path.join(OUTPUT_DIR, 'index.html'), full_index)
 
-    # 6. Generate Login Page
+    # 6. Generate Tag Pages & Collections Index
+    # Collect all tags
+    all_tags = {}
+    for post in posts:
+        if post['slug'] == 'about': continue
+        
+        post_tags = post.get('tags', '').split(',') if post.get('tags') else [post.get('category', 'General')]
+        for tag in post_tags:
+            tag = tag.strip()
+            if not tag: continue
+            if tag not in all_tags:
+                all_tags[tag] = []
+            all_tags[tag].append(post)
+            
+    # Generate individual tag pages
+    tag_template = read_file(os.path.join(TEMPLATE_DIR, 'tag.html'))
+    
+    for tag, tag_posts in all_tags.items():
+        tag_slug = tag.lower().replace(' ', '-')
+        
+        tag_posts_html = ""
+        for post in tag_posts:
+            tag_posts_html += f"""
+                <a href="../posts/{post['slug']}.html" class="post-card">
+                    <span class="post-meta">{post.get('read_time', '5 min read')}</span>
+                    <h2>{post.get('title', 'Untitled')}</h2>
+                    <p class="post-excerpt">{post.get('excerpt', '')}</p>
+                </a>
+            """
+            
+        tag_page = tag_template.replace('{{ tag }}', tag)
+        tag_page = tag_page.replace('{{ count }}', str(len(tag_posts)))
+        tag_page = tag_page.replace('{{ posts_list }}', tag_posts_html)
+        tag_page = tag_page.replace('{{ root }}', '../')
+        
+        full_tag_page = base_template.replace('{{ title }}', f'{tag} - Does This Feel Right?')
+        full_tag_page = full_tag_page.replace('{{ content }}', tag_page)
+        full_tag_page = full_tag_page.replace('{{ root }}', '../')
+        full_tag_page = full_tag_page.replace('{{ description }}', f'Essays about {tag}.')
+        full_tag_page = full_tag_page.replace('{{ url }}', f"{BASE_URL}/tags/{tag_slug}.html")
+        full_tag_page = full_tag_page.replace('{{ image }}', DEFAULT_IMAGE)
+        
+        write_file(os.path.join(OUTPUT_DIR, 'tags', f'{tag_slug}.html'), full_tag_page)
+        
+    # Generate Collections Index
+    collections_template = read_file(os.path.join(TEMPLATE_DIR, 'collections.html'))
+    
+    collections_html = ""
+    for tag in sorted(all_tags.keys()):
+        tag_slug = tag.lower().replace(' ', '-')
+        count = len(all_tags[tag])
+        collections_html += f"""
+            <a href="tags/{tag_slug}.html" class="collection-card">
+                <h3>{tag}</h3>
+                <span class="count">{count} essay{'s' if count != 1 else ''}</span>
+            </a>
+        """
+        
+    full_collections = collections_template.replace('{{ collections_list }}', collections_html)
+    
+    full_collections_page = base_template.replace('{{ title }}', 'Collections - Does This Feel Right?')
+    full_collections_page = full_collections_page.replace('{{ content }}', full_collections)
+    full_collections_page = full_collections_page.replace('{{ root }}', '')
+    full_collections_page = full_collections_page.replace('{{ description }}', 'Explore essays by topic.')
+    full_collections_page = full_collections_page.replace('{{ url }}', f"{BASE_URL}/collections.html")
+    full_collections_page = full_collections_page.replace('{{ image }}', DEFAULT_IMAGE)
+    
+    write_file(os.path.join(OUTPUT_DIR, 'collections.html'), full_collections_page)
+
+    # 7. Generate Login Page
     login_template = read_file(os.path.join(TEMPLATE_DIR, 'login.html'))
     full_login = base_template.replace('{{ title }}', 'Login - Does This Feel Right?')
     full_login = full_login.replace('{{ content }}', login_template)
@@ -154,7 +229,7 @@ def build():
     full_login = full_login.replace('{{ image }}', DEFAULT_IMAGE)
     write_file(os.path.join(OUTPUT_DIR, 'login.html'), full_login)
 
-    # 7. Generate Library Page
+    # 8. Generate Library Page
     library_template = read_file(os.path.join(TEMPLATE_DIR, 'library.html'))
     full_library = base_template.replace('{{ title }}', 'My Library - Does This Feel Right?')
     full_library = full_library.replace('{{ content }}', library_template)
@@ -164,7 +239,7 @@ def build():
     full_library = full_library.replace('{{ image }}', DEFAULT_IMAGE)
     write_file(os.path.join(OUTPUT_DIR, 'library.html'), full_library)
 
-    # 8. Generate About Page (Special Case)
+    # 9. Generate About Page (Special Case)
     # We can just have an about.md in content and treat it differently or just hardcode it.
     # Let's look for about.html in content
     if os.path.exists(os.path.join(CONTENT_DIR, 'about.html')):
@@ -204,7 +279,7 @@ def build():
         
         write_file(os.path.join(OUTPUT_DIR, 'about.html'), full_about)
 
-    # 9. Generate RSS Feed
+    # 10. Generate RSS Feed
     import html
     
     rss_items = ""

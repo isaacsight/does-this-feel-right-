@@ -114,7 +114,11 @@
             <span class="icon">🔖</span> <span class="text">Save</span>
         </button>
     </div>
-    <span class="post-meta">Philosophy & Tech</span>
+    <div class="post-tags">
+        {% for tag in tags %}
+        <a href="../tags/{{ tag|lower|replace(' ', '-') }}.html" class="tag">{{ tag }}</a>
+        {% endfor %}
+    </div>
     <h1>The Importance of Friendship and Conversation in the AI World</h1>
 
     <p>We are entering the era of the "Perfect Companion."</p>

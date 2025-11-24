@@ -114,7 +114,11 @@
             <span class="icon">🔖</span> <span class="text">Save</span>
         </button>
     </div>
-    <span class="post-meta">Business Strategy</span>
+    <div class="post-tags">
+        {% for tag in tags %}
+        <a href="../tags/{{ tag|lower|replace(' ', '-') }}.html" class="tag">{{ tag }}</a>
+        {% endfor %}
+    </div>
     <h1>How to Scale a Coffee Shop (The Alex Hormozi Way)</h1>
 
     <p>Most coffee shop owners are stuck in the "commodity trap." They sell a $5 latte that costs $4.50 to

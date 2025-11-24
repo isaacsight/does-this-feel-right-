@@ -114,7 +114,11 @@
             <span class="icon">🔖</span> <span class="text">Save</span>
         </button>
     </div>
-    <span class="post-meta">Technology & Culture</span>
+    <div class="post-tags">
+        {% for tag in tags %}
+        <a href="../tags/{{ tag|lower|replace(' ', '-') }}.html" class="tag">{{ tag }}</a>
+        {% endfor %}
+    </div>
     <h1>The Quiet Return of RSS in 2025</h1>
 
     <p>It is 2025, and the most advanced technology in my reading stack is a protocol from 1999.</p>

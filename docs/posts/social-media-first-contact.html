@@ -114,7 +114,11 @@
             <span class="icon">🔖</span> <span class="text">Save</span>
         </button>
     </div>
-    <span class="post-meta">Culture & Tech</span>
+    <div class="post-tags">
+        {% for tag in tags %}
+        <a href="../tags/{{ tag|lower|replace(' ', '-') }}.html" class="tag">{{ tag }}</a>
+        {% endfor %}
+    </div>
     <h1>Social Media is Our "First Contact"</h1>
 
     <p>Indigenous people met ships; we met screens. Both encounters shattered worlds that weren’t ready for

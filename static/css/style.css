@@ -915,4 +915,85 @@ th {
 
 [data-theme="light"] .sun-icon {
     display: block !important;
+}/* Collections & Tags */
+.tag-header,
+.collections-header {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.tag-header h1,
+.collections-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tag-header p,
+.collections-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.collection-card {
+    display: block;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    border-radius: 8px;
+}
+
+.collection-card:hover {
+    border-color: var(--text-main);
+    background-color: var(--card-hover);
+    transform: translateY(-2px);
+}
+
+.collection-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+.collection-card .count {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.back-link-container {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+/* Post Tags */
+.post-tags {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.post-tags .tag {
+    background: var(--card-hover);
+    color: var(--text-muted);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.post-tags .tag:hover {
+    color: var(--text-main);
+    background: var(--border);
 }

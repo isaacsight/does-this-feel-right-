@@ -6,7 +6,11 @@
             <span class="icon">🔖</span> <span class="text">Save</span>
         </button>
     </div>
-    <span class="post-meta">{{ category }}</span>
+    <div class="post-tags">
+        {% for tag in tags %}
+        <a href="{{ root }}tags/{{ tag|lower|replace(' ', '-') }}.html" class="tag">{{ tag }}</a>
+        {% endfor %}
+    </div>
     <h1>{{ title }}</h1>
 
     {{ post_content }}
