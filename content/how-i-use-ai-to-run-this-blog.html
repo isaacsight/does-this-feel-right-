@@ -1,0 +1,205 @@
+---
+category: 'Process '
+date: '2025-11-24'
+read_time: 5 min read
+tags: AI, Workflow, Process, Productivity, Antigravity
+title: How I Use AI to Run This Blog
+---
+
+I don't just use AI to **write** this blog. I use it to **run** it.
+
+Not in the abstract, philosophical sense. In the literal, mechanical sense.
+
+Let me show you what that looks like.
+
+---
+
+## The Traditional Way
+
+**Without AI:**
+- Write a post in Markdown
+- Save it to a file
+- Run `python build.py`
+- Commit to git
+- Push to GitHub
+- Wait for deployment
+- Check for bugs
+- Repeat
+
+**With AI (how most people use it):**
+- Ask AI to draft a post
+- Copy/paste into a file
+- Do all the manual steps above
+
+**With AI (how I actually use it):**
+- Tell it: "Write a post about X and publish it"
+- Done.
+
+---
+
+## What the AI Actually Does
+
+When I say "publish a post about X", here's what happens:
+
+1. **Writes the content** - Drafts the essay in my voice
+2. **Formats the metadata** - Sets title, tags, date, excerpt
+3. **Saves the file** - Writes to `content/filename.html`
+4. **Runs the build** - Executes `build.py` to regenerate the site
+5. **Commits to git** - Adds, commits with a message
+6. **Pushes to GitHub** - Deploys to production
+7. **Verifies** - Checks that it's live
+
+All of this happens in **seconds**.
+
+---
+
+## The Admin Dashboard
+
+The AI also built me a **local admin panel**. 
+
+I type `./start_admin.sh`, and I get a dark-mode interface where I can:
+- Write posts in Markdown
+- Set metadata (title, tags, category, date)
+- Click **Publish** → Everything deploys automatically
+
+No terminal commands. No git. No build scripts.
+
+It feels like Substack, but I **own the platform**.
+
+---
+
+## Real Examples from Today
+
+### Example 1: "Fix the sorting"
+**Me:** "Organize the posts by most recent date first and add a filter so users can sort them."
+
+**AI:** 
+- Updated `build.py` to add `data-date` attributes
+- Modified `main.js` to add sort logic
+- Added UI controls to `index.html`
+- Styled the buttons in `style.css`
+- Built, committed, pushed
+
+**Time:** ~2 minutes
+
+### Example 2: "Why aren't recent posts at the top?"
+**Me:** "Both are still at the bottom."
+
+**AI:**
+- Debugged the issue (found quotes around dates)
+- Fixed the frontmatter in two files
+- Rebuilt and redeployed
+
+**Time:** ~1 minute
+
+---
+
+## The Workflow in Practice
+
+Here's what a typical session looks like:
+
+**Me:** "Add a Collections page so readers can browse by topic."
+
+**AI:**
+1. Creates `templates/collections.html`
+2. Creates `templates/tag.html` for individual tag pages
+3. Updates `build.py` to parse tags and generate pages
+4. Adds CSS for the collections grid
+5. Deploys everything
+
+**Me:** "The tag links are broken."
+
+**AI:**
+1. Checks the generated HTML
+2. Finds the issue (wrong root path)
+3. Fixes `build.py`
+4. Rebuilds and deploys
+
+**Me:** "Perfect."
+
+This back-and-forth happens in **minutes**, not hours.
+
+---
+
+## What Makes This Different
+
+Most people treat AI like a **consultant**:
+- "Can you help me with X?"
+- AI gives advice
+- You do the work
+
+I treat it like a **coworker**:
+- "Do X"
+- AI does it
+- I review and iterate
+
+The difference is **execution authority**.
+
+I don't ask the AI "how should I build this?"  
+I tell it "build this."
+
+---
+
+## The Mental Shift
+
+The hardest part isn't the tools. It's the **trust**.
+
+You have to trust that:
+- The AI will write correct code (mostly)
+- The AI will catch its own mistakes (usually)
+- The AI will follow your intent (with clear instructions)
+
+And when it doesn't, you have to be willing to say:
+- "That's wrong, fix it."
+- "Try a different approach."
+- "Revert that change."
+
+It's not magic. It's **collaborative iteration at machine speed**.
+
+---
+
+## The Limits
+
+What the AI **can't** do:
+- Decide what to build (that's on me)
+- Know what I want without clear instructions
+- Understand subjective taste (I still choose the design)
+- Replace domain expertise (I review everything)
+
+What the AI **can** do:
+- Implement my ideas faster than I could alone
+- Catch bugs I would miss
+- Refactor code I would avoid refactoring
+- Deploy changes I would procrastinate on
+
+The AI is not **better** than me. It's **faster**.
+
+---
+
+## Why This Matters
+
+If I can build and run a blog this way, what does that mean for:
+- **Indie hackers** building SaaS products?
+- **Writers** who want custom platforms?
+- **Designers** who want to prototype without waiting for devs?
+
+The bottleneck isn't **ideas** anymore. It's **willingness to collaborate with AI**.
+
+The tools are here. The workflows exist.
+
+The question is: **Are you using AI as a tool, or as a teammate?**
+
+---
+
+## Try It Yourself
+
+If you want this workflow:
+1. Get an AI coding assistant (Antigravity, Cursor, v0, etc.)
+2. Be specific about what you want
+3. Review what it builds
+4. Iterate until it's right
+5. Deploy
+
+You'll be shocked at how fast you can move.
+
+The future of building isn't **no-code**. It's **conversation-driven code**.
