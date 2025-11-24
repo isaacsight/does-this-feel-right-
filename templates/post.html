@@ -7,9 +7,7 @@
         </button>
     </div>
     <div class="post-tags">
-        {% for tag in tags %}
-        <a href="{{ root }}tags/{{ tag|lower|replace(' ', '-') }}.html" class="tag">{{ tag }}</a>
-        {% endfor %}
+        {{ tags_html }}
     </div>
     <h1>{{ title }}</h1>
 
