@@ -153,7 +153,7 @@ def build():
             date_display = ""
             
         posts_html += f"""
-            <a href="posts/{post['slug']}.html" class="post-card" data-category="{post.get('category', 'General')}">
+            <a href="posts/{post['slug']}.html" class="post-card" data-category="{post.get('category', 'General')}" data-date="{post.get('date', '')}">
                 <span class="post-meta">{primary_tag} • {date_display} • {post.get('read_time', '5 min read')}</span>
                 <h2>{post.get('title', 'Untitled')}</h2>
                 <p class="post-excerpt">{post.get('excerpt', '')}</p>

@@ -12,6 +12,8 @@ REPO_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
 
 @app.route('/')
 def dashboard():
+    sort_by = request.args.get('sort', 'date')  # default to date
+    
     posts = []
     if os.path.exists(CONTENT_DIR):
         for filename in os.listdir(CONTENT_DIR):
@@ -25,14 +27,20 @@ def dashboard():
                             'title': post.get('title', 'Untitled'),
                             'date': post.get('date', 'No Date'),
                             'category': post.get('category', 'Uncategorized'),
-                            'status': 'Published' # Simplified for now
+                            'status': 'Published'
                         })
                     except:
                         continue
     
-    # Sort by date desc
-    posts.sort(key=lambda x: str(x['date']), reverse=True)
-    return render_template('dashboard.html', posts=posts)
+    # Sort based on parameter
+    if sort_by == 'title':
+        posts.sort(key=lambda x: x['title'].lower())
+    elif sort_by == 'category':
+        posts.sort(key=lambda x: x['category'].lower())
+    else:  # default to date
+        posts.sort(key=lambda x: str(x['date']), reverse=True)
+    
+    return render_template('dashboard.html', posts=posts, current_sort=sort_by)
 
 @app.route('/edit/<filename>')
 def edit(filename):

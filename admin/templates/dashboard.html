@@ -25,7 +25,17 @@
 
         <main class="content">
             <header class="top-bar">
-                <h1>All Posts</h1>
+                <div>
+                    <h1>All Posts</h1>
+                    <div class="sort-controls">
+                        <span class="sort-label">Sort by:</span>
+                        <a href="/?sort=date" class="sort-btn {% if current_sort == 'date' %}active{% endif %}">Date</a>
+                        <a href="/?sort=title"
+                            class="sort-btn {% if current_sort == 'title' %}active{% endif %}">Title</a>
+                        <a href="/?sort=category"
+                            class="sort-btn {% if current_sort == 'category' %}active{% endif %}">Category</a>
+                    </div>
+                </div>
                 <a href="{{ url_for('new_post') }}" class="btn-primary">Write New</a>
             </header>
 

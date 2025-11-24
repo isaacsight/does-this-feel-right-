@@ -91,6 +91,37 @@ a {
     margin-bottom: 2rem;
 }
 
+.sort-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.sort-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.sort-btn {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    color: var(--text-muted);
+    transition: all 0.2s;
+}
+
+.sort-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+}
+
+.sort-btn.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+    font-weight: 500;
+}
+
 .btn-primary {
     background-color: var(--accent);
     color: var(--bg-dark);

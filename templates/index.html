@@ -9,7 +9,17 @@
 
 {{ filters }}
 
-{{ posts_list }}
+<div class="sort-controls" style="display: flex; gap: 0.75rem; align-items: center; margin: 1.5rem 0;">
+    <span style="color: var(--text-muted); font-size: 0.9rem;">Sort by:</span>
+    <a href="#" class="sort-btn active" data-sort="date"
+        style="color: var(--text-muted); font-size: 0.9rem; padding: 0.25rem 0.75rem; border-radius: 6px; transition: all 0.2s;">Date</a>
+    <a href="#" class="sort-btn" data-sort="title"
+        style="color: var(--text-muted); font-size: 0.9rem; padding: 0.25rem 0.75rem; border-radius: 6px; transition: all 0.2s;">Title</a>
+</div>
+
+<div class="posts-container">
+    {{ posts_list }}
+</div>
 
 <div class="newsletter-box">
     <h3>Get the Signal.</h3>
