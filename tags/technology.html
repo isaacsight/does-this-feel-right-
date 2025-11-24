@@ -62,17 +62,10 @@
                             </svg>
                         </button>
 
-                        <a href="../feed.xml" class="rss-link" title="Subscribe via RSS">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z" />
-                            </svg>
-                        </a>
-
-
                         <a href="../about.html">About</a>
                         <a href="../collections.html">Collections</a>
-                        <a href="https://www.buymeacoffee.com/doesthisfeelright" target="_blank">Support</a>
+                        <a href="../feed.xml" class="rss-btn" title="Subscribe via RSS">RSS</a>
+                        <button class="support-btn" id="bmc-support-btn">Support ☕</button>
                         <a href="../library.html" id="auth-link">Login</a>
                         <a href="#" id="nav-logout" style="display: none;">Sign Out</a>
                     </div>
@@ -124,7 +117,13 @@
     <script src="../js/reading-progress.js"></script>
     <script src="../js/share.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/support.js"></script>
 
+    <!-- Buy Me a Coffee Widget -->
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="doesthisfeelright" data-description="Support me on Buy me a coffee!"
+        data-message="Thanks for reading! If you enjoyed this, consider supporting the blog." data-color="#FFDD00"
+        data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
 
 </body>
