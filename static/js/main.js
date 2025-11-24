@@ -52,6 +52,42 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Post Sorting Logic
+    const sortBtns = document.querySelectorAll('.sort-btn');
+    const postsContainer = document.querySelector('.posts-container');
+
+    if (sortBtns.length > 0 && postsContainer) {
+        sortBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Update active state
+                sortBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const sortType = btn.getAttribute('data-sort');
+                const postsArray = Array.from(posts);
+
+                postsArray.sort((a, b) => {
+                    if (sortType === 'date') {
+                        const dateA = a.getAttribute('data-date') || '';
+                        const dateB = b.getAttribute('data-date') || '';
+                        return dateB.localeCompare(dateA); // newest first
+                    } else if (sortType === 'title') {
+                        const titleA = a.querySelector('h2').textContent;
+                        const titleB = b.querySelector('h2').textContent;
+                        return titleA.localeCompare(titleB);
+                    }
+                    return 0;
+                });
+
+                // Re-append in sorted order
+                postsArray.forEach(post => postsContainer.appendChild(post));
+            });
+        });
+    }
+
     // Mobile Menu Toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');

@@ -477,14 +477,25 @@ th {
     background-color: var(--card-hover);
 }
 
-/* Filter Bar */
+/* Filter Bar (including sort controls) */
 .filter-bar {
     display: flex;
-    gap: 0.75rem;
-    margin-bottom: 3rem;
     flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
     justify-content: center;
     /* Center filters */
+}
+
+.sort-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-main);
+}
+
+.sort-btn.active {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: var(--text-main);
+    font-weight: 500;
 }
 
 .filter-btn {
