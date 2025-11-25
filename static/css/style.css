@@ -634,6 +634,7 @@ main {
 }
 
 /* Semantic Tag - Content Type Indicator */
+/* Semantic Tag - Content Type Indicator */
 .post-card::after {
     content: '';
     position: absolute;
@@ -644,6 +645,66 @@ main {
     border-radius: 50%;
     background: var(--accent-success);
     opacity: 0.8;
+}
+
+/* Tag Color System */
+.tag-color-0 {
+    background: #e2e8f0;
+    color: #475569;
+    border-color: #cbd5e1;
+}
+
+/* Slate */
+.tag-color-1 {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #bbf7d0;
+}
+
+/* Green */
+.tag-color-2 {
+    background: #e0e7ff;
+    color: #3730a3;
+    border-color: #c7d2fe;
+}
+
+/* Indigo */
+.tag-color-3 {
+    background: #ffedd5;
+    color: #9a3412;
+    border-color: #fed7aa;
+}
+
+/* Orange */
+.tag-color-4 {
+    background: #ccfbf1;
+    color: #115e59;
+    border-color: #99f6e4;
+}
+
+/* Teal */
+.tag-color-5 {
+    background: #fce7f3;
+    color: #9d174d;
+    border-color: #fbcfe8;
+}
+
+/* Pink */
+
+.post-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    /* For border colors to show */
+    transition: all 0.2s;
+}
+
+.post-tag:hover {
+    opacity: 0.9;
 }
 
 /* Article Typography & Layout */
