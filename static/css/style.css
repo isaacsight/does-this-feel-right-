@@ -592,6 +592,113 @@ main {
     opacity: 0.8;
 }
 
+/* Article Typography & Layout */
+article {
+    max-width: 680px;
+    /* Optimal reading width */
+    margin: 0 auto;
+    font-size: 1.125rem;
+    /* 18px base size */
+    line-height: 1.7;
+    color: var(--text-main);
+}
+
+article h1 {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.03em;
+}
+
+article h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+}
+
+article h3 {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-2);
+    color: var(--text-main);
+}
+
+article p {
+    margin-bottom: var(--space-4);
+    color: #333;
+    /* Slightly softer black for reading */
+}
+
+article ul,
+article ol {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-4);
+}
+
+article li {
+    margin-bottom: var(--space-2);
+    padding-left: var(--space-2);
+}
+
+article blockquote {
+    border-left: 4px solid var(--accent-primary);
+    margin: var(--space-6) 0;
+    padding: var(--space-2) var(--space-4);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--text-main);
+    background: #f8f9fa;
+    border-radius: 0 8px 8px 0;
+}
+
+article strong {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+article em {
+    font-style: italic;
+    color: var(--text-main);
+}
+
+article a {
+    color: var(--accent-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+article a:hover {
+    color: var(--text-main);
+}
+
+/* Post Header Meta */
+.post-tags {
+    margin-bottom: var(--space-4);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-top: auto;
+    padding-top: var(--space-3);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: var(--text-main);
+}
+
 .post-content {
     display: flex;
     flex-direction: column;
@@ -627,14 +734,6 @@ main {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
-
-.post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1);
-    margin-top: auto;
-    padding-top: var(--space-3);
 }
 
 .post-tag {
