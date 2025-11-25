@@ -7,8 +7,8 @@ CONTENT_DIR = 'content'
 TEMPLATE_DIR = 'templates'
 OUTPUT_DIR = 'docs'
 STATIC_DIR = 'static'
-BASE_URL = 'https://isaacsight.github.io/does-this-feel-right-'
-DEFAULT_IMAGE = 'https://isaacsight.github.io/does-this-feel-right-/static/images/og-default.jpg' # Placeholder
+BASE_URL = 'https://www.doesthisfeelright.com'
+DEFAULT_IMAGE = 'https://www.doesthisfeelright.com/static/images/og-default.jpg' # Placeholder
 
 def read_file(path):
     with open(path, 'r', encoding='utf-8') as f:
@@ -472,6 +472,9 @@ def build():
     write_file(os.path.join(OUTPUT_DIR, 'feed.xml'), rss_feed)
 
     write_file(os.path.join(OUTPUT_DIR, 'feed.xml'), rss_feed)
+
+    # 11. Generate CNAME for GitHub Pages
+    write_file(os.path.join(OUTPUT_DIR, 'CNAME'), 'www.doesthisfeelright.com')
 
     print("Build complete.")
 
