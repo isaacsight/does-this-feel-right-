@@ -165,6 +165,10 @@ header {
     text-transform: uppercase;
     letter-spacing: 0.02em;
     white-space: nowrap;
+    font-weight: 800;
+    /* Bolder logo */
+    font-size: 1.1rem;
+    /* Slightly larger */
 }
 
 .logo-underline {
@@ -172,7 +176,8 @@ header {
     bottom: 12px;
     left: 1.5rem;
     right: 1.5rem;
-    height: 1px;
+    height: 2px;
+    /* Thicker underline */
     background: var(--text-main);
     width: calc(100% - 3rem);
 }
@@ -418,11 +423,26 @@ main {
     align-items: start;
 }
 
-/* Main Feed */
+/* Featured Label */
+.featured-label {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-2);
+    border: 1px solid var(--accent-primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Main Feed Density */
 .main-feed {
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: var(--space-8);
+    /* Increased from space-6 */
 }
 
 .feed-header {
@@ -440,6 +460,40 @@ main {
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+/* Post Card Refinement */
+.post-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    padding: var(--space-4);
+    /* Add padding */
+    border: 1px solid transparent;
+    /* Invisible border */
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    margin: 0 -1rem;
+    /* Negative margin to align content with header while allowing hover bg to expand */
+}
+
+.post-card:hover {
+    background: #fafafa;
+    border-color: var(--border-color);
+}
+
+/* Sidebar Newsletter Widget */
+.sidebar-widget.newsletter-widget {
+    background: #f0f4f8;
+    /* Soft blue-gray */
+    padding: var(--space-4);
+    border-radius: 8px;
+    border: 1px solid #d1d9e6;
+}
+
+.sidebar-widget.newsletter-widget h3 {
+    color: var(--text-main);
 }
 
 /* Sidebar */
