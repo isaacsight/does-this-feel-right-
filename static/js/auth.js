@@ -41,10 +41,10 @@ const Auth = {
     // Update UI based on Auth State
     updateUI: async () => {
         const user = await Auth.getUser();
-        const authLink = document.getElementById('auth-link');
+        const authLinks = document.querySelectorAll('.auth-link-dynamic');
         const navLogout = document.getElementById('nav-logout');
 
-        if (authLink) {
+        authLinks.forEach(authLink => {
             if (user) {
                 authLink.textContent = 'My Library';
                 const currentHref = authLink.getAttribute('href');
@@ -60,7 +60,7 @@ const Auth = {
                 }
                 if (navLogout) navLogout.style.display = 'none';
             }
-        }
+        });
 
         // Handle Logout Button (Library Page)
         const logoutBtn = document.getElementById('logout-btn');
