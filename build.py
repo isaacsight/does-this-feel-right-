@@ -39,6 +39,69 @@ def parse_frontmatter(content):
             
     return metadata, body
 
+def markdown_to_html(text):
+    import re
+    
+    # 1. Handle Headers
+    lines = text.split('\n')
+    html_lines = []
+    in_list = False
+    
+    for line in lines:
+        line = line.rstrip()
+        
+        # Headers
+        if line.startswith('#'):
+            if in_list:
+                html_lines.append('</ul>')
+                in_list = False
+                
+            level = len(line.split(' ')[0])
+            content = line[level+1:].strip()
+            html_lines.append(f'<h{level}>{content}</h{level}>')
+            continue
+            
+        # Lists
+        if line.startswith('* ') or line.startswith('- '):
+            if not in_list:
+                html_lines.append('<ul>')
+                in_list = True
+            content = line[2:].strip()
+            html_lines.append(f'<li>{content}</li>')
+            continue
+        else:
+            if in_list:
+                html_lines.append('</ul>')
+                in_list = False
+        
+        # Blockquotes
+        if line.startswith('> '):
+            html_lines.append(f'<blockquote>{line[2:].strip()}</blockquote>')
+            continue
+            
+        # Empty lines (Paragraph breaks)
+        if not line:
+            html_lines.append('')
+            continue
+            
+        # Regular paragraphs
+        html_lines.append(f'<p>{line}</p>')
+        
+    if in_list:
+        html_lines.append('</ul>')
+        
+    html = '\n'.join(html_lines)
+    
+    # Inline formatting
+    # Bold
+    html = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', html)
+    # Italic
+    html = re.sub(r'\*(.*?)\*', r'<em>\1</em>', html)
+    # Links
+    html = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', html)
+    
+    return html
+
 def build():
     # 1. Prepare Output Directory
     if os.path.exists(OUTPUT_DIR):
@@ -79,6 +142,11 @@ def build():
         filepath = os.path.join(CONTENT_DIR, filename)
         raw_content = read_file(filepath)
         metadata, body = parse_frontmatter(raw_content)
+        
+        # Convert Markdown to HTML if it's a markdown file or just generally
+        # Since we are writing raw markdown in the files, we should convert it.
+        if filename.endswith('.md') or True: # Always try to convert for now
+            body = markdown_to_html(body)
         
         # Slug is filename without extension
         slug = os.path.splitext(filename)[0]
