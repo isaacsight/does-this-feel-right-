@@ -922,7 +922,8 @@ th {
 }
 
 /* Mobile Actions Container */
-* Ableton Live Aesthetic - Strict Implementation */:root {
+/* Ableton Live Aesthetic - Strict Implementation */
+:root {
     /* Functional Color Theory */
     --bg-color: #b1b1b1;
     /* Ableton Light Gray Background */
@@ -1258,24 +1259,37 @@ main {
         border: none;
         border-bottom: 1px solid var(--border);
     }
-}
 
-.tag-header p,
-.collections-header p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-
-    .collections-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 4rem;
+    /* Mobile Optimizations */
+    .header-content {
+        padding: 0 1rem;
     }
 
-    .collection-card {
+    nav {
+        grid-template-columns: 1fr auto;
+        height: var(--header-height);
+    }
+
+    .nav-center {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background: var(--bg-color);
+        border-bottom: 2px solid var(--border);
+        padding: 0;
+        display: none;
+    }
+
+    .nav-center.active {
         display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        background: transparent;
+        border-radius: 0;
         padding: 2rem;
-        border: 1px solid var(--border);
         text-decoration: none;
         text-align: center;
         transition: all 0.2s;
