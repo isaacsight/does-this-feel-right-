@@ -158,14 +158,8 @@ def build():
         if series:
             series_html = f'<div class="series-indicator">Series: {series}</div>'
 
-        # Reply Section
-        reply_html = f"""
-        <div class="reply-section">
-            <div class="reply-text">Have thoughts?</div>
-            <div class="reply-sub">Reply via email to start a conversation.</div>
-            <a href="mailto:isaacsight@gmail.com?subject=[Blog] Re: {metadata.get('title', 'Essay')}" class="reply-btn">Reply via Email</a>
-        </div>
-        """
+        # Reply Section Removed (Replaced by Giscus)
+        # reply_html = ...
 
         # Related Posts (Placeholder for now, we need a second pass or pre-calculation)
         # Since we are iterating through posts to generate them, we might not have the full list yet if we do it in one pass.
@@ -244,21 +238,12 @@ def build():
         if series:
             series_html = f'<div class="series-indicator">Series: {series}</div>'
 
-        # Reply HTML again
-        reply_html = f"""
-        <div class="reply-section">
-            <div class="reply-text">Have thoughts?</div>
-            <div class="reply-sub">Reply via email to start a conversation.</div>
-            <a href="mailto:isaacsight@gmail.com?subject=[Blog] Re: {post.get('title', 'Essay')}" class="reply-btn">Reply via Email</a>
-        </div>
-        """
-
         post_html = post_template.replace('{{ title }}', post.get('title', 'Untitled'))
         post_html = post_html.replace('{{ category }}', post.get('category', 'General'))
         post_html = post_html.replace('{{ tags_html }}', tags_html)
         post_html = post_html.replace('{{ series_indicator }}', series_html)
         post_html = post_html.replace('{{ post_content }}', body)
-        post_html = post_html.replace('{{ reply_section }}', reply_html)
+        # post_html = post_html.replace('{{ reply_section }}', reply_html) # Removed
         post_html = post_html.replace('{{ related_posts }}', related_html)
         post_html = post_html.replace('{{ root }}', '../')
         post_html = post_html.replace('{{ slug }}', slug)
