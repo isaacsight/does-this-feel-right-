@@ -4,12 +4,16 @@
 
 const Search = {
     init: () => {
-        const searchBox = document.getElementById('search-box');
-        if (!searchBox) return;
+        const searchInputs = document.querySelectorAll('#header-search, #mobile-search');
+        if (searchInputs.length === 0) return;
 
-        searchBox.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
+        const handleSearch = (query) => {
             const postCards = document.querySelectorAll('.post-card');
+
+            // Sync inputs
+            searchInputs.forEach(input => {
+                if (input.value !== query) input.value = query;
+            });
 
             postCards.forEach(card => {
                 const title = card.querySelector('h2')?.textContent.toLowerCase() || '';
@@ -24,11 +28,17 @@ const Search = {
                     card.style.display = 'none';
                 }
             });
+        };
+
+        searchInputs.forEach(input => {
+            input.addEventListener('input', (e) => {
+                handleSearch(e.target.value.toLowerCase());
+            });
         });
     }
 };
 
-// Initialize on homepage
-if (document.getElementById('search-box')) {
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
     Search.init();
-}
+});
