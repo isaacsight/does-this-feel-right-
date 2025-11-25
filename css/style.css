@@ -76,32 +76,31 @@ main {
     --text-main: #000000;
     --text-muted: #555555;
 
-    /* Functional Colors */
-    --color-track: #00aaff;
-    /* Blue - Tracks/Primary */
-    --color-clip: #00ff99;
-    /* Green - Content/Clips */
-    --color-signal: #ffcc00;
-    /* Yellow - Info/Signal */
-    --color-warn: #ff4400;
-    /* Orange - Warning/Action */
+    /* Functional Colors - Accessible Contrast */
+    --color-track: #0077cc;
+    /* Darker Blue for text contrast */
+    --color-clip: #00cc7a;
+    /* Darker Green */
+    --color-signal: #e6b800;
+    /* Darker Yellow */
+    --color-warn: #d93a00;
+    /* Darker Orange */
 
     /* UI Elements */
     --border: #777777;
     --grid-gap: 2px;
-    /* Increased for breathability */
 
     /* Typography - Single Font, High Readability */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --header-height: 56px;
-    /* Slightly taller for touch targets */
+    --header-height: 64px;
+    /* Standard 64px toolbar height */
 }
 
 body {
     font-family: var(--font-sans);
     background-color: var(--bg-color);
     color: var(--text-main);
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -153,7 +152,7 @@ nav {
 
 /* Logo - Minimal Text */
 .logo {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--text-main);
     text-decoration: none;
@@ -163,12 +162,11 @@ nav {
     align-items: center;
     gap: 0.5rem;
     background: var(--bg-color);
-    padding: 0.4rem 0.6rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 2px;
-}
-
-.logo::before {
-    display: none;
+    min-height: 44px;
+    /* Touch target */
+    box-sizing: border-box;
 }
 
 .logo:hover {
@@ -195,23 +193,30 @@ nav {
 .nav-links a {
     background: var(--panel-bg);
     color: var(--text-main);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    padding: 0 1rem;
+    padding: 0 1.25rem;
     border-radius: 0;
     text-transform: uppercase;
     letter-spacing: 0.02em;
     border: none;
-    height: 32px;
-    /* Taller touch targets */
+    height: 48px;
+    /* Accessible Touch Target */
     display: flex;
     align-items: center;
+    transition: background-color 0.1s, color 0.1s;
 }
 
 .nav-links a:hover {
     background: var(--color-track);
-    color: var(--text-main);
-    box-shadow: none;
+    color: white;
+    /* Better contrast on hover */
+}
+
+.nav-links a:focus-visible {
+    outline: 2px solid var(--color-track);
+    outline-offset: -2px;
+    z-index: 10;
 }
 
 /* Actions - Functional Buttons */
@@ -222,10 +227,10 @@ nav {
 
 .rss-btn,
 .support-btn {
-    font-size: 0.75rem;
-    padding: 0 1rem;
-    height: 32px;
-    /* Taller touch targets */
+    font-size: 0.85rem;
+    padding: 0 1.25rem;
+    height: 48px;
+    /* Accessible Touch Target */
     display: flex;
     align-items: center;
     border-radius: 2px;
@@ -236,20 +241,26 @@ nav {
     font-weight: 600;
     letter-spacing: 0.02em;
     box-shadow: none;
+    cursor: pointer;
 }
 
 .rss-btn:hover {
     background: var(--color-signal);
     border-color: var(--border);
     color: var(--text-main) !important;
-    transform: none;
 }
 
 .support-btn:hover {
     background: var(--color-warn);
     border-color: var(--border);
-    color: var(--text-main);
-    transform: none;
+    color: white;
+    /* Better contrast */
+}
+
+.rss-btn:focus-visible,
+.support-btn:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
 }
 
 /* Main Content - "Arrangement View" */
@@ -266,7 +277,7 @@ main {
 .hero {
     background: var(--panel-bg);
     border: 1px solid var(--border);
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     margin: 0;
     text-align: left;
     border-radius: 2px;
@@ -274,27 +285,29 @@ main {
 
 .hero h1 {
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.03em;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--text-main);
     text-transform: uppercase;
-    line-height: 0.9;
+    line-height: 1;
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     color: var(--text-muted);
-    max-width: 600px;
+    max-width: 650px;
     margin: 0;
-    font-weight: 500;
+    font-weight: 400;
+    /* Reduced weight for readability */
+    line-height: 1.6;
 }
 
 /* Post Grid - "Clip Launcher" */
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    /* Slightly wider cards */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* Wider cards for readability */
     gap: 4px;
     padding: 0;
     background: transparent;
@@ -304,9 +317,9 @@ main {
     background: var(--panel-bg);
     border: 1px solid var(--border);
     border-radius: 2px;
-    padding: 1rem;
-    height: 140px;
-    /* Taller for better hierarchy */
+    padding: 1.25rem;
+    height: 160px;
+    /* Taller for breathing room */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -324,12 +337,12 @@ main {
     bottom: 0;
     width: 6px;
     background: var(--color-clip);
-    opacity: 0.5;
+    opacity: 0.6;
     transition: opacity 0.1s;
 }
 
 .post-card:hover {
-    background: #f0f0f0;
+    background: #f5f5f5;
     border-color: var(--text-main);
     transform: none;
 }
@@ -338,12 +351,17 @@ main {
     opacity: 1;
 }
 
+.post-card:focus-visible {
+    outline: 3px solid var(--color-track);
+    z-index: 10;
+}
+
 .post-content {
     padding: 0 0 0 12px;
 }
 
 .post-meta {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     margin-bottom: 0.5rem;
     text-transform: uppercase;
@@ -352,12 +370,11 @@ main {
 }
 
 .post-title {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin: 0;
-    line-height: 1.1;
+    line-height: 1.2;
     text-transform: uppercase;
-    /* Track name style */
     letter-spacing: -0.01em;
 }
 
@@ -370,6 +387,11 @@ main {
 .post-title a:hover {
     background: none;
     color: var(--text-main);
+}
+
+.post-title a:focus {
+    outline: none;
+    /* Handled by card focus */
 }
 
 .post-excerpt {
