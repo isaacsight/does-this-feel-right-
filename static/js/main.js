@@ -90,14 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile Menu Toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navCenter = document.querySelector('.nav-center');
+    const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
 
-    if (mobileBtn && navCenter) {
+    if (mobileBtn && mobileNavOverlay) {
         mobileBtn.addEventListener('click', () => {
-            navCenter.classList.toggle('active');
+            mobileNavOverlay.classList.toggle('active');
 
             // Toggle icon between hamburger and X
-            const isOpen = navCenter.classList.contains('active');
+            const isOpen = mobileNavOverlay.classList.contains('active');
             if (isOpen) {
                 mobileBtn.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
             } else {
@@ -105,27 +105,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    // Search Toggle (handles both mobile and desktop)
-    const searchBtns = document.querySelectorAll('.search-toggle-btn');
-    const searchWrapper = document.querySelector('.search-wrapper');
-    const searchInput = document.querySelector('#search-box');
 
-    if (searchBtns.length > 0 && searchWrapper) {
-        searchBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                searchWrapper.classList.toggle('active');
-
-                // Auto-focus input when opened
-                if (searchWrapper.classList.contains('active') && searchInput) {
-                    setTimeout(() => searchInput.focus(), 100);
-                }
-            });
-        });
-
-        // Close search when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!searchWrapper.contains(e.target) && !Array.from(searchBtns).some(btn => btn.contains(e.target))) {
-                searchWrapper.classList.remove('active');
+    // Support Button Logic (Scroll to bottom or open modal)
+    const supportBtn = document.querySelector('.support-trigger');
+    if (supportBtn) {
+        supportBtn.addEventListener('click', () => {
+            // For now, just scroll to footer or support section if it exists
+            const supportSection = document.querySelector('.support-section');
+            if (supportSection) {
+                supportSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.open('https://www.buymeacoffee.com/doesthisfeelright', '_blank');
             }
         });
     }

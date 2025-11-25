@@ -30,51 +30,44 @@
 <body>
     <div class="container">
         <header>
-            <div class="header-content">
-                <nav>
-                    <div class="nav-left">
-                        <a href="{{ root }}index.html" class="logo">Does This Feel Right?</a>
+            <div class="header-modules">
+                <!-- Module 1: Logo -->
+                <a href="{{ root }}index.html" class="header-module logo-module">
+                    <span class="logo-text">DOES THIS FEEL RIGHT?</span>
+                    <span class="logo-underline"></span>
+                </a>
+
+                <!-- Module 2: RSS -->
+                <a href="{{ root }}feed.xml" class="header-module rss-module">
+                    RSS
+                </a>
+
+                <!-- Module 3: Support & Search -->
+                <div class="header-module support-module">
+                    <button class="support-trigger" id="bmc-support-btn">SUPPORT</button>
+                    <div class="header-search-container">
+                        <input type="search" id="header-search" placeholder="Search essays..."
+                            class="inline-search-input">
                     </div>
-
-                    <div class="nav-center">
-                        <div class="nav-links" id="nav-links">
-                            <a href="{{ root }}about.html">About</a>
-                            <a href="{{ root }}collections.html">Collections</a>
-                        </div>
-                    </div>
-
-                    <div class="nav-right">
-                        <div class="action-buttons">
-                            <button class="search-toggle-btn desktop-search-btn" aria-label="Toggle Search">
-                                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                            </button>
-                            <a href="{{ root }}feed.xml" class="rss-btn" title="Subscribe via RSS">RSS</a>
-                            <button class="support-btn" id="bmc-support-btn">Support ☕</button>
-                        </div>
-
-                        <div class="mobile-actions">
-                            <button class="search-toggle-btn mobile-search-btn" aria-label="Toggle Search">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                            </button>
-                            <button class="mobile-menu-btn" aria-label="Toggle Menu">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 6h16M4 12h16M4 18h16"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </nav>
-
-                <div class="search-wrapper" id="search-wrapper">
-                    <input type="search" id="search-box" placeholder="Search essays..." class="search-input">
                 </div>
+
+                <!-- Mobile Menu Toggle (Visible only on mobile) -->
+                <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Nav Overlay -->
+            <div class="mobile-nav-overlay">
+                <nav class="mobile-nav">
+                    <a href="{{ root }}index.html">Home</a>
+                    <a href="{{ root }}about.html">About</a>
+                    <a href="{{ root }}collections.html">Collections</a>
+                    <a href="{{ root }}feed.xml">RSS</a>
+                </nav>
             </div>
         </header>
 
