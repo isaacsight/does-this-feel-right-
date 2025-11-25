@@ -162,7 +162,10 @@ def build():
             # Note: root is handled in post_html replacement, but here we need to be careful.
             # The {{ root }} placeholder is in the template, but we are generating the HTML here.
             # We should include {{ root }} in our generated string so it gets replaced later.
-            tags_html += f'<a href="{{{{ root }}}}tags/{tag_slug}.html" class="post-tag">{tag}</a> '
+            # Deterministic color assignment
+            # Simple hash to map tag to 0-5
+            color_index = sum(ord(c) for c in tag) % 6
+            tags_html += f'<a href="{{{{ root }}}}tags/{tag_slug}.html" class="post-tag tag-color-{color_index}">{tag}</a> '
         
         post_html = post_template.replace('{{ title }}', metadata.get('title', 'Untitled'))
         post_html = post_html.replace('{{ category }}', metadata.get('category', 'General'))
