@@ -230,6 +230,7 @@ def build():
         featured_html = f"""
             <a href="posts/{featured_post['slug']}.html" class="featured-card">
                 <div class="featured-content">
+                    <span class="featured-label">FEATURED ESSAY</span>
                     <span class="post-meta">{primary_tag} • {date_display}</span>
                     <h1 class="featured-title">{featured_post.get('title', 'Untitled')}</h1>
                     <p class="featured-excerpt">{featured_post.get('excerpt', '')}</p>
