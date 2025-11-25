@@ -348,14 +348,201 @@ main {
     line-height: var(--leading-normal);
 }
 
-/* Post Grid - Card-based UI */
-.posts-grid {
+/* Magazine Layout System */
+.magazine-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+/* 1. Featured Hero */
+.featured-hero {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--space-6);
+}
+
+.featured-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+}
+
+.featured-card:hover {
+    opacity: 0.8;
+}
+
+.featured-content {
+    max-width: 900px;
+}
+
+.featured-title {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: var(--space-2) 0;
+    letter-spacing: -0.03em;
+}
+
+.featured-excerpt {
+    font-size: var(--text-xl);
+    color: var(--text-muted);
+    line-height: 1.5;
+    max-width: 65ch;
+    margin-bottom: var(--space-3);
+}
+
+.read-more {
+    font-weight: 600;
+    font-size: var(--text-base);
+    color: var(--text-main);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* 2. Content Wrapper (Main + Sidebar) */
+.content-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    /* Responsive grid */
-    gap: var(--space-4);
-    /* Breathing room */
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+}
+
+/* Main Feed */
+.main-feed {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.feed-header h2 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Sidebar */
+.sidebar {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-4));
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding-left: var(--space-6);
+    border-left: 1px solid var(--border-color);
+}
+
+.sidebar-widget h3 {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin: 0 0 var(--space-3) 0;
+}
+
+.sidebar-widget p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+}
+
+.text-link {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+/* Collection List in Sidebar */
+.collection-list {
+    list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.collection-link {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: var(--text-base);
+    padding: var(--space-1) 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.collection-link:hover {
+    border-color: var(--border-color);
+}
+
+.collection-link .count {
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Sidebar Form */
+.sidebar-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.sidebar-form input {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: var(--font-sans);
+}
+
+.sidebar-form button {
+    background: var(--text-main);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        /* Stack sidebar below */
+        gap: var(--space-6);
+    }
+
+    .sidebar {
+        position: static;
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        padding-top: var(--space-6);
+    }
+
+    .featured-title {
+        font-size: var(--text-3xl);
+    }
 }
 
 .post-card {
