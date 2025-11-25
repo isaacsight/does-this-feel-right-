@@ -4,22 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Weight of Iteration</title>
-    <meta name="description" content="A look behind the curtain at the recent technical overhaul and what this studio project holds for the future.">
+    <title>Owning the Signal</title>
+    <meta name="description" content="Thoughts on business, technology, and the human condition.">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="The Weight of Iteration">
-    <meta property="og:description" content="A look behind the curtain at the recent technical overhaul and what this studio project holds for the future.">
+    <meta property="og:title" content="Owning the Signal">
+    <meta property="og:description" content="Thoughts on business, technology, and the human condition.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.doesthisfeelright.com/posts/the-weight-of-iteration.html">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1461360228754-6e81c478b882?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+    <meta property="og:url" content="https://www.doesthisfeelright.com/posts/owning-the-signal.html">
+    <meta property="og:image" content="https://www.doesthisfeelright.com/static/images/og-default.jpg">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.doesthisfeelright.com/posts/the-weight-of-iteration.html">
-    <meta name="twitter:title" content="The Weight of Iteration">
-    <meta name="twitter:description" content="A look behind the curtain at the recent technical overhaul and what this studio project holds for the future.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1461360228754-6e81c478b882?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+    <meta name="twitter:url" content="https://www.doesthisfeelright.com/posts/owning-the-signal.html">
+    <meta name="twitter:title" content="Owning the Signal">
+    <meta name="twitter:description" content="Thoughts on business, technology, and the human condition.">
+    <meta name="twitter:image" content="https://www.doesthisfeelright.com/static/images/og-default.jpg">
 
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="Does This Feel Right? RSS Feed" href="../feed.xml">
@@ -90,66 +90,57 @@
             <article>
     <div style="display: flex; justify-content: space-between; align-items: baseline;">
         <a href="../index.html" class="back-link">← Back to Home</a>
-        <button id="save-btn" class="save-btn" data-slug="the-weight-of-iteration" data-title="The Weight of Iteration"
+        <button id="save-btn" class="save-btn" data-slug="owning-the-signal" data-title="Owning the Signal"
             data-category="Studio">
             <span class="icon">🔖</span> <span class="text">Save</span>
         </button>
     </div>
     <div class="post-tags">
-        <a href="../tags/engineering.html" class="post-tag tag-color-3">Engineering</a> <a href="../tags/design.html" class="post-tag tag-color-2">Design</a> <a href="../tags/future.html" class="post-tag tag-color-5">Future</a> 
+        <a href="../tags/[engineering.html" class="post-tag tag-color-4">[Engineering</a> <a href="../tags/process.html" class="post-tag tag-color-3">Process</a> <a href="../tags/future].html" class="post-tag tag-color-2">Future]</a> 
     </div>
 
-    <div class="series-indicator">Series: Building in Public</div>
+    
 
-    <h1>The Weight of Iteration</h1>
+    <h1>Owning the Signal</h1>
 
-    <p>We just shipped a massive update. If you're reading this, you're seeing the result of a complete architectural rewrite.</p>
+    <p>Today, we built the engine.</p>
 
-<h2>The Difficulty of Simplicity</h2>
+<p>For a long time, this "Studio" was just a collection of static files. Beautiful, yes, but silent. If I wanted to reach you, I had to shout manually.</p>
 
-<p>Making something look "clean" is often the messiest engineering challenge. Over the last few days, we didn't just change the colors; we migrated the entire hosting infrastructure from Netlify to GitHub Pages, rewrote the build engine in Python, and built a custom Markdown parser from scratch.</p>
+<p>We changed that today.</p>
 
-<p>Why? Control.</p>
+<p>We integrated a professional newsletter infrastructure (ConvertKit) directly into the static core of this site. But we didn't do it the easy way. We didn't pay for the "enterprise" features that automate RSS feeds.</p>
 
-<p>We needed a foundation that was ours. One that didn't rely on credits or opaque black-box services. But that freedom came with friction.</p>
+<p>Instead, we wrote our own automation.</p>
 
-<ul>
-<li><strong>The Mobile Paradox:</strong> We spent hours debugging a search bar that refused to exist on iPhone screens.</li>
-<li><strong>The Layout Engine:</strong> We fought with CSS Grid and Flexbox to ensure the "Refined Industrial" aesthetic held up on every device, from a 27-inch monitor to a 5-inch phone.</li>
-<li><strong>The Deployment:</strong> We moved from automated CI/CD to a custom script that gives us granular control over every byte.</li>
-</ul>
+<p>Now, a Python script lives in the heart of this repository. Every time I push a new essay—like this one—a robot wakes up. It reads the new content, talks to the email server, and drafts a broadcast for all of you.</p>
 
-<p>It was difficult. It was frustrating. But it was necessary.</p>
+<h3>What This Means</h3>
 
-<h2>What This Studio Project Holds for the Future</h2>
+<p>It means this studio is no longer just a website. It is a machine.</p>
 
-<p>This isn't just a blog anymore. It's a studio.</p>
+<p>1.  <strong>Ownership</strong>: We are not beholden to the feature gates of SaaS platforms. If a feature is behind a paywall, we build it ourselves.</p>
+<p>2.  <strong>Efficiency</strong>: The friction of publishing is gone. Write, push, done.</p>
+<p>3.  <strong>The Signal</strong>: The connection between my thoughts and your inbox is now direct and immediate.</p>
 
-<p>The recent updates—the "Read Next" engine, the "Reply via Email" experiment (and subsequent return to comments), the Series support—are all building blocks for something bigger.</p>
+<p>This is the difference between a blog and a platform. A blog is a place you visit. A platform is a system that delivers value to you.</p>
 
-<p>We are building a platform for <strong>deep work and deep connection</strong>.</p>
+<p>Welcome to the machine.</p>
 
-<h3>The Roadmap</h3>
-<p>1.  <strong>Community</strong>: We want to move beyond passive reading. We're exploring ways to build a "digital salon" for high-quality discourse.</p>
-<p>2.  <strong>Premium Tools</strong>: As we refine our internal tools (like the admin dashboard we're prototyping), we plan to open them up.</p>
-<p>3.  <strong>The "Alive" Feeling</strong>: As one user put it, we want this space to feel <em>alive</em>. That means more dynamic content, more interaction, and a design that evolves with us.</p>
-
-<p>The extinction of the modern man isn't the end. It's a transformation. And we're building the tools to document it.</p>
-
-<p>Stay tuned.</p>
+<p><em>P.S. This post was automatically broadcasted via our new engine.</em></p>
 
     <!-- Share Buttons -->
     <div class="share-section">
         <p class="share-label">Share this essay:</p>
         <div class="share-buttons">
-            <button class="share-btn twitter" data-slug="the-weight-of-iteration" data-title="The Weight of Iteration">
+            <button class="share-btn twitter" data-slug="owning-the-signal" data-title="Owning the Signal">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                     <path
                         d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
                 Twitter
             </button>
-            <button class="share-btn linkedin" data-slug="the-weight-of-iteration" data-title="The Weight of Iteration">
+            <button class="share-btn linkedin" data-slug="owning-the-signal" data-title="Owning the Signal">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                     <path
                         d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24" />
@@ -183,9 +174,9 @@
                 <div class="related-header">Read Next</div>
                 <div class="related-grid">
                     
-                <a href="owning-the-signal.html" class="post-card">
-                    <span class="post-meta">[Engineering • 5 min read</span>
-                    <h3>Owning the Signal</h3>
+                <a href="the-weight-of-iteration.html" class="post-card">
+                    <span class="post-meta">Engineering • 5 min read</span>
+                    <h3>The Weight of Iteration</h3>
                 </a>
                 
                 </div>
