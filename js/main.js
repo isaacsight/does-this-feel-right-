@@ -1,30 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Newsletter Form Handling
+    // Newsletter Form Handling (ConvertKit Integration)
     const forms = document.querySelectorAll('.newsletter-form');
     forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const btn = form.querySelector('.newsletter-btn');
+            const btn = form.querySelector('button[type="submit"]');
+            const emailInput = form.querySelector('input[name="email_address"]');
             const originalText = btn.textContent;
+
+            if (!emailInput || !emailInput.value) return;
 
             btn.textContent = 'Subscribing...';
             btn.style.opacity = '0.7';
+            btn.disabled = true;
 
-            // Simulate API call
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.opacity = '1';
-                form.style.display = 'none';
+            try {
+                const formData = new FormData();
+                formData.append('email_address', emailInput.value);
 
-                // Find the success message in the same container
-                const successMsg = form.parentElement.querySelector('.success-message');
-                if (successMsg) {
-                    successMsg.style.display = 'block';
+                // ConvertKit Form ID: 8811203
+                const response = await fetch('https://app.kit.com/forms/8811203/subscriptions', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+
+                    // Success UI
+                    btn.textContent = '✓ Subscribed';
+                    btn.style.backgroundColor = '#2e7d32';
+                    btn.style.borderColor = '#2e7d32';
+
+                    setTimeout(() => {
+                        form.style.display = 'none';
+                        // Find success message container (handle both sidebar and post layouts)
+                        const container = form.closest('.newsletter-box') || form.closest('.newsletter-widget');
+                        if (container) {
+                            // Create or reveal success message
+                            let successMsg = container.querySelector('.success-message');
+                            if (!successMsg) {
+                                successMsg = document.createElement('p');
+                                successMsg.className = 'success-message';
+                                successMsg.textContent = "You're on the list. Welcome.";
+                                container.appendChild(successMsg);
+                            }
+                            successMsg.style.display = 'block';
+                            successMsg.textContent = "Success! Check your email to confirm.";
+                        }
+                    }, 1000);
+
+                    // Save state
+                    localStorage.setItem('isSubscribed', 'true');
+                } else {
+                    throw new Error('Subscription failed');
                 }
+            } catch (error) {
+                console.error('ConvertKit Error:', error);
+                btn.textContent = 'Error. Try again.';
+                btn.style.backgroundColor = '#d32f2f';
+                btn.style.borderColor = '#d32f2f';
 
-                // Optional: Save to localStorage to remember subscription
-                localStorage.setItem('isSubscribed', 'true');
-            }, 1500);
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '';
+                    btn.style.borderColor = '';
+                    btn.style.opacity = '1';
+                    btn.disabled = false;
+                }, 3000);
+            }
         });
     });
 
