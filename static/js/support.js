@@ -2,9 +2,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const supportBtn = document.getElementById('bmc-support-btn');
 
-    // Handle manual click
+    // Handle manual click (Desktop)
     if (supportBtn) {
         supportBtn.addEventListener('click', () => {
+            const bmcWidget = document.querySelector('#bmc-wbtn');
+            if (bmcWidget) {
+                bmcWidget.click();
+            }
+        });
+    }
+
+    // Handle manual click (Mobile)
+    const mobileSupportBtn = document.getElementById('mobile-support-btn');
+    if (mobileSupportBtn) {
+        mobileSupportBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent hash navigation
             const bmcWidget = document.querySelector('#bmc-wbtn');
             if (bmcWidget) {
                 bmcWidget.click();
