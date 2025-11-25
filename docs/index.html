@@ -72,33 +72,33 @@
         </header>
 
         <main>
-            <h1>Latest Essays</h1>
-<p style="color: var(--text-muted); margin-bottom: 2rem;">Thoughts on business, technology, and the human condition.</p>
+            <!-- Magazine Layout -->
+<div class="magazine-layout">
 
-<div class="hero-section">
-    <h1>Signal Over Noise.</h1>
-    <p class="hero-subtitle">Essays on technology, philosophy, and the human condition. <br>No ads, no algorithms, just
-        thoughts.</p>
-</div>
-
-<div class="filter-bar"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="Business Strategy">Business Strategy</button><button class="filter-btn" data-filter="Culture & Tech">Culture & Tech</button><button class="filter-btn" data-filter="Economics & Society">Economics & Society</button><button class="filter-btn" data-filter="General">General</button><button class="filter-btn" data-filter="Philosophy & Tech">Philosophy & Tech</button><button class="filter-btn" data-filter="Technology & Culture">Technology & Culture</button><button class="filter-btn" data-filter="Technology & Process">Technology & Process</button><a href="collections.html" class="filter-btn" style="text-decoration: none;">View All Collections</a></div>
-
-<div class="sort-controls" style="display: flex; gap: 0.75rem; align-items: center; margin: 1.5rem 0;">
-    <span style="color: var(--text-muted); font-size: 0.9rem;">Sort by:</span>
-    <a href="#" class="sort-btn active" data-sort="date"
-        style="color: var(--text-muted); font-size: 0.9rem; padding: 0.25rem 0.75rem; border-radius: 6px; transition: all 0.2s;">Date</a>
-    <a href="#" class="sort-btn" data-sort="title"
-        style="color: var(--text-muted); font-size: 0.9rem; padding: 0.25rem 0.75rem; border-radius: 6px; transition: all 0.2s;">Title</a>
-</div>
-
-<div class="posts-container">
-    
-            <a href="posts/irresponsibility-content.html" class="post-card" data-category="General" data-date="2025-11-24">
-                <span class="post-meta">Psychology • Nov 24, 2025 • 5 min read</span>
-                <h2>Why Most Content Feels Like 'People Are Irresponsible'</h2>
-                <p class="post-excerpt"></p>
+    <!-- 1. Featured Hero Section -->
+    <section class="featured-hero">
+        
+            <a href="posts/irresponsibility-content.html" class="featured-card">
+                <div class="featured-content">
+                    <span class="post-meta">Psychology • Nov 24, 2025</span>
+                    <h1 class="featured-title">Why Most Content Feels Like 'People Are Irresponsible'</h1>
+                    <p class="featured-excerpt"></p>
+                    <span class="read-more">Read Essay →</span>
+                </div>
             </a>
         
+    </section>
+
+    <div class="content-wrapper">
+        <!-- 2. Main Feed (Left Column) -->
+        <main class="main-feed">
+            <div class="feed-header">
+                <h2>Latest Essays</h2>
+                <div class="filter-bar"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="Business Strategy">Business Strategy</button><button class="filter-btn" data-filter="Culture & Tech">Culture & Tech</button><button class="filter-btn" data-filter="Economics & Society">Economics & Society</button><button class="filter-btn" data-filter="General">General</button><button class="filter-btn" data-filter="Philosophy & Tech">Philosophy & Tech</button><button class="filter-btn" data-filter="Technology & Culture">Technology & Culture</button><button class="filter-btn" data-filter="Technology & Process">Technology & Process</button></div>
+            </div>
+
+            <div class="posts-container">
+                
             <a href="posts/ai-friendship.html" class="post-card" data-category="Philosophy & Tech" data-date="2025-11-20">
                 <span class="post-meta">Philosophy • Nov 20, 2025 • 5 min read</span>
                 <h2>The Importance of Friendship and Conversation in the AI World</h2>
@@ -135,26 +135,75 @@
                 <p class="post-excerpt">In an age of algorithmic noise, the simple XML feed has become a sanctuary for intentional consumption.</p>
             </a>
         
-</div>
+            </div>
+        </main>
 
-<!-- Support Section -->
-<div class="support-section" style="text-align: center; margin: 3rem 0;">
-    <p class="support-message" style="color: var(--text-muted); margin-bottom: 1rem;">If you enjoy these essays,
-        consider supporting the blog.</p>
-    <a href="https://www.buymeacoffee.com/doesthisfeelright" target="_blank">
-        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
-            style="height: 60px !important; width: 217px !important;">
-    </a>
-</div>
+        <!-- 3. Sidebar (Right Column) -->
+        <aside class="sidebar">
+            <!-- About Widget -->
+            <div class="sidebar-widget about-widget">
+                <h3>About</h3>
+                <p><strong>Does This Feel Right?</strong> is a collection of essays on technology, philosophy, and the
+                    human condition.</p>
+                <p>No ads, no algorithms, just thoughts.</p>
+                <a href="about.html" class="text-link">Read more →</a>
+            </div>
 
-<div class="newsletter-box">
-    <h3>Get the Signal.</h3>
-    <p>Smart analysis for curious minds. Unsubscribe anytime.</p>
-    <form class="newsletter-form">
-        <input type="email" placeholder="Your best email" required class="newsletter-input">
-        <button type="submit" class="newsletter-btn">Subscribe</button>
-    </form>
-    <p class="success-message">You're on the list. Welcome.</p>
+            <!-- Collections Widget -->
+            <div class="sidebar-widget collections-widget">
+                <h3>Collections</h3>
+                <ul class="collection-list">
+                    
+            <li>
+                <a href="tags/technology.html" class="collection-link">
+                    <span class="name">Technology</span>
+                    <span class="count">3</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="tags/psychology.html" class="collection-link">
+                    <span class="name">Psychology</span>
+                    <span class="count">2</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="tags/society.html" class="collection-link">
+                    <span class="name">Society</span>
+                    <span class="count">2</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="tags/ai.html" class="collection-link">
+                    <span class="name">AI</span>
+                    <span class="count">2</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="tags/culture.html" class="collection-link">
+                    <span class="name">Culture</span>
+                    <span class="count">2</span>
+                </a>
+            </li>
+        
+                </ul>
+                <a href="collections.html" class="text-link">View all collections →</a>
+            </div>
+
+            <!-- Newsletter Widget -->
+            <div class="sidebar-widget newsletter-widget">
+                <h3>Get the Signal.</h3>
+                <p>Smart analysis for curious minds.</p>
+                <form class="sidebar-form">
+                    <input type="email" placeholder="Email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </div>
 </div>
         </main>
     </div>

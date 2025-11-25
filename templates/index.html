@@ -1,42 +1,53 @@
-<h1>Latest Essays</h1>
-<p style="color: var(--text-muted); margin-bottom: 2rem;">Thoughts on business, technology, and the human condition.</p>
+<!-- Magazine Layout -->
+<div class="magazine-layout">
 
-<div class="hero-section">
-    <h1>Signal Over Noise.</h1>
-    <p class="hero-subtitle">Essays on technology, philosophy, and the human condition. <br>No ads, no algorithms, just
-        thoughts.</p>
-</div>
+    <!-- 1. Featured Hero Section -->
+    <section class="featured-hero">
+        {{ featured_post }}
+    </section>
 
-{{ filters }}
+    <div class="content-wrapper">
+        <!-- 2. Main Feed (Left Column) -->
+        <main class="main-feed">
+            <div class="feed-header">
+                <h2>Latest Essays</h2>
+                {{ filters }}
+            </div>
 
-<div class="sort-controls" style="display: flex; gap: 0.75rem; align-items: center; margin: 1.5rem 0;">
-    <span style="color: var(--text-muted); font-size: 0.9rem;">Sort by:</span>
-    <a href="#" class="sort-btn active" data-sort="date"
-        style="color: var(--text-muted); font-size: 0.9rem; padding: 0.25rem 0.75rem; border-radius: 6px; transition: all 0.2s;">Date</a>
-    <a href="#" class="sort-btn" data-sort="title"
-        style="color: var(--text-muted); font-size: 0.9rem; padding: 0.25rem 0.75rem; border-radius: 6px; transition: all 0.2s;">Title</a>
-</div>
+            <div class="posts-container">
+                {{ recent_posts }}
+            </div>
+        </main>
 
-<div class="posts-container">
-    {{ posts_list }}
-</div>
+        <!-- 3. Sidebar (Right Column) -->
+        <aside class="sidebar">
+            <!-- About Widget -->
+            <div class="sidebar-widget about-widget">
+                <h3>About</h3>
+                <p><strong>Does This Feel Right?</strong> is a collection of essays on technology, philosophy, and the
+                    human condition.</p>
+                <p>No ads, no algorithms, just thoughts.</p>
+                <a href="about.html" class="text-link">Read more →</a>
+            </div>
 
-<!-- Support Section -->
-<div class="support-section" style="text-align: center; margin: 3rem 0;">
-    <p class="support-message" style="color: var(--text-muted); margin-bottom: 1rem;">If you enjoy these essays,
-        consider supporting the blog.</p>
-    <a href="https://www.buymeacoffee.com/doesthisfeelright" target="_blank">
-        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
-            style="height: 60px !important; width: 217px !important;">
-    </a>
-</div>
+            <!-- Collections Widget -->
+            <div class="sidebar-widget collections-widget">
+                <h3>Collections</h3>
+                <ul class="collection-list">
+                    {{ collections_list }}
+                </ul>
+                <a href="collections.html" class="text-link">View all collections →</a>
+            </div>
 
-<div class="newsletter-box">
-    <h3>Get the Signal.</h3>
-    <p>Smart analysis for curious minds. Unsubscribe anytime.</p>
-    <form class="newsletter-form">
-        <input type="email" placeholder="Your best email" required class="newsletter-input">
-        <button type="submit" class="newsletter-btn">Subscribe</button>
-    </form>
-    <p class="success-message">You're on the list. Welcome.</p>
+            <!-- Newsletter Widget -->
+            <div class="sidebar-widget newsletter-widget">
+                <h3>Get the Signal.</h3>
+                <p>Smart analysis for curious minds.</p>
+                <form class="sidebar-form">
+                    <input type="email" placeholder="Email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </div>
 </div>

@@ -127,15 +127,52 @@ def build():
     filter_html += '<button class="filter-btn active" data-filter="all">All</button>'
     for cat in categories:
         filter_html += f'<button class="filter-btn" data-filter="{cat}">{cat}</button>'
-    filter_html += '<a href="collections.html" class="filter-btn" style="text-decoration: none;">View All Collections</a>'
     filter_html += '</div>'
     
-    posts_html = ""
-    for post in posts:
-        # Skip about page if it's in content
-        if post['slug'] == 'about': 
-            continue
+    # Split Featured vs Recent
+    featured_post = None
+    recent_posts = []
+    
+    # Find first non-about post for featured
+    for i, post in enumerate(posts):
+        if post['slug'] != 'about':
+            if featured_post is None:
+                featured_post = post
+            else:
+                recent_posts.append(post)
+    
+    # Generate Featured Post HTML
+    featured_html = ""
+    if featured_post:
+        tags = featured_post.get('tags', '').split(',') if featured_post.get('tags') else [featured_post.get('category', 'General')]
+        tags = [t.strip() for t in tags if t.strip()]
+        primary_tag = tags[0] if tags else 'General'
+        
+        # Format date
+        date_str = featured_post.get('date', '')
+        if date_str:
+            try:
+                date_obj = datetime.datetime.strptime(date_str, '%Y-%m-%d')
+                date_display = date_obj.strftime('%b %d, %Y')
+            except:
+                date_display = date_str
+        else:
+            date_display = ""
             
+        featured_html = f"""
+            <a href="posts/{featured_post['slug']}.html" class="featured-card">
+                <div class="featured-content">
+                    <span class="post-meta">{primary_tag} • {date_display}</span>
+                    <h1 class="featured-title">{featured_post.get('title', 'Untitled')}</h1>
+                    <p class="featured-excerpt">{featured_post.get('excerpt', '')}</p>
+                    <span class="read-more">Read Essay →</span>
+                </div>
+            </a>
+        """
+
+    # Generate Recent Posts HTML
+    posts_html = ""
+    for post in recent_posts:
         # Handle tags for display
         tags = post.get('tags', '').split(',') if post.get('tags') else [post.get('category', 'General')]
         tags = [t.strip() for t in tags if t.strip()]
@@ -160,8 +197,37 @@ def build():
             </a>
         """
         
-    index_content = index_template.replace('{{ posts_list }}', posts_html)
+    # Generate Sidebar Collections List
+    # We need to calculate counts first (which we do later in step 6, but let's do a quick pass here or reorder)
+    # Let's just do a quick pass to get counts
+    tag_counts = {}
+    for post in posts:
+        if post['slug'] == 'about': continue
+        post_tags = post.get('tags', '').split(',') if post.get('tags') else [post.get('category', 'General')]
+        for tag in post_tags:
+            tag = tag.strip()
+            if not tag: continue
+            tag_counts[tag] = tag_counts.get(tag, 0) + 1
+            
+    # Sort tags by count (descending) and take top 5
+    top_tags = sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:5]
+    
+    collections_list_html = ""
+    for tag, count in top_tags:
+        tag_slug = tag.lower().replace(' ', '-')
+        collections_list_html += f"""
+            <li>
+                <a href="tags/{tag_slug}.html" class="collection-link">
+                    <span class="name">{tag}</span>
+                    <span class="count">{count}</span>
+                </a>
+            </li>
+        """
+        
+    index_content = index_template.replace('{{ featured_post }}', featured_html)
+    index_content = index_content.replace('{{ recent_posts }}', posts_html)
     index_content = index_content.replace('{{ filters }}', filter_html)
+    index_content = index_content.replace('{{ collections_list }}', collections_list_html)
     
     full_index = base_template.replace('{{ title }}', 'Does This Feel Right?')
     full_index = full_index.replace('{{ content }}', index_content)
