@@ -707,6 +707,84 @@ main {
     opacity: 0.9;
 }
 
+/* Series Indicator */
+.series-indicator {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--accent-primary);
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+/* Reply Section */
+.reply-section {
+    margin: var(--space-8) 0;
+    padding: var(--space-6);
+    background: #fafafa;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.reply-text {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+    color: var(--text-main);
+}
+
+.reply-sub {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+}
+
+.reply-btn {
+    display: inline-block;
+    padding: var(--space-3) var(--space-6);
+    background: var(--text-main);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: var(--text-sm);
+    transition: background 0.2s;
+}
+
+.reply-btn:hover {
+    background: var(--accent-primary);
+    color: white;
+}
+
+/* Related Posts */
+.related-posts {
+    margin-top: var(--space-12);
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--space-8);
+}
+
+.related-header {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Article Typography & Layout */
 article {
     max-width: 680px;

@@ -9,6 +9,9 @@
     <div class="post-tags">
         {{ tags_html }}
     </div>
+
+    {{ series_indicator }}
+
     <h1>{{ title }}</h1>
 
     {{ post_content }}
@@ -43,17 +46,10 @@
                 style="height: 60px !important; width: 217px !important;">
         </a>
     </div>
-    <!-- Comments Section (Giscus) -->
-    <section class="comments-section">
-        <script src="https://giscus.app/client.js" data-repo="isaacsight/does-this-feel-right-"
-            data-repo-id="R_kgDOQarDxw" data-category="Announcements" data-category-id="DIC_kwDOQarDx84CyHw1"
-            data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
-            data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async>
-            </script>
-    </section>
 
-    <!-- Related Posts -->
-    <div id="related-posts" class="related-posts"></div>
+    {{ reply_section }}
+
+    {{ related_posts }}
 
     <div class="newsletter-box">
         <h3>Get the Signal.</h3>

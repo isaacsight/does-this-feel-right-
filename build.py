@@ -152,41 +152,125 @@ def build():
         slug = os.path.splitext(filename)[0]
         metadata['slug'] = slug
         
-        # Generate Tags HTML
-        tags = metadata.get('tags', '').split(',') if metadata.get('tags') else [metadata.get('category', 'General')]
+        # Series Indicator
+        series = metadata.get('series')
+        series_html = ""
+        if series:
+            series_html = f'<div class="series-indicator">Series: {series}</div>'
+
+        # Reply Section
+        reply_html = f"""
+        <div class="reply-section">
+            <div class="reply-text">Have thoughts?</div>
+            <div class="reply-sub">Reply via email to start a conversation.</div>
+            <a href="mailto:isaac@doesthisfeelright.com?subject=Re: {metadata.get('title', 'Essay')}" class="reply-btn">Reply via Email</a>
+        </div>
+        """
+
+        # Related Posts (Placeholder for now, we need a second pass or pre-calculation)
+        # Since we are iterating through posts to generate them, we might not have the full list yet if we do it in one pass.
+        # However, we collected `posts` list earlier? No, we are inside the loop that populates `posts`.
+        # We need to change the order: First collect all metadata, THEN generate HTML.
+        
+        # For now, let's just append metadata to list first, then do a second pass for generation.
+        posts.append(metadata)
+
+    # 4b. Second Pass: Generate HTML for Posts (now that we have all metadata for related posts)
+    for post in posts:
+        slug = post['slug']
+        # Re-read body because we didn't store it in metadata (to save memory/complexity, though we could have)
+        # Actually, let's just re-read the file. It's fast enough.
+        # Wait, we need the body content.
+        # Let's refactor slightly to store body in a separate dict or just re-read.
+        # Re-reading is safer for now to avoid breaking the loop structure too much.
+        
+        # Find related posts
+        related = []
+        for p in posts:
+            if p['slug'] == slug: continue
+            if p.get('category') == post.get('category'):
+                related.append(p)
+                if len(related) >= 2: break
+        
+        related_html = ""
+        if related:
+            related_items = ""
+            for r in related:
+                r_tags = r.get('tags', '').split(',') if r.get('tags') else [r.get('category', 'General')]
+                r_primary_tag = r_tags[0].strip() if r_tags else 'General'
+                related_items += f"""
+                <a href="{r['slug']}.html" class="post-card">
+                    <span class="post-meta">{r_primary_tag} • {r.get('read_time', '5 min read')}</span>
+                    <h3>{r.get('title')}</h3>
+                </a>
+                """
+            related_html = f"""
+            <div class="related-posts">
+                <div class="related-header">Read Next</div>
+                <div class="related-grid">
+                    {related_items}
+                </div>
+            </div>
+            """
+
+        # Re-read content for generation
+        # We need to duplicate some logic here, or better yet, just move the generation here.
+        # Let's grab the body again.
+        filepath = os.path.join(CONTENT_DIR, post['slug'] + ('.md' if os.path.exists(os.path.join(CONTENT_DIR, post['slug'] + '.md')) else '.html'))
+        # Actually filename was lost. Let's just look for it.
+        if os.path.exists(os.path.join(CONTENT_DIR, slug + '.md')):
+            filepath = os.path.join(CONTENT_DIR, slug + '.md')
+        else:
+            filepath = os.path.join(CONTENT_DIR, slug + '.html')
+            
+        raw_content = read_file(filepath)
+        _, body = parse_frontmatter(raw_content)
+        if filepath.endswith('.md'):
+            body = markdown_to_html(body)
+
+        # Generate Tags HTML again
+        tags = post.get('tags', '').split(',') if post.get('tags') else [post.get('category', 'General')]
         tags_html = ""
         for tag in tags:
             tag = tag.strip()
             if not tag: continue
             tag_slug = tag.lower().replace(' ', '-')
-            # Note: root is handled in post_html replacement, but here we need to be careful.
-            # The {{ root }} placeholder is in the template, but we are generating the HTML here.
-            # We should include {{ root }} in our generated string so it gets replaced later.
-            # Deterministic color assignment
-            # Simple hash to map tag to 0-5
             color_index = sum(ord(c) for c in tag) % 6
             tags_html += f'<a href="{{{{ root }}}}tags/{tag_slug}.html" class="post-tag tag-color-{color_index}">{tag}</a> '
-        
-        post_html = post_template.replace('{{ title }}', metadata.get('title', 'Untitled'))
-        post_html = post_html.replace('{{ category }}', metadata.get('category', 'General'))
+
+        # Series HTML again (since we are in new loop)
+        series = post.get('series')
+        series_html = ""
+        if series:
+            series_html = f'<div class="series-indicator">Series: {series}</div>'
+
+        # Reply HTML again
+        reply_html = f"""
+        <div class="reply-section">
+            <div class="reply-text">Have thoughts?</div>
+            <div class="reply-sub">Reply via email to start a conversation.</div>
+            <a href="mailto:isaac@doesthisfeelright.com?subject=Re: {post.get('title', 'Essay')}" class="reply-btn">Reply via Email</a>
+        </div>
+        """
+
+        post_html = post_template.replace('{{ title }}', post.get('title', 'Untitled'))
+        post_html = post_html.replace('{{ category }}', post.get('category', 'General'))
         post_html = post_html.replace('{{ tags_html }}', tags_html)
+        post_html = post_html.replace('{{ series_indicator }}', series_html)
         post_html = post_html.replace('{{ post_content }}', body)
+        post_html = post_html.replace('{{ reply_section }}', reply_html)
+        post_html = post_html.replace('{{ related_posts }}', related_html)
         post_html = post_html.replace('{{ root }}', '../')
-        post_html = post_html.replace('{{ slug }}', slug) # For save button
+        post_html = post_html.replace('{{ slug }}', slug)
         
-        # 2. Inject post_html into base_template
-        full_page = base_template.replace('{{ title }}', metadata.get('title', 'Untitled'))
+        full_page = base_template.replace('{{ title }}', post.get('title', 'Untitled'))
         full_page = full_page.replace('{{ content }}', post_html)
         full_page = full_page.replace('{{ root }}', '../')
-        
-        # Metadata injection
-        full_page = full_page.replace('{{ description }}', metadata.get('excerpt', 'Thoughts on business, technology, and the human condition.'))
+        full_page = full_page.replace('{{ description }}', post.get('excerpt', 'Thoughts on business, technology, and the human condition.'))
         full_page = full_page.replace('{{ url }}', f"{BASE_URL}/posts/{slug}.html")
-        full_page = full_page.replace('{{ image }}', metadata.get('image', DEFAULT_IMAGE))
+        full_page = full_page.replace('{{ image }}', post.get('image', DEFAULT_IMAGE))
         
         write_file(os.path.join(OUTPUT_DIR, 'posts', f'{slug}.html'), full_page)
-        
-        posts.append(metadata)
 
     # 5. Generate Homepage
     # Sort posts by date (descending)
