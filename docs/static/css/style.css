@@ -111,6 +111,8 @@ header {
     /* Spacing above/below header */
     width: 100%;
     z-index: 1000;
+    position: relative;
+    /* Ensure overlay is positioned relative to header */
 }
 
 .header-modules {
@@ -247,6 +249,7 @@ header {
 }
 
 /* Mobile Nav Overlay */
+/* Mobile Nav Overlay */
 .mobile-nav-overlay {
     display: none;
     /* Hidden by default */
@@ -258,6 +261,13 @@ header {
     border-bottom: 1px solid #e0e0e0;
     padding: 1rem;
     z-index: 999;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add shadow for visibility */
+}
+
+.mobile-nav-overlay.active {
+    display: block !important;
+    /* Force display */
 }
 
 .mobile-nav {
