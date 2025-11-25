@@ -163,7 +163,7 @@ def build():
         <div class="reply-section">
             <div class="reply-text">Have thoughts?</div>
             <div class="reply-sub">Reply via email to start a conversation.</div>
-            <a href="mailto:isaac@doesthisfeelright.com?subject=[Blog] Re: {metadata.get('title', 'Essay')}" class="reply-btn">Reply via Email</a>
+            <a href="mailto:isaacsight@gmail.com?subject=[Blog] Re: {metadata.get('title', 'Essay')}" class="reply-btn">Reply via Email</a>
         </div>
         """
 
@@ -249,7 +249,7 @@ def build():
         <div class="reply-section">
             <div class="reply-text">Have thoughts?</div>
             <div class="reply-sub">Reply via email to start a conversation.</div>
-            <a href="mailto:isaac@doesthisfeelright.com?subject=[Blog] Re: {post.get('title', 'Essay')}" class="reply-btn">Reply via Email</a>
+            <a href="mailto:isaacsight@gmail.com?subject=[Blog] Re: {post.get('title', 'Essay')}" class="reply-btn">Reply via Email</a>
         </div>
         """
 
