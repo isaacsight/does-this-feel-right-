@@ -75,6 +75,9 @@ def create_broadcast(post):
     data['send_at'] = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
 
     response = requests.post(BROADCAST_URL, json=data)
+    if not response.ok:
+        print(f"Error: {response.status_code}")
+        print(response.text)
     response.raise_for_status()
     return response.json()
 
