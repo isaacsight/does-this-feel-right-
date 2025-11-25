@@ -471,6 +471,11 @@ def build():
     
     write_file(os.path.join(OUTPUT_DIR, 'feed.xml'), rss_feed)
 
+    write_file(os.path.join(OUTPUT_DIR, 'feed.xml'), rss_feed)
+
+    # 11. Generate CNAME for GitHub Pages
+    write_file(os.path.join(OUTPUT_DIR, 'CNAME'), 'www.doesthisfeelright.com')
+
     print("Build complete.")
 
 if __name__ == "__main__":
