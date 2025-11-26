@@ -102,6 +102,33 @@ def markdown_to_html(text):
     
     return html
 
+def calculate_similarity(text1, text2):
+    """
+    Calculates Jaccard similarity between two texts.
+    Simple, fast, and effective for small-to-medium corpuses.
+    """
+    import re
+    
+    # Simple stop words list
+    stop_words = {'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'is', 'are', 'was', 'were', 'be', 'been', 'that', 'this', 'it', 'he', 'she', 'they', 'i', 'you', 'we', 'as', 'from', 'can', 'will', 'not', 'have', 'has', 'had', 'do', 'does', 'did', 'but', 'at', 'by', 'with', 'from', 'here', 'when', 'where', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', 'should', 'now'}
+    
+    def tokenize(text):
+        # Lowercase and remove non-alphanumeric
+        text = re.sub(r'[^\w\s]', '', text.lower())
+        words = text.split()
+        return set(w for w in words if w not in stop_words and len(w) > 2)
+        
+    tokens1 = tokenize(text1)
+    tokens2 = tokenize(text2)
+    
+    if not tokens1 or not tokens2:
+        return 0.0
+        
+    intersection = len(tokens1.intersection(tokens2))
+    union = len(tokens1.union(tokens2))
+    
+    return intersection / union if union > 0 else 0.0
+
 def build():
     # 1. Prepare Output Directory
     if os.path.exists(OUTPUT_DIR):
@@ -177,13 +204,40 @@ def build():
         # Let's refactor slightly to store body in a separate dict or just re-read.
         # Re-reading is safer for now to avoid breaking the loop structure too much.
         
-        # Find related posts
-        related = []
+        # Find related posts using AI (Jaccard Similarity)
+        # We compare the current post's body with every other post's body
+        related_scores = []
+        
+        # Get current post body (we need to find it in the list or re-read)
+        # Since we are iterating `posts`, `post` is the metadata. We need the body.
+        # Let's re-read the body for the current post
+        current_slug = post['slug']
+        current_filepath = os.path.join(CONTENT_DIR, current_slug + '.md')
+        if not os.path.exists(current_filepath): current_filepath = os.path.join(CONTENT_DIR, current_slug + '.html')
+        _, current_body = parse_frontmatter(read_file(current_filepath))
+        
         for p in posts:
             if p['slug'] == slug: continue
+            
+            # Re-read other post body
+            p_filepath = os.path.join(CONTENT_DIR, p['slug'] + '.md')
+            if not os.path.exists(p_filepath): p_filepath = os.path.join(CONTENT_DIR, p['slug'] + '.html')
+            _, p_body = parse_frontmatter(read_file(p_filepath))
+            
+            # Calculate score
+            score = calculate_similarity(current_body, p_body)
+            
+            # Boost score if categories match
             if p.get('category') == post.get('category'):
-                related.append(p)
-                if len(related) >= 2: break
+                score += 0.1
+                
+            related_scores.append((score, p))
+            
+        # Sort by score descending
+        related_scores.sort(key=lambda x: x[0], reverse=True)
+        
+        # Take top 2
+        related = [item[1] for item in related_scores[:2] if item[0] > 0.05] # Threshold to avoid garbage matches
         
         related_html = ""
         if related:
