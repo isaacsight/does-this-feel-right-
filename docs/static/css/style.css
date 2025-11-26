@@ -121,6 +121,47 @@ header {
     /* Ensure overlay is positioned relative to header */
 }
 
+/* Reaction Button */
+.reaction-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-weight: 500;
+}
+
+.reaction-btn:hover {
+    border-color: var(--accent-warn);
+    color: var(--accent-warn);
+    background: #fff0f0;
+}
+
+.reaction-btn.reacted {
+    border-color: var(--accent-warn);
+    color: var(--accent-warn);
+    background: #fff0f0;
+}
+
+.reaction-btn.reacted .heart-icon {
+    fill: var(--accent-warn);
+    stroke: var(--accent-warn);
+}
+
+.heart-icon {
+    transition: all 0.2s ease;
+}
+
+.reaction-btn:active {
+    transform: scale(0.95);
+}
+
 .header-modules {
     display: flex;
     gap: 1rem;
