@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulting</title>
-    <meta name="description" content="Helping founders and teams find their signal.">
+    <meta name="description" content="Let's fix your problem.">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Consulting">
-    <meta property="og:description" content="Helping founders and teams find their signal.">
+    <meta property="og:description" content="Let's fix your problem.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://www.doesthisfeelright.com/posts/consulting.html">
     <meta property="og:image" content="https://www.doesthisfeelright.com/static/images/og-default.jpg">
@@ -18,7 +18,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.doesthisfeelright.com/posts/consulting.html">
     <meta name="twitter:title" content="Consulting">
-    <meta name="twitter:description" content="Helping founders and teams find their signal.">
+    <meta name="twitter:description" content="Let's fix your problem.">
     <meta name="twitter:image" content="https://www.doesthisfeelright.com/static/images/og-default.jpg">
 
     <!-- Canonical URL -->
@@ -94,37 +94,85 @@
 
     <h1>Consulting</h1>
 
-    <p><div style="font-family: var(--font-serif); max-width: 65ch; margin: 0 auto; font-size: 1.1rem;"></p>
+    <p><div style="font-family: var(--font-serif); max-width: 600px; margin: 0 auto;"></p>
 
-<p><p style="font-size: 1.6rem; line-height: 1.4; font-style: italic; margin-bottom: 2rem; color: var(--text-main);"></p>
-<p>    "Strategy is not about doing more. It's about doing less, better."</p>
+<p><h1 style="font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2;">Let’s Fix Your Problem.</h1></p>
+
+<p><p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem; line-height: 1.6;"></p>
+<p>    Tell me who you are, how to reach you, and what you’re stuck on. I’ll take it from there.</p>
 <p></p></p>
 
-<p><hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;"></p>
+<p><form id="consulting-form" style="display: flex; flex-direction: column; gap: 1.5rem;"></p>
+<p>    <div class="form-group"></p>
+<p>        <label for="name" style="display: block; font-weight: 600; margin-bottom: 0.5rem; font-family: var(--font-sans); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Name</label></p>
+<p>        <input type="text" id="name" name="name" required</p>
+<p>            style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); background: var(--bg-color); font-family: var(--font-sans); font-size: 1rem; border-radius: 4px;"></p>
+<p>    </div></p>
 
-<p><p>I work with a select number of founders and leadership teams to help them cut through the noise and find their signal.</p></p>
+<p>    <div class="form-group"></p>
+<p>        <label for="email" style="display: block; font-weight: 600; margin-bottom: 0.5rem; font-family: var(--font-sans); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Email</label></p>
+<p>        <input type="email" id="email" name="email" required</p>
+<p>            style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); background: var(--bg-color); font-family: var(--font-sans); font-size: 1rem; border-radius: 4px;"></p>
+<p>    </div></p>
 
-<p><h3>Areas of Focus</h3></p>
+<p>    <div class="form-group"></p>
+<p>        <label for="problem" style="display: block; font-weight: 600; margin-bottom: 0.5rem; font-family: var(--font-sans); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Your Problem (tell me what’s going on):</label></p>
+<p>        <textarea id="problem" name="problem" rows="6" placeholder="Write as much or as little as you want." required</p>
+<p>            style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); background: var(--bg-color); font-family: var(--font-sans); font-size: 1rem; line-height: 1.6; border-radius: 4px; resize: vertical;"></textarea></p>
+<p>    </div></p>
 
-<p><ul style="margin: 2rem 0; line-height: 1.8;"></p>
-<p>    <li><strong>Strategic Narrative:</strong> Clarifying your story so it resonates with customers and investors.</li></p>
-<p>    <li><strong>Product Strategy:</strong> Aligning your roadmap with your "Why."</li></p>
-<p>    <li><strong>Operational Clarity:</strong> Simplifying systems to increase velocity.</li></p>
-<p></ul></p>
+<p>    <button type="submit" id="submit-btn"</p>
+<p>        style="background: var(--text-main); color: var(--panel-bg); border: none; padding: 1.2rem 2rem; font-size: 1rem; font-weight: 600; cursor: pointer; border-radius: 4px; font-family: var(--font-sans); margin-top: 1rem; transition: opacity 0.2s;"></p>
+<p>        Submit Problem</p>
+<p>    </button></p>
 
-<p><p>I don't do "consulting theater." I don't produce 100-page decks that no one reads. I work with you to solve specific, high-leverage problems.</p></p>
-
-<p><hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;"></p>
-
-<p><h3>Work With Me</h3></p>
-
-<p><p>If you're interested in working together, send me a brief email outlining your current challenge.</p></p>
-
-<p><p></p>
-<p>    <a href="mailto:isaac@doesthisfeelright.com" style="display: inline-block; background: var(--text-main); color: var(--panel-bg); padding: 1rem 2rem; text-decoration: none; font-weight: 600; border-radius: 4px;">Get in Touch</a></p>
-<p></p></p>
+<p>    <p id="form-status" style="margin-top: 1rem; font-style: italic; display: none;"></p></p>
+<p></form></p>
 
 <p></div></p>
+
+<p><script></p>
+<p>document.getElementById('consulting-form').addEventListener('submit', async (e) => {</p>
+<p>    e.preventDefault();</p>
+<p>    const btn = document.getElementById('submit-btn');</p>
+<p>    const status = document.getElementById('form-status');</p>
+<p>    const originalText = btn.textContent;</p>
+
+<p>    btn.textContent = 'Sending...';</p>
+<p>    btn.disabled = true;</p>
+
+<p>    const formData = {</p>
+<p>        name: document.getElementById('name').value,</p>
+<p>        email: document.getElementById('email').value,</p>
+<p>        problem: document.getElementById('problem').value,</p>
+<p>        timestamp: new Date().toISOString()</p>
+<p>    };</p>
+
+<p>    try {</p>
+<p>        // Use Supabase to insert</p>
+<p>        const { error } = await window.supabaseClient</p>
+<p>            .from('consulting_leads')</p>
+<p>            .insert([formData]);</p>
+
+<p>        if (error) throw error;</p>
+
+<p>        status.textContent = "Received. I'll be in touch shortly.";</p>
+<p>        status.style.color = 'var(--accent-success)';</p>
+<p>        status.style.display = 'block';</p>
+<p>        btn.style.display = 'none';</p>
+
+<p>    } catch (err) {</p>
+<p>        console.error('Error:', err);</p>
+<p>        // Fallback to mailto if Supabase fails or table doesn't exist yet</p>
+<p>        window.location.href = `mailto:isaac@doesthisfeelright.com?subject=Consulting Inquiry: ${formData.name}&body=${encodeURIComponent(formData.problem)}%0A%0AFrom: ${formData.email}`;</p>
+
+<p>        status.textContent = "Opening your email client...";</p>
+<p>        status.style.display = 'block';</p>
+<p>        btn.textContent = originalText;</p>
+<p>        btn.disabled = false;</p>
+<p>    }</p>
+<p>});</p>
+<p></script></p>
 
     <!-- Share Buttons -->
     <div class="share-section">
