@@ -1,2 +1,7 @@
 supabase
 requests
+google-generativeai
+markdown
+flask
+python-frontmatter
+python-dotenv

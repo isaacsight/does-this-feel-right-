@@ -4,8 +4,9 @@
     --bg-color: #fafafa;
     /* Calming off-white */
     --panel-bg: #ffffff;
-    --text-main: #111111;
-    /* High contrast but not harsh black */
+    --panel-bg: #ffffff;
+    --text-main: #222222;
+    /* Softened charcoal */
     --text-muted: #666666;
     --accent: #000000;
     --border-color: #e5e5e5;
@@ -25,6 +26,9 @@
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-serif: 'Merriweather', serif;
     --font-mono: 'JetBrains Mono', monospace;
+    --font-body: var(--font-serif);
+    /* Switch body to Serif */
+    --font-heading: var(--font-serif);
     --type-base: 1rem;
     --type-scale: 1.25;
     --text-xs: 0.75rem;
@@ -63,7 +67,7 @@
     --space-8: calc(var(--space-unit) * 8);
     /* 64px */
 
-    --container-width: 1100px;
+    --container-width: 800px;
     /* Narrower for reading focus */
     --header-height: 64px;
     --border-radius: 8px;
@@ -79,7 +83,7 @@
 }
 
 body {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     background-color: var(--bg-color);
     color: var(--text-main);
     line-height: var(--leading-normal);
@@ -130,6 +134,7 @@ header {
 .header-module {
     background: transparent;
     border: none;
+    /* Deboxed */
     border-radius: 0;
     padding: 0.75rem 1rem;
     display: flex;
@@ -137,7 +142,8 @@ header {
     justify-content: center;
     text-decoration: none;
     color: var(--text-main);
-    font-weight: 700;
+    font-weight: 400;
+    /* Lighter weight for elegance */
     font-size: 1rem;
     transition: opacity 0.2s ease;
     height: 56px;

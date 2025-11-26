@@ -1,0 +1,232 @@
+import os
+import datetime
+from flask import Flask, render_template, request, redirect, url_for, jsonify
+import frontmatter
+import subprocess
+from dotenv import load_dotenv
+
+load_dotenv()
+
+app = Flask(__name__)
+
+# Configuration
+CONTENT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../content'))
+REPO_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+TEMPLATE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates'))
+STATIC_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../static'))
+
+app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
+
+@app.route('/')
+def dashboard():
+    posts = []
+    if os.path.exists(CONTENT_DIR):
+        for filename in os.listdir(CONTENT_DIR):
+            if filename.endswith('.html') or filename.endswith('.md'):
+                filepath = os.path.join(CONTENT_DIR, filename)
+                with open(filepath, 'r') as f:
+                    try:
+                        post = frontmatter.load(f)
+                        posts.append({
+                            'filename': filename,
+                            'title': post.get('title', 'Untitled'),
+                            'date': post.get('date', 'No Date'),
+                            'category': post.get('category', 'Uncategorized'),
+                            'status': 'Published' # Simplified for now
+                        })
+                    except:
+                        continue
+    
+    # Sort by date desc
+    posts.sort(key=lambda x: str(x['date']), reverse=True)
+    return render_template('dashboard.html', posts=posts)
+
+@app.route('/edit/<filename>')
+def edit(filename):
+    filepath = os.path.join(CONTENT_DIR, filename)
+    if os.path.exists(filepath):
+        with open(filepath, 'r') as f:
+            post = frontmatter.load(f)
+            return render_template('editor.html', post=post, filename=filename, content=post.content)
+    return redirect(url_for('dashboard'))
+
+@app.route('/new')
+def new_post():
+    return render_template('editor.html', post={}, filename=None, content="")
+
+@app.route('/save', methods=['POST'])
+def save():
+    try:
+        data = request.form
+        filename = data.get('filename')
+        title = data.get('title')
+        date = data.get('date') or datetime.date.today().strftime('%Y-%m-%d')
+        category = data.get('category')
+        tags = data.get('tags')
+        content = data.get('content')
+        
+        if not filename:
+            # Generate filename from title
+            slug = title.lower().replace(' ', '-').replace('?', '').replace(':', '')
+            filename = f"{slug}.html"
+        
+        filepath = os.path.join(CONTENT_DIR, filename)
+        print(f"Saving to: {filepath}")
+        
+        # Create post object
+        post = frontmatter.Post(content)
+        post['title'] = title
+        post['date'] = date
+        post['category'] = category
+        post['tags'] = tags
+        post['read_time'] = '5 min read' 
+        
+        # Write to file
+        with open(filepath, 'w') as f:
+            f.write(frontmatter.dumps(post))
+            
+        return redirect(url_for('dashboard'))
+    except Exception as e:
+        return f"Error saving post: {str(e)}", 500
+
+@app.route('/publish', methods=['POST'])
+def publish():
+    try:
+        print(f"Publishing from: {REPO_DIR}")
+        # Run git commands
+        # Use capture_output=True to get stderr
+        subprocess.run(['git', 'add', '.'], cwd=REPO_DIR, check=True, capture_output=True, text=True)
+        subprocess.run(['git', 'commit', '-m', 'Update content via Admin Dashboard'], cwd=REPO_DIR, check=True, capture_output=True, text=True)
+        subprocess.run(['git', 'push'], cwd=REPO_DIR, check=True, capture_output=True, text=True)
+        return jsonify({'status': 'success', 'message': 'Published successfully!'})
+    except subprocess.CalledProcessError as e:
+        error_msg = f"Git Error: {e.stderr}"
+        print(error_msg)
+        return jsonify({'status': 'error', 'message': error_msg})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
+
+@app.route('/publish-substack', methods=['POST'])
+def publish_substack():
+    try:
+        data = request.json
+        filename = data.get('filename')
+        
+        if not filename:
+            return jsonify({'status': 'error', 'message': 'No filename provided'})
+            
+        filepath = os.path.join(CONTENT_DIR, filename)
+        if not os.path.exists(filepath):
+            return jsonify({'status': 'error', 'message': 'File not found'})
+            
+        with open(filepath, 'r') as f:
+            post = frontmatter.load(f)
+            
+        # Email Configuration
+        SMTP_USER = os.environ.get('SMTP_USER')
+        SMTP_PASS = os.environ.get('SMTP_PASS')
+        SUBSTACK_EMAIL = os.environ.get('SUBSTACK_EMAIL')
+        
+        if not SMTP_USER or not SMTP_PASS or not SUBSTACK_EMAIL:
+            return jsonify({'status': 'error', 'message': 'Missing SMTP credentials. Please set SMTP_USER, SMTP_PASS, and SUBSTACK_EMAIL environment variables.'})
+            
+        import smtplib
+        import markdown
+        from email.mime.text import MIMEText
+        from email.mime.multipart import MIMEMultipart
+        
+        msg = MIMEMultipart('alternative')
+        msg['From'] = SMTP_USER
+        msg['To'] = SUBSTACK_EMAIL
+        msg['Subject'] = post.get('title', 'Untitled')
+        
+        body = post.content
+        html_content = markdown.markdown(body)
+        
+        part1 = MIMEText(body, 'plain')
+        part2 = MIMEText(html_content, 'html')
+        
+        msg.attach(part1)
+        msg.attach(part2)
+        
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(SMTP_USER, SMTP_PASS)
+        server.sendmail(SMTP_USER, SUBSTACK_EMAIL, msg.as_string())
+        server.quit()
+        
+        return jsonify({'status': 'success', 'message': 'Draft sent to Substack!'})
+        
+    except Exception as e:
+        print(f"Substack Error: {e}")
+        return jsonify({'status': 'error', 'message': str(e)})
+
+@app.route('/generate-post', methods=['POST'])
+def generate_post():
+    try:
+        data = request.json
+        topic = data.get('topic')
+        
+        if not topic:
+            return jsonify({'status': 'error', 'message': 'No topic provided'})
+            
+        api_key = os.environ.get('GEMINI_API_KEY')
+        if not api_key:
+             return jsonify({'status': 'error', 'message': 'Missing GEMINI_API_KEY environment variable.'})
+             
+        import google.generativeai as genai
+        genai.configure(api_key=api_key)
+        
+        model = genai.GenerativeModel('gemini-1.5-flash')
+        
+        prompt = f"""
+        Write a blog post about "{topic}".
+        The tone should be personal, reflective, and slightly philosophical, matching the style of "Does This Feel Right?".
+        Format the output as a Markdown file with frontmatter.
+        
+        Frontmatter example:
+        ---
+        title: The Title of the Post
+        date: {datetime.date.today().strftime('%Y-%m-%d')}
+        category: Reflections
+        tags: [tag1, tag2]
+        ---
+        
+        Content here...
+        """
+        
+        response = model.generate_content(prompt)
+        generated_content = response.text
+        
+        # Clean up code blocks if present
+        if generated_content.startswith('```markdown'):
+            generated_content = generated_content.replace('```markdown', '', 1)
+        if generated_content.startswith('```'):
+             generated_content = generated_content.replace('```', '', 1)
+        if generated_content.endswith('```'):
+            generated_content = generated_content[:-3]
+            
+        generated_content = generated_content.strip()
+        
+        # Parse title to create filename
+        try:
+            post = frontmatter.loads(generated_content)
+            title = post.get('title', 'Untitled AI Post')
+        except:
+            title = f"AI Post - {topic}"
+            
+        slug = title.lower().replace(' ', '-').replace('?', '').replace(':', '')
+        filename = f"{slug}.html" # Using .html as per existing convention, though content is MD
+        
+        filepath = os.path.join(CONTENT_DIR, filename)
+        with open(filepath, 'w') as f:
+            f.write(generated_content)
+            
+        return jsonify({'status': 'success', 'message': 'Post generated successfully!', 'filename': filename})
+        
+    except Exception as e:
+        print(f"AI Generation Error: {e}")
+        return jsonify({'status': 'error', 'message': str(e)})
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5001)
