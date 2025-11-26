@@ -166,6 +166,10 @@ def build():
         if not filename.endswith('.html') and not filename.endswith('.md'):
             continue
             
+        # Skip standalone pages
+        if filename in ['about.html', 'consulting.md']:
+            continue
+            
         filepath = os.path.join(CONTENT_DIR, filename)
         raw_content = read_file(filepath)
         metadata, body = parse_frontmatter(raw_content)
@@ -568,6 +572,29 @@ def build():
         full_about = full_about.replace('{{ json_ld }}', '')
         
         write_file(os.path.join(OUTPUT_DIR, 'about.html'), full_about)
+
+    # 9b. Generate Consulting Page
+    if os.path.exists(os.path.join(CONTENT_DIR, 'consulting.md')):
+        raw_consulting = read_file(os.path.join(CONTENT_DIR, 'consulting.md'))
+        meta, body = parse_frontmatter(raw_consulting)
+        body = markdown_to_html(body)
+        
+        consulting_html = f"""
+            <article>
+                <h1>{meta.get('title')}</h1>
+                {body}
+            </article>
+        """
+        
+        full_consulting = base_template.replace('{{ title }}', meta.get('title'))
+        full_consulting = full_consulting.replace('{{ content }}', consulting_html)
+        full_consulting = full_consulting.replace('{{ root }}', '')
+        full_consulting = full_consulting.replace('{{ description }}', meta.get('excerpt', 'Consulting services.'))
+        full_consulting = full_consulting.replace('{{ url }}', f"{BASE_URL}/consulting.html")
+        full_consulting = full_consulting.replace('{{ image }}', DEFAULT_IMAGE)
+        full_consulting = full_consulting.replace('{{ json_ld }}', '')
+        
+        write_file(os.path.join(OUTPUT_DIR, 'consulting.html'), full_consulting)
 
     # 10. Generate RSS Feed
     import html
