@@ -666,8 +666,7 @@ main {
     box-shadow: none;
 }
 
-/* Semantic Tag - Content Type Indicator - REMOVED for minimalism */
-/* .post-card::after { ... } */
+
 
 /* Tag Color System */
 .tag-color-0 {
