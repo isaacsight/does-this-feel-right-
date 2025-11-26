@@ -161,6 +161,8 @@ def publish_substack():
         print(f"Substack Error: {e}")
         return jsonify({'status': 'error', 'message': str(e)})
 
+
+
 @app.route('/generate-post', methods=['POST'])
 def generate_post():
     try:
