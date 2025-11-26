@@ -605,6 +605,22 @@ main {
     margin-bottom: var(--space-2);
 }
 
+.sidebar-widget iframe {
+    width: 100% !important;
+    height: 320px;
+    /* Default height */
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px;
+}
+
+/* Specific fix for Substack in sidebar */
+.newsletter-widget iframe {
+    background: white;
+    /* Ensure it doesn't look cut off */
+    min-width: 0;
+    max-width: 100%;
+}
+
 .text-link {
     font-size: var(--text-sm);
     font-weight: 600;
