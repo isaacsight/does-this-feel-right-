@@ -248,12 +248,30 @@ def build():
         post_html = post_html.replace('{{ root }}', '../')
         post_html = post_html.replace('{{ slug }}', slug)
         
+        # Generate JSON-LD
+        import json
+        json_ld_data = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": post.get('title', 'Untitled'),
+            "image": [post.get('image', DEFAULT_IMAGE)],
+            "datePublished": post.get('date', ''),
+            "dateModified": post.get('date', ''),
+            "author": [{
+                "@type": "Person",
+                "name": "Isaac Hernandez",
+                "url": BASE_URL
+            }]
+        }
+        json_ld_script = f'<script type="application/ld+json">{json.dumps(json_ld_data)}</script>'
+
         full_page = base_template.replace('{{ title }}', post.get('title', 'Untitled'))
         full_page = full_page.replace('{{ content }}', post_html)
         full_page = full_page.replace('{{ root }}', '../')
         full_page = full_page.replace('{{ description }}', post.get('excerpt', 'Thoughts on business, technology, and the human condition.'))
         full_page = full_page.replace('{{ url }}', f"{BASE_URL}/posts/{slug}.html")
         full_page = full_page.replace('{{ image }}', post.get('image', DEFAULT_IMAGE))
+        full_page = full_page.replace('{{ json_ld }}', json_ld_script)
         
         write_file(os.path.join(OUTPUT_DIR, 'posts', f'{slug}.html'), full_page)
 
@@ -376,6 +394,7 @@ def build():
     full_index = full_index.replace('{{ description }}', 'Thoughts on business, technology, and the human condition.')
     full_index = full_index.replace('{{ url }}', f"{BASE_URL}/index.html")
     full_index = full_index.replace('{{ image }}', DEFAULT_IMAGE)
+    full_index = full_index.replace('{{ json_ld }}', '')
     
     write_file(os.path.join(OUTPUT_DIR, 'index.html'), full_index)
 
@@ -420,6 +439,7 @@ def build():
         full_tag_page = full_tag_page.replace('{{ description }}', f'Essays about {tag}.')
         full_tag_page = full_tag_page.replace('{{ url }}', f"{BASE_URL}/tags/{tag_slug}.html")
         full_tag_page = full_tag_page.replace('{{ image }}', DEFAULT_IMAGE)
+        full_tag_page = full_tag_page.replace('{{ json_ld }}', '')
         
         write_file(os.path.join(OUTPUT_DIR, 'tags', f'{tag_slug}.html'), full_tag_page)
         
@@ -445,28 +465,17 @@ def build():
     full_collections_page = full_collections_page.replace('{{ description }}', 'Explore essays by topic.')
     full_collections_page = full_collections_page.replace('{{ url }}', f"{BASE_URL}/collections.html")
     full_collections_page = full_collections_page.replace('{{ image }}', DEFAULT_IMAGE)
+    full_collections_page = full_collections_page.replace('{{ json_ld }}', '')
     
     write_file(os.path.join(OUTPUT_DIR, 'collections.html'), full_collections_page)
 
-    # 7. Generate Login Page
-    login_template = read_file(os.path.join(TEMPLATE_DIR, 'login.html'))
-    full_login = base_template.replace('{{ title }}', 'Login - Does This Feel Right?')
-    full_login = full_login.replace('{{ content }}', login_template)
-    full_login = full_login.replace('{{ root }}', '')
-    full_login = full_login.replace('{{ description }}', 'Login to your account.')
-    full_login = full_login.replace('{{ url }}', f"{BASE_URL}/login.html")
-    full_login = full_login.replace('{{ image }}', DEFAULT_IMAGE)
-    write_file(os.path.join(OUTPUT_DIR, 'login.html'), full_login)
+    # 7. Generate Login Page (Removed)
+    # full_login = base_template.replace('{{ title }}', 'Login - Does This Feel Right?') ...
 
-    # 8. Generate Library Page
-    library_template = read_file(os.path.join(TEMPLATE_DIR, 'library.html'))
-    full_library = base_template.replace('{{ title }}', 'My Library - Does This Feel Right?')
-    full_library = full_library.replace('{{ content }}', library_template)
-    full_library = full_library.replace('{{ root }}', '')
-    full_library = full_library.replace('{{ description }}', 'Your saved essays.')
-    full_library = full_library.replace('{{ url }}', f"{BASE_URL}/library.html")
-    full_library = full_library.replace('{{ image }}', DEFAULT_IMAGE)
-    write_file(os.path.join(OUTPUT_DIR, 'library.html'), full_library)
+    # 8. Generate Library Page (Removed)
+    # 8b. Generate Forgot Password Page (Removed)
+    # 8c. Generate Update Password Page (Removed)
+    # 8d. Generate Settings Page (Removed)
 
     # 9. Generate About Page (Special Case)
     # We can just have an about.md in content and treat it differently or just hardcode it.
@@ -487,14 +496,8 @@ def build():
             <article>
                 <h1>{meta.get('title')}</h1>
                 {body}
-                <div class="newsletter-box">
-                    <h3>Get the Signal.</h3>
-                    <p>Smart analysis for curious minds. Unsubscribe anytime.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your best email" required class="newsletter-input">
-                        <button type="submit" class="newsletter-btn">Subscribe</button>
-                    </form>
-                    <p class="success-message">You're on the list. Welcome.</p>
+                <div class="newsletter-box" style="text-align: center; padding: 2rem 0;">
+                    <iframe src="https://doesthisfeelright.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
                 </div>
             </article>
         """
@@ -505,6 +508,7 @@ def build():
         full_about = full_about.replace('{{ description }}', meta.get('excerpt', 'About us.'))
         full_about = full_about.replace('{{ url }}', f"{BASE_URL}/about.html")
         full_about = full_about.replace('{{ image }}', DEFAULT_IMAGE)
+        full_about = full_about.replace('{{ json_ld }}', '')
         
         write_file(os.path.join(OUTPUT_DIR, 'about.html'), full_about)
 
@@ -546,7 +550,52 @@ def build():
 
     write_file(os.path.join(OUTPUT_DIR, 'feed.xml'), rss_feed)
 
-    # 11. Generate CNAME for GitHub Pages
+    # 11. Generate Sitemap
+    sitemap_items = ""
+    # Homepage
+    sitemap_items += f"""
+    <url>
+        <loc>{BASE_URL}/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    """
+    # Static Pages
+    static_pages = ['about.html', 'collections.html']
+    for page in static_pages:
+        sitemap_items += f"""
+        <url>
+            <loc>{BASE_URL}/{page}</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+        """
+    # Posts
+    for post in posts:
+        if post['slug'] == 'about': continue
+        sitemap_items += f"""
+        <url>
+            <loc>{BASE_URL}/posts/{post['slug']}.html</loc>
+            <lastmod>{post.get('date', datetime.datetime.now().strftime('%Y-%m-%d'))}</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+        </url>
+        """
+    
+    sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{sitemap_items}
+</urlset>"""
+    write_file(os.path.join(OUTPUT_DIR, 'sitemap.xml'), sitemap_content)
+
+    # 12. Generate Robots.txt
+    robots_content = f"""User-agent: *
+Allow: /
+Sitemap: {BASE_URL}/sitemap.xml
+"""
+    write_file(os.path.join(OUTPUT_DIR, 'robots.txt'), robots_content)
+
+    # 13. Generate CNAME for GitHub Pages
     write_file(os.path.join(OUTPUT_DIR, 'CNAME'), 'www.doesthisfeelright.com')
 
     print("Build complete.")

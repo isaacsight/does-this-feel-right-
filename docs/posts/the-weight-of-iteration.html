@@ -21,6 +21,12 @@
     <meta name="twitter:description" content="A look behind the curtain at the recent technical overhaul and what this studio project holds for the future.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1461360228754-6e81c478b882?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.doesthisfeelright.com/posts/the-weight-of-iteration.html">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Weight of Iteration", "image": ["https://images.unsplash.com/photo-1461360228754-6e81c478b882?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"], "datePublished": "2025-11-25", "dateModified": "2025-11-25", "author": [{"@type": "Person", "name": "Isaac Hernandez", "url": "https://www.doesthisfeelright.com"}]}</script>
+
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="Does This Feel Right? RSS Feed" href="../feed.xml">
 
@@ -37,15 +43,12 @@
                     <span class="logo-underline"></span>
                 </a>
 
-                <!-- Module 2: RSS -->
-                <a href="../feed.xml" class="header-module rss-module">
-                    RSS
+                <!-- Module 2: Subscribe -->
+                <a href="https://doesthisfeelright.substack.com/" target="_blank" class="header-module rss-module">
+                    Subscribe
                 </a>
 
-                <!-- Module: Auth -->
-                <a href="../login.html" class="header-module auth-module auth-link-dynamic">
-                    Login
-                </a>
+                <!-- Module: Auth (Removed) -->
 
                 <!-- Module 3: Support -->
                 <div class="header-module support-module">
@@ -79,9 +82,8 @@
                     <a href="../index.html">Home</a>
                     <a href="../about.html">About</a>
                     <a href="../collections.html">Collections</a>
-                    <a href="../login.html" class="auth-link-dynamic">Login</a>
                     <a href="#" id="mobile-support-btn">Support</a>
-                    <a href="../feed.xml">RSS</a>
+                    <a href="https://doesthisfeelright.substack.com/" target="_blank">Subscribe</a>
                 </nav>
             </div>
         </header>
@@ -90,10 +92,6 @@
             <article>
     <div style="display: flex; justify-content: space-between; align-items: baseline;">
         <a href="../index.html" class="back-link">← Back to Home</a>
-        <button id="save-btn" class="save-btn" data-slug="the-weight-of-iteration" data-title="The Weight of Iteration"
-            data-category="Studio">
-            <span class="icon">🔖</span> <span class="text">Save</span>
-        </button>
     </div>
     <div class="post-tags">
         <a href="../tags/engineering.html" class="post-tag tag-color-3">Engineering</a> <a href="../tags/design.html" class="post-tag tag-color-2">Design</a> <a href="../tags/future.html" class="post-tag tag-color-5">Future</a> 
@@ -192,14 +190,9 @@
             </div>
             
 
-    <div class="newsletter-box">
-        <h3>Get the Signal.</h3>
-        <p>Smart analysis for curious minds. Unsubscribe anytime.</p>
-        <form class="newsletter-form">
-            <input type="email" name="email_address" placeholder="Your best email" required class="newsletter-input">
-            <button type="submit" class="newsletter-btn">Subscribe</button>
-        </form>
-        <p class="success-message">You're on the list. Welcome.</p>
+    <div class="newsletter-box" style="text-align: center; padding: 2rem 0;">
+        <iframe src="https://doesthisfeelright.substack.com/embed" width="100%" height="320"
+            style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
     </div>
 </article>
         </main>
@@ -210,8 +203,7 @@
     <!-- App Scripts -->
     <script src="../js/config.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/bookmarks.js"></script>
+    <!-- auth.js and bookmarks.js removed -->
     <script src="../js/reading-progress.js"></script>
     <script src="../js/share.js"></script>
     <script src="../js/search.js"></script>

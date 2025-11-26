@@ -1,6 +1,21 @@
 <!-- Magazine Layout -->
 <div class="magazine-layout">
 
+    <!-- Welcome Gate Overlay -->
+    <div id="welcome-gate" class="welcome-overlay" style="display: none;">
+        <div class="welcome-content">
+            <div class="welcome-header">
+                <h2>Does This Feel Right?</h2>
+                <p>Thoughts on business, technology, and the human condition.</p>
+            </div>
+            <div class="welcome-embed">
+                <iframe src="https://doesthisfeelright.substack.com/embed" width="100%" height="320"
+                    style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+            </div>
+            <button id="enter-site-btn" class="enter-btn">Continue to Site →</button>
+        </div>
+    </div>
+
     <!-- 1. Featured Hero Section -->
     <section class="featured-hero">
         {{ featured_post }}
@@ -40,13 +55,9 @@
             </div>
 
             <!-- Newsletter Widget -->
-            <div class="sidebar-widget newsletter-widget">
-                <h3>Get the Signal.</h3>
-                <p>Smart analysis for curious minds.</p>
-                <form class="sidebar-form newsletter-form">
-                    <input type="email" name="email_address" placeholder="Email address" required>
-                    <button type="submit" class="newsletter-btn">Subscribe</button>
-                </form>
+            <div class="sidebar-widget newsletter-widget" style="padding: 0; border: none; background: transparent;">
+                <iframe src="https://doesthisfeelright.substack.com/embed" width="100%" height="320"
+                    style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
             </div>
         </aside>
     </div>
