@@ -7,9 +7,9 @@
     --text-main: #111111;
     /* High contrast but not harsh black */
     --text-muted: #666666;
-    /* Reduced visual weight */
-    --border-color: #e0e0e0;
-    /* Subtle structural definition */
+    --accent: #000000;
+    --border-color: #e5e5e5;
+    --hover-bg: #f5f5f5;
 
     /* Semantic Accents - Intent-driven */
     --accent-primary: #0077cc;
@@ -21,8 +21,10 @@
     --accent-warn: #d93a00;
     /* Attention */
 
-    /* 2. Typography - Modular Scale (1.250 - Major Third) */
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Merriweather', serif;
+    --font-mono: 'JetBrains Mono', monospace;
     --type-base: 1rem;
     --type-scale: 1.25;
     --text-xs: 0.75rem;
@@ -61,8 +63,8 @@
     --space-8: calc(var(--space-unit) * 8);
     /* 64px */
 
-    --container-width: 1280px;
-    /* Viewport-adaptive max-width */
+    --container-width: 1100px;
+    /* Narrower for reading focus */
     --header-height: 64px;
     --border-radius: 8px;
     /* Softened visual edges */
@@ -126,10 +128,10 @@ header {
 
 /* Common Module Styles */
 .header-module {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,15 +139,16 @@ header {
     color: var(--text-main);
     font-weight: 700;
     font-size: 1rem;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease;
     height: 56px;
     /* Fixed height for consistency */
     box-sizing: border-box;
 }
 
 .header-module:hover {
-    border-color: var(--text-main);
-    background: #fafafa;
+    opacity: 0.6;
+    background: transparent;
+    border-color: transparent;
 }
 
 /* Module 1: Logo */
@@ -282,11 +285,12 @@ header {
 }
 
 .mobile-nav a {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-main);
     text-decoration: none;
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
+    /* Increased touch target */
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -641,42 +645,29 @@ main {
 }
 
 .post-card {
-    background: var(--panel-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: var(--space-4);
-    min-height: 240px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    transition: var(--transition-base);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: var(--shadow-subtle);
+    background: transparent;
+    border: none;
+    display: block;
     text-decoration: none;
+    color: inherit;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: opacity 0.2s ease;
+    position: relative;
 }
 
-/* Visual Affordance - Hover State */
+.post-card:last-child {
+    border-bottom: none;
+}
+
 .post-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--text-main);
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
 }
 
-/* Semantic Tag - Content Type Indicator */
-/* Semantic Tag - Content Type Indicator */
-.post-card::after {
-    content: '';
-    position: absolute;
-    top: var(--space-3);
-    right: var(--space-3);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent-success);
-    opacity: 0.8;
-}
+/* Semantic Tag - Content Type Indicator - REMOVED for minimalism */
+/* .post-card::after { ... } */
 
 /* Tag Color System */
 .tag-color-0 {
@@ -810,6 +801,73 @@ main {
     gap: var(--space-6);
 }
 
+/* Welcome Gate Overlay */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(5px);
+}
+
+.welcome-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.welcome-header h2 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-header p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.enter-btn {
+    margin-top: 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.enter-btn:hover {
+    color: var(--text-main);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     .related-grid {
         grid-template-columns: 1fr;
@@ -825,6 +883,19 @@ article {
     /* 18px base size */
     line-height: 1.7;
     color: var(--text-main);
+}
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
 }
 
 article h1 {
