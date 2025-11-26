@@ -123,4 +123,60 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // Reaction Button Logic
+    const reactionBtn = document.getElementById('reaction-btn');
+    const reactionCount = document.getElementById('reaction-count');
+
+    if (reactionBtn && reactionCount) {
+        // Get slug from URL (e.g., /posts/slug.html -> slug)
+        const path = window.location.pathname;
+        const slug = path.split('/').pop().replace('.html', '');
+
+        // Check local storage
+        const hasReacted = localStorage.getItem(`reacted_${slug}`);
+        if (hasReacted) {
+            reactionBtn.classList.add('reacted');
+        }
+
+        // Fetch current count
+        async function fetchCount() {
+            try {
+                const { data, error } = await window.supabaseClient
+                    .from('reactions')
+                    .select('count')
+                    .eq('slug', slug)
+                    .single();
+
+                if (data) {
+                    reactionCount.textContent = data.count;
+                }
+            } catch (err) {
+                console.error('Error fetching reactions:', err);
+            }
+        }
+
+        fetchCount();
+
+        // Handle click
+        reactionBtn.addEventListener('click', async () => {
+            if (reactionBtn.classList.contains('reacted')) return; // Prevent double click
+
+            // Optimistic update
+            const currentCount = parseInt(reactionCount.textContent) || 0;
+            reactionCount.textContent = currentCount + 1;
+            reactionBtn.classList.add('reacted');
+            localStorage.setItem(`reacted_${slug}`, 'true');
+
+            try {
+                // Call RPC function to increment
+                const { error } = await window.supabaseClient.rpc('increment_reaction', { post_slug: slug });
+
+                if (error) throw error;
+            } catch (err) {
+                console.error('Error incrementing reaction:', err);
+                // Revert on error? Nah, let them have the UI win.
+            }
+        });
+    }
 });
