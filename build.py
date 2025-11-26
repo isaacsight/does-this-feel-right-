@@ -158,7 +158,7 @@ def build():
         if series:
             series_html = f'<div class="series-indicator">Series: {series}</div>'
 
-        # Reply Section Removed (Replaced by Giscus)
+
 
         # Related Posts (Placeholder for now, we need a second pass or pre-calculation)
         # Since we are iterating through posts to generate them, we might not have the full list yet if we do it in one pass.
@@ -468,8 +468,7 @@ def build():
     
     write_file(os.path.join(OUTPUT_DIR, 'collections.html'), full_collections_page)
 
-    # 7. Generate Login Page (Removed)
-    # 8. Generate Library Page (Removed)
+
 
     # 9. Generate About Page (Special Case)
     # We can just have an about.md in content and treat it differently or just hardcode it.
