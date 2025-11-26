@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Newsletter Form Handling (Legacy removed - replaced by Substack Embeds)
-    // const forms = document.querySelectorAll('.newsletter-form'); ...
+    // Newsletter Form Handling (Replaced by Substack Embeds)
 
     // Post Filtering Logic
     const filterBtns = document.querySelectorAll('.filter-btn');
