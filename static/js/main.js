@@ -43,10 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const postsArray = Array.from(posts);
 
                 postsArray.sort((a, b) => {
-                    if (sortType === 'date') {
+                    if (sortType === 'date-desc') {
                         const dateA = a.getAttribute('data-date') || '';
                         const dateB = b.getAttribute('data-date') || '';
-                        return dateB.localeCompare(dateA); // newest first
+                        return dateB.localeCompare(dateA); // Newest first
+                    } else if (sortType === 'date-asc') {
+                        const dateA = a.getAttribute('data-date') || '';
+                        const dateB = b.getAttribute('data-date') || '';
+                        return dateA.localeCompare(dateB); // Oldest first
                     } else if (sortType === 'title') {
                         const titleA = a.querySelector('h2').textContent;
                         const titleB = b.querySelector('h2').textContent;

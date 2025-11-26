@@ -286,6 +286,16 @@ def build():
         filter_html += f'<button class="filter-btn" data-filter="{cat}">{cat}</button>'
     filter_html += '</div>'
     
+    # Add Sort Controls
+    filter_html += '''
+    <div class="sort-bar" style="margin-top: 1rem; display: flex; gap: 0.5rem; align-items: center;">
+        <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #666; font-weight: 700;">Sort:</span>
+        <button class="sort-btn active" data-sort="date-desc" style="background:none; border:none; cursor:pointer; font-size:0.9rem; color:#111; font-weight:600; padding:0;">Newest</button>
+        <span style="color:#ccc">/</span>
+        <button class="sort-btn" data-sort="date-asc" style="background:none; border:none; cursor:pointer; font-size:0.9rem; color:#666; font-weight:400; padding:0;">Oldest</button>
+    </div>
+    '''
+    
     # Split Featured vs Recent
     featured_post = None
     recent_posts = []
