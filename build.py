@@ -328,6 +328,7 @@ def build():
         full_page = full_page.replace('{{ description }}', post.get('excerpt', 'Thoughts on business, technology, and the human condition.'))
         full_page = full_page.replace('{{ url }}', f"{BASE_URL}/posts/{slug}.html")
         full_page = full_page.replace('{{ image }}', post.get('image', DEFAULT_IMAGE))
+        full_page = full_page.replace('{{ og_type }}', 'article')
         full_page = full_page.replace('{{ json_ld }}', json_ld_script)
         
         write_file(os.path.join(OUTPUT_DIR, 'posts', f'{slug}.html'), full_page)
@@ -461,6 +462,7 @@ def build():
     full_index = full_index.replace('{{ description }}', 'Thoughts on business, technology, and the human condition.')
     full_index = full_index.replace('{{ url }}', f"{BASE_URL}/index.html")
     full_index = full_index.replace('{{ image }}', DEFAULT_IMAGE)
+    full_index = full_index.replace('{{ og_type }}', 'website')
     full_index = full_index.replace('{{ json_ld }}', '')
     
     write_file(os.path.join(OUTPUT_DIR, 'index.html'), full_index)
@@ -506,6 +508,7 @@ def build():
         full_tag_page = full_tag_page.replace('{{ description }}', f'Essays about {tag}.')
         full_tag_page = full_tag_page.replace('{{ url }}', f"{BASE_URL}/tags/{tag_slug}.html")
         full_tag_page = full_tag_page.replace('{{ image }}', DEFAULT_IMAGE)
+        full_tag_page = full_tag_page.replace('{{ og_type }}', 'website')
         full_tag_page = full_tag_page.replace('{{ json_ld }}', '')
         
         write_file(os.path.join(OUTPUT_DIR, 'tags', f'{tag_slug}.html'), full_tag_page)
@@ -532,6 +535,7 @@ def build():
     full_collections_page = full_collections_page.replace('{{ description }}', 'Explore essays by topic.')
     full_collections_page = full_collections_page.replace('{{ url }}', f"{BASE_URL}/collections.html")
     full_collections_page = full_collections_page.replace('{{ image }}', DEFAULT_IMAGE)
+    full_collections_page = full_collections_page.replace('{{ og_type }}', 'website')
     full_collections_page = full_collections_page.replace('{{ json_ld }}', '')
     
     write_file(os.path.join(OUTPUT_DIR, 'collections.html'), full_collections_page)
@@ -569,6 +573,7 @@ def build():
         full_about = full_about.replace('{{ description }}', meta.get('excerpt', 'About us.'))
         full_about = full_about.replace('{{ url }}', f"{BASE_URL}/about.html")
         full_about = full_about.replace('{{ image }}', DEFAULT_IMAGE)
+        full_about = full_about.replace('{{ og_type }}', 'website')
         full_about = full_about.replace('{{ json_ld }}', '')
         
         write_file(os.path.join(OUTPUT_DIR, 'about.html'), full_about)
@@ -592,6 +597,7 @@ def build():
         full_consulting = full_consulting.replace('{{ description }}', meta.get('excerpt', 'Consulting services.'))
         full_consulting = full_consulting.replace('{{ url }}', f"{BASE_URL}/consulting.html")
         full_consulting = full_consulting.replace('{{ image }}', DEFAULT_IMAGE)
+        full_consulting = full_consulting.replace('{{ og_type }}', 'website')
         full_consulting = full_consulting.replace('{{ json_ld }}', '')
         
         write_file(os.path.join(OUTPUT_DIR, 'consulting.html'), full_consulting)
@@ -645,7 +651,7 @@ def build():
     </url>
     """
     # Static Pages
-    static_pages = ['about.html', 'collections.html']
+    static_pages = ['about.html', 'collections.html', 'consulting.html']
     for page in static_pages:
         sitemap_items += f"""
         <url>
