@@ -638,7 +638,26 @@ def build():
     
     write_file(os.path.join(OUTPUT_DIR, 'feed.xml'), rss_feed)
 
-    write_file(os.path.join(OUTPUT_DIR, 'feed.xml'), rss_feed)
+    # 10b. Generate Search Index
+    import json
+    search_index = []
+    for post in posts:
+        if post['slug'] == 'about': continue
+        
+        # Strip HTML from excerpt for cleaner search
+        import re
+        clean_excerpt = re.sub('<[^<]+?>', '', post.get('excerpt', ''))
+        
+        search_index.append({
+            'title': post.get('title', 'Untitled'),
+            'slug': post['slug'],
+            'excerpt': clean_excerpt,
+            'tags': post.get('tags', ''),
+            'category': post.get('category', 'General'),
+            'date': post.get('date', '')
+        })
+    
+    write_file(os.path.join(OUTPUT_DIR, 'search.json'), json.dumps(search_index))
 
     # 11. Generate Sitemap
     sitemap_items = ""

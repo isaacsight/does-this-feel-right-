@@ -1,0 +1,193 @@
+:root {
+    --neon-green: #00ff00;
+    --neon-pink: #ff00ff;
+    --neon-yellow: #ffff00;
+    --neon-blue: #00ffff;
+    --bg-color: #000000;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🗿</text></svg>") 16 0, auto; /* Moyai cursor */
+}
+
+h1, h2, h3 {
+    font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Chaos */
+header {
+    text-align: center;
+    padding: 50px 0;
+    border-bottom: 5px dashed var(--neon-green);
+    animation: border-flash 0.5s infinite;
+}
+
+.logo {
+    font-size: 5rem;
+    color: var(--neon-pink);
+    text-shadow: 5px 5px 0px var(--neon-blue);
+    animation: shake 0.5s infinite;
+    display: inline-block;
+}
+
+/* Marquee */
+.marquee-container {
+    background: var(--neon-yellow);
+    color: black;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: scroll-left 10s linear infinite;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.product-card {
+    border: 3px solid var(--neon-blue);
+    padding: 20px;
+    text-align: center;
+    background: #111;
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: scale(1.05) rotate(2deg);
+    border-color: var(--neon-pink);
+    background: #222;
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    border: 2px dotted white;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    color: var(--neon-green);
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    color: var(--neon-yellow);
+    font-weight: bold;
+}
+
+.buy-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-family: 'Impact', sans-serif;
+    cursor: pointer;
+    margin-top: 15px;
+    animation: pulse 1s infinite;
+}
+
+.buy-btn:hover {
+    background: var(--neon-green);
+    color: black;
+}
+
+/* Footer */
+footer {
+    margin-top: 100px;
+    text-align: center;
+    padding: 20px;
+    border-top: 5px double var(--neon-pink);
+    font-size: 0.8rem;
+}
+
+/* Animations */
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes border-flash {
+    0% { border-color: var(--neon-green); }
+    50% { border-color: var(--neon-pink); }
+    100% { border-color: var(--neon-green); }
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.rainbow-text {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: rainbow-move 2s linear infinite;
+}
+
+@keyframes rainbow-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+/* Brain Rot Meter */
+#brain-rot-meter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid white;
+    padding: 10px;
+    z-index: 1000;
+    font-family: monospace;
+}

@@ -50,10 +50,12 @@
 
                 <!-- Module 5: Search -->
                 <div class="header-module search-module">
-                    <div class="header-search-container">
-                        <input type="search" id="header-search" placeholder="Search essays..."
-                            class="inline-search-input">
-                    </div>
+                    <button class="search-trigger" id="search-toggle" aria-label="Search">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
                 </div>
 
                 <!-- Mobile Menu Toggle (Visible only on mobile) -->
@@ -206,6 +208,25 @@
 </article>
         </main>
     </div>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Type to search..." autocomplete="off">
+                <button id="close-search" aria-label="Close Search">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Lunr.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
     <!-- Supabase JS Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
