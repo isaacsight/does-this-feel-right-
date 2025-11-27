@@ -1311,3 +1311,8 @@ article a:hover {
         height: 45px;
     }
 }
+
+/* Hide default BMC launcher to use our custom one */
+#bmc-wbtn {
+    display: none !important;
+}
