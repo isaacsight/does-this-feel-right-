@@ -66,6 +66,8 @@
     /* 48px */
     --space-8: calc(var(--space-unit) * 8);
     /* 64px */
+    --space-12: calc(var(--space-unit) * 12);
+    /* 96px */
 
     --container-width: 800px;
     /* Narrower for reading focus */
@@ -932,19 +934,20 @@ article h1 {
 
 article h2 {
     font-size: var(--text-2xl);
-    font-weight: 700;
-    margin-top: var(--space-8);
-    margin-bottom: var(--space-3);
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.03em;
     color: var(--text-main);
 }
 
 article h3 {
     font-size: var(--text-xl);
-    font-weight: 600;
-    margin-top: var(--space-6);
-    margin-bottom: var(--space-2);
+    font-weight: 700;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
     color: var(--text-main);
+    letter-spacing: -0.02em;
 }
 
 article p {
@@ -1265,6 +1268,7 @@ article a:hover {
     font-style: italic;
     margin-top: var(--space-4);
 }
+
 /* Custom Floating Support Button */
 .floating-support-btn {
     position: fixed;
@@ -1296,7 +1300,8 @@ article a:hover {
     object-fit: contain;
     opacity: 0.8;
     transition: opacity 0.3s ease;
-    margin: 0; /* Override default img margin */
+    margin: 0;
+    /* Override default img margin */
 }
 
 .floating-support-btn:hover img {
