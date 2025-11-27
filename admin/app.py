@@ -123,40 +123,11 @@ def publish_substack():
         with open(filepath, 'r') as f:
             post = frontmatter.load(f)
             
-        # Email Configuration
-        SMTP_USER = os.environ.get('SMTP_USER')
-        SMTP_PASS = os.environ.get('SMTP_PASS')
-        SUBSTACK_EMAIL = os.environ.get('SUBSTACK_EMAIL')
+        # Browser Automation
+        # We run this in the background so the UI returns immediately
+        subprocess.Popen(['python3', 'scripts/publish_to_substack_browser.py', filepath])
         
-        if not SMTP_USER or not SMTP_PASS or not SUBSTACK_EMAIL:
-            return jsonify({'status': 'error', 'message': 'Missing SMTP credentials. Please set SMTP_USER, SMTP_PASS, and SUBSTACK_EMAIL environment variables.'})
-            
-        import smtplib
-        import markdown
-        from email.mime.text import MIMEText
-        from email.mime.multipart import MIMEMultipart
-        
-        msg = MIMEMultipart('alternative')
-        msg['From'] = SMTP_USER
-        msg['To'] = SUBSTACK_EMAIL
-        msg['Subject'] = post.get('title', 'Untitled')
-        
-        body = post.content
-        html_content = markdown.markdown(body)
-        
-        part1 = MIMEText(body, 'plain')
-        part2 = MIMEText(html_content, 'html')
-        
-        msg.attach(part1)
-        msg.attach(part2)
-        
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login(SMTP_USER, SMTP_PASS)
-        server.sendmail(SMTP_USER, SUBSTACK_EMAIL, msg.as_string())
-        server.quit()
-        
-        return jsonify({'status': 'success', 'message': 'Draft sent to Substack!'})
+        return jsonify({'status': 'success', 'message': 'Browser automation started! Watch the window.'})
         
     except Exception as e:
         print(f"Substack Error: {e}")
