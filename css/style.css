@@ -1321,3 +1321,62 @@ article a:hover {
 #bmc-wbtn {
     display: none !important;
 }
+/* Consulting Form */
+.consulting-form {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    background: #fafafa;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--text-main);
+    background: #ffffff;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+}
+
+.submit-btn {
+    background: var(--text-main);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    align-self: flex-start;
+    transition: opacity 0.2s;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
