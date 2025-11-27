@@ -13,7 +13,31 @@ excerpt: Let's fix your problem.
 </p>
 
 <p style="font-size: 1.2rem; line-height: 1.6;">
-    Email me anytime at <a href="mailto:isaacsight@gmail.com" style="color: var(--text-main); text-decoration: underline; text-underline-offset: 4px;">isaacsight@gmail.com</a> and I’ll get back to you.
+    Email me anytime at <a href="mailto:isaacsight@gmail.com" style="color: var(--text-main); text-decoration: underline; text-underline-offset: 4px;">isaacsight@gmail.com</a> or use the form below.
 </p>
+
+<form id="consulting-form" class="consulting-form" onsubmit="event.preventDefault(); document.getElementById('form-success').style.display='block'; this.style.display='none';">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Jane Doe">
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="jane@example.com">
+    </div>
+    
+    <div class="form-group">
+        <label for="message">How can I help?</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Send Message</button>
+</form>
+
+<div id="form-success" style="display: none; text-align: center; padding: 2rem; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; color: #166534;">
+    <h3 style="margin-top: 0;">Message Sent</h3>
+    <p>Thanks for reaching out. I'll get back to you shortly.</p>
+</div>
 
 </div>
