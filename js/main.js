@@ -179,4 +179,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Privacy-First Analytics (Page Views)
+    // We only track the slug, no user data.
+    const path = window.location.pathname;
+    // Only track actual pages, not assets or empty paths
+    if (path && (!path.includes('.') || path.endsWith('.html'))) {
+        const pageSlug = path === '/' || path === '/index.html' ? 'home' : path.split('/').pop().replace('.html', '');
+
+        // Simple session check to avoid double-counting reload (optional, but good for accuracy)
+        const sessionKey = `viewed_${pageSlug}`;
+        if (!sessionStorage.getItem(sessionKey)) {
+            sessionStorage.setItem(sessionKey, 'true');
+
+            // Fire and forget
+            window.supabaseClient.rpc('increment_page_view', { page_slug: pageSlug })
+                .then(({ error }) => {
+                    if (error) console.error('Error tracking view:', error);
+                });
+        }
+    }
 });
