@@ -19,38 +19,50 @@ def publish(filepath):
         title = post.get('title', 'Untitled')
         content = post.content
 
+    AUTH_FILE = 'substack_auth.json'
+
     with sync_playwright() as p:
-        # Launch Browser (Headless=False so you can see it working)
         browser = p.chromium.launch(headless=False, slow_mo=100)
-        page = browser.new_page()
         
-        print(f"Logging in as {EMAIL}...")
+        # Try to load auth state
+        if os.path.exists(AUTH_FILE):
+            context = browser.new_context(storage_state=AUTH_FILE)
+            print("Loaded session from disk.")
+        else:
+            context = browser.new_context()
+            
+        page = context.new_page()
         
-        # Login
-        page.goto("https://substack.com/sign-in")
-        page.fill('input[name="email"]', EMAIL)
-        page.fill('input[name="password"]', PASSWORD)
-        page.click('button[type="submit"]')
+        # Check if logged in
+        page.goto("https://substack.com/home")
         
-        # Wait for dashboard or home
-        try:
-            page.wait_for_url("**/home", timeout=10000)
-        except:
-            print("Login might have failed or required Captcha. Check browser.")
-            # time.sleep(5) # Give time to see
+        # If redirected to sign-in, perform login
+        if "sign-in" in page.url or "login" in page.url:
+            print(f"Logging in as {EMAIL}...")
+            page.goto("https://substack.com/sign-in")
+            page.fill('input[name="email"]', EMAIL)
+            page.fill('input[name="password"]', PASSWORD)
+            page.click('button[type="submit"]')
+            
+            # Wait for dashboard or home
+            try:
+                page.wait_for_url("**/home", timeout=15000)
+                # Save auth state
+                context.storage_state(path=AUTH_FILE)
+                print("Saved new session to disk.")
+            except:
+                print("Login might have failed or required Captcha. Check browser.")
         
         print("Navigating to Editor...")
-        # Go to Dashboard/New Post (URL might vary, trying generic /publish/post)
-        # We need to find the user's subdomain. Usually it's in the redirect.
-        # For now, let's assume we can find the "Dashboard" button or go to subdomain.substack.com/publish
-        
-        # Better approach: Go to user's profile/dashboard
-        page.goto("https://substack.com/dashboard")
+        # Go directly to the specific publication's dashboard
+        # We derived this from your screenshot: doesthisfeelright.substack.com
+        PUBLICATION_URL = "https://doesthisfeelright.substack.com/publish"
+        page.goto(PUBLICATION_URL)
         
         # Click "New Post"
-        # This selector is brittle and might change. 
-        # We'll try to find a button with text "New post"
-        page.get_by_text("New post").first.click()
+        # On the publisher dashboard, it's usually a distinct button
+        # We'll try the specific URL for a new post to be even safer
+        page.goto(f"{PUBLICATION_URL}/new")
         
         print("Writing content...")
         # Wait for editor
@@ -72,8 +84,35 @@ def publish(filepath):
         print("Draft saved!")
         time.sleep(2)
         
-        # Optional: Click "Continue" or "Publish"
-        # page.get_by_text("Continue").click()
+        # Auto-Publish Logic
+        try:
+            print("Clicking Continue...")
+            # Substack usually has a "Continue" button in the top right or bottom
+            continue_btn = page.get_by_text("Continue").first
+            continue_btn.click()
+            
+            # Wait for the settings modal/page
+            time.sleep(2)
+            
+            print("Clicking Send to everyone now...")
+            # The final button usually says "Send to everyone now" or "Subscribe and send"
+            # We'll look for "Send to everyone"
+            send_btn = page.get_by_text("Send to everyone now").first
+            if not send_btn.is_visible():
+                 # Fallback for different UI states
+                 send_btn = page.get_by_text("Send to everyone").first
+            
+            if send_btn.is_visible():
+                send_btn.click()
+                print("PUBLISHED! 🚀")
+            else:
+                print("Could not find 'Send to everyone' button. Stopping at settings screen.")
+                
+            # Keep browser open for a few seconds to verify
+            time.sleep(5)
+            
+        except Exception as e:
+            print(f"Auto-publish failed (Draft is saved): {e}")
         
         browser.close()
         print("Done.")

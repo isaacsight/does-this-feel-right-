@@ -657,7 +657,33 @@ def build():
             'date': post.get('date', '')
         })
     
-    write_file(os.path.join(OUTPUT_DIR, 'search.json'), json.dumps(search_index))
+    search_index_path = os.path.join(OUTPUT_DIR, 'search.json')
+    write_file(search_index_path, json.dumps(search_index))
+    
+    # Generate Manifest.json (PWA)
+    manifest = {
+      "name": "Does This Feel Right?",
+      "short_name": "DTFR",
+      "start_url": "/index.html",
+      "display": "standalone",
+      "background_color": "#fafafa",
+      "theme_color": "#fafafa",
+      "orientation": "portrait",
+      "icons": [
+        {
+          "src": "/static/images/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "/static/images/icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+    }
+    manifest_path = os.path.join(OUTPUT_DIR, 'manifest.json')
+    write_file(manifest_path, json.dumps(manifest, indent=2))
 
     # 11. Generate Sitemap
     sitemap_items = ""
