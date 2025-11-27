@@ -3,6 +3,7 @@ import datetime
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import frontmatter
 import subprocess
+import google.generativeai as genai
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -228,7 +229,49 @@ def generate_post():
         
     except Exception as e:
         print(f"AI Generation Error: {e}")
-        return jsonify({'status': 'error', 'message': str(e)})
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
+@app.route('/api/refine', methods=['POST'])
+def refine_content():
+    try:
+        data = request.json
+        content = data.get('content')
+        
+        if not content:
+            return jsonify({'status': 'error', 'message': 'No content provided'}), 400
+
+        api_key = os.getenv('GEMINI_API_KEY')
+        if not api_key:
+            return jsonify({'status': 'error', 'message': 'GEMINI_API_KEY not found'}), 500
+
+        import google.generativeai as genai
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel('gemini-1.5-flash')
+        
+        prompt = f"""
+        You are an expert editor for a blog called "Does This Feel Right?".
+        The aesthetic is "Intellectual Minimalist". 
+        The tone is thoughtful, direct, and slightly philosophical, similar to Nate Jones or Paul Graham.
+        
+        Please refine the following markdown content. 
+        - Fix grammar and spelling.
+        - Improve clarity and flow.
+        - Remove fluff and filler words ("Signal over Noise").
+        - Make headings punchy.
+        - Do NOT change the meaning.
+        - Return ONLY the refined markdown.
+        
+        Content:
+        {content}
+        """
+        
+        response = model.generate_content(prompt)
+        refined_text = response.text
+        
+        return jsonify({'status': 'success', 'refined_content': refined_text})
+        
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

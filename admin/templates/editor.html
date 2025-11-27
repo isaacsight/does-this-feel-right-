@@ -18,6 +18,8 @@
             <header class="editor-header">
                 <a href="{{ url_for('dashboard') }}" class="back-link">← Back</a>
                 <div class="actions">
+                    <button type="button" onclick="refinePost()" class="btn-secondary" style="margin-right: 10px;">✨
+                        Refine</button>
                     <button type="button" onclick="publishSubstack()" class="btn-secondary"
                         style="margin-right: 10px;">📧 Publish to Substack</button>
                     <button type="submit" class="btn-primary">Save Post</button>
@@ -57,7 +59,24 @@
             </div>
         </form>
     </div>
+    </div>
 
+    <!-- AI Refine Modal -->
+    <div id="refine-modal" class="modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+        <div class="modal-content"
+            style="background: white; width: 80%; max-width: 800px; margin: 50px auto; padding: 2rem; border-radius: 8px; max-height: 90vh; overflow-y: auto;">
+            <h2>AI Suggestion</h2>
+            <div id="refine-loading" style="display: none;">Thinking...</div>
+            <div id="refine-result"
+                style="white-space: pre-wrap; font-family: monospace; background: #f4f4f4; padding: 1rem; margin: 1rem 0;">
+            </div>
+            <div class="modal-actions" style="display: flex; gap: 1rem; justify-content: flex-end;">
+                <button onclick="closeRefineModal()" class="btn-secondary">Close</button>
+                <button onclick="applyRefinement()" class="btn-primary">Apply Changes</button>
+            </div>
+        </div>
+    </div>
     <script>
         var simplemde = new SimpleMDE({ element: document.getElementById("markdown-editor") });
 
@@ -98,6 +117,57 @@
             } finally {
                 btn.textContent = originalText;
                 btn.disabled = false;
+            }
+        }
+
+        // AI Refine Logic
+        let currentRefinement = '';
+
+        async function refinePost() {
+            const content = simplemde.value();
+            if (!content) {
+                alert('Write something first!');
+                return;
+            }
+
+            const modal = document.getElementById('refine-modal');
+            const loading = document.getElementById('refine-loading');
+            const result = document.getElementById('refine-result');
+
+            modal.style.display = 'block';
+            loading.style.display = 'block';
+            result.textContent = '';
+
+            try {
+                const response = await fetch('/api/refine', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content: content })
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    currentRefinement = data.refined_content;
+                    result.textContent = currentRefinement;
+                } else {
+                    result.textContent = 'Error: ' + data.message;
+                }
+            } catch (e) {
+                result.textContent = 'Network Error: ' + e;
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        function closeRefineModal() {
+            document.getElementById('refine-modal').style.display = 'none';
+        }
+
+        function applyRefinement() {
+            if (currentRefinement) {
+                simplemde.value(currentRefinement);
+                closeRefineModal();
             }
         }
     </script>

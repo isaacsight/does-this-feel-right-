@@ -1,19 +1,20 @@
--- Create the page_views table
-create table page_views (
+-- 1. Create table if it doesn't exist
+create table if not exists page_views (
   slug text primary key,
   count int default 0,
   last_viewed_at timestamptz default now()
 );
 
--- Enable Row Level Security
+-- 2. Enable RLS (Safe to run, idempotent)
 alter table page_views enable row level security;
 
--- Create a policy to allow anyone to read views (if we want to show them publicly later)
+-- 3. Policy (Drop and recreate to be safe)
+drop policy if exists "Enable read access for all users" on page_views;
 create policy "Enable read access for all users"
 on page_views for select
 using (true);
 
--- Create a function to safely increment view count
+-- 4. Function (Replace is already idempotent)
 create or replace function increment_page_view(page_slug text)
 returns void as
 $$
@@ -27,5 +28,5 @@ begin
 end;
 $$ language plpgsql;
 
--- Grant access to the function
+-- 5. Grant access
 grant execute on function increment_page_view(text) to anon, authenticated, service_role;
