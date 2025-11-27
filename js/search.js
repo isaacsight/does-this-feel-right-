@@ -1,44 +1,111 @@
 /**
- * Search functionality
+ * Search functionality using Lunr.js
  */
 
 const Search = {
-    init: () => {
-        const searchInputs = document.querySelectorAll('#header-search, #mobile-search');
-        if (searchInputs.length === 0) return;
+    index: null,
+    store: {},
 
-        const handleSearch = (query) => {
-            const postCards = document.querySelectorAll('.post-card');
+    init: async () => {
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        const searchToggle = document.getElementById('search-toggle');
+        const closeSearch = document.getElementById('close-search');
 
-            // Sync inputs
-            searchInputs.forEach(input => {
-                if (input.value !== query) input.value = query;
+        if (!searchOverlay || !searchInput) return;
+
+        // Fetch Index
+        try {
+            const response = await fetch('/search.json');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const data = await response.json();
+
+            // Initialize Lunr
+            Search.index = lunr(function () {
+                this.field('title', { boost: 10 });
+                this.field('tags', { boost: 5 });
+                this.field('excerpt');
+                this.field('category');
+                this.ref('slug');
+
+                data.forEach(doc => {
+                    this.add(doc);
+                    Search.store[doc.slug] = doc;
+                });
             });
 
-            postCards.forEach(card => {
-                const title = card.querySelector('h2')?.textContent.toLowerCase() || '';
-                const excerpt = card.querySelector('.post-excerpt')?.textContent.toLowerCase() || '';
-                const category = card.querySelector('.post-meta')?.textContent.toLowerCase() || '';
+        } catch (e) {
+            console.error('Failed to load search index', e);
+        }
 
-                const matches = title.includes(query) || excerpt.includes(query) || category.includes(query);
-
-                if (matches || query === '') {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        };
-
-        searchInputs.forEach(input => {
-            input.addEventListener('input', (e) => {
-                handleSearch(e.target.value.toLowerCase());
-            });
+        // Event Listeners
+        searchToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            searchOverlay.style.display = 'flex';
+            searchInput.focus();
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
         });
+
+        closeSearch.addEventListener('click', () => {
+            searchOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+            searchInput.value = '';
+            searchResults.innerHTML = '';
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && searchOverlay.style.display === 'flex') {
+                closeSearch.click();
+            }
+        });
+
+        // Handle Input
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value;
+            if (query.length < 2) {
+                searchResults.innerHTML = '';
+                return;
+            }
+
+            if (!Search.index) {
+                return;
+            }
+
+            const results = Search.index.search(query);
+            Search.renderResults(results, searchResults);
+        });
+    },
+
+    renderResults: (results, container) => {
+        if (results.length === 0) {
+            container.innerHTML = '<div class="no-results">No results found.</div>';
+            return;
+        }
+
+        const html = results.map(result => {
+            const doc = Search.store[result.ref];
+            return `
+                <a href="/posts/${doc.slug}.html" class="search-result-item">
+                    <h3>${doc.title}</h3>
+                    <p>${doc.excerpt}</p>
+                    <span class="meta">${doc.date} • ${doc.category}</span>
+                </a>
+            `;
+        }).join('');
+
+        container.innerHTML = html;
     }
 };
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    Search.init();
+    // Check if lunr is loaded
+    if (typeof lunr !== 'undefined') {
+        Search.init();
+    } else {
+        // Wait for script to load if async
+        window.addEventListener('load', Search.init);
+    }
 });
