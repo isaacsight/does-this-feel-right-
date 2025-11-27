@@ -1265,3 +1265,49 @@ article a:hover {
     font-style: italic;
     margin-top: var(--space-4);
 }
+/* Custom Floating Support Button */
+.floating-support-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.floating-support-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    border-color: #000;
+}
+
+.floating-support-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    margin: 0; /* Override default img margin */
+}
+
+.floating-support-btn:hover img {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .floating-support-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+}
