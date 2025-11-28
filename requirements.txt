@@ -5,3 +5,5 @@ markdown
 flask
 python-frontmatter
 python-dotenv
+pywebview
+py2app
