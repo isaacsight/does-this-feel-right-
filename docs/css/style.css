@@ -908,7 +908,7 @@ article {
     margin: 0 auto;
     font-size: 1.125rem;
     /* 18px base size */
-    line-height: 1.7;
+    line-height: 1.8;
     color: var(--text-main);
 }
 
@@ -1036,6 +1036,7 @@ article a:hover {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 600;
+    opacity: 0.7;
 }
 
 .post-title {
