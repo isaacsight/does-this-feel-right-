@@ -7,6 +7,14 @@
     <language>en-us</language>
     
         <item>
+            <title>To Be Witnessed</title>
+            <link>https://www.doesthisfeelright.com/posts/to-be-witnessed.html</link>
+            <description>We are obsessed with being watched, but we are starving to be witnessed. The difference is the difference between a performance and a life.</description>
+            <category>Culture</category>
+            <guid>https://www.doesthisfeelright.com/posts/to-be-witnessed.html</guid>
+        </item>
+        
+        <item>
             <title>The Invisible Architect</title>
             <link>https://www.doesthisfeelright.com/posts/the-invisible-architect.html</link>
             <description>We are no longer just citizens; we are subjects in a global behavioral experiment. How the soft science of nudging became the hard infrastructure of our lives.</description>
@@ -20,6 +28,22 @@
             <description>What happens when the barrier between having an idea and building it disappears? A reflection on using Google&#x27;s Antigravity.</description>
             <category>Technology</category>
             <guid>https://www.doesthisfeelright.com/posts/the-speed-of-thought.html</guid>
+        </item>
+        
+        <item>
+            <title>The Breaking Change</title>
+            <link>https://www.doesthisfeelright.com/posts/the-breaking-change.html</link>
+            <description>We treat people like APIs—expecting stable endpoints and clean documentation. But the value of a human lies in their refusal to be optimized.</description>
+            <category>Relationships</category>
+            <guid>https://www.doesthisfeelright.com/posts/the-breaking-change.html</guid>
+        </item>
+        
+        <item>
+            <title>Escaping the Simulation of Self</title>
+            <link>https://www.doesthisfeelright.com/posts/escaping-the-simulation.html</link>
+            <description>The algorithm makes you the protagonist of a universe curated for your retention. Other people are the only reality check left.</description>
+            <category>Philosophy</category>
+            <guid>https://www.doesthisfeelright.com/posts/escaping-the-simulation.html</guid>
         </item>
         
         <item>
