@@ -16,7 +16,7 @@ excerpt: Let's fix your problem.
     Email me anytime at <a href="mailto:isaacsight@gmail.com" style="color: var(--text-main); text-decoration: underline; text-underline-offset: 4px;">isaacsight@gmail.com</a> or use the form below.
 </p>
 
-<form id="consulting-form" class="consulting-form" onsubmit="event.preventDefault(); document.getElementById('form-success').style.display='block'; this.style.display='none';">
+<form id="consulting-form" class="consulting-form">
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required placeholder="Jane Doe">
@@ -29,7 +29,7 @@ excerpt: Let's fix your problem.
     
     <div class="form-group">
         <label for="message">How can I help?</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+        <textarea id="message" name="message" rows="5" required maxlength="5000" placeholder="Tell me about your project..."></textarea>
     </div>
 
     <button type="submit" class="submit-btn">Send Message</button>
@@ -41,3 +41,5 @@ excerpt: Let's fix your problem.
 </div>
 
 </div>
+
+<script src="{{ root }}js/consulting.js"></script>

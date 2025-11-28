@@ -199,6 +199,34 @@ def build():
         # For now, let's just append metadata to list first, then do a second pass for generation.
         posts.append(metadata)
 
+    # Sort posts: Featured first, then by Date (descending), then by Title (ascending)
+    def post_sort_key(p):
+        is_featured = p.get('featured', 'false').lower() == 'true'
+        date_str = p.get('date', '1970-01-01')
+        title = p.get('title', '')
+        return (not is_featured, date_str, title) # False < True for boolean sort? No, False=0, True=1. We want True first.
+        # Wait, False < True. So (True, ...) comes AFTER (False, ...).
+        # We want Featured (True) to be FIRST (smallest index) or LAST (largest index)?
+        # If we sort descending (reverse=True), True > False, so True comes first.
+        # But date should be descending (newest first).
+        # And title should be ascending (A-Z).
+        # Complex sort. Let's use a tuple with negation for descending parts if we use default sort.
+        # Or just use reverse=True and negate the ascending parts.
+        # Let's do: (is_featured, date_str) -> reverse=True.
+        # Title is secondary.
+        
+    # Let's keep it simple.
+    # Primary: Featured (True > False)
+    # Secondary: Date (New > Old)
+    # Tertiary: Title (Z > A if reverse=True, which is weird).
+    
+    # Better approach:
+    posts.sort(key=lambda x: (
+        x.get('featured', 'false').lower() == 'true', # True (1) > False (0)
+        x.get('date', '1970-01-01'),
+        x.get('title', '')
+    ), reverse=True)
+
     # 4b. Second Pass: Generate HTML for Posts (now that we have all metadata for related posts)
     for post in posts:
         slug = post['slug']
@@ -389,10 +417,12 @@ def build():
             <a href="posts/{featured_post['slug']}.html" class="featured-card">
                 <div class="featured-content">
                     <span class="featured-label">MOST RECENT</span>
-                    <span class="post-meta">{primary_tag} • {date_display}</span>
                     <h1 class="featured-title">{featured_post.get('title', 'Untitled')}</h1>
                     <p class="featured-excerpt">{featured_post.get('excerpt', '')}</p>
-                    <span class="read-more">Read Essay →</span>
+                    <div class="post-meta-row">
+                        <span class="post-tag">{primary_tag}</span>
+                        <span class="post-meta">{date_display} • {featured_post.get('read_time', '5 min read')}</span>
+                    </div>
                 </div>
             </a>
         """
@@ -418,9 +448,12 @@ def build():
             
         posts_html += f"""
             <a href="posts/{post['slug']}.html" class="post-card" data-category="{post.get('category', 'General')}" data-date="{post.get('date', '')}">
-                <span class="post-meta">{primary_tag} • {date_display} • {post.get('read_time', '5 min read')}</span>
-                <h2>{post.get('title', 'Untitled')}</h2>
+                <h2 class="post-title">{post.get('title', 'Untitled')}</h2>
                 <p class="post-excerpt">{post.get('excerpt', '')}</p>
+                <div class="post-meta-row">
+                    <span class="post-tag">{primary_tag}</span>
+                    <span class="post-meta">{date_display} • {post.get('read_time', '5 min read')}</span>
+                </div>
             </a>
         """
         

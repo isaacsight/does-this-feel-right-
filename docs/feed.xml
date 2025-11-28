@@ -7,6 +7,14 @@
     <language>en-us</language>
     
         <item>
+            <title>The Invisible Architect</title>
+            <link>https://www.doesthisfeelright.com/posts/the-invisible-architect.html</link>
+            <description>We are no longer just citizens; we are subjects in a global behavioral experiment. How the soft science of nudging became the hard infrastructure of our lives.</description>
+            <category>Society</category>
+            <guid>https://www.doesthisfeelright.com/posts/the-invisible-architect.html</guid>
+        </item>
+        
+        <item>
             <title>The Speed of Thought</title>
             <link>https://www.doesthisfeelright.com/posts/the-speed-of-thought.html</link>
             <description>What happens when the barrier between having an idea and building it disappears? A reflection on using Google&#x27;s Antigravity.</description>
@@ -23,19 +31,19 @@
         </item>
         
         <item>
-            <title>Owning the Signal</title>
-            <link>https://www.doesthisfeelright.com/posts/owning-the-signal.html</link>
-            <description></description>
-            <category>Studio</category>
-            <guid>https://www.doesthisfeelright.com/posts/owning-the-signal.html</guid>
-        </item>
-        
-        <item>
             <title>The New Builders Are 16</title>
             <link>https://www.doesthisfeelright.com/posts/the-new-builders-are-16.html</link>
             <description>Teenagers aren&#x27;t just using Google&#x27;s Antigravity to cheat on homework. They&#x27;re building products that feel like magic, and they&#x27;re doing it for fun.</description>
             <category>Technology</category>
             <guid>https://www.doesthisfeelright.com/posts/the-new-builders-are-16.html</guid>
+        </item>
+        
+        <item>
+            <title>Owning the Signal</title>
+            <link>https://www.doesthisfeelright.com/posts/owning-the-signal.html</link>
+            <description></description>
+            <category>Studio</category>
+            <guid>https://www.doesthisfeelright.com/posts/owning-the-signal.html</guid>
         </item>
         
         <item>
@@ -47,19 +55,19 @@
         </item>
         
         <item>
-            <title>The Engine and The Gallery</title>
-            <link>https://www.doesthisfeelright.com/posts/the-engine-and-the-gallery.html</link>
-            <description>Why we are decoupling the signal from the noise, and how Substack powers the studio while the site preserves the art.</description>
-            <category>Studio</category>
-            <guid>https://www.doesthisfeelright.com/posts/the-engine-and-the-gallery.html</guid>
-        </item>
-        
-        <item>
             <title>The Extinction of the Modern Man</title>
             <link>https://www.doesthisfeelright.com/posts/modern-man-extinction.html</link>
             <description>Behavioral sciences suggest a radical shift in male archetypes is underway. Are we witnessing an end, or a transformation?</description>
             <category>Culture &amp; Tech</category>
             <guid>https://www.doesthisfeelright.com/posts/modern-man-extinction.html</guid>
+        </item>
+        
+        <item>
+            <title>The Engine and The Gallery</title>
+            <link>https://www.doesthisfeelright.com/posts/the-engine-and-the-gallery.html</link>
+            <description>Why we are decoupling the signal from the noise, and how Substack powers the studio while the site preserves the art.</description>
+            <category>Studio</category>
+            <guid>https://www.doesthisfeelright.com/posts/the-engine-and-the-gallery.html</guid>
         </item>
         
         <item>

@@ -10,6 +10,12 @@ load_dotenv()
 
 app = Flask(__name__)
 
+# Supabase Setup
+from supabase import create_client, Client
+url: str = os.environ.get("SUPABASE_URL")
+key: str = os.environ.get("SUPABASE_KEY")
+supabase: Client = create_client(url, key)
+
 # Configuration
 CONTENT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../content'))
 REPO_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
@@ -17,6 +23,16 @@ TEMPLATE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), 'template
 STATIC_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../static'))
 
 app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
+
+@app.route('/leads')
+def leads():
+    try:
+        response = supabase.table('leads').select("*").order('created_at', desc=True).execute()
+        leads_data = response.data
+    except Exception as e:
+        print(f"Error fetching leads: {e}")
+        leads_data = []
+    return render_template('leads.html', leads=leads_data)
 
 @app.route('/')
 def dashboard():
