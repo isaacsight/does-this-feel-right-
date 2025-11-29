@@ -1,13 +1,25 @@
+```
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+.Python
 
-# macOS
-.DS_Store
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
 
-# Editor
+# Build & Distribution
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# IDEs
 .vscode/
 .idea/
 *.swp
