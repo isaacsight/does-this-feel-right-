@@ -7,6 +7,22 @@
     <language>en-us</language>
     
         <item>
+            <title>Building a Custom Site Manager</title>
+            <link>https://www.doesthisfeelright.com/posts/building-a-custom-site-manager.html</link>
+            <description></description>
+            <category>Engineering</category>
+            <guid>https://www.doesthisfeelright.com/posts/building-a-custom-site-manager.html</guid>
+        </item>
+        
+        <item>
+            <title>&quot;The Ultimate Workflow: Going Headless&quot;</title>
+            <link>https://www.doesthisfeelright.com/posts/headless-workflow.html</link>
+            <description></description>
+            <category>&quot;Engineering&quot;</category>
+            <guid>https://www.doesthisfeelright.com/posts/headless-workflow.html</guid>
+        </item>
+        
+        <item>
             <title>The Return of Personal Software</title>
             <link>https://www.doesthisfeelright.com/posts/the-return-of-personal-software.html</link>
             <description>For decades, we&#x27;ve been renters in someone else&#x27;s digital house. But the ability to build desktop apps for personal use is bringing back something we forgot we lost—software sovereignty.</description>
