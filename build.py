@@ -46,8 +46,26 @@ def markdown_to_html(text):
     lines = text.split('\n')
     html_lines = []
     in_list = False
+    in_code_block = False
     
     for line in lines:
+        # Code Blocks
+        if line.strip().startswith('```'):
+            if in_code_block:
+                html_lines.append('</code></pre>')
+                in_code_block = False
+            else:
+                if in_list:
+                    html_lines.append('</ul>')
+                    in_list = False
+                html_lines.append('<pre><code>')
+                in_code_block = True
+            continue
+            
+        if in_code_block:
+            html_lines.append(line) # Keep indentation in code blocks
+            continue
+
         line = line.rstrip()
         
         # Headers
@@ -89,6 +107,8 @@ def markdown_to_html(text):
         
     if in_list:
         html_lines.append('</ul>')
+    if in_code_block: # Close if unclosed
+        html_lines.append('</code></pre>')
         
     html = '\n'.join(html_lines)
     
