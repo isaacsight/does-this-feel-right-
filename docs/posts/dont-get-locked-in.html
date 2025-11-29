@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Breaking Change</title>
-    <meta name="description" content="We treat people like APIs—expecting stable endpoints and clean documentation. But the value of a human lies in their refusal to be optimized.">
+    <title>Don't Get Locked In</title>
+    <meta name="description" content="Thoughts on business, technology, and the human condition.">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="The Breaking Change">
-    <meta property="og:description" content="We treat people like APIs—expecting stable endpoints and clean documentation. But the value of a human lies in their refusal to be optimized.">
+    <meta property="og:title" content="Don't Get Locked In">
+    <meta property="og:description" content="Thoughts on business, technology, and the human condition.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.doesthisfeelright.com/posts/the-breaking-change.html">
+    <meta property="og:url" content="https://www.doesthisfeelright.com/posts/dont-get-locked-in.html">
     <meta property="og:image" content="{{ og_image }}">
 
     <!-- PWA / Mobile Experience -->
@@ -24,16 +24,16 @@
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.doesthisfeelright.com/posts/the-breaking-change.html">
-    <meta name="twitter:title" content="The Breaking Change">
-    <meta name="twitter:description" content="We treat people like APIs—expecting stable endpoints and clean documentation. But the value of a human lies in their refusal to be optimized.">
+    <meta name="twitter:url" content="https://www.doesthisfeelright.com/posts/dont-get-locked-in.html">
+    <meta name="twitter:title" content="Don't Get Locked In">
+    <meta name="twitter:description" content="Thoughts on business, technology, and the human condition.">
     <meta name="twitter:image" content="https://www.doesthisfeelright.com/static/images/og-default.jpg">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.doesthisfeelright.com/posts/the-breaking-change.html">
+    <link rel="canonical" href="https://www.doesthisfeelright.com/posts/dont-get-locked-in.html">
 
     <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Breaking Change", "image": ["https://www.doesthisfeelright.com/static/images/og-default.jpg"], "datePublished": "2025-11-27", "dateModified": "2025-11-27", "author": [{"@type": "Person", "name": "Isaac Hernandez", "url": "https://www.doesthisfeelright.com"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Don't Get Locked In", "image": ["https://www.doesthisfeelright.com/static/images/og-default.jpg"], "datePublished": "2025-11-28", "dateModified": "2025-11-28", "author": [{"@type": "Person", "name": "Isaac Hernandez", "url": "https://www.doesthisfeelright.com"}]}</script>
 
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="Does This Feel Right? RSS Feed" href="../feed.xml">
@@ -102,59 +102,138 @@
         <a href="../index.html" class="back-link">← Back to Home</a>
     </div>
     <div class="post-tags">
-        <a href="../tags/technology.html" class="post-tag tag-color-2">Technology</a> <a href="../tags/psychology.html" class="post-tag tag-color-5">Psychology</a> <a href="../tags/metaphor.html" class="post-tag tag-color-4">Metaphor</a> 
+        <a href="../tags/[ai.html" class="post-tag tag-color-5">[ai</a> <a href="../tags/tools.html" class="post-tag tag-color-3">tools</a> <a href="../tags/workflow.html" class="post-tag tag-color-3">workflow</a> <a href="../tags/independence].html" class="post-tag tag-color-5">independence]</a> 
     </div>
 
     
 
-    <h1>The Breaking Change</h1>
+    <h1>Don't Get Locked In</h1>
 
-    <p>In software engineering, a "breaking change" is a nightmare. It’s when an update alters the fundamental way a system behaves, causing everything that relies on it to crash. We spend billions of dollars avoiding them. We build versioning systems, backward compatibility layers, and rigorous testing suites just to ensure that `Input A` always results in `Output B`.</p>
+    I just spent an hour setting up Aider, a terminal-based AI coding assistant. Not because the GUI tools I use aren't
+good—they're great. But because I don't want to be locked in.
 
-<p>We have quietly begun to apply this same logic to our relationships.</p>
+Here's the thing: right now, I love Antigravity and Cursor. The UI is polished, the experience is smooth, and they make
+coding feel effortless. But what happens when they decide to 10x the subscription price? Or remove the free tier
+entirely? Or shut down?
 
-<h2>The API of Friendship</h2>
+The answer is simple: I'm stuck.
 
-<p>We want our friends to be stateless microservices. We want them to be available when we ping them, to return the expected status code (200 OK), and to handle our requests with low latency.</p>
+## The Terminal Insurance Policy
 
-<p>When they are "down" (depressed, busy, distant), we treat it as a service outage. When they change their opinions or habits, we treat it as a deprecated feature.</p>
+A friend reminded me of something important: "Antigravity can't be the one pillar all your work gets done on."
 
-<p>"I liked the old version of you better," we think, as if they were an app that pushed a bad UI update.</p>
+So I installed Aider. It's not as pretty. The UX takes more effort. But it gives me something invaluable: **control**.
 
-<p>We curate our social circles like a tech stack, optimizing for stability and interoperability. We avoid "high-maintenance" people (legacy code) and seek out "low-friction" friends (clean documentation).</p>
+With Aider, I can:
+- Use any AI model I want (Claude, GPT-4, Gemini, local models)
+- Work on any machine with a terminal
+- Keep working even if one service shuts down
+- Run it over SSH on remote servers
+- Pay only for what I use
 
-<p>But here is the uncomfortable truth: <strong>A person who never breaks is not a person. They are a product.</strong></p>
+The setup took maybe 20 minutes:
+```bash
+pip install aider-chat
+export ANTHROPIC_API_KEY=your-key-here
+aider
+```
 
-<h2>The Feature is the Bug</h2>
+That's it. No complex configuration. No vendor lock-in.
 
-<p>The value of a human being is not in their reliability. It is in their volatility.</p>
+## The Real Lesson
 
-<p>It is in the moment they disagree with you when you expected validation. It is in the moment they call you out on your bullshit when you wanted comfort. It is in the moment they change their mind, change their career, or change their heart, forcing you to re-evaluate your own position relative to them.</p>
+This isn't just about AI coding tools. It's about **strategic redundancy**.
 
-<p>These are breaking changes. They crash your internal model of the world. They throw exceptions in your emotional runtime.</p>
+You don't ditch the GUI tools you love. You keep them. But you also maintain a terminal-based workflow that gives you
+options when things change—and they always change.
 
-<p>And they are the only things that help us grow.</p>
+Think about it:
+- Email: Use Gmail, but know how IMAP/SMTP works
+- Notes: Use Notion, but keep markdown files locally
+- Code: Use VS Code, but know vim basics
+- Hosting: Use Vercel, but understand Docker
 
-<h2>Embracing the Refactor</h2>
+The pattern is clear: **enjoy convenience, but maintain optionality**.
 
-<p>If you surround yourself with people who function like stable APIs, you will never have to upgrade your own operating system. You will remain in a static loop of confirmation bias, receiving the same expected outputs for your same tired inputs.</p>
+## GUI vs Terminal: A False Choice
 
-<p>To love someone is to sign up for a lifetime of breaking changes. It is to accept that the documentation will never be up to date. It is to understand that the person you knew yesterday is a deprecated version of the person standing in front of you today.</p>
+People frame this as "which is better?" but that's the wrong question.
 
-<p>Don't look for stable endpoints. Look for the people who break your code. They are the ones who will force you to rewrite it better.</p>
+GUI tools (Antigravity, Cursor) are better for:
+- Visual design work
+- Quick prototyping
+- When you need polish and speed
+
+Terminal tools (Aider, vim, etc.) are better for:
+- Remote work over SSH
+- Automation and scripting
+- When services change pricing or disappear
+- Platform independence
+
+The smart move? Use both.
+
+## What I Actually Did
+
+Today I:
+1. Installed Aider (a terminal AI coding assistant)
+2. Set up API keys for Claude, GPT-4, and Gemini
+3. Tested it by having it add docstrings to my code
+4. Confirmed it auto-commits changes to git
+
+Total cost: Free (using free API tiers) to a few dollars a month if I upgrade.
+
+Now I have options. If Antigravity changes tomorrow, I don't panic. I just open a terminal and keep working.
+
+## The Insurance Premium
+
+Setting up terminal tools feels like extra work. It is. But it's **insurance**.
+
+You pay a small premium (time to set up, less polished UX) to protect against a big risk (vendor lock-in, service
+changes, platform dependency).
+
+And honestly? The "premium" is getting smaller. Modern terminal tools are actually pretty nice. Aider auto-commits to
+git, tracks costs, and switches between AI models mid-conversation. That's not primitive—that's powerful.
+
+## Keep Your Tool Bag Deep
+
+The developers who thrive aren't the ones who master one perfect tool. They're the ones who maintain a **deep tool bag**
+accessible across platforms.
+
+- GUI tools for productivity
+- Terminal tools for flexibility
+- Local tools for ownership
+- Cloud tools for collaboration
+
+Don't pick one. Build all of them.
+
+## What This Means for You
+
+If you rely on any single tool or platform for your work, ask yourself:
+
+*What happens if this goes away tomorrow?*
+
+If the answer makes you uncomfortable, spend an hour setting up an alternative. Not to replace what you use now, but to
+have options when things change.
+
+Because they will change. They always do.
+
+---
+
+*This post was written and published using the exact workflow I just described: Antigravity for drafting, terminal tools
+for deployment, git for version control, and multiple AI providers for flexibility. No single point of failure.*
 
     <!-- Share Buttons -->
     <div class="share-section">
         <p class="share-label">Share this essay:</p>
         <div class="share-buttons">
-            <button class="share-btn twitter" data-slug="the-breaking-change" data-title="The Breaking Change">
+            <button class="share-btn twitter" data-slug="dont-get-locked-in" data-title="Don't Get Locked In">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                     <path
                         d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
                 Twitter
             </button>
-            <button class="share-btn linkedin" data-slug="the-breaking-change" data-title="The Breaking Change">
+            <button class="share-btn linkedin" data-slug="dont-get-locked-in" data-title="Don't Get Locked In">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                     <path
                         d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24" />
@@ -201,14 +280,14 @@
                 <div class="related-header">Read Next</div>
                 <div class="related-grid">
                     
-                <a href="the-new-builders-are-16.html" class="post-card">
-                    <span class="post-meta">AI • 5 min read</span>
-                    <h3>The New Builders Are 16</h3>
+                <a href="building-with-antigravity.html" class="post-card">
+                    <span class="post-meta">Technology • 7 min read</span>
+                    <h3>Building This Blog with Antigravity: A Meta Reflection</h3>
                 </a>
                 
-                <a href="dont-get-locked-in.html" class="post-card">
-                    <span class="post-meta">[ai • 4 min read</span>
-                    <h3>Don't Get Locked In</h3>
+                <a href="the-return-of-personal-software.html" class="post-card">
+                    <span class="post-meta">Software • 5 min read</span>
+                    <h3>The Return of Personal Software</h3>
                 </a>
                 
                 </div>
