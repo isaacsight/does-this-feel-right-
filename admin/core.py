@@ -25,4 +25,19 @@ url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(url, key) if url and key else None
 
+def get_posts():
+    """
+    Retrieves all blog posts from the content directory.
+
+    Returns:
+        list: A list of blog post objects, each containing the post's metadata and content.
+    """
+    posts = []
+    for filename in os.listdir(CONTENT_DIR):
+        if filename.endswith('.md'):
+            with open(os.path.join(CONTENT_DIR, filename), 'r') as file:
+                post = frontmatter.load(file)
+                posts.append(post)
+    return posts
+
 # ... (rest of the file content remains the same)
