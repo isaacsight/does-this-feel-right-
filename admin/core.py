@@ -120,3 +120,66 @@ def publish_git():
     except subprocess.CalledProcessError as e:
         raise Exception(f"Git publish failed: {str(e)}")
 
+class ServerManager:
+    def __init__(self, port=8000, directory="docs"):
+        self.port = port
+        self.directory = directory
+        self.process = None
+        self.log_file = os.path.join(os.path.dirname(__file__), "server.log")
+
+    def start_server(self):
+        if self.process:
+            return "Server is already running."
+        
+        # Check if port is in use
+        try:
+            # Simple check using lsof (mac/linux)
+            subprocess.check_output(["lsof", "-i", f":{self.port}"])
+            return f"Port {self.port} is already in use."
+        except subprocess.CalledProcessError:
+            pass # Port is free
+
+        cmd = ["python3", "-m", "http.server", str(self.port), "--directory", self.directory]
+        
+        with open(self.log_file, "w") as f:
+            self.process = subprocess.Popen(
+                cmd, 
+                stdout=f, 
+                stderr=subprocess.STDOUT,
+                preexec_fn=os.setsid # Create new process group
+            )
+        return f"Server started on port {self.port}"
+
+    def stop_server(self):
+        if not self.process:
+            return "Server is not running."
+        
+        try:
+            os.killpg(os.getpgid(self.process.pid), 15) # Terminate process group
+            self.process = None
+            return "Server stopped."
+        except Exception as e:
+            return f"Error stopping server: {e}"
+
+    def get_status(self):
+        if self.process and self.process.poll() is None:
+            return "Running"
+        return "Stopped"
+
+    def get_logs(self, lines=20):
+        if not os.path.exists(self.log_file):
+            return ""
+        try:
+            # Use tail to get last N lines, but with a timeout to prevent hanging
+            # and only if file has content
+            if os.path.getsize(self.log_file) == 0:
+                return ""
+                
+            return subprocess.check_output(
+                ["tail", "-n", str(lines), self.log_file], 
+                timeout=0.5
+            ).decode("utf-8")
+        except:
+            return ""
+
+

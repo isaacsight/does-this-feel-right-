@@ -2,6 +2,7 @@ from textual.app import App, ComposeResult
 from textual.containers import Container, Horizontal, Vertical
 from textual.widgets import Header, Footer, Button, Static, ListView, ListItem, Label, Input, TextArea, Markdown, Select
 from textual.screen import Screen, ModalScreen
+from textual.widgets import Header, Footer, Button, Static, ListView, ListItem, Label, Input, TextArea, Markdown, Select, Log, TabbedContent, TabPane
 from textual.binding import Binding
 import core
 import os
@@ -12,7 +13,9 @@ class PostListItem(ListItem):
         self.post = post
 
     def compose(self) -> ComposeResult:
-        yield Label(f"{self.post['title']} ({self.post['date']})")
+        title = self.post.get('title', 'Untitled')
+        date = self.post.get('date', 'No Date')
+        yield Label(f"{title} ({date})")
 
 class EditorScreen(Screen):
     BINDINGS = [("escape", "app.pop_screen", "Cancel"), ("ctrl+s", "save_post", "Save")]
@@ -107,6 +110,23 @@ class BlogTUI(App):
         height: auto;
         align: center middle;
     }
+    #dashboard-status {
+        height: auto;
+        border: solid $accent;
+        padding: 1;
+        margin-bottom: 1;
+    }
+    #server-logs {
+        height: 1fr;
+        border: solid $secondary;
+        background: $surface;
+    }
+    .status-running {
+        color: $success;
+    }
+    .status-stopped {
+        color: $error;
+    }
     """
 
     BINDINGS = [
@@ -115,22 +135,67 @@ class BlogTUI(App):
         ("r", "refresh_posts", "Refresh"),
         ("g", "generate_ai", "AI Generate"),
         ("p", "publish_git", "Publish (Git)"),
+        ("s", "start_server", "Start Server"),
+        ("x", "stop_server", "Stop Server"),
+        ("1", "show_dashboard", "Dashboard"),
+        ("2", "show_posts", "Posts"),
     ]
 
     def compose(self) -> ComposeResult:
         yield Header()
-        yield Container(
-            ListView(id="post-list"),
-            id="sidebar"
-        )
-        yield Container(
-            Markdown("# Welcome to Blog TUI\nSelect a post to edit or press 'n' to create new."),
-            id="main"
-        )
+        with TabbedContent(initial="dashboard", id="main-tabs"):
+            with TabPane("Dashboard", id="dashboard"):
+                yield Container(
+                    Label("Server Status: Stopped", id="status-label", classes="status-stopped"),
+                    Horizontal(
+                        Button("Start Server", variant="success", id="start-server"),
+                        Button("Stop Server", variant="error", id="stop-server"),
+                        classes="buttons"
+                    ),
+                    Label("Server Logs:", classes="log-label"),
+                    Log(id="server-logs"),
+                    id="dashboard-container"
+                )
+            with TabPane("Posts", id="posts"):
+                yield Container(
+                    ListView(id="post-list"),
+                    id="sidebar"
+                )
+                yield Container(
+                    Markdown("# Select a post to edit or press 'n' to create new."),
+                    id="main"
+                )
         yield Footer()
 
     def on_mount(self) -> None:
+        self.server_manager = core.ServerManager()
         self.refresh_posts()
+        self.set_interval(2, self.update_server_status)
+
+    def update_server_status(self):
+        status = self.server_manager.get_status()
+        label = self.query_one("#status-label", Label)
+        label.update(f"Server Status: {status}")
+        
+        if status == "Running":
+            label.remove_class("status-stopped")
+            label.add_class("status-running")
+            # Update logs
+            logs = self.server_manager.get_logs()
+            log_view = self.query_one("#server-logs", Log)
+            log_view.clear()
+            log_view.write(logs)
+        else:
+            label.remove_class("status-running")
+            label.add_class("status-stopped")
+
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        if event.button.id == "start-server":
+            msg = self.server_manager.start_server()
+            self.notify(msg)
+        elif event.button.id == "stop-server":
+            msg = self.server_manager.stop_server()
+            self.notify(msg)
 
     def refresh_posts(self):
         posts = core.get_posts()
@@ -142,6 +207,22 @@ class BlogTUI(App):
     def on_list_view_selected(self, event: ListView.Selected):
         post = event.item.post
         self.push_screen(EditorScreen(post))
+
+    def action_start_server(self):
+        msg = self.server_manager.start_server()
+        self.notify(msg)
+        self.update_server_status()
+
+    def action_stop_server(self):
+        msg = self.server_manager.stop_server()
+        self.notify(msg)
+        self.update_server_status()
+
+    def action_show_dashboard(self):
+        self.query_one("#main-tabs", TabbedContent).active = "dashboard"
+
+    def action_show_posts(self):
+        self.query_one("#main-tabs", TabbedContent).active = "posts"
 
     def action_new_post(self):
         self.push_screen(EditorScreen())
