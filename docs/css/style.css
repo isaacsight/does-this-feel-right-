@@ -69,7 +69,7 @@
     --space-12: calc(var(--space-unit) * 12);
     /* 96px */
 
-    --container-width: 800px;
+    --container-width: 1100px;
     /* Narrower for reading focus */
     --header-height: 64px;
     --border-radius: 8px;
@@ -118,7 +118,7 @@ header {
     padding: 2rem 0;
     /* Spacing above/below header */
     width: 100%;
-    z-index: 1000;
+    z-index: 2000;
     position: relative;
     /* Ensure overlay is positioned relative to header */
 }
@@ -166,7 +166,7 @@ header {
 
 .header-modules {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     align-items: stretch;
     max-width: var(--container-width);
     margin: 0 auto;
@@ -503,7 +503,7 @@ main {
 /* 2. Content Wrapper (Main + Sidebar) */
 .content-wrapper {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 320px;
     gap: var(--space-8);
     align-items: start;
 }
@@ -537,6 +537,8 @@ main {
     border-bottom: 1px solid var(--border-color);
     padding-bottom: var(--space-2);
     margin-bottom: var(--space-4);
+    gap: 3rem;
+    align-items: center;
 }
 
 .feed-header h2 {
@@ -545,6 +547,39 @@ main {
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+/* Feed Filters */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: var(--text-xs);
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    border-color: var(--text-main);
+    color: var(--text-main);
+    background: #fff;
+}
+
+.sort-bar {
+    margin-top: 0 !important;
 }
 
 /* Post Card Refinement */

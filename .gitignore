@@ -16,3 +16,4 @@ __pycache__/
 # Temp files
 *.log
 .env
+.aider*

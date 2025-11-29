@@ -24,7 +24,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>Thoughts on business, technology, and the human condition</string>
 	<key>CFBundleIconFile</key>
-	<string>PythonApplet.icns</string>
+	<string>icon.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.doesthisfeelright.app</string>
 	<key>CFBundleInfoDictionaryVersion</key>

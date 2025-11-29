@@ -1,7 +1,17 @@
 from setuptools import setup
+import os
+import glob
 
 APP = ['app.py']
-DATA_FILES = [('docs', ['docs'])]
+
+# Collect all files from docs directory recursively
+DATA_FILES = []
+for root, dirs, files in os.walk('docs'):
+    if files:
+        # Remove 'docs/' prefix to place files at the root of Resources
+        target_dir = root.replace('docs', '', 1).lstrip('/')
+        file_paths = [os.path.join(root, f) for f in files]
+        DATA_FILES.append((target_dir, file_paths))
 OPTIONS = {
     'argv_emulation': True,
     'packages': ['webview'],
@@ -15,7 +25,7 @@ OPTIONS = {
         'NSHumanReadableCopyright': 'Isaac Hernandez'
     },
     'includes': ['webview', 'bottle'],
-    'iconfile': None,  # Add path to .icns file if you have one
+    'iconfile': 'icon.icns',
 }
 
 setup(

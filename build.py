@@ -42,15 +42,22 @@ def parse_frontmatter(content):
 def markdown_to_html(text):
     import re
     
-    # 1. Handle Headers
     lines = text.split('\n')
     html_lines = []
     in_list = False
     in_code_block = False
+    paragraph_buffer = []
     
+    def flush_paragraph():
+        if paragraph_buffer:
+            content = ' '.join(paragraph_buffer)
+            html_lines.append(f'<p>{content}</p>')
+            paragraph_buffer.clear()
+
     for line in lines:
         # Code Blocks
         if line.strip().startswith('```'):
+            flush_paragraph()
             if in_code_block:
                 html_lines.append('</code></pre>')
                 in_code_block = False
@@ -68,8 +75,14 @@ def markdown_to_html(text):
 
         line = line.rstrip()
         
+        # Empty lines (Paragraph breaks)
+        if not line:
+            flush_paragraph()
+            continue
+
         # Headers
         if line.startswith('#'):
+            flush_paragraph()
             if in_list:
                 html_lines.append('</ul>')
                 in_list = False
@@ -81,6 +94,7 @@ def markdown_to_html(text):
             
         # Lists
         if line.startswith('* ') or line.startswith('- '):
+            flush_paragraph()
             if not in_list:
                 html_lines.append('<ul>')
                 in_list = True
@@ -94,20 +108,18 @@ def markdown_to_html(text):
         
         # Blockquotes
         if line.startswith('> '):
+            flush_paragraph()
             html_lines.append(f'<blockquote>{line[2:].strip()}</blockquote>')
             continue
             
-        # Empty lines (Paragraph breaks)
-        if not line:
-            html_lines.append('')
-            continue
-            
-        # Regular paragraphs
-        html_lines.append(f'<p>{line}</p>')
+        # Regular text - append to buffer
+        paragraph_buffer.append(line.strip())
         
+    # End of loop cleanup
+    flush_paragraph()
     if in_list:
         html_lines.append('</ul>')
-    if in_code_block: # Close if unclosed
+    if in_code_block:
         html_lines.append('</code></pre>')
         
     html = '\n'.join(html_lines)

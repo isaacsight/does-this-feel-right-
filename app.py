@@ -1,12 +1,20 @@
 import webview
 import os
+import sys
 
 def main():
-    # Get the directory where this script is located
-    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # Get the resource path (different when bundled vs development)
+    if getattr(sys, 'frozen', False):
+        # Running as bundled app
+        bundle_dir = os.path.dirname(sys.executable)
+        resource_path = os.path.join(bundle_dir, '..', 'Resources')
+    else:
+        # Running in development
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        resource_path = os.path.join(script_dir, 'docs')
     
-    # Path to the docs/index.html file
-    html_path = os.path.join(script_dir, 'docs', 'index.html')
+    # Path to index.html
+    html_path = os.path.join(resource_path, 'index.html')
     
     # Convert to file:// URL
     url = f'file://{html_path}'
