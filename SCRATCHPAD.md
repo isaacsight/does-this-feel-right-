@@ -2854,3 +2854,31 @@ Removed the Canvas page and Creative Studio from the website, replacing it with 
   the relay session.
 - test:palmier script pointed at vitest (node --test broke after the
   runner port).
+
+## Session 2026-08-01 — ISSUE 428 pressed (branch: claude/youtube-monetization-rules-pv8pos)
+
+- ISSUE 428 "NOTHING NEW WAS ADDED" — YouTube's 15 July 2025
+  "inauthentic content" rename, read under two lenses. `compare`,
+  second instance (406 was the first); no pattern extracted per
+  interaction-language rule 7. cream stock, classic layout, brick
+  accent, coverSeal NO NEW POLICIES · III·27.
+- Six facts, all externally sourced and dated, verified against the
+  platform's own help pages plus Social Media Today / PPC Land /
+  Search Engine Journal / Tubefilter before the issue was set. This is
+  why CompareSpread gained an optional `references` block (406
+  unaffected); CompareFeature + CSS render it under `pop-compare-refs`.
+- Unlike 406 this piece GIVES a verdict: THE LETTER and THE QUEUE
+  answer different questions (what you are owed vs what you meet), so
+  declining would have been a false symmetry rather than honesty.
+- Artifact edition `artifacts/428-nothing-new-was-added.html` — THE
+  REVIEW QUEUE, six-stratum descent (upload → classifier → three
+  buckets → second look → icon → the rule). Depth axis = the review
+  stack; carried context = the upload's character (three authored
+  composites) re-inking every stratum; floor resolves per carry.
+  Seed 428-0715 printed. Timer-robust clock (rAF-vs-setTimeout race),
+  reduced-motion collapse, print stacks all strata.
+- Gates: check-editorial clean (69 issues), check-adherence clean
+  (0 raw hex), `npm run build` green, 811/811 vitest.
+- NOT deployed. This is a feature branch; only a push to main
+  publishes. Artifact not published to the claude.ai surface either —
+  Isaac's call.

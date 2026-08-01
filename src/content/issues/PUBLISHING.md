@@ -84,7 +84,7 @@ Pick the editorial tool that fits the content:
 | `review` | Graded surveys — "we tested N things, here's the ranking" | Top-line verdict, numbered rubric, graded subject cards, optional standout award |
 | `colloquy` | A single argument carried by **two co-equal voices** (no host) | Voices legend (two stances), numbered movements of attributed turns, optional terms dossier + pull quote. The two voices are positions, not people — a private conversation is mined, never transcribed (see 398). |
 | `instrument` | A **calibrated control handed to the reader** — the interactive tool | Fixed prompt; N dial stops (roving radiogroup); the same prompt answered at each depth with a meter line. Interaction is React state; motion stays CSS-only; all panels stay in the DOM and print renders them stacked. Meter readings must be honestly labelled when representative, or genuinely measured (see 399, 405). |
-| `compare` | A **binary switch between two irreducible lenses** on one fact set — not depths, positions with no medium between them | Two-lens switch (ARIA `role="switch"`, not radiogroup); a shared fact list, each fact read differently under each lens; optional verdict, left undefined when the piece declines to resolve (see 406). |
+| `compare` | A **binary switch between two irreducible lenses** on one fact set — not depths, positions with no medium between them | Two-lens switch (ARIA `role="switch"`, not radiogroup); a shared fact list, each fact read differently under each lens; optional verdict, left undefined when the piece declines to resolve (see 406), or given when the two lenses answer different questions rather than the same one (see 428). Optional `references` block at the foot for a compare over externally sourced facts (added 428). |
 | `sequence` | A **real ordered process in discrete, complete stages** — each stage's account depends on the one before it, not a spectrum or a binary | Numbered rail (ARIA `role="tablist"`/`tab`/`tabpanel`, standard Tabs keyboard behaviour, no forward-lock); a panel per stage with an optional artifact line; the final stage may attach the process's real terminal outcomes. All stages stay in the DOM and print renders them stacked, in order (see 408). |
 | `galley` | A **text the reader marks up** — N independent strike/stet marks on the prose itself; the reader performs an editorial act, and any feeling it produces stays unclaimed | One `aria-pressed` toggle per passage (stable accessible name; visible mark swaps CUT → STET); struck text stays legible in the DOM (strikethrough, never removal); a live tally counts ONLY the reader's marks, with a mandatory `tallyNote` stating what is counted and that marks are unrecorded, session-only. Print hides the knives and keeps the marks (see 410). |
 | `tutor` | A **manual that teaches the interaction grammar** — the reader operates a stakes-free version of each shape and becomes literate in all of them; a composite, not a fifth primitive | An array of `lessons`, one per shape (`dial`/`switch`/`sequence`/`galley`), each with a `teaches` line, `intro`, an operable practice control using that shape's real ARIA pattern, and a `consequence` line (always visible — rule 1). Teach by consequence, never by grade: no control is ever "wrong." Controls reimplemented inline, not imported (rule 7). Print shows every reading, hides every control (see 411). |
@@ -215,7 +215,7 @@ recent same-format issue (`371.ts` for essay-as-profile,
 `405.ts` for instrument (interactive dial, measured meter) or
 `416.ts` for instrument (a *register* dial rather than effort — a real local
 model run three ways; adds the optional `dialLabel` field),
-`406.ts` for compare (interactive binary switch — first instance),
+`428.ts` for compare (interactive binary switch — second instance, sourced facts + references; `406.ts` is the first),
 `408.ts` for sequence (interactive ordered stages — first instance),
 `410.ts` for galley (interactive reader-markup — first instance),
 `411.ts` for tutor (interactive manual teaching all four shapes — first instance),
@@ -503,7 +503,17 @@ branch — only main publishes.
 
 ---
 
-_Last updated: ISSUE 427 · FEB 2027 (THE MOAT IS REALITY — the
+_Last updated: ISSUE 428 · MAR 2027 (NOTHING NEW WAS ADDED — the
+second `compare` instance, and the first over externally sourced
+material: YouTube's 15 July 2025 "inauthentic content" rename, six
+cited facts read under THE LETTER and THE QUEUE. Adds an optional
+`references` block to CompareSpread (406 unaffected) and, unlike
+406, gives a verdict — the two lenses answer different questions, so
+declining would have been a false symmetry. Artifact edition
+`428-nothing-new-was-added.html` carries the depth axis the spread
+has no room for: a six-stratum descent of one upload through the
+review stack, with the upload's character as carried context. Prior:
+427 THE MOAT IS REALITY — the
 second `interview` instance, and the first with a real named subject
 (Alex Hormozi) rather than a composite. Nine exchanges trimmed, not
 invented, from a reader-supplied transcript of a real broadcast

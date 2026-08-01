@@ -609,6 +609,11 @@ export interface CompareSpread extends SpreadCommon {
   verdict?: string
   outro?: SpreadSection[]
   pullQuote?: SpreadPullQuote
+  /** Optional works-cited block at the foot — reused from the essay
+   *  toolkit. Added for ISSUE 428, whose six facts are all external
+   *  and dated; optional, so 406 is unaffected. A compare over
+   *  sourced material should print where the facts came from. */
+  references?: SpreadReferences
 }
 
 /** ─── sequence ──────────────────────────────────────────────────

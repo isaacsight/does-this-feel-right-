@@ -149,6 +149,32 @@ export function CompareFeature({ spread, issue }: CompareFeatureProps) {
           </blockquote>
         )}
 
+        {/* ── Works cited (optional) ──────────────────────── */}
+        {spread.references && (
+          <aside className="pop-compare-refs" aria-label="Works cited">
+            <header className="pop-compare-refs-head">
+              <span className="pop-kicker pop-kicker--tomato">{spread.references.kicker}</span>
+              {spread.references.note && (
+                <p className="pop-compare-refs-note">{spread.references.note}</p>
+              )}
+            </header>
+            <ol className="pop-compare-refs-list">
+              {spread.references.items.map((ref, i) => (
+                <li key={i} className="pop-compare-refs-item">
+                  <span className="pop-compare-refs-n">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="pop-compare-refs-body">
+                    <span className="pop-compare-refs-authors">{ref.authors}</span>
+                    <span className="pop-compare-refs-year"> ({ref.year}). </span>
+                    <span className="pop-compare-refs-title">{ref.title}</span>
+                    {ref.journal && <span className="pop-compare-refs-journal">. {ref.journal}</span>}
+                    <span className="pop-compare-refs-dot">.</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </aside>
+        )}
+
         {/* ── Sign-off ────────────────────────────────────── */}
         <footer className="pop-compare-signoff">
           <hr className="pop-rule pop-rule--short pop-rule--tomato" />
