@@ -313,6 +313,96 @@
   text-align: center;
 }
 
+/* ── Works cited — back-of-book grammar, not footnotes ──── */
+.pop-compare-refs {
+  max-width: 640px;
+  margin: 56px auto 0;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--pop-hairline);
+}
+
+.pop-compare-refs-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.pop-compare-refs-note {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--pop-coffee);
+  margin: 4px 0 0;
+  max-width: 52ch;
+}
+
+.pop-compare-refs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pop-compare-refs-item {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--pop-ink);
+}
+
+.pop-compare-refs-n {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--issue-accent);
+  font-weight: 700;
+  padding-top: 2px;
+}
+
+.pop-compare-refs-authors {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--pop-coffee);
+}
+
+.pop-compare-refs-year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--pop-coffee);
+}
+
+.pop-compare-refs-title {
+  font-style: italic;
+  color: var(--pop-ink);
+}
+
+.pop-compare-refs-journal {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--pop-coffee);
+}
+
+.pop-compare-refs-dot { color: var(--pop-ink); }
+
+/* Ink stock — flip the citation colors for dark paper. */
+.pop-compare.pop-stock-ink .pop-compare-refs { border-top-color: rgba(250, 249, 246, 0.18); }
+.pop-compare.pop-stock-ink .pop-compare-refs-note { color: var(--pop-sepia); }
+.pop-compare.pop-stock-ink .pop-compare-refs-item { color: var(--pop-ivory); }
+.pop-compare.pop-stock-ink .pop-compare-refs-authors,
+.pop-compare.pop-stock-ink .pop-compare-refs-year,
+.pop-compare.pop-stock-ink .pop-compare-refs-journal { color: var(--pop-sepia); }
+.pop-compare.pop-stock-ink .pop-compare-refs-title,
+.pop-compare.pop-stock-ink .pop-compare-refs-dot { color: var(--pop-ivory); }
+
 /* ── Print — both lenses' readings stack per fact ───────── */
 @media print {
   .pop-compare-switch { display: none; }

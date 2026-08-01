@@ -1,0 +1,435 @@
+<style>
+  /* ISSUE 428 — NOTHING NEW WAS ADDED · 何ひとつ新しくはない
+     Artifact edition: THE REVIEW QUEUE — a six-stratum descent of one
+     upload from the file to the rule that judges it. Tokens mirrored
+     from src/index.css. Accent: brick (archival seed) on cream stock.
+     Depth axis = the review stack. Carried context = the upload's
+     character, chosen at the surface, re-inking every stratum below.
+     Nothing here calls any service; every stratum is drawn in-house
+     from the cited policy text. Seed prints on the masthead. */
+  :root{
+    --ink:#1F1E1D; --ivory:#FAF9F6; --cream:#F3E9D2; --ledger:#F2EFE2;
+    --brick:#9E3A2B; --brick-lift:#C25F4A; --brick-dim:#7A3A31;
+    --coffee:#6B5B4A;
+    --hair:rgba(31,30,29,.18); --hair-strong:rgba(31,30,29,.42);
+    --paper:var(--cream); --type:var(--ink); --accent:var(--brick);
+    --serif:"EB Garamond","Iowan Old Style",Palatino,Georgia,serif;
+    --mono:"Courier Prime","Courier New",monospace;
+    --jp:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--paper:var(--ink); --type:var(--ivory); --accent:var(--brick-lift);
+      --coffee:#A99684; --hair:rgba(250,249,246,.16); --hair-strong:rgba(250,249,246,.4)}
+  }
+  .rq-root{background:var(--paper);color:var(--type);font-family:var(--serif);
+    margin:0;min-height:100svh;position:relative;overflow-x:hidden}
+  .rq-root *{box-sizing:border-box}
+  .rq-frame{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:0 clamp(16px,4vw,44px)}
+
+  .rq-mast{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
+    padding:20px 0 14px;border-bottom:1px solid var(--hair-strong);
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase}
+  .rq-mast b{color:var(--accent);font-weight:400}
+  .rq-seed{opacity:.65}
+  .rq-glyph{color:var(--accent)}
+
+  .rq-hero{padding:clamp(28px,6vh,60px) 0 4px}
+  .rq-kicker{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;color:var(--accent);margin:0}
+  .rq-kicker::before{content:"[ "}.rq-kicker::after{content:" ]"}
+  .rq-hero h1{font-size:clamp(2.3rem,7.2vw,5.2rem);line-height:.98;letter-spacing:-.025em;
+    margin:.3em 0 .1em;font-weight:700;text-wrap:balance}
+  .rq-hero h1 em{font-style:italic;color:var(--accent)}
+  .rq-jp{font-family:var(--jp);font-size:clamp(.9rem,2vw,1.12rem);color:var(--accent);opacity:.88;margin:0}
+  .rq-deck{max-width:60ch;font-size:1.05rem;line-height:1.62;opacity:.92;margin:1.15em 0 0}
+
+  /* ── the carry: what is being lowered ─────────────────── */
+  .rq-carry{margin:34px 0 6px;border-top:1px solid var(--hair-strong);padding-top:18px}
+  .rq-carry h2,.rq-ledger h2{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);font-weight:400;margin:0 0 10px}
+  .rq-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 12px;padding:0;list-style:none}
+  .rq-chip{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+    background:none;border:1px solid var(--hair-strong);color:var(--type);
+    padding:13px 18px;min-height:44px;cursor:pointer;text-align:left;
+    transition:background .16s,color .16s,border-color .16s}
+  .rq-chip:hover{border-color:var(--accent)}
+  .rq-chip:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .rq-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+  .rq-chip small{display:block;font-size:.58rem;letter-spacing:.08em;opacity:.72;margin-top:3px;text-transform:none}
+  .rq-carrynote{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;opacity:.7;margin:0;max-width:64ch}
+
+  /* ── the gauge + the bore ──────────────────────────────── */
+  .rq-rig{display:grid;grid-template-columns:120px 1fr;gap:0 clamp(14px,3vw,32px);margin:26px 0 0}
+  .rq-gauge{position:relative;border-right:1px solid var(--hair-strong);padding:6px 14px 6px 0}
+  .rq-gstop{display:flex;justify-content:flex-end;align-items:baseline;gap:8px;height:var(--stop-h);
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;opacity:.5;transition:opacity .2s,color .2s}
+  .rq-gstop .jp{font-family:var(--jp);font-size:.62rem}
+  .rq-gstop.at{opacity:1;color:var(--accent)}
+  .rq-probe-mark{position:absolute;right:-5px;width:9px;height:9px;background:var(--accent);
+    transform:translateY(-50%) rotate(45deg);transition:top .5s cubic-bezier(.3,.9,.3,1)}
+
+  .rq-strata{margin:0;padding:0;list-style:none}
+  .rq-stratum{min-height:var(--stop-h);padding:6px 0 22px;border-bottom:1px dashed var(--hair);
+    opacity:.42;transition:opacity .35s ease}
+  .rq-stratum.lit{opacity:1}
+  .rq-stratum:last-child{border-bottom:0}
+  .rq-shead{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;margin:0}
+  .rq-stratum.lit .rq-shead{color:var(--accent)}
+  .rq-shead .jp{font-family:var(--jp);letter-spacing:.04em;text-transform:none;opacity:.8}
+  .rq-sbody{font-size:1.02rem;line-height:1.6;margin:.5em 0 .6em;max-width:60ch}
+  .rq-sread{font-size:.98rem;line-height:1.58;margin:0;max-width:60ch;
+    border-left:2px solid var(--accent);padding-left:14px}
+  .rq-sread .tag{display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+  .rq-scap{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;opacity:.6;margin:.7em 0 0}
+
+  .rq-winch{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:26px 0 0}
+  .rq-winch button{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    background:none;border:1px solid var(--accent);color:var(--accent);
+    padding:15px 24px;min-height:44px;cursor:pointer;
+    transition:transform .14s cubic-bezier(.2,1.6,.4,1),background .14s,color .14s}
+  .rq-winch button:hover{background:var(--accent);color:var(--paper)}
+  .rq-winch button:active{transform:scale(.96)}
+  .rq-winch button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .rq-winch small{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;opacity:.65;max-width:46ch}
+
+  /* ── the floor ─────────────────────────────────────────── */
+  .rq-floor{background:var(--ledger);color:var(--ink);margin:48px calc(50% - 50vw) 0;padding:42px 0 34px}
+  @media (prefers-color-scheme:dark){.rq-floor{background:rgba(250,249,246,.06);color:var(--ivory)}}
+  .rq-floor h2{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--brick);font-weight:400;margin:0 0 14px}
+  @media (prefers-color-scheme:dark){.rq-floor h2{color:var(--brick-lift)}}
+  .rq-floor .rule{font-size:clamp(1.2rem,3.2vw,1.7rem);line-height:1.42;font-style:italic;
+    max-width:46ch;margin:0 0 18px}
+  .rq-floor .resolve{font-size:1.02rem;line-height:1.62;max-width:58ch;margin:0}
+  .rq-floor .stamp{display:inline-block;margin-top:20px;border:1px solid var(--brick);color:var(--brick);
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+    padding:8px 14px;transform:rotate(-1.4deg)}
+  @media (prefers-color-scheme:dark){.rq-floor .stamp{border-color:var(--brick-lift);color:var(--brick-lift)}}
+
+  .rq-ledger{border-top:1px solid var(--hair-strong);margin-top:44px;padding-top:16px}
+  .rq-ledger ul{list-style:none;margin:0;padding:0;font-family:var(--mono);font-size:.7rem;
+    line-height:2;font-variant-numeric:tabular-nums}
+  .rq-ledger li{border-bottom:1px dashed var(--hair);display:flex;justify-content:space-between;gap:12px}
+  .rq-ledger li b{color:var(--accent);font-weight:400}
+
+  .rq-colophon{padding:34px 0 48px;font-family:var(--mono);font-size:.63rem;
+    letter-spacing:.07em;line-height:1.95;opacity:.8;max-width:74ch}
+  .rq-colophon b{color:var(--accent);font-weight:400}
+
+  @media (max-width:720px){
+    .rq-rig{grid-template-columns:64px 1fr;gap:0 14px}
+    .rq-gstop{font-size:.6rem;gap:5px}
+    .rq-gstop .jp{display:none}
+    .rq-chip{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .rq-stratum{opacity:1}
+  }
+  @media print{
+    .rq-root{background:#fff;color:#1F1E1D}
+    .rq-winch,.rq-chips{display:none}
+    .rq-stratum{opacity:1!important;break-inside:avoid}
+    .rq-floor{background:none;margin:20px 0 0;color:#1F1E1D}
+    .rq-shead,.rq-kicker,.rq-hero h1 em,.rq-jp,.rq-ledger li b{color:#9E3A2B}
+  }
+</style>
+
+<div class="rq-root" id="rq-root">
+<div class="rq-frame">
+
+  <header class="rq-mast">
+    <span>KERNEL.CHAT · ISSUE <b>428</b> · MAR 2027</span>
+    <span class="rq-glyph">★</span>
+    <span class="rq-seed">SEED 428-0715 · PRINTED</span>
+  </header>
+
+  <section class="rq-hero">
+    <p class="rq-kicker">THE BORE · 掘削 · THE POLICY DESK</p>
+    <h1>Nothing new <em>was added.</em></h1>
+    <p class="rq-jp">何ひとつ新しくはない — 規則は動かず、審査の列だけが動いた</p>
+    <p class="rq-deck">The spread argues the text. This page lowers a probe through the
+    machinery the text runs on: six strata from the file you uploaded to the sentence
+    that judges it. Pick what you are sending down first — the carry re-inks every
+    stratum beneath it. Every stratum is legible from the surface; the probe raises
+    emphasis, it never conjures a layer that was not already there.</p>
+  </section>
+
+  <section class="rq-carry">
+    <h2>The carry · 積荷 — what is being lowered</h2>
+    <ul class="rq-chips">
+      <li><button class="rq-chip" type="button" data-carry="hand" aria-pressed="true">Original commentary<small>one voice, own cuts, own argument</small></button></li>
+      <li><button class="rq-chip" type="button" data-carry="mill" aria-pressed="false">Templated at scale<small>same narration, swapped slides, forty a day</small></button></li>
+      <li><button class="rq-chip" type="button" data-carry="oracle" aria-pressed="false">Synthetic presenter, health<small>a persona advising on blood pressure</small></button></li>
+    </ul>
+    <p class="rq-carrynote">The three carries are authored composites, written from the
+    policy text — not case files, not anyone's channel.</p>
+  </section>
+
+  <div class="rq-rig">
+    <div class="rq-gauge" id="rq-gauge" aria-hidden="true">
+      <span class="rq-probe-mark" id="rq-mark"></span>
+    </div>
+    <ol class="rq-strata" id="rq-strata"></ol>
+  </div>
+
+  <div class="rq-winch">
+    <button id="rq-lower" type="button">★ Lower the probe</button>
+    <small>One control, honestly geared: each press descends exactly one stratum.
+    At the floor it raises you back to the surface.</small>
+  </div>
+
+  <section class="rq-ledger">
+    <h2>Session ledger · 台帳 — this window only; unrecorded; reload erases it</h2>
+    <ul>
+      <li><span>DEPTH REACHED</span><b id="rq-depth">0 of 5</b></li>
+      <li><span>DESCENTS</span><b id="rq-drops">0</b></li>
+      <li><span>CARRIES CHANGED</span><b id="rq-carries">0</b></li>
+      <li><span>TIME IN THE BORE</span><b id="rq-clock">00:00</b></li>
+    </ul>
+  </section>
+</div>
+
+  <section class="rq-floor">
+    <div class="rq-frame">
+      <h2>The floor · 底 — stratum −5, the rule itself</h2>
+      <p class="rule">Content must be original and authentic. On 15 July 2025 that
+      sentence was renamed, not rewritten.</p>
+      <p class="resolve" id="rq-resolve"></p>
+      <span class="stamp">No new policies were added · III·27</span>
+    </div>
+  </section>
+
+<div class="rq-frame">
+  <footer class="rq-colophon">
+    <p>NOTHING NEW WAS ADDED · 何ひとつ新しくはない · KERNEL PRESS <span class="rq-glyph">★</span><br>
+    Every stratum on this page is drawn in-house from published policy text — nothing is
+    generated, no request leaves this page, and no channel or upload is described. The three
+    carries are authored composites. The bore is deterministic from seed <b>428-0715</b>,
+    printed at the masthead: at rest it always reads the same. The session ledger counts only
+    your own descents, carry changes, and the clock since this page loaded; it is held in
+    memory, sent nowhere, and erased on reload. Under reduced motion the probe stops moving
+    and every stratum stands at full ink. Print stacks all six strata, at every carry, with
+    the controls removed. Sources: the platform's monetization policy pages and the
+    additional-reviews notice of 10 March 2025, cited in full in the issue's policy file.</p>
+  </footer>
+</div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* deterministic — the seed prints on the masthead; nothing here is random.
+     mulberry32 is carried for the house contract (a printed seed must be able
+     to redraw any state the reader saw) and used only for the settle cadence. */
+  function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  var rng = mulberry32(4280715);
+
+  var CARRIES = {
+    hand:   'ORIGINAL COMMENTARY',
+    mill:   'TEMPLATED AT SCALE',
+    oracle: 'SYNTHETIC PRESENTER, HEALTH'
+  };
+
+  var STRATA = [
+    {
+      gauge:'0m', jp:'表層',
+      label:'STRATUM 0 · THE UPLOAD', labelJp:'投稿',
+      body:'The file lands. Nothing has judged it yet, and for most of the platform’s history this is where the story ended.',
+      read:{
+        hand:'Forty-one minutes, one voice, three cuts that only work if you were in the room when they happened.',
+        mill:'Video thirty-one of the day. Same narration bed, new slides, new thumbnail, same forty seconds of outro.',
+        oracle:'A face that does not exist, in a set that does not exist, explaining what to do about your blood pressure.'
+      },
+      cap:'FIG. 1 — the file, before anything has read it.'
+    },
+    {
+      gauge:'−1', jp:'自動判定',
+      label:'STRATUM −1 · THE CLASSIFIER', labelJp:'広告適合性の一次審査',
+      body:'The ad-suitability pass. It runs in minutes on nearly everything, and it is asking about advertiser safety — not about authorship.',
+      read:{
+        hand:'Passes in under a minute. Most content does. This is the boring outcome the whole policy is built around.',
+        mill:'Passes too. Nothing in one upload is repetitive — repetition is a property of a channel, and this pass is looking at a file.',
+        oracle:'Passes. Ad-suitability is not authenticity; at this depth the machine is answering a different question entirely.'
+      },
+      cap:'FIG. 2 — the first pass judges the frame, not the pattern.'
+    },
+    {
+      gauge:'−2', jp:'三分類',
+      label:'STRATUM −2 · THE THREE BUCKETS', labelJp:'収益化対象外の三分類',
+      body:'Generic or mass-produced. Off-putting or distressing. A synthetic persona presenting as an authority on health, finance, law, or politics. This is the stratum that was renamed on 15 July 2025 — and the only thing the rename did was give these three a shorter name.',
+      read:{
+        hand:'None of the three fit, and no tool you used changes that. The renderer was never the question at this depth.',
+        mill:'Bucket one. Not because a machine made it — because thirty of them are the same object with the nouns swapped.',
+        oracle:'Bucket three, the only one of the three with a named harm behind it rather than a taste.'
+      },
+      cap:'FIG. 3 — two of the three are judgments; one is a harm.'
+    },
+    {
+      gauge:'−3', jp:'再審査',
+      label:'STRATUM −3 · THE SECOND LOOK', labelJp:'追加審査',
+      body:'Since 10 March 2025, anything first marked Limited or No ad earnings is routed automatically for an additional review that may be completed by a person. Most decisions still land in minutes. Some take up to twenty-four hours.',
+      read:{
+        hand:'Never routed. If this is your carry, you will go your whole career without learning this stratum exists.',
+        mill:'Routed. A person can open it, see the thirty siblings, and decide the thing the first pass structurally could not.',
+        oracle:'Routed, and the wait is the point — a human is the only reviewer who can weigh what presenting as an expert means here.'
+      },
+      cap:'FIG. 4 — the platform paying for a second opinion about you.'
+    },
+    {
+      gauge:'−4', jp:'判定',
+      label:'STRATUM −4 · THE ICON', labelJp:'収益化アイコン',
+      body:'Green, yellow, red. The entire descent, compressed into one glyph in a studio interface, arriving in the hours a video earns most of what it will ever earn.',
+      read:{
+        hand:'Green. Full ad earnings. The rule was satisfied before the upload finished processing.',
+        mill:'Yellow, then a channel-level question the icon cannot show you. Videos are judged one at a time; channels are not.',
+        oracle:'Red, and an appeal that asks you to argue about a category rather than about a frame.'
+      },
+      cap:'FIG. 5 — six strata of reasoning, rendered as one colour.'
+    },
+    {
+      gauge:'−5', jp:'条文',
+      label:'STRATUM −5 · THE RULE', labelJp:'規則そのもの',
+      body:'The floor. A sentence older than every layer above it, and older than the ability to render a convincing face: content must be original and authentic. No new policies were added to the Partner Program.',
+      read:{
+        hand:'You were never in scope. You are still not in scope. Nothing about your Tuesday changed on 15 July.',
+        mill:'You were out of scope in 2019 too. What changed is that it became cheap enough to be out of scope forty times a day.',
+        oracle:'New in practice, old in principle. The principle is that authority has to be earned by somebody, and here there is no somebody.'
+      },
+      cap:'FIG. 6 — the floor was always this. The queue above it is what moved.'
+    }
+  ];
+
+  var RESOLVE = {
+    hand:'Read the letter and you are owed a green icon; work the queue and you get one, usually within the minute. For this carry the two readings agree, which is exactly why this carry never hears about the policy at all.',
+    mill:'Read the letter and nothing changed for you either — this was ineligible in 2019. Work the queue and everything changed, because the volume that makes it obvious is new, and volume is what the second look is looking at.',
+    oracle:'Read the letter and this was always covered by a rule about authenticity. Work the queue and it is the one carry the July rename genuinely sharpened: the third bucket exists because somebody had to name it out loud.'
+  };
+
+  var STOP_H = 168;
+  document.documentElement.style.setProperty('--stop-h', STOP_H + 'px');
+
+  var carry = 'hand', depth = 0, drops = 0, carries = 0, started = Date.now();
+  var gauge = document.getElementById('rq-gauge');
+  var mark = document.getElementById('rq-mark');
+  var list = document.getElementById('rq-strata');
+  var lower = document.getElementById('rq-lower');
+  var resolveEl = document.getElementById('rq-resolve');
+
+  /* Build the gauge rail and the strata. Every stratum and every reading
+     is in the DOM from the first paint; the probe changes emphasis only. */
+  STRATA.forEach(function(s, i){
+    var g = document.createElement('div');
+    g.className = 'rq-gstop';
+    g.dataset.i = i;
+    g.innerHTML = '<span></span><span class="jp"></span>';
+    g.children[0].textContent = s.gauge;
+    g.children[1].textContent = s.jp;
+    gauge.appendChild(g);
+
+    var li = document.createElement('li');
+    li.className = 'rq-stratum';
+    li.dataset.i = i;
+    var h = document.createElement('p');
+    h.className = 'rq-shead';
+    h.appendChild(document.createTextNode(s.label + ' · '));
+    var hj = document.createElement('span');
+    hj.className = 'jp';
+    hj.textContent = s.labelJp;
+    h.appendChild(hj);
+    li.appendChild(h);
+
+    var b = document.createElement('p');
+    b.className = 'rq-sbody';
+    b.textContent = s.body;
+    li.appendChild(b);
+
+    var r = document.createElement('p');
+    r.className = 'rq-sread';
+    var tag = document.createElement('span');
+    tag.className = 'tag';
+    r.appendChild(tag);
+    var txt = document.createTextNode('');
+    r.appendChild(txt);
+    li.appendChild(r);
+    li._tag = tag; li._txt = txt;
+
+    var c = document.createElement('p');
+    c.className = 'rq-scap';
+    c.textContent = s.cap;
+    li.appendChild(c);
+
+    list.appendChild(li);
+  });
+
+  var stops = gauge.querySelectorAll('.rq-gstop');
+  var items = list.querySelectorAll('.rq-stratum');
+
+  function paintCarry(){
+    for (var i = 0; i < STRATA.length; i++){
+      items[i]._tag.textContent = CARRIES[carry];
+      items[i]._txt.nodeValue = STRATA[i].read[carry];
+    }
+    resolveEl.textContent = RESOLVE[carry];
+  }
+
+  function paintDepth(){
+    for (var i = 0; i < items.length; i++){
+      if (i <= depth) items[i].classList.add('lit'); else items[i].classList.remove('lit');
+      if (i === depth) stops[i].classList.add('at'); else stops[i].classList.remove('at');
+    }
+    mark.style.top = (depth * STOP_H + STOP_H / 2 + 6) + 'px';
+    document.getElementById('rq-depth').textContent = depth + ' of 5';
+    lower.textContent = depth >= STRATA.length - 1 ? '★ Raise to the surface' : '★ Lower the probe';
+  }
+
+  document.querySelectorAll('.rq-chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      if (chip.dataset.carry === carry) return;
+      carry = chip.dataset.carry;
+      carries++;
+      document.getElementById('rq-carries').textContent = carries;
+      document.querySelectorAll('.rq-chip').forEach(function(c){
+        c.setAttribute('aria-pressed', c.dataset.carry === carry ? 'true' : 'false');
+      });
+      paintCarry();
+    });
+  });
+
+  lower.addEventListener('click', function(){
+    if (depth >= STRATA.length - 1){ depth = 0; }
+    else { depth++; drops++; document.getElementById('rq-drops').textContent = drops; }
+    paintDepth();
+    items[depth].scrollIntoView({ block:'center', behavior: reduced ? 'auto' : 'smooth' });
+  });
+
+  paintCarry();
+  paintDepth();
+
+  /* Session clock. Timer-robust per house law: every tick advances via a
+     rAF-vs-setTimeout race rather than rAF alone, which provably stalls in
+     throttled and background tabs. Nothing here animates a pixel. */
+  var clockEl = document.getElementById('rq-clock'), lastTick = 0;
+  function tick(now){
+    if (now - lastTick > 950){
+      var s = Math.floor((Date.now() - started) / 1000);
+      var m = Math.floor(s / 60);
+      clockEl.textContent = (m < 10 ? '0' : '') + m + ':' + ((s % 60) < 10 ? '0' : '') + (s % 60);
+      lastTick = now;
+    }
+    schedule();
+  }
+  var pending = false;
+  function schedule(){
+    if (pending) return;
+    pending = true;
+    var done = false;
+    function run(t){ if (done) return; done = true; pending = false; tick(t || performance.now()); }
+    requestAnimationFrame(run);
+    setTimeout(run, 1000 + Math.floor(rng() * 60));
+  }
+  schedule();
+})();
+</script>
