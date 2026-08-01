@@ -1112,3 +1112,42 @@ zero advances is a loud failure.
 because the adapter only screenshotted on a failure path neither took. A step
 that can fail needs to capture what the page was showing when it did, or the
 error names the symptom and buries the cause.
+
+## 10.26  The TikTok adapter reported eight posts that did not exist
+
+Worse than the Instagram bugs, because those failed loudly. This one succeeded
+loudly and was wrong: all eight uploads on 2026-08-01 logged
+`file attached / caption verified / posted`, and TikTok Studio's post list ended
+at the previous day. Nothing had been published.
+
+The cause was three lines that describe the check and then throw it away:
+
+    // Confirm the composer actually closed - clicking is not proof of posting.
+    await page.waitForURL(u => !u.includes('/upload'), { timeout: 90_000 })
+      .catch(() => {})              // <- swallows the failure it just caught
+    return { url: '...' }           // <- success regardless
+
+**A verification you discard is worse than no verification**, because it reads
+as evidence in the log. The comment above it was correct and the code under it
+did the opposite.
+
+The underlying block: TikTok runs a copyright / content check on upload, and if
+it is still running when Post is clicked it raises a **"Continue to post?"**
+dialog — *"The copyright check is incomplete. Posting your video now will stop
+the check."* — with Cancel / **Post now**. Nothing answered it, so the post sat
+there. It only started failing that day because the previous batch's checks had
+finished before Post was clicked. The adapter now waits for the check to
+finish, and confirms the dialog if it appears anyway.
+
+### And a verification lesson, learned twice in one session
+
+**Every social profile grid under-reports.** Instagram's reels grid returned 12
+where there were 41. TikTok's profile grid returned 8 where Studio showed 32.
+Both are virtualised; a fixed wait measures the viewport and a wheel-scroll loop
+is not guaranteed to drive the container. I drew a wrong conclusion from each,
+having just documented the trap for the other.
+
+Use the **owner-side** list — TikTok Studio's Posts table, with its total count
+in the header — and check the count moves by exactly the number you posted.
+`tools/publish/tiktok-audit.mjs` exists for this. When a scraped count and a
+displayed total disagree, the total is right and the scrape is truncated.

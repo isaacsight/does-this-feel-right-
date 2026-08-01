@@ -138,12 +138,51 @@ export async function tiktok({ short, caption, publish }) {
     await page.screenshot({ path: `output/publish/proof-tiktok-${short.slug}.png` })
     if (!publish) return { note: 'staged' }
 
+    // Let TikTok's copyright / content checks finish before posting. If they
+    // are still running, clicking Post raises a "Continue to post?" dialog
+    // offering to ABANDON the check — waiting a couple of minutes is cheaper
+    // than skipping a check that exists to stop a takedown later.
+    const checking = page.getByText(/checking your video|check in progress/i).first()
+    for (let i = 0; i < 24; i++) {
+      if (!await checking.isVisible({ timeout: 1500 }).catch(() => false)) break
+      await page.waitForTimeout(5000)
+    }
+
     const post = page.getByRole('button', { name: /^post$/i }).first()
     await post.waitFor({ state: 'visible', timeout: 60_000 })
     await post.click({ force: true })
+
+    // ...and confirm the dialog if it appears anyway. This is what silently ate
+    // all eight uploads on 2026-08-01: Post was clicked, "Continue to post?"
+    // opened over it, nothing answered it, and the run reported success.
+    const confirm = page.getByRole('button', { name: /^post now$/i }).first()
+    if (await confirm.isVisible({ timeout: 8000 }).catch(() => false)) {
+      log('confirming "Continue to post?"')
+      await confirm.click({ force: true })
+    }
+
     // Confirm the composer actually closed — clicking is not proof of posting.
-    await page.waitForURL(u => !u.toString().includes('/upload'), { timeout: 90_000 })
-      .catch(() => {})
+    //
+    // This check used to end in `.catch(() => {})`, which swallowed the very
+    // failure it was written to catch: the adapter then returned success
+    // unconditionally after clicking Post. On 2026-08-01 all eight uploads
+    // reported "posted" and NONE of them existed — TikTok Studio's post list
+    // ended at the previous day. A verification you discard is worse than no
+    // verification, because it reads as evidence in the log.
+    try {
+      await page.waitForURL(u => !u.toString().includes('/upload'), { timeout: 120_000 })
+    } catch {
+      const shot = `output/publish/debug-tiktok-post-${short.slug}.png`
+      await page.screenshot({ path: shot, fullPage: true }).catch(() => {})
+      const seen = (await page.locator('body').innerText().catch(() => ''))
+        .replace(/\s+/g, ' ')
+      // Surface TikTok's own words — an upload limit or a policy block reads
+      // completely differently from a stuck button, and both look identical
+      // from the URL alone.
+      const err = seen.match(/[^.]*(?:limit|too many|try again|failed|error|violat|not allowed)[^.]*/i)
+      throw new Error(`composer never closed after Post (${shot})` +
+                      (err ? ` — page said: ${err[0].trim().slice(0, 200)}` : ''))
+    }
     await page.waitForTimeout(4000)
     return { url: 'https://www.tiktok.com/@kernel.chat' }
   } finally { await page.close().catch(() => {}) }
