@@ -3585,3 +3585,23 @@ and the Next walk breaking silently while Instagram transcoded).
 - Still open from 2026-07-31: unpublish the auto-generated caption track on
   `9kHUSRU3zms`, and delete the four private hummy uploads (`cxc9S--6zZE`,
   `TPmOoPHG4Gc`, `8FiM7vL_1PU`, `vXMjPN3oDQc`).
+
+### Correction, same session — TikTok had published nothing
+
+I reported all 8 shorts live on 4 platforms. TikTok was false: the adapter
+logged "posted / caption verified" for all 8 and TikTok Studio's post list
+ended at the previous day. Its success check was
+`waitForURL(...).catch(() => {})` followed by an unconditional success return —
+it named the problem and threw the answer away. Real cause: TikTok's
+"Continue to post?" dialog when the copyright check is still running.
+
+Fixed and re-posted; Studio total moved 32 -> 40, exactly 8. Instagram verified
+clean (each short once, both superseded reels deleted by Isaac).
+
+Two verification traps hit in the same session: Instagram's reels grid read 12
+of 41, TikTok's profile grid read 8 of 32. Both virtualised. Use the owner-side
+total, not a scraped grid.
+
+**Pre-existing duplicate still on TikTok:** "You have watched sugar turn a calm
+child into a wild one..." posted twice on Jul 31 (10:43 PM / 10:25 PM). From
+yesterday's run, not today's. Isaac's call whether to remove one.
