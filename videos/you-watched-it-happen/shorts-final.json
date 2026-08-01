@@ -1,0 +1,25 @@
+{
+  "master": "renders/you-watched-it-happen_2026-07-31_21-49-22.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "shorts": [
+    {
+      "name": "04-twenty-three-trials",
+      "from": 2177,
+      "to": 3950,
+      "kicker": "TWENTY-THREE TRIALS"
+    },
+    {
+      "name": "05-true-and-useless",
+      "from": 3964,
+      "to": 5733,
+      "kicker": "TRUE AND USELESS"
+    },
+    {
+      "name": "06-what-it-is-good-at",
+      "from": 7906,
+      "to": 9526,
+      "kicker": "WATCH THE MOTHER"
+    }
+  ]
+}

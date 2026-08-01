@@ -2,6 +2,365 @@
 
 > This file persists context between Claude Code sessions.
 
+## Session 2026-07-30 (late) - "You Are Not Finished" WRITTEN AND SHIPPED
+
+**Live:** https://youtu.be/yEeL5u4nwNw - 7:01, public. Shorts on YouTube
+(adMYz3uGZzE, FLRGTHKFJ5I, m7EsfuUPLWA), TikTok @kernel.chat, Instagram
+@kerneldotchat, X @Kernelchatkbot. Substack at kernelchat.substack.com.
+
+**Read `docs/video/PRODUCTION-PLAYBOOK.md` 10.7-10.9 before the next film.**
+All three were paid for today.
+
+### Project
+
+`videos/you-are-not-finished/` - 122 frames, seven acts, 1,161-word script.
+Spec: `docs/superpowers/specs/2026-07-30-end-of-history-illusion-design.md`.
+Plan: `docs/superpowers/plans/2026-07-30-you-are-not-finished.md`.
+Delivery kit in `deliver/` (publish-manifest, youtube/, shorts/, substack-post).
+
+### The one thing to reuse
+
+**`tools/video/register-profile.py`** measures a script's register. Profiling
+1001 School of Life transcripts against the rituals script found rituals said
+"you" ZERO times in 1,043 words. That is the likeliest cause of the "I got
+lost" failures. Gate every script on it before boards.
+
+Also new: `tools/shorts/build-segments.py` (caption cards from an edit map),
+`videos/you-are-not-finished/production/generate-frames.mjs` (direct fal, with
+its own spend ledger), `tools/publish/x-post.mjs` (native video to X).
+
+### Traps that cost real time today
+
+1. **Clipboard mangles non-ASCII.** An em dash became `,Aei` in ElevenLabs
+   (cost a re-record) AND `,Ai` in the published Substack post (7 characters,
+   still to fix). Sanitise to ASCII before ANY clipboard paste into a browser.
+2. **Measure the artifact, not the preview.** Gemini's in-page img is ~1024px,
+   the download is 2752px. Measuring the preview caused a confident wrong
+   decision to drop the film to 720p. Reverted.
+3. **A reference image is a prior on everything it contains** - its cast, its
+   captions, its layout. Prohibition never beat demonstration; changing the
+   reference worked first time, every time.
+4. **Newlines submit in Gemini's composer.** Single-line prompts only.
+5. **Budget 1.6x the nominal frame count.** 122 frames quoted ~$4.75, actual
+   $7.88 with re-rolls.
+
+### Open
+
+- **Nobody has watched the film end to end** and it is public on four platforms.
+- Substack post has 7 mojibake characters + 2 literal asterisks. ASCII-safe
+  source at `deliver/substack-post-ascii.md`.
+- First film's `short-3-thirty-five-seconds` still failed on TikTok+Instagram
+  in `output/publish/manifest.json`.
+- Film SRT not uploaded to YouTube; platform auto-captions not disabled.
+
+---
+
+## Session 2026-07-30 (later) — rituals film PUBLISHED & delivery kit shipped
+
+**Done.** `videos/why-humans-need-rituals/deliver/` holds everything needed to publish:
+- `youtube/`: master film (`why-humans-need-rituals.mp4`, 7:09, 62.5MB, -15.8 LUFS) + `.srt` (201 cues) + isolated VO (`narration.mp3`) + 2 thumbnail candidates (`thumbnail-a.png`, `thumbnail-b.png`).
+- `shorts/`: 3 captioned verticals (`01-arranging-ourselves.mp4`, `02-the-difficult-middle.mp4`, `03-without-an-ending.mp4`) with matching `.srt` and `.txt` post copy.
+- `publish-manifest.json` + `README.md`: complete YouTube titles, alternates, description with research citations, 24 chapter markers, tags, and per-platform copy.
+
+**Live & Public Links**:
+- Main Film: https://youtu.be/T7ty6sNtKHQ
+- Short 01: https://youtu.be/YPAuIt7X9_4
+- Short 02: https://youtu.be/Rz__4__r8Aw
+- Short 03: https://youtu.be/-qmuIZbOxc4
+
+**Tool upgrade:** `tools/post-social.mjs` now supports CDP connection (`connectOverCDP('http://localhost:9222')`) to attach directly to an active Google Chrome browser session, and natively handles **X (Twitter)** and **Substack** alongside TikTok and Instagram (`node tools/post-social.mjs all <file> <caption-file> --publish`).
+
+---
+
+## Session 2026-07-30 (later) - new film "You Are Not Finished" in build
+
+**Read `videos/you-are-not-finished/STYLE.md` before generating anything.** It
+carries the locked style block and both of Gemini's known disobediences.
+
+**Done:** script (voice-gated), frame book (87 frames), character reference
+(approved), narration (all six acts, 5:42, -18.3 LUFS), frame timings
+re-derived from real audio.
+
+**In progress:** Task 5, generating 87 frames through Gemini. **1 of 87 done**
+(01a). Pipeline proven end to end: paste REFERENCE.png into a fresh chat, state
+it governs the whole conversation, then one frame prompt per message from
+`production/prompts.json`. Download gives 2752x1536; downscale to 1920x1080;
+run `./production/frame-audit.sh` after every batch of ten.
+
+**Remaining:** Task 5 (86 frames), 7 (edit map), 8 (assemble/render), 9 (QC),
+10 (three verticals).
+
+**Three traps already paid for:**
+1. **Clipboard mangles non-ASCII.** An em dash became `,Aei` in ElevenLabs and
+   cost a re-record. `prompts.json` is now sanitised to ASCII; keep it that way.
+   `script.txt` keeps its em dash for captions - only TTS/browser input needs
+   ASCII.
+2. **Newlines submit in Gemini's composer.** A `\n` sends the message, so a
+   multi-paragraph prompt arrives truncated to its first line. Single-line only.
+3. **Measure the download, never the page preview.** Gemini's in-page img is
+   ~1024px; the actual file is 2752px. Measuring the preview caused a wrong
+   decision to drop the film to 720p, since reverted.
+
+**Voice settings that worked:** Chris `iP95p4xoKVk53GoZ742B`, multilingual v2,
+**speed 0.90**, stability 0.5, similarity 0.75. That gives 144.5 wpm overall
+and a 137-157 spread. NOTE: the last film's "148.8 wpm" was computed from
+frame durations (which include holds), not speech - real speech there was
+~183 wpm at speed 1.0.
+
+---
+
+## Session 2026-07-30 — rituals film: pillarbox fixed, robot left alone
+
+**Ship this file:**
+`videos/why-humans-need-rituals/renders/why-humans-need-rituals-final-reframed.mp4`
+— 429.35s, 1920x1080@30, 12880 frames, −15.8 LUFS. Intro is
+`kernel-chat-intro/renders/channel-intro-v10.mp4` (v6–v10 are pixel-identical;
+v5 is the odd one out), stream-copied on.
+
+**Read `docs/video/PRODUCTION-PLAYBOOK.md` §10.7 and §10.8 before the next
+film.** Both were written this session and both cost real time to learn.
+
+**The film came from a Codex worktree** (`~/.codex/worktrees/85fa/`) and is now
+copied to `videos/why-humans-need-rituals/` in the main tree. `videos/**` is
+gitignored (`.gitignore:147`) — this is a local copy, **not backed up by git**.
+The worktree still holds the ORIGINAL unfixed images; render from the main tree,
+not from there.
+
+**What was wrong and what got fixed.** Frame audit found the drawn panel was
+not the file size: 69 of 96 frames were a 1620x1080 panel on cream, 21 were
+full-bleed, 6 were odd (198/269/270/285/299px). All 96 normalized to a uniform
+1620 panel padded with #F4E8C8; originals backed up to
+`public/images/literal-16x9-original/`. Pixels only — no HTML, no timing
+change. 6 frames (01d, 02b, 03b, 03c, 03d, 05d) are still ~10% narrower;
+judged not worth the clipping risk of an upscale.
+
+**Known, deliberately unfixed:** the companion is drawn two ways — flat
+box-robot in beats 01–07 and 23–24, articulated humanoid in 09a, 11a, 12a–d,
+13a–d, 14a–d, 15b (15 frames). Gemini was tested for the swap and failed
+twice; see §10.8. Decision was to keep one inconsistency inside a coherent
+world rather than introduce 15 frames at the wrong resolution and style.
+
+**Still outstanding from earlier films:** polyvagal shorts unposted; from the
+first film, short 3 → TikTok and shorts 2+3 → Instagram, still unposted.
+
+---
+
+## Session 2026-07-25 (later) — polyvagal SHIPPED + delivery kit
+
+**Done.** `videos/polyvagal/deliver/` holds everything needed to publish:
+master + SRT + isolated VO + 2 thumbnails + 3 captioned verticals + YouTube
+title/description/chapters/tags and per-platform caption copy. Read
+`deliver/README.md`.
+
+**The knowledge is now filed, not in my head.** Three builds of hard-won
+lessons went into `docs/video/PRODUCTION-PLAYBOOK.md` §10 — script-for-the-ear
+(the real cause of both viewer-lost failures), the single-voice two-hander,
+the literal-vs-physics gate, content-locking and its two recurring bugs, and
+lettering contamination. Read §10 before writing any VO script.
+
+**New tool:** `tools/shorts/cut-verticals.py` cuts captioned 9:16 shorts out of
+a finished 16:9 master. **This machine's ffmpeg has NO libass and NO
+libfreetype** — `subtitles`/`ass`/`drawtext` all unavailable, and the failure
+looks like a string-escaping bug. Captions are ImageMagick cards composited
+with `overlay`; `magick -list font` is empty so pass the TTC by path.
+CAPTION-SPEC.md Finding 6.
+
+**Three known defects, none blocking:** `w01` renders "CLATTER"; `v17` shows an
+empty chair where the third state needs a body in it; four holds run past 8s.
+
+**Still outstanding across the project:** post the polyvagal shorts; and from
+the FIRST film — short 3 → TikTok, shorts 2+3 → Instagram, still unposted.
+
+---
+
+## Session 2026-07-25 — polyvagal film, v5 built and awaiting assembly
+
+**READ `videos/polyvagal/STATUS.md` FIRST.** 50 frames + 4:35 narration are
+done and gated; only timeline assembly remains, with the method and all the
+traps written down there.
+
+**Three versions, two failures, and why.** v1 (7:17) illustrated the *concept*
+and let 71 of 86 frames float on even spacing — the viewer got lost. v2 (5:06)
+was content-locked and funnier but every image was a *visual pun on the words*,
+so it still didn't explain anything. The root cause of both was a script written
+to be READ: compressed epigrams, each idea stated once, clever lines needing a
+second pass. **A listener never gets a second pass.** Every tightening pass I
+made improved the page and worsened the ear.
+
+**v5 fixes:** signposting ("here's the first / second / third"), example before
+term, deliberate repetition, no metaphor without setup — and the narrator now
+pre-empts the viewer's objections ("you'll call that composure — you went grey
+and stopped blinking"), which supplies a character, a want and conflict without
+a second voice. The three states are ONE RECURRING SHOT: same chair, warm/cold/
+grey, red mug upright/spilled/on the floor (`v22`).
+
+**Shot-mix rule that replaced "apply one style everywhere":** can the viewer be
+wrong about what they're seeing? If yes it must be LITERAL. Physics only where
+the narration has already made the point. Built at 64/14/10/10/2.
+
+**Outstanding across the whole project:** assemble v5; SRT + 3 vertical shorts
+for polyvagal; and from the FIRST film — short 3 → TikTok, shorts 2+3 →
+Instagram, still unposted.
+
+---
+
+## Session 2026-07-24 (later) — second film + the shorts/caption system
+
+**Made:** `videos/peak-end-rule/` — "THE LAST THING THAT HAPPENS", 72s vertical
+short on the peak-end rule. 17 stills, hard cuts, Chris narration. Exported to
+`output/publish/peak-end-rule.mp4`. **Not posted yet.** Spend $1.60 fal
+(17 frames + 3 reshoots at $0.08) + ElevenLabs subscription credits.
+
+Science verified against the paper itself, not a summary: Kahneman, Fredrickson,
+Schreiber & Redelmeier 1993, *Psych Science* 4(6) — 14°C for 60s vs the same
+plus 30s warming to 15°C; **69% chose the strictly worse trial**. Two guardrails
+are written into `SCRIPT.md`: the extra 30s were NOT pleasant (15°C is still
+cold — it's a *less bad* ending), and duration is not ignored, it plays a
+*small* role. "Duration neglect" overstates it.
+
+**READ BEFORE THE NEXT SHORT:** `docs/video/SHORTS-TEMPLATE.md` and the
+rewritten `docs/video/CAPTION-SPEC.md`. The old caption spec was wrong in four
+ways and is fully superseded.
+
+**The four caption findings** (each cost real time)
+- Palmier `fontSize` is canvas **POINTS, not pixels** — 62 draws ~58px glyphs.
+  Size by character budget: 52pt ≈ 21 chars/line at width 0.94.
+- **`maxWords` cannot slow `add_captions`.** It chunks on speech pauses — 84
+  cards on a 52s track at maxWords 3, 5 AND 10. One card per 0.6s, unwatchable.
+  The only fix is to abandon `add_captions`.
+- **Build cards with `add_texts` from the locked script.** ASR wrote
+  "Canneman's" for Kahneman and reproduced it after every regeneration.
+  Script-authored cards are correct by construction — no correction pass.
+- **One colour, whole-card `popIn`.** A per-word tomato highlight over cards
+  that are 55% single words is a full-screen strobe ~2×/second. `wordReveal` is
+  worse still: unspoken words render mid-grey and card starts are fully blank.
+
+**`centerY: 0.70` on the published shorts was a defect** — 12px clearance under
+two-line 64px type against TikTok's 1436px bottom limit. House value is now
+**0.63**. Only visible on a phone with chrome drawn over it.
+
+**Narration — the pace problem was never the voice**
+- All 23 account voices run **166–186 wpm**. Conversational is 120–150; a
+  captioned short wants **135–145** (viewer reads + watches + listens at once).
+- ElevenLabs `speed` (0.7–1.2) fixes it. **The proxy does not forward it** —
+  `tools/local-video-server.mjs:517` passes only stability/similarity/style.
+  `narrate.mjs` therefore calls ElevenLabs direct. House value **0.75**.
+- Speed is **not linear across voices**: Chris → 148wpm at 0.75; Will barely
+  moved at 0.85. Re-measure per voice.
+- Chris = `iP95p4xoKVk53GoZ742B` (chosen). River `SAz9YHcvj6GT2YYXdXww` is the
+  only voice labelled *calm + conversational* if a different register is wanted.
+
+> **⚠ `ELEVENLABS_API_KEY` is NOT in `.env`.** It exists only inside the running
+> `local-video-server.mjs` process. If that server restarts, all TTS breaks and
+> the key is gone. Recover it (without printing) with:
+> `export $(ps eww $(pgrep -f local-video-server.mjs | head -1) | tr ' ' '\n' | grep ^ELEVENLABS_API_KEY=)`
+> **Fix this properly by adding it to `.env` before the next restart.**
+
+**Smaller traps worth not re-hitting**
+- The MCP `production_*` tools **cannot pass `params.image_urls`** — their
+  params schema is scalars only. Reference-conditioned frames must go direct to
+  the proxy at `127.0.0.1:5412/v1/images/fal`.
+- Job polling is `/v1/videos/jobs/<id>` for **every** kind, images included.
+  There is no `/v1/images/jobs/`; the wrong path reads as a hung job forever.
+- Use `fileURLToPath(new URL('.', import.meta.url))`, never `.pathname` — the
+  latter percent-encodes the space in "blog design" and writes to a literal
+  `blog%20design/` directory.
+- `update_text` with new `content` **re-fits the box and clips overflow** unless
+  you pass an explicit `transform`. "KAHNEMAN'S" rendered as "KAHNEMAN'".
+- **Scene concepts that imply a label defeat "no lettering".** An A/B comparison
+  produced "A" and "B"; a scream produced "SCREAM". Needs both an explicit final
+  constraint AND a restaged scene.
+
+**Also built:** `tools/caption.mjs` (one-command captioner — unproven end to end),
+`tools/shorts/template.mjs` (geometry + `checkCuts`/`checkVertical` as tests, not
+memory), `videos/peak-end-rule/{generate,poll,narrate,voicetest}.mjs`.
+
+**Outstanding:** post this short; three posts from the first film still owed
+(short 3 → TikTok, shorts 2+3 → Instagram); add `speed` passthrough to the proxy.
+
+---
+
+## Session 2026-07-24 — shipped "The Price of a Glance" + built the video pipeline
+
+**Published:** https://youtu.be/0nOkJ6smSLg — 4:44 cited behavioural-science
+film on attention and social media. Public, captioned, 83 stills, hard cuts,
+zero motion. Total generation spend $37.70.
+
+**The film took four full rebuilds.** e-ink minimalist -> motion reshoot ->
+After Skool whiteboard -> Zenn-style stick figure with comedy. Root cause of all
+three rejections: the style block said "calm, comforting, quiet". The model
+obeyed. Full postmortem and all rules in `docs/video/PRODUCTION-PLAYBOOK.md` —
+READ IT before starting another film.
+
+**Crew built:** `.claude/agents/galley/` — Director, Writers' room, Sound, Art
+Director, Cinematographer, Editor, plus `FORMAT.md` defining chairs vs rooms.
+Each reads the previous chair's filed artifact, not their reasoning, which is
+what lets them catch each other. Caught a fabricated author pair, two
+experiments fused into one sentence, and a retracted Dunbar number.
+
+**Key technical wins**
+- Character consistency SOLVED: one canonical hero + `nano-banana-2/edit` with
+  `params.image_urls` (must nest in params — top level is silently dropped and
+  still bills).
+- Camera-over-held-subject prompting fixes dull motion AND elaboration defects
+  in one change.
+- Palmier has no masks beyond a rectangular crop -> limb motion from a flat PNG
+  is impossible. Stills + hard cuts is a legitimate, better, cheaper answer.
+- Captions built from whisper TIMINGS + locked script TEXT. ASR mangled every
+  researcher name ("a tension residue" for attention residue).
+
+**Pipeline built:** `tools/youtube-upload.py` (resumable, thumbnail, --publish),
+venv `.venv-youtube`, GCloud project `kernel-chat-youtube` under
+kernel.chat@gmail.com. TikTok + Instagram verified browser-automatable (hidden
+file inputs); YouTube Studio is not. See
+`project_kernel_chat_youtube_pipeline` memory.
+
+**In flight at session end:** three vertical shorts (pigeons / potatoes+glasses
+/ 35-second retraction) rendering via the Editor to
+`output/publish/short-*.mp4`. Posting kit with per-platform captions ready at
+`output/publish/SOCIAL.md`. Isaac has authorised posting to all platforms.
+
+**Scoreless by CHOICE, not omission.** Isaac reviewed the finished film and
+chose to keep it narration-only — do not add a score or room tone to this film
+in a later session. The Act V turn works because it has silence around it.
+(The ElevenLabs Music API is available now that the plan is topped up, if a
+future film wants one: five 60s act beds, $4.00.)
+
+**Not done:** deleting the unused first OAuth client secret on the
+`kernel.chat film uploader` client. Harmless — it never left Google.
+
+
+## Session 2026-07-21 — Channel Studio private press MVP
+
+- Built a new isolated `/channel-studio` rather than extending the stale social
+  daemon or the X/LinkedIn-only `social-publish` function. The page is admin-gated
+  and uses a pressroom job-ticket metaphor: manuscript, stable master, five
+  platform editions, four-part approval register, and proof-desk receipts.
+- YouTube Shorts, TikTok, Instagram Reels, and X bind to live Buffer channels.
+  Reddit is deliberately a manual community edition with affiliation copy; it
+  never enters the broadcast boundary.
+- Added `supabase/functions/channel-publisher`: it verifies Supabase admin status,
+  keeps `BUFFER_API_KEY` server-side, discovers the configured organization, and
+  creates Buffer drafts only. It cannot schedule, publish immediately, comment,
+  like, follow, or engage. Stable HTTPS media is required; common expiring signed
+  URLs are rejected.
+- Added the typed press-run model, local persistence, platform validation, four
+  model tests, and `docs/channel-studio.md` with configuration and safety contract.
+- Verified six targeted tests, TypeScript, the production/PWA build, adherence,
+  editorial checks, and the desktop/mobile/print design audit. The audit found no
+  overflow, broken media, runtime errors, or reduced-motion activity; the proof
+  screenshots were inspected and form controls were raised to a 44px touch target.
+- Hardened the launch boundary after adversarial review: the browser now sends all
+  four named approvals and the Edge Function revalidates them; JSON bodies are
+  capped at 128KB; AWS, GCS, Azure, generic signed, tokenized, and expiring media
+  URLs are rejected; manual-only Reddit no longer advances the press meter; and
+  Buffer success requires a returned `draft` status. Added nine pure boundary tests
+  (16 targeted tests total), plus a clean Deno check of the deployed function.
+- Remaining external setup: create/connect the Buffer organization, set
+  `BUFFER_API_KEY` (optionally `BUFFER_ORGANIZATION_ID`) as Supabase secrets, then
+  deploy `channel-publisher`. No credentials or external publishing actions were
+  performed in this session.
+
 ## Session 2026-07-20 (cont.) — THE STACKS M1 ships (feat/the-stacks)
 
 - Isaac showed the SUKIMA project (claygarden.jp/series) — floating
@@ -2854,3 +3213,375 @@ Removed the Canvas page and Creative Studio from the website, replacing it with 
   the relay session.
 - test:palmier script pointed at vitest (node --test broke after the
   runner port).
+
+## Session 2026-07-29 — channel intro (kernel-chat-intro)
+
+Built the YouTube intro for the memory-reconsolidation film, modeled beat-for-beat
+on The School of Life's opener. Three iterations: abstract logo sting (rejected),
+still-frame cut (rejected as static), final v3 = real motion design:
+tomato brand card (KERNEL/.CHAT + ★ + THE SCIENCE STRAND) cross-dissolves into a
+LIVING kitchen (seedance-lite i2v on m02/m01, $0.40 total, camera locked, no warble),
+blink-gag moves the red mug, breathing protagonist gets a staged thought bubble
+(puffs → bloom) remembering the mug on the wrong side, ends on the house lockup.
+Project: videos/kernel-chat-intro/ (hyperframes). Render: renders/memory-intro-v3.mp4 (13s).
+Animated clips: assets/clip-kitchen.mp4, clip-person.mp4 (reusable).
+Engine proxy running on :5412 (cap $40 — STATUS.md says restore $10 default after the film).
+Open: user pasted github.com/alishahryar1/free-claude-code with no instruction — unaddressed.
+UPDATE (same session, later): intro went through v4 (drawing-revises-itself) and landed on
+v5 "The Many Faces" — 12s original SVG piece: line draws head → five emotions with
+per-emotion easing → selves multiply/merge → red pen circle → ★ → "kernel.chat" only.
+Sound designed via ElevenLabs SFX + ffmpeg (~$1 of credits): pen scratches, per-emotion
+accents, felt-piano note on the star. MASTER: renders/channel-intro-v5-sound.mp4.
+Stems in audio/stems/, mix at audio/mix.wav. v3's AI clips remain reusable.
+
+## Session 2026-07-31 — channel intro v12 + "You Happen to Life" built to frames
+
+### Channel intro — DONE
+`videos/kernel-chat-intro/renders/channel-intro-v12.mp4` (12.2s, 1920x1080).
+Veo push-in down the gallery (both walls filled -> empty frames), then the
+picture dissolves and the mark resolves at the vanishing point. No camera
+shake, footsteps kept and lifted from -34.9 LUFS with gain+limiter (loudnorm
+`linear=true` silently fell back to dynamic and slammed peaks to -0.1 dBFS).
+Alternate pull-back take at `renders/intro-pullback-v4.mp4`.
+Old still-based comp archived to `archive/index-stills-v1.html`; HyperFrames
+rejects two root compositions in one project.
+
+### New film — `videos/you-happen-to-life/`
+Locus of control. Source is Jett Franzen's podcast claim ("I happen to life")
+as the POSITION EXAMINED, never cited; the correction comes from Rotter 1966
+and Macnamara/Hambrick/Oswald 2014 (26/21/18/4/<1 percent variance explained).
+Spec: `docs/superpowers/specs/2026-07-31-you-happen-to-life-design.md`.
+
+- `script.txt` gated on `register-profile.py`: ease 78.8, grade 6.5, "you"
+  41.7/1k, "we" 10.9/1k. **"we" is the new dial** - last film scored 0.0.
+- Trimmed to **6:57** via `production/drops.json` (beats 007/018/026/028).
+  Drops are applied at edit time, NOT by editing script.txt - beat ids are
+  baked into frame filenames and cutting a line would renumber everything.
+- 116 frames generated, all present. Spend **$6.47** (cap $7.00 in the script).
+- `production/narration.txt` is the ASCII-safe VO script, ready to paste.
+
+### The expensive lesson (now PLAYBOOK 10.10)
+**The layout reference must be scenically EMPTY, not merely plain.** Used the
+last film's corridor frame -> a frame inherited the corridor. Repointed at this
+film's `015a`, which LOOKS plain but IS a dial + stepladder + robot -> a quarter
+of the film came back with gratuitous dials and ladders. Cost 37 frames.
+Fixed with `production/refs/layout-plate.png`, purpose-built: flat cream to all
+four edges, one horizon line, one figure, explicit negative list.
+Second-order: the character sheet's only second character is the cyan robot, so
+Act 6's STRANGER kept being drawn as the robot. Fixed with `--layout` override
+pointing at `047c`, the one frame that draws the stranger right.
+
+### New reusable tools
+`tools/video/build-beats.py` (syllable-timed beat map, rate 3.80 syll/sec
+measured off the last film), `build-prompts.py` (STORYBOARD.md is the single
+source of truth; downcases ALL-CAPS motif names, which otherwise get lettered
+INTO the image), `frame-audit.py` (bbox + corners; neither is sufficient alone
+- the real check is a contact sheet of the whole film), `colour-field.py`
+(per-act tint via SIGNED PER-CHANNEL OFFSET; multiply cannot shift warm cream
+toward cool slate, it only darkens).
+
+### Next
+1. Narration - ElevenLabs (browser; key lives only in the running video-server
+   process, not .env). Voice Chris, speed ~0.95.
+2. Conform timings to the real VO, then assemble with assembly-level motion and
+   the per-act colour field at strength 55.
+3. ~9 frames are usable-but-not-ideal content misses: 005a 022a 024b 027a 027c
+   031a 033a 037a 047a.
+4. Still open from 07-30: film SRT not uploaded to YouTube; auto-captions not
+   disabled on the 3 shorts; `short-3-thirty-five-seconds` never landed on
+   TikTok/Instagram.
+
+### FINAL — film cut and delivered 2026-07-31
+`videos/you-happen-to-life/deliver/` — `you-happen-to-life-1080p.mp4` (6:28,
+1080p30, 79MB, -15.8 LUFS), `you-happen-to-life.srt` (112 cards, from the
+locked script NOT ASR), `youtube.md` (title, description with both citations,
+7 chapters, thumbnail picks, settings).
+
+QC pass at 8-second sampling: sync is clean at every load-bearing beat - the
+five bars land on "twenty six percent", the desk-and-mug lands on "the thing
+you do for a living", the green coat lands on "wearing the coat of
+encouragement", the bowl lands on the last line. Colour field reads
+sectionally. No lettering in 48 sampled frames.
+
+Two frames were re-rolled after the watch: 005a (came back a flat purple wedge,
+off-palette) and 071a (the CLOSING image had cyan robots scattered among the
+people - wrong for a film whose last argument is about how you see people).
+
+Known and accepted: the cyan companion appears as an ordinary person in ~6
+mid-film frames (podcast guest, chess opponent, figures on the line). Reads as
+the channel mascot; not worth more spend.
+
+Frame spend total $6.55. Narration recorded 3x chasing runtime (~17k chars).
+
+### Still open
+1. Shorts (3x 55-59s per the School of Life study).
+2. Publish: YouTube + TikTok + Instagram + X + Substack.
+3. Backlog from 07-30: SRT never uploaded for *You Are Not Finished*;
+   auto-captions still on for its 3 shorts; `short-3-thirty-five-seconds`
+   never landed on TikTok or Instagram.
+
+### REBOARD after Isaac's watch (2026-07-31, later)
+Note was: narration great, but some images lose him and some lose continuity,
+and he could not tell if they needed art direction or just missed the point.
+Both were true and they were different failures. Now PLAYBOOK 10.11-10.13.
+
+1. **The motif was 8 different objects.** The dial appears in 22 frames, was
+   specified in WORDS every time and never drawn for reference, so it came back
+   as a grey plate, a wall clock, a cyan disc, a speedometer, a bronze ring.
+   Fixed with `production/refs/dial-plate.png` ($0.04) used as --layout for all
+   22. **Any recurring object needs its own reference plate.** State what it is
+   NOT ("not a clock, not a speedometer") - every prior for "round thing with a
+   needle" is a clock.
+2. **A second, undeclared motif.** The board said "nothing else recurs" then ran
+   8+ frames of a black bar standing for "the claim" - and it drifted too.
+   Cut entirely.
+3. **Diagrams instead of scenes.** Where the script was abstract the board was
+   abstract back. 13 frames re-cut to "a person doing a specific thing in a
+   specific place": the pavement under a streetlight, a queue on a painted line,
+   a crate with a split panel, two people reading the same message in a big room
+   and a cramped one. **When the LINE is abstract the IMAGE must be concrete.**
+4. **Motion was uniform** - all 108 clips zoomed. Now still by default, a move
+   only earned by a hold >=3.4s, never two movers back to back, claim-carrying
+   frames always still. 35% in motion. Render dropped 79MB -> 70MB.
+
+FINAL: `deliver/you-happen-to-life-1080p.mp4` **6:41** (12.2s channel intro +
+6:28 film), 49MB, -15.9 LUFS. SRT rebuilt with `--offset 12.2` and chapters
+shifted - forgetting that offset is a silent failure. Frame spend $7.96.
+
+### Intro reveal pass — APPROVED 2026-07-31
+Isaac: "this great". Final master `deliver/you-happen-to-life-1080p.mp4`
+**6:43** (14.6s intro + 6:28 film), 50MB. SRT at `--offset 14.6`.
+
+Intro is `videos/kernel-chat-intro/renders/channel-intro-v14.mp4`:
+1. **Opens by fading up from cream `#F4E8C8`**, not from black and not on a cut.
+   The channel's whole surface is cream paper, so the film emerges from the page.
+   Picture and footsteps fade together over 1.6s.
+2. **The mark DRAWS ITSELF.** Everything in the channel is line art, so the mark
+   should arrive the way every other line did.
+   - Weight fixed: stroke 9 -> 6, frames pulled apart, glyph 190 -> 250px. At 9
+     there was no cream between the two frames and it read as a blob next to
+     EB Garamond.
+   - **A dash animation on `<rect>` starts top-left and winds clockwise**, so
+     most of the reveal was a lopsided bracket. Each frame is now TWO MIRRORED
+     PATHS starting at top-centre and meeting at the bottom - symmetric at every
+     moment. Half-perimeters: outer 244, inner 124.
+3. **The lockup HOLDS 1.64s.** The first cut gave it 0.25s after the rule wiped,
+   which is why it flashed past.
+
+GSAP note that bit twice: if GSAP animates an element's transform, GSAP must do
+the centring too (xPercent/yPercent). A CSS `translate(-50%,-50%)` alongside it
+is silently discarded and the linter rejects it.
+
+### Shorts cut + publish BLOCKED on YouTube OAuth (2026-07-31)
+Shorts: `deliver/shorts/` — 01-under-one-percent 57.0s, 02-cause-or-report
+56.6s, 03-said-kindly 57.6s. All 1080x1920, cut on beat boundaries, SRT
+sidecars, captions BURNED IN (turn platform auto-captions off).
+`tools/shorts/build-segments.py` now also reads a conformed beat map, not just
+a literal edit map.
+
+Publish package ready at `deliver/youtube/meta.json` (title, description with
+both citations + chapters, tags, SRT, thumbnail from frame 030a).
+`tools/youtube-upload.py` gained **caption upload** (`captions` key in meta) —
+that is why the SRT went unuploaded on the last two films.
+
+**BLOCKED:** the cached YouTube refresh token is expired/revoked. Re-consent
+needs Isaac to click Google's screen. Also note the tool needs
+`/usr/bin/python3` (system 3.9), NOT the homebrew python3 the shebang resolves
+to — the google client libs are installed --user under 3.9 only.
+
+### Isaac's note for the NEXT film (PLAYBOOK 10.14-10.15)
+"it jumps at some point and i dont know what the point of what was said was";
+"the narration has to feel like a conversation and the explanation and the
+story". Cause: the runtime trim cut 3 of 4 BRIDGES (018, 026, 028). Never trim
+connective tissue for runtime — cut examples or whole beats instead. Run the
+skeleton test (first+last sentence of each paragraph read in sequence) before
+boarding. Write a story, not a stack of arguments.
+
+### PUBLISHED 2026-07-31 (YouTube)
+- **You Happen to Life** https://youtu.be/fVPZbRDCK5A — public, 6:44, SRT
+  attached (standard track), thumbnail = frame 030a.
+- Shorts, all public: https://youtu.be/zM8jjMtUcDM (under one percent),
+  https://youtu.be/EhHqTYoquhA (cause or report),
+  https://youtu.be/89z0MlqfM-U (said kindly). No caption track uploaded on the
+  shorts ON PURPOSE - captions are burned in and a track would double them.
+- Backlog closed: uploaded the missing SRT to **You Are Not Finished**
+  (yEeL5u4nwNw), which previously had only an ASR track.
+
+**MANUAL STEP REMAINING (no API for it):** in Studio -> Subtitles, unpublish the
+AUTO-GENERATED track on fVPZbRDCK5A and yEeL5u4nwNw, or YouTube serves both and
+the viewer sees two English options.
+
+### Two YouTube API traps fixed in tools/youtube-upload.py
+1. **`videos().insert` returns an id before the video is registered**, so
+   setting a thumbnail immediately 404s "videoNotFound" - and the traceback
+   buries the id, so a SUCCESSFUL upload looks like a failure. Now retries with
+   backoff. (This is what made it look like there were two uploads today.)
+2. **`videos().update(part="snippet,status")` returns 200 and silently does NOT
+   apply the privacy change.** Status-only update works. Always read back.
+Also: the tool needs `/usr/bin/python3` (system 3.9); the google libs are
+installed --user there, not under homebrew python3 which the shebang finds.
+
+### Social publish 2026-07-31 — DONE except one Substack click
+- YouTube: film fVPZbRDCK5A public + 3 shorts public (zM8jjMtUcDM, EhHqTYoquhA, 89z0MlqfM-U)
+- TikTok: 3/3 posted @kernel.chat
+- Instagram: 3/3 posted @kerneldotchat. NOTE 01-under-one-percent was already
+  live before the run (verified by SCREENSHOTTING the reel and reading the
+  burned-in caption "school and ordinary paid work"), marked posted by hand so
+  the run could not duplicate it. Only 02 and 03 were actually posted.
+- X: 01-under-one-percent posted natively + reply carrying the film link.
+- Substack: LIVE at https://kernelchat.substack.com/p/the-belief-that-you-are-steering
+
+**SUBSTACK TITLE IS WRONG AND NEEDS ONE CLICK.** The editor at
+/publish/post/209327336 already holds the correct title ("You Happen to Life")
+and subtitle - typed with real keystrokes and verified via inputValue - but
+clicking Update does not propagate it to the public page. Open the post in
+Substack and press Update/Publish changes by hand.
+
+Cause of the original error: the Substack editor has THREE textareas and the
+FIRST is a hidden "Add a description...". Index 0 is NOT the title - index 1 is.
+Targeting `textarea[placeholder="Title"]` is the only safe selector.
+Also: `fill()` does not register with Substack's React state; it needs
+click + Meta+A + Backspace + keyboard.type().
+
+### Channel intro v15 — APPROVED, this is the house intro from now on
+`videos/kernel-chat-intro/renders/channel-intro-v15.mp4` — 14.6s, 1920x1080 30fps.
+Isaac: "this is good".
+
+The diagnosis was NOT the footage. Everything moved at one speed: 8s of
+constant-velocity corridor, a soft dissolve, a gentle draw-on. No acceleration,
+no arrival, and nothing CAUSING anything. Three changes, all rhythm:
+
+1. **The push accelerates** — cubic ramp via zoompan `z='1+0.20*pow(on/240,3.2)'`
+   so it barely moves at the start and rushes by 7s.
+2. **It blows out to cream on the peak of that acceleration** — 0.65s, hard,
+   `fade=t=out:color=0xF4E8C8`. Not a dissolve. It is the crash at the end of
+   the rush.
+3. **The mark GROWS OUT OF THE VANISHING POINT** — starts at scale 0.13, which
+   is about what the corridor's perspective gives its own vanishing point, and
+   grows to full size while it draws. The mark is a picture frame seen head-on
+   at the end of a corridor of picture frames; the piece had only ever asserted
+   that in a code comment. Now you watch it happen.
+
+Plus ONE sound: a single soft wooden knock on the core snap ($0.004, sonilo
+text-to-sfx). The core is the only hard arrival in the picture and it was
+landing silently. Everything else eases; that one thing hits.
+
+The title beat no longer contains the tail-frame hero at all — the corridor
+already blew out, so a second softer dissolve on top of a hard one was undoing
+the handoff.
+
+NOTE: the published film (fVPZbRDCK5A) carries intro **v14**. v15 is the same
+length, but swapping it means a re-upload and a new URL. Not worth it for a
+film that is already live — v15 goes on the NEXT film, like the room tone.
+
+### LTX experiment on the corridor — parked, not used
+`production/corridor-walk.mp4` ($0.32): locked camera, figure genuinely recedes
+down the corridor, no treadmill, style holds. It is good, but it loses the
+frames-go-empty beat that carries the intro's meaning, because hero2.png has
+every frame filled. Kept for reference.
+
+**The drift gate flagged it (+0.036) and was WRONG.** The gate measures change
+from source, and legitimate large subject motion also changes the frame. It is
+a FLAG, not a verdict — reliable for the case it was built for (a frame that
+should barely move, quietly reorganising itself), and it will false-positive on
+any shot where the subject deliberately traverses depth. Comment in the tool
+says so now.
+
+### SECURITY — leaked key file found and removed at session end
+A stray **`.envrm`** (88 bytes, holding a live `WAVESPEED_API_KEY=` line) was
+sitting untracked in the repo root, created 17:18 by a malformed shell quote in
+one of my key-extraction one-liners. **`.gitignore` covered `.env` and
+`.env.local` by exact name only, so `.envrm` was NOT ignored** — one `git add .`
+from a committed secret.
+
+Deleted. `.gitignore` widened from two exact names to `.env*`.
+
+Scanned every untracked file for `API_KEY=|SECRET=|TOKEN=`; the only other hit
+is `docs/channel-studio.md:50`, which is a placeholder, not a real value.
+
+**Lesson: exact-name env ignores are a trap.** Any tool or typo that produces
+`.env.bak`, `.envrm`, `.env.old` slips straight through. Use `.env*`.
+
+### Session end 2026-07-31 — everything saved
+Published: film https://youtu.be/fVPZbRDCK5A + 3 shorts, TikTok 3/3,
+Instagram 3/3, X 1, Substack (title needs one manual Update click).
+House intro is now v15. WaveSpeed balance $5.62 (spent $2.51 today).
+
+Twelve tools in `tools/video/` + `tools/shorts/`; nine playbook sections
+(10.10-10.18) and six memories written today, all from measured failures.
+
+### HUM incident 2026-07-31 — published then pulled
+*You Watched It Happen* (cxc9S--6zZE) and its 3 shorts went public with an
+audible mains hum under them, from the room-tone bed. All four set to PRIVATE
+(not deleted) as soon as Isaac heard it. TikTok/Instagram/X/Substack were never
+posted for this film.
+
+Cause: the roomtone prompt literally asked for "soft low air handling hum" and
+got a harmonic series at 120/240/360/600 Hz. Every check I ran was of LEVEL
+(LUFS, RMS, delta under narration) and all passed — the bed sat 18 dB down. In
+the ACT GAPS it added 48 dB of 60-200 Hz energy. PLAYBOOK 10.22.
+
+Fixed: prompt asks for broadband air and names hum/drone/buzz/motor as refused;
+`roomtone.mjs` now high-passes any bed at 180 Hz unconditionally. Film and
+shorts rebuilt from the CLEAN render with NO bed and verified band-limited.
+
+To re-publish: the private videos can be deleted and fresh ones uploaded, or
+left private and new ones posted. Not yet decided.
+
+### PUBLISHED — You Watched It Happen, 2026-07-31 (clean, no hum)
+- Film   https://youtu.be/9kHUSRU3zms  (7:19, SRT + thumbnail attached)
+- Shorts https://youtu.be/jGYmRRIXrE4 · https://youtu.be/Rqk-8dBOrlA · https://youtu.be/WCVTE__BhRk
+- TikTok 3/3 @kernel.chat · Instagram 3/3 @kerneldotchat
+- X: short 02 native + reply carrying the film link
+- Substack https://kernelchat.substack.com/p/you-watched-it-happen
+
+Superseded HUMMY uploads left PRIVATE (delete in Studio whenever):
+cxc9S--6zZE, TPmOoPHG4Gc, 8FiM7vL_1PU, vXMjPN3oDQc
+
+**Instagram posted a 4th, duplicate reel** (DbfHqPngcgV) - short 01 with a
+TRUNCATED caption, then retried and posted it again in full. The adapter
+partially succeeded, reported failure, and re-ran. Deleted the duplicate by
+hand after confirming it by its truncated caption. **Always baseline the reel
+list before an Instagram run and count what appeared after** - the count alone
+is unreliable because the grid lazy-loads (12 -> 24 on a longer wait); use the
+POSITION of the previously-newest reel instead.
+
+Substack title landed correctly this time: `textarea[placeholder="Title"]` (NOT
+index 1) plus real keystrokes (Meta+A, Backspace, keyboard.type). fill() does
+not register with Substack's React state.
+
+## Session 2026-08-01 — eight shorts published, three real bugs fixed
+
+**Published:** 8 verticals across YouTube + TikTok + Instagram + X.
+6 new (04/05/06 from each film) and 2 corrected re-cuts.
+
+| | |
+|---|---|
+| 02-cause-or-report | youtu.be/eE8ecREqGLI |
+| 03-said-kindly | youtu.be/vHodZFUKc34 |
+| 04-i-happen-to-life | youtu.be/JYfa6y_g6GA |
+| 05-rotter-1966 | youtu.be/0UNuOnWtH7o |
+| 06-said-to-somebody | youtu.be/CMNisTLOClw |
+| 04-twenty-three-trials | youtu.be/SVAK5Jzl5qw |
+| 05-true-and-useless | youtu.be/Y2ny7lN4NTw |
+| 06-what-it-is-good-at | youtu.be/CTP-YN7QhYw |
+
+**New tools:** `tools/video/align-existing.mjs` (forced alignment onto shipped
+audio), `tools/shorts/pick-spans.py` (sentence-aligned cut points).
+`tools/youtube-upload.py --retire` sets a superseded upload private.
+
+**Three findings, written up as PLAYBOOK 10.23–10.25.** Cut points were still
+coming from the estimated beat map after captions had moved to real word
+timings; forced alignment fixed a published film's captions from −4.2s to
++0.017s without re-recording; and two Instagram adapter bugs that both looked
+like rate limiting (`clearOverlays` clicking the composer's own Close button,
+and the Next walk breaking silently while Instagram transcoded).
+
+**ISAAC — manual, I cannot delete:**
+- Instagram: delete the superseded reels `DbekkqoAAaI` (02-cause-or-report) and
+  `DbekrpLgMwu` (03-said-kindly). Corrected versions are already live.
+- TikTok: delete the old 02-cause-or-report and 03-said-kindly posts.
+- YouTube `EhHqTYoquhA` / `89z0MlqfM-U` are already set private — delete if wanted.
+- Still open from 2026-07-31: unpublish the auto-generated caption track on
+  `9kHUSRU3zms`, and delete the four private hummy uploads (`cxc9S--6zZE`,
+  `TPmOoPHG4Gc`, `8FiM7vL_1PU`, `vXMjPN3oDQc`).

@@ -13,7 +13,10 @@ import { spawn } from 'node:child_process'
 
 const SERVERS = [
   { name: 'image', args: ['tools/local-image-server.mjs'] },
-  { name: 'video', args: ['tools/local-video-server.mjs'] },
+  // --env-file is required, not optional: without it the video server starts
+  // with no FAL_KEY and every paid route fails at request time. The comment
+  // above described this flag for months while the spawn omitted it.
+  { name: 'video', args: ['--env-file=.env', 'tools/local-video-server.mjs'] },
 ]
 
 const children = []

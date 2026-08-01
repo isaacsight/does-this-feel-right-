@@ -1,0 +1,37 @@
+{
+  "master": "renders/you-happen-to-life_2026-07-31_16-33-39.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "shorts": [
+    {
+      "name": "02-cause-or-report",
+      "from": 6076,
+      "to": 7751,
+      "kicker": "CAUSE, OR REPORT?"
+    },
+    {
+      "name": "03-said-kindly",
+      "from": 7815,
+      "to": 9493,
+      "kicker": "SAID KINDLY"
+    },
+    {
+      "name": "04-i-happen-to-life",
+      "from": 0,
+      "to": 1574,
+      "kicker": "I HAPPEN TO LIFE"
+    },
+    {
+      "name": "05-rotter-1966",
+      "from": 1631,
+      "to": 3302,
+      "kicker": "ONE LINE, TWO ENDS"
+    },
+    {
+      "name": "06-said-to-somebody",
+      "from": 9774,
+      "to": 11548,
+      "kicker": "WHAT SURVIVES"
+    }
+  ]
+}

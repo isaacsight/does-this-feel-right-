@@ -1,0 +1,97 @@
+# Self-hosted Postiz — social publishing for kernel.chat films.
+#
+#   cd tools/postiz && docker compose up -d
+#   open http://localhost:5000        # create the admin user, connect accounts
+#
+# Replaces the Playwright posters, which went 2/3 on TikTok and 1/3 on
+# Instagram. Postiz talks to the platforms' real APIs instead of their DOMs.
+#
+# ⚠ MEDIA MUST BE PUBLICLY REACHABLE.
+# Instagram (and TikTok in some flows) do not accept an uploaded file — they
+# are handed a URL and fetch it themselves. A localhost upload directory is
+# invisible to Meta's servers, so Reels will fail with a fetch error even
+# though everything looks correctly configured.
+#
+# Two ways to satisfy that, pick one before connecting Instagram:
+#   1. Cloudflare R2 — set STORAGE_PROVIDER=cloudflare and the CLOUDFLARE_*
+#      vars below. Uploads land on a public bucket. Recommended; kernel.chat
+#      already runs on Cloudflare.
+#   2. A tunnel — `cloudflared tunnel --url http://localhost:5000` and set
+#      MAIN_URL / NEXT_PUBLIC_UPLOAD_DIRECTORY to the public hostname.
+# Local storage alone is fine for YouTube and X, and for testing the flow.
+
+services:
+  postiz:
+    image: ghcr.io/gitroomhq/postiz-app:latest
+    container_name: postiz
+    restart: unless-stopped
+    environment:
+      MAIN_URL: "${POSTIZ_PUBLIC_URL:-http://localhost:5000}"
+      FRONTEND_URL: "${POSTIZ_PUBLIC_URL:-http://localhost:5000}"
+      NEXT_PUBLIC_BACKEND_URL: "${POSTIZ_PUBLIC_URL:-http://localhost:5000}/api"
+      BACKEND_INTERNAL_URL: "http://localhost:3000"
+      JWT_SECRET: "${POSTIZ_JWT_SECRET:?set POSTIZ_JWT_SECRET in tools/postiz/.env}"
+      DATABASE_URL: "postgresql://postiz:postiz@postiz-postgres:5432/postiz"
+      REDIS_URL: "redis://postiz-redis:6379"
+      IS_GENERAL: "true"
+      # Single-operator instance — nobody else should be able to sign up.
+      DISABLE_REGISTRATION: "${POSTIZ_DISABLE_REGISTRATION:-false}"
+      STORAGE_PROVIDER: "${POSTIZ_STORAGE:-local}"
+      UPLOAD_DIRECTORY: "/uploads"
+      NEXT_PUBLIC_UPLOAD_DIRECTORY: "/uploads"
+      # Only read when STORAGE_PROVIDER=cloudflare
+      CLOUDFLARE_ACCOUNT_ID: "${CLOUDFLARE_ACCOUNT_ID:-}"
+      CLOUDFLARE_ACCESS_KEY: "${CLOUDFLARE_ACCESS_KEY:-}"
+      CLOUDFLARE_SECRET_ACCESS_KEY: "${CLOUDFLARE_SECRET_ACCESS_KEY:-}"
+      CLOUDFLARE_BUCKETNAME: "${CLOUDFLARE_BUCKETNAME:-}"
+      CLOUDFLARE_BUCKET_URL: "${CLOUDFLARE_BUCKET_URL:-}"
+      CLOUDFLARE_REGION: "auto"
+    volumes:
+      - postiz-config:/config/
+      - postiz-uploads:/uploads/
+    ports:
+      - "5000:5000"
+    networks: [postiz]
+    depends_on:
+      postiz-postgres: { condition: service_healthy }
+      postiz-redis: { condition: service_healthy }
+
+  postiz-postgres:
+    image: postgres:17-alpine
+    container_name: postiz-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postiz
+      POSTGRES_PASSWORD: postiz
+      POSTGRES_DB: postiz
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks: [postiz]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postiz -d postiz"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  postiz-redis:
+    image: redis:7.2-alpine
+    container_name: postiz-redis
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    networks: [postiz]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  postgres-data:
+  redis-data:
+  postiz-config:
+  postiz-uploads:
+
+networks:
+  postiz:
+    external: false

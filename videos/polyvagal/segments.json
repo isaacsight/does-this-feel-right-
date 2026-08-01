@@ -1,0 +1,465 @@
+{
+ "fps": 30,
+ "segments": [
+  [
+   0,
+   36,
+   "You've felt this."
+  ],
+  [
+   38,
+   117,
+   "You've probably never had a name for it."
+  ],
+  [
+   119,
+   232,
+   "Someone asked you a question in a meeting."
+  ],
+  [
+   234,
+   331,
+   "You know the answer, and nothing comes out."
+  ],
+  [
+   335,
+   423,
+   "And you'll tell me that doesn't happen to you."
+  ],
+  [
+   430,
+   500,
+   "It happened on Tuesday."
+  ],
+  [
+   504,
+   680,
+   "For about a 100 years, science had 2 explanations for stress."
+  ],
+  [
+   682,
+   731,
+   "Fight or run"
+  ],
+  [
+   733,
+   837,
+   "You'll say you do neither, because you stay calm."
+  ],
+  [
+   841,
+   905,
+   "You didn't stay calm."
+  ],
+  [
+   907,
+   941,
+   "You went still."
+  ],
+  [
+   943,
+   1015,
+   "You'll call that composure."
+  ],
+  [
+   1017,
+   1109,
+   "You went gray and stopped blinking."
+  ],
+  [
+   1118,
+   1273,
+   "Therapists watched people do this for decades and couldn't explain it."
+  ],
+  [
+   1274,
+   1485,
+   "Then in 1994 a neuroscientist called Stephen Porges suggested something simple."
+  ],
+  [
+   1485,
+   1546,
+   "There aren't 2 settings."
+  ],
+  [
+   1548,
+   1584,
+   "There are three."
+  ],
+  [
+   1588,
+   1640,
+   "Here's the first."
+  ],
+  [
+   1642,
+   1708,
+   "You're with someone you trust."
+  ],
+  [
+   1710,
+   1834,
+   "You're relaxed, you're talking, your face moves easily."
+  ],
+  [
+   1836,
+   1888,
+   "Everyone likes this one."
+  ],
+  [
+   1890,
+   1931,
+   "Here's the second."
+  ],
+  [
+   1933,
+   1982,
+   "Something goes wrong."
+  ],
+  [
+   1987,
+   2059,
+   "Heart up, muscles tight."
+  ],
+  [
+   2061,
+   2131,
+   "Ready to argue or ready to leave."
+  ],
+  [
+   2133,
+   2201,
+   "Everyone knows this one too."
+  ],
+  [
+   2203,
+   2252,
+   "And here's the third."
+  ],
+  [
+   2254,
+   2308,
+   "The one you don't want."
+  ],
+  [
+   2309,
+   2374,
+   "You can't fight, you can't leave."
+  ],
+  [
+   2385,
+   2475,
+   "So your body does the only thing it has left."
+  ],
+  [
+   2477,
+   2518,
+   "It shuts down."
+  ],
+  [
+   2520,
+   2664,
+   "Your heart slows, you go quiet, you go blank."
+  ],
+  [
+   2666,
+   2824,
+   "Same person, same chair, 3 completely different settings."
+  ],
+  [
+   2833,
+   2929,
+   "And here's why that landed in therapy rooms."
+  ],
+  [
+   2932,
+   3125,
+   "If shutting down is a setting your body switches into, then going blank isn't weakness."
+  ],
+  [
+   3127,
+   3202,
+   "It isn't you failing to cope."
+  ],
+  [
+   3206,
+   3298,
+   "It's the oldest survival move there is."
+  ],
+  [
+   3310,
+   3362,
+   "Play dead."
+  ],
+  [
+   3364,
+   3425,
+   "And you're going to argue with that."
+  ],
+  [
+   3434,
+   3546,
+   "From the floor, where you are currently lying."
+  ],
+  [
+   3550,
+   3593,
+   "Thinking."
+  ],
+  [
+   3595,
+   3656,
+   "So who's doing the switching?"
+  ],
+  [
+   3661,
+   3719,
+   "You'll say you are."
+  ],
+  [
+   3721,
+   3865,
+   "Think about walking into a room where 2 people have just stopped talking."
+  ],
+  [
+   3875,
+   3964,
+   "You knew something was wrong before you could say what."
+  ],
+  [
+   3965,
+   4014,
+   "You didn't decide that."
+  ],
+  [
+   4016,
+   4122,
+   "Something checked the room and made the call for you."
+  ],
+  [
+   4124,
+   4228,
+   "Porges called it neuroception."
+  ],
+  [
+   4230,
+   4277,
+   "You're not doing it."
+  ],
+  [
+   4279,
+   4345,
+   "It's being done to you."
+  ],
+  [
+   4352,
+   4401,
+   "Constantly."
+  ],
+  [
+   4403,
+   4466,
+   "Underneath everything."
+  ],
+  [
+   4468,
+   4518,
+   "Most people hate that."
+  ],
+  [
+   4520,
+   4615,
+   "One more piece, and it's the one that matters most."
+  ],
+  [
+   4617,
+   4687,
+   "Watch someone pick up a crying baby."
+  ],
+  [
+   4691,
+   4763,
+   "The baby stops."
+  ],
+  [
+   4765,
+   4844,
+   "Not because of anything anyone said."
+  ],
+  [
+   4846,
+   4900,
+   "Because of a heartbeat."
+  ],
+  [
+   4903,
+   4955,
+   "And a voice."
+  ],
+  [
+   4957,
+   5015,
+   "You never grow out of that."
+  ],
+  [
+   5018,
+   5114,
+   "Someone walks into a room and it relaxes."
+  ],
+  [
+   5116,
+   5188,
+   "Someone else walks in and it doesn't."
+  ],
+  [
+   5189,
+   5283,
+   "Porges called this co-regulation."
+  ],
+  [
+   5290,
+   5407,
+   "You are not really built to calm yourself down on your own."
+  ],
+  [
+   5416,
+   5517,
+   "You're built to be calmed down by other people."
+  ],
+  [
+   5521,
+   5609,
+   "You'll want to tell me you're self-sufficient."
+  ],
+  [
+   5611,
+   5735,
+   "You're patting your own head, which is worth sitting with."
+  ],
+  [
+   5746,
+   5818,
+   "Because look at what we've changed."
+  ],
+  [
+   5823,
+   6016,
+   "Every one of those signals is a face, a voice, or a person nearby."
+  ],
+  [
+   6017,
+   6071,
+   "We text instead of calling."
+  ],
+  [
+   6073,
+   6138,
+   "We take the meeting with the camera off."
+  ],
+  [
+   6140,
+   6197,
+   "We lie in bed scrolling."
+  ],
+  [
+   6201,
+   6298,
+   "Which looks like rest and settles nothing."
+  ],
+  [
+   6300,
+   6367,
+   "You've been resting for 4 hours."
+  ],
+  [
+   6368,
+   6422,
+   "You feel worse."
+  ],
+  [
+   6424,
+   6509,
+   "Now, one honest thing."
+  ],
+  [
+   6511,
+   6628,
+   "The biology behind all this is genuinely disputed."
+  ],
+  [
+   6635,
+   6874,
+   "In 2023 a paper went through the theory's 5 main claims and challenged every one of them."
+  ],
+  [
+   6881,
+   6991,
+   "And you would love that to mean you can ignore all of it."
+  ],
+  [
+   6993,
+   7087,
+   "Porges answered, it isn't settled."
+  ],
+  [
+   7088,
+   7132,
+   "But here's the thing."
+  ],
+  [
+   7133,
+   7216,
+   "Whether or not the anatomy turns out to be right."
+  ],
+  [
+   7220,
+   7288,
+   "The thing it named is real."
+  ],
+  [
+   7290,
+   7418,
+   "People do go still, people do go blank."
+  ],
+  [
+   7420,
+   7529,
+   "And what it tells you to do, find a face."
+  ],
+  [
+   7535,
+   7650,
+   "Hear a voice, breathe out slowly."
+  ],
+  [
+   7655,
+   7718,
+   "Be near someone."
+  ],
+  [
+   7720,
+   7812,
+   "None of that depends on the biology being correct."
+  ],
+  [
+   7816,
+   7915,
+   "You can doubt the theory and still take the advice."
+  ],
+  [
+   7916,
+   7990,
+   "And maybe that's the useful part."
+  ],
+  [
+   7994,
+   8071,
+   "Not that it explains you."
+  ],
+  [
+   8073,
+   8215,
+   "That it stops you being embarrassed about the part of you that goes quiet."
+  ]
+ ]
+}

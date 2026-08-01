@@ -440,9 +440,17 @@ const server = createServer(async (req, res) => {
       const spendInfo = await checkAndUpdateSpendLocked(cost)
       try {
         const request = paidBody(body)
+        // fal's /edit endpoints (nano-banana, seedream, gemini-flash-image)
+        // take image_urls as an ARRAY; the rest take a singular image_url.
+        // Sending the wrong shape fails at poll time with
+        // {"loc":["body","image_urls"],"msg":"Field required"}.
+        const isEditEndpoint = /\/edit$/.test(body.endpoint)
+        const hasImage = typeof request.imageUrl === 'string' && request.imageUrl
         const input = {
           prompt,
-          ...(typeof request.imageUrl === 'string' && request.imageUrl ? { image_url: request.imageUrl } : {}),
+          ...(hasImage
+            ? (isEditEndpoint ? { image_urls: [request.imageUrl] } : { image_url: request.imageUrl })
+            : {}),
           ...cleanParams(request.params),
         }
         const jobId = await queueJob('image', body.endpoint, input)
@@ -506,6 +514,19 @@ const server = createServer(async (req, res) => {
       if (!elevenKey) return json(res, 402, { error: 'ELEVENLABS_API_KEY not set in the server environment' })
       const voiceId = typeof body.voice === 'string' && /^[A-Za-z0-9]{10,40}$/.test(body.voice) ? body.voice : null
       if (!voiceId) return json(res, 400, { error: 'voice must be an ElevenLabs voice id' })
+      // Defaults tuned for narration that sounds spoken rather than announced.
+      // style > 0 exaggerates a voice toward its own characteristic delivery,
+      // so on a broadcast-register voice it adds announcer rather than colour;
+      // it stays off unless a caller asks for it. Lower stability reads as
+      // thinking rather than reciting. Callers may override per request.
+      const clamp01 = (value, fallback) =>
+        typeof value === 'number' && Number.isFinite(value) ? Math.min(1, Math.max(0, value)) : fallback
+      const requested = body.voiceSettings && typeof body.voiceSettings === 'object' ? body.voiceSettings : {}
+      const voiceSettings = {
+        stability: clamp01(requested.stability, 0.35),
+        similarity_boost: clamp01(requested.similarityBoost, 0.75),
+        style: clamp01(requested.style, 0),
+      }
       try {
         const resp = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`, {
           method: 'POST',
@@ -513,7 +534,7 @@ const server = createServer(async (req, res) => {
           body: JSON.stringify({
             text,
             model_id: providerSpec.modelId,
-            voice_settings: { stability: 0.5, similarity_boost: 0.75, style: 0.35 },
+            voice_settings: voiceSettings,
           }),
         })
         if (!resp.ok) {
