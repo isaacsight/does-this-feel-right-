@@ -23,7 +23,7 @@
 
 import { load, mark, pending, caption, PLATFORMS } from './manifest.mjs'
 import { ADAPTERS, closeBrowser, log } from './adapters.mjs'
-import { budget, DEFAULT_PER_DAY } from './cadence.mjs'
+import { budget, PER_DAY } from './cadence.mjs'
 
 let stopping = false
 for (const signal of ['SIGINT', 'SIGTERM']) {
@@ -94,25 +94,36 @@ async function run(m) {
   let jobs = pending(m, platforms, flag('short'))
   if (!jobs.length) return console.log('\nNothing pending. All posted.\n')
 
-  // CADENCE GUARD. On by default: publishing a whole queue at once is the
-  // "generic and repetitive" pattern YPP is evaluated on, and it is assessed
-  // per channel across every film. See cadence.mjs and docs/video/YPP-POLICY.md.
-  const limit = has('no-cadence') ? Infinity : Number(flag('per-day') ?? DEFAULT_PER_DAY)
-  const { allowed, used, nextAt } = budget(limit)
-  if (Number.isFinite(limit)) {
-    // Finishing a short already part-published is never deferred - leaving one
-    // live on TikTok and missing on YouTube is worse than either choice.
+  // CADENCE GUARD, applied PER PLATFORM. Only YouTube assesses a channel on
+  // whether its uploads are "generic and repetitive"; Meta and TikTok define
+  // unoriginal against copying OTHER people, and X has no such rule at all.
+  // Throttling all four would cost reach on three for nothing.
+  // See cadence.mjs and docs/video/PLATFORM-POLICY.md.
+  if (!has('no-cadence')) {
+    // A short already part-published is never deferred — leaving one live on
+    // TikTok and missing on YouTube is worse than either choice.
     const started = new Set(m.shorts
       .filter(s => Object.values(s.status).some(v => v.state === 'posted'))
       .map(s => s.slug))
-    const fresh = [...new Set(jobs.filter(j => !started.has(j.short.slug))
-      .map(j => j.short.slug))]
-    const admit = new Set(fresh.slice(0, allowed))
-    const deferred = fresh.slice(allowed)
-    jobs = jobs.filter(j => started.has(j.short.slug) || admit.has(j.short.slug))
-    console.log(`\ncadence: ${used}/${limit} published in the last 24h` +
-      (deferred.length ? ` — deferring ${deferred.length}: ${deferred.join(', ')}` : ''))
-    if (nextAt) console.log(`         next slot ${nextAt.toLocaleString()}`)
+    const override = flag('per-day') ? Number(flag('per-day')) : null
+    const notes = []
+    for (const p of platforms) {
+      const limit = override ?? PER_DAY[p] ?? Infinity
+      if (!Number.isFinite(limit)) continue
+      const { allowed, used, nextAt } = budget(p, limit)
+      const fresh = [...new Set(jobs
+        .filter(j => j.platform === p && !started.has(j.short.slug))
+        .map(j => j.short.slug))]
+      const admit = new Set(fresh.slice(0, allowed))
+      const deferred = fresh.slice(allowed)
+      if (!deferred.length) continue
+      jobs = jobs.filter(j => j.platform !== p ||
+        started.has(j.short.slug) || admit.has(j.short.slug))
+      notes.push(`  ${p}: ${used}/${limit} in the last 24h — deferring ` +
+        `${deferred.length} (${deferred.join(', ')})` +
+        (nextAt ? `; next slot ${nextAt.toLocaleString()}` : ''))
+    }
+    if (notes.length) console.log('\ncadence\n' + notes.join('\n'))
     if (!jobs.length) {
       return console.log('\nNothing to publish inside the cadence budget. ' +
         'Re-run later, or pass --per-day N / --no-cadence to override.\n')

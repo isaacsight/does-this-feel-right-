@@ -149,7 +149,7 @@ observations, and every edition has been watched end to end.
 - **Every social edition carries its sources.** "Full film, with sources: <url>"
   in the description, and the source line in the pinned comment. A short that
   drops its citations is the one that looks farmed. See
-  `docs/video/YPP-POLICY.md`.
+  `docs/video/PLATFORM-POLICY.md`.
 - **Cut on sentence boundaries, from `audio/words.json`.** Never from the beat
   map — those starts are syllable-spread estimates, and five of six shorts once
   opened mid-word because of it. `tools/shorts/pick-spans.py` does this.

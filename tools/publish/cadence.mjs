@@ -18,45 +18,68 @@
  * COUNTS DISTINCT SHORTS, NOT JOBS. One short going to YouTube, TikTok and
  * Instagram is one upload on each of three channels - it is one video's worth
  * of cadence, not three.
+ *
+ * PER PLATFORM, BECAUSE ONLY YOUTUBE HAS THIS RULE. The first version of this
+ * guard throttled every platform equally, which over-applied one platform's
+ * policy to three that do not share it (checked against the primary sources
+ * 2026-08-02, see docs/video/PLATFORM-POLICY.md):
+ *
+ *   YouTube   YPP is assessed on the CHANNEL and names "generic and repetitive"
+ *             as a demonetising bucket. This is the only real constraint.
+ *   Instagram Meta's originality policy is about reposting OTHER people's work -
+ *             stitching, reacting, minor edits. It says nothing about the volume
+ *             of your own original output.
+ *   TikTok    Originality is defined against copying others too. Separately,
+ *             Creator Rewards needs 60s+ videos, so our shorts are outside the
+ *             programme entirely and cadence is not the binding constraint.
+ *   X         No originality or repetition rule in the monetization standards
+ *             at all.
+ *
+ * Throttling all four bought nothing on three of them and cost reach.
  */
 import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 
-export const DEFAULT_PER_DAY = 2
+/** Per-platform ceiling per rolling 24h. Infinity = unconstrained by policy. */
+export const PER_DAY = {
+  youtube: 2,
+  instagram: Infinity,
+  tiktok: Infinity,
+  x: Infinity,
+}
+export const DEFAULT_PER_DAY = PER_DAY.youtube
 const DIR = 'output/publish'
 
-/** Every posted timestamp on the account, newest first, across all manifests. */
-function postedTimes() {
+/** Posted timestamps for one platform, newest first, across all manifests. */
+function postedTimes(platform) {
   const out = []
   for (const f of readdirSync(DIR).filter(f => /^manifest.*\.json$/.test(f))) {
     let m
     try { m = JSON.parse(readFileSync(join(DIR, f), 'utf8')) } catch { continue }
     for (const s of m.shorts ?? []) {
-      // One entry per SHORT, using its earliest post across platforms: that is
-      // the day the video entered the world.
-      const stamps = Object.values(s.status ?? {})
-        .filter(v => v && v.state === 'posted' && v.at)
-        .map(v => Date.parse(v.at))
-        .filter(Number.isFinite)
-      if (stamps.length) out.push({ key: `${f}:${s.slug}`, at: Math.min(...stamps) })
+      const v = (s.status ?? {})[platform]
+      if (!v || v.state !== 'posted' || !v.at) continue
+      const at = Date.parse(v.at)
+      if (Number.isFinite(at)) out.push({ key: `${f}:${s.slug}`, at })
     }
   }
   return out.sort((a, b) => b.at - a.at)
 }
 
-/** Distinct shorts first published in the last `hours`. */
-export function recent(hours = 24, now = Date.now()) {
+/** Distinct shorts published to `platform` in the last `hours`. */
+export function recent(platform = 'youtube', hours = 24, now = Date.now()) {
   const cutoff = now - hours * 3600_000
-  return postedTimes().filter(x => x.at >= cutoff)
+  return postedTimes(platform).filter(x => x.at >= cutoff)
 }
 
 /**
- * How many more shorts may go out right now, and when the next slot opens.
- * `limit` is per rolling 24h. Infinity disables the guard.
+ * How many more shorts may go out to `platform` right now, and when the next
+ * slot opens. `limit` defaults to that platform's policy ceiling.
  */
-export function budget(limit = DEFAULT_PER_DAY, now = Date.now()) {
+export function budget(platform = 'youtube', limit = PER_DAY[platform] ?? Infinity,
+                       now = Date.now()) {
   if (!Number.isFinite(limit)) return { allowed: Infinity, used: 0, nextAt: null }
-  const used = recent(24, now)
+  const used = recent(platform, 24, now)
   const allowed = Math.max(0, limit - used.length)
   // The oldest post inside the window is the one whose expiry frees a slot.
   const nextAt = allowed > 0 || !used.length

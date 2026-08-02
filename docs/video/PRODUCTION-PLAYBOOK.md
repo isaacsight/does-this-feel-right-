@@ -1155,7 +1155,7 @@ displayed total disagree, the total is right and the scrape is truncated.
 ## 10.27  YPP is judged on the channel, so cadence is a production constraint
 
 YouTube's 2026-08 clarification replaced "inauthentic content" with three named
-buckets. Full reading in `docs/video/YPP-POLICY.md`; the part that changes how
+buckets. Full reading in `docs/video/PLATFORM-POLICY.md`; the part that changes how
 we work is this:
 
 **Our exposure is not the imagery and not the synthetic voice.** YouTube is
