@@ -23,6 +23,7 @@
 
 import { load, mark, pending, caption, PLATFORMS } from './manifest.mjs'
 import { ADAPTERS, closeBrowser, log } from './adapters.mjs'
+import { budget, DEFAULT_PER_DAY } from './cadence.mjs'
 
 let stopping = false
 for (const signal of ['SIGINT', 'SIGTERM']) {
@@ -90,8 +91,33 @@ async function attempt(job, m) {
 
 async function run(m) {
   const platforms = flag('platform') ? [flag('platform')] : PLATFORMS
-  const jobs = pending(m, platforms, flag('short'))
+  let jobs = pending(m, platforms, flag('short'))
   if (!jobs.length) return console.log('\nNothing pending. All posted.\n')
+
+  // CADENCE GUARD. On by default: publishing a whole queue at once is the
+  // "generic and repetitive" pattern YPP is evaluated on, and it is assessed
+  // per channel across every film. See cadence.mjs and docs/video/YPP-POLICY.md.
+  const limit = has('no-cadence') ? Infinity : Number(flag('per-day') ?? DEFAULT_PER_DAY)
+  const { allowed, used, nextAt } = budget(limit)
+  if (Number.isFinite(limit)) {
+    // Finishing a short already part-published is never deferred - leaving one
+    // live on TikTok and missing on YouTube is worse than either choice.
+    const started = new Set(m.shorts
+      .filter(s => Object.values(s.status).some(v => v.state === 'posted'))
+      .map(s => s.slug))
+    const fresh = [...new Set(jobs.filter(j => !started.has(j.short.slug))
+      .map(j => j.short.slug))]
+    const admit = new Set(fresh.slice(0, allowed))
+    const deferred = fresh.slice(allowed)
+    jobs = jobs.filter(j => started.has(j.short.slug) || admit.has(j.short.slug))
+    console.log(`\ncadence: ${used}/${limit} published in the last 24h` +
+      (deferred.length ? ` — deferring ${deferred.length}: ${deferred.join(', ')}` : ''))
+    if (nextAt) console.log(`         next slot ${nextAt.toLocaleString()}`)
+    if (!jobs.length) {
+      return console.log('\nNothing to publish inside the cadence budget. ' +
+        'Re-run later, or pass --per-day N / --no-cadence to override.\n')
+    }
+  }
 
   console.log(`\n${PUBLISH ? 'PUBLISHING' : 'STAGING (dry run — pass --publish to post)'}`)
   console.log(`${jobs.length} job(s)\n`)

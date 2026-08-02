@@ -1151,3 +1151,35 @@ Use the **owner-side** list — TikTok Studio's Posts table, with its total coun
 in the header — and check the count moves by exactly the number you posted.
 `tools/publish/tiktok-audit.mjs` exists for this. When a scraped count and a
 displayed total disagree, the total is right and the scrape is truncated.
+
+## 10.27  YPP is judged on the channel, so cadence is a production constraint
+
+YouTube's 2026-08 clarification replaced "inauthentic content" with three named
+buckets. Full reading in `docs/video/YPP-POLICY.md`; the part that changes how
+we work is this:
+
+**Our exposure is not the imagery and not the synthetic voice.** YouTube is
+explicit that it is "agnostic to what tools are used to create the content."
+Our exposure is that YPP is assessed on the CHANNEL, and on 2026-08-01 we put
+**fourteen verticals out in forty-eight hours** — same treatment, same caption
+system, same structure. Each was a distinct argument with cited sources. The
+upload history still read as "lots of videos really quickly that are very
+similar", which is the policy's own wording for what it demonetises.
+
+Good work in a bad pattern is still a bad pattern. So cadence is now enforced
+rather than intended: `tools/publish/cadence.mjs`, on by default, two shorts per
+rolling 24 hours **across all films** — per-channel, because a per-film limit
+would let two queues drain on the same day and miss the point entirely. It
+counts distinct shorts rather than jobs, since one short going to three
+platforms is one video's worth of cadence.
+
+Deliberately not blocked: finishing a short that is already part-published.
+Leaving one live on TikTok and missing on YouTube is worse than either choice.
+
+The other two buckets cost us nothing today and constrain the Director
+permanently: **the narrator never becomes a character** (an "AI persona"
+discussing health, medicine, law or finance is demonetised, and our films land
+on medicine routinely — what exempts us is that we have narration, not a
+presenter), and **on any such claim the authority is the citation, never the
+narration**. "The research found X" is reporting. "You should do X" is advice
+from a persona.
