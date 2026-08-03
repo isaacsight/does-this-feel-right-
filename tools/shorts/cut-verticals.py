@@ -89,6 +89,107 @@ def card(text, path):
     return pt, w, h
 
 
+# ------------------------------------------------------------------ karaoke
+
+_MEASURE_CACHE = {}
+
+
+def measure(word, pt):
+    """Width/height of one word at pt, measured — never estimated from chars."""
+    key = (word, pt)
+    if key not in _MEASURE_CACHE:
+        out = subprocess.run(['magick', '-background', 'none', '-font', FONT,
+                              '-pointsize', str(pt), f'label:{word}',
+                              '-format', '%w %h', 'info:'],
+                             capture_output=True, text=True, check=True).stdout
+        _MEASURE_CACHE[key] = tuple(int(x) for x in out.split())
+    return _MEASURE_CACHE[key]
+
+
+def layout(tokens, pt):
+    """Greedy wrap on MEASURED widths (the same law as card()); returns
+    (lines, line_h) where lines are [[(idx, word, w), ...], ...], or None if a
+    single word cannot fit the safe box at this size."""
+    space = measure('n', pt)[0] // 2 + 2      # a space measures ~half an 'n'
+    line_h = max(measure(w, pt)[1] for _, w in tokens) + 12
+    lines, cur, cur_w = [], [], 0
+    for idx, word in tokens:
+        w, _ = measure(word, pt)
+        if w > SAFE_W:
+            return None
+        add = w if not cur else cur_w + space + w
+        if cur and add > SAFE_W:
+            lines.append(cur); cur, cur_w = [], 0
+            add = w
+        cur.append((idx, word, w)); cur_w = add
+    if cur:
+        lines.append(cur)
+    return (lines, line_h) if len(lines) * line_h <= CAPTION_MAX_H else None
+
+
+def karaoke_cards(tokens, d, tag):
+    """One card variant per word: word k in tomato, the rest in ivory.
+
+    Why manual layout instead of `caption:`: highlighting one word needs its
+    position, which auto-wrap does not expose, and this ImageMagick has no
+    pango delegate for markup. So the wrap is done here on measured widths -
+    which is also the only wrap that cannot overflow the box - and each
+    variant is composed from per-word tiles. Tiles are rendered once per
+    colour and reused across variants: a 6-word card costs 12 label renders
+    and 6 composites, not 36 renders.
+    """
+    pt = next((p for p in range(CAPTION_PT, CAPTION_MIN_PT - 1, -6)
+               if layout(tokens, p)), CAPTION_MIN_PT)
+    lines, line_h = layout(tokens, pt) or layout(tokens, CAPTION_MIN_PT)
+    space = measure('n', pt)[0] // 2 + 2
+    block_h = len(lines) * line_h
+    top = CANVAS_H - CAPTION_UP - block_h
+
+    tiles = {}
+    for li, line in enumerate(lines):
+        for idx, word, w in line:
+            for colour, fill in (('ink', INK), ('hot', TOMATO)):
+                p = f'{d}/t-{tag}-{idx}-{colour}.png'
+                subprocess.run(['magick', '-background', 'none', '-fill', fill,
+                                '-font', FONT, '-pointsize', str(pt),
+                                f'label:{word}', p], check=True)
+                tiles[(idx, colour)] = p
+
+    variants = []
+    for k, _ in tokens:
+        cmd = ['magick', '-size', f'{CANVAS_W}x{CANVAS_H}', 'xc:none']
+        for li, line in enumerate(lines):
+            x = (CANVAS_W // 2) + SAFE_DX - (sum(w for _, _, w in line)
+                 + space * (len(line) - 1)) // 2
+            y = top + li * line_h
+            for idx, word, w in line:
+                cmd += [tiles[(idx, 'hot' if idx == k else 'ink')],
+                        '-geometry', f'+{x}+{y}', '-composite']
+                x += w + space
+        p = f'{d}/k-{tag}-{k}.png'
+        subprocess.run(cmd + [p], check=True)
+        variants.append((k, p))
+    return variants
+
+
+def align_words(words, wi, text):
+    """Advance a word-list cursor through one card's text; returns the card's
+    word objects or None if the card cannot be aligned (then it renders
+    static). segments-from-words.py built the cards FROM this word list, so
+    alignment is normally exact and sequential."""
+    norm = lambda s: re.sub(r'[^a-z0-9]', '', s.lower())
+    toks = [t for t in text.split() if norm(t)]
+    j = wi
+    while j < len(words) and norm(words[j]['w']) != norm(toks[0]):
+        j += 1
+    if j >= len(words):
+        return None, wi
+    got = words[j:j + len(toks)]
+    if len(got) != len(toks) or any(norm(a['w']) != norm(b) for a, b in zip(got, toks)):
+        return None, wi
+    return got, j + len(toks)
+
+
 def kicker_plate(text, path):
     subprocess.run(['magick', '-size', f'{CANVAS_W}x{CANVAS_H}', 'xc:none',
                     '-font', FONT, '-pointsize', str(KICKER_PT), '-fill', TOMATO,
@@ -107,6 +208,16 @@ def main(cfg_path):
     outdir = rel(cfg['out']); os.makedirs(outdir, exist_ok=True)
     picture_y = int(cfg.get('pictureY', PICTURE_Y))
 
+    # Karaoke: word-by-word highlight from the film's REAL word timings.
+    # Opt-in per config ("karaoke": true); needs audio/words.json, which every
+    # film has - recorded via /with-timestamps or retrofitted by
+    # align-existing.mjs (PLAYBOOK 10.24).
+    karaoke = bool(cfg.get('karaoke'))
+    words = None
+    if karaoke:
+        wpath = rel(cfg.get('words', os.path.join(base, 'audio', 'words.json')))
+        words = json.load(open(wpath))['words']
+
     for sh in cfg['shorts']:
         name, a, b = sh['name'], sh['from'], sh['to']
         t0, t1 = a / fps, b / fps
@@ -117,32 +228,58 @@ def main(cfg_path):
         shutil.rmtree(d, ignore_errors=True); os.makedirs(d)
         kicker_plate(sh['kicker'], f'{d}/kick.png')
 
-        shrunk = []
-        ins = ['-i', master, '-i', f'{d}/kick.png']
+        shrunk, static_fallbacks = [], 0
+        overlays = []                # (path, start, end) in clip time
+        wi = 0
         for i, (s, e, t) in enumerate(sub):
-            p = f'{d}/{i:03d}.png'
-            pt, w, h = card(t, p)
-            if pt != CAPTION_PT:
-                shrunk.append((pt, t))
+            st = max(0, s / fps - t0); en = min(dur, e / fps - t0)
+            got = None
+            if karaoke:
+                got, wi = align_words(words, wi, t)
+            if got:
+                toks = [x for x in enumerate(t.split())]
+                variants = karaoke_cards(toks, d, f'{i:03d}')
+                # Word k holds its highlight until word k+1 STARTS - the eye
+                # reads a gap between words as a dropped highlight, so the card
+                # never shows all-ivory mid-line. First variant starts with the
+                # card, not with its word, for the same reason.
+                for k, path in variants:
+                    ws = st if k == 0 else max(st, got[k]['start'] - t0)
+                    we = en if k == len(variants) - 1 else max(st, got[k + 1]['start'] - t0)
+                    if we > ws:
+                        overlays.append((path, ws, we))
+            else:
+                if karaoke:
+                    static_fallbacks += 1
+                p = f'{d}/{i:03d}.png'
+                pt, w, h = card(t, p)
+                if pt != CAPTION_PT:
+                    shrunk.append((pt, t))
+                overlays.append((p, st, en))
+
+        ins = ['-i', master, '-i', f'{d}/kick.png']
+        for p, _, _ in overlays:
             ins += ['-i', p]
 
         fc = [f"[0:v]scale={CANVAS_W}:-2,pad={CANVAS_W}:{CANVAS_H}:0:{picture_y}:color={LETTERBOX}[bg]",
               "[bg][1:v]overlay=0:0[v0]"]
-        for i, (s, e, t) in enumerate(sub):
-            st = max(0, s / fps - t0); en = min(dur, e / fps - t0)
+        for i, (p, st, en) in enumerate(overlays):
             fc.append(f"[v{i}][{i+2}:v]overlay=0:0:"
                       f"enable='between(t,{st:.3f},{en:.3f})'[v{i+1}]")
 
         out = f'{outdir}/{name}.mp4'
         r = subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', str(t0), '-to', str(t1),
                             *ins, '-filter_complex', ";".join(fc),
-                            '-map', f'[v{len(sub)}]', '-map', '0:a',
+                            '-map', f'[v{len(overlays)}]', '-map', '0:a',
                             '-c:v', 'libx264', '-crf', '19', '-preset', 'medium',
                             '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k',
                             '-r', '30', '-t', str(dur), out],
                            capture_output=True, text=True)
-        print(f"{name}  {dur:.1f}s  {len(sub)} cards  "
+        mode = f"karaoke, {len(overlays)} overlays" if karaoke else f"{len(sub)} cards"
+        print(f"{name}  {dur:.1f}s  {mode}  "
               f"{'OK' if r.returncode == 0 else r.stderr[-400:]}")
+        if static_fallbacks:
+            print(f"    {static_fallbacks} card(s) could not align to words.json — rendered static")
         for pt, t in shrunk:
             print(f"    shrunk to {pt}pt: {t}")
         open(f'{outdir}/{name}.srt', 'w').write(
