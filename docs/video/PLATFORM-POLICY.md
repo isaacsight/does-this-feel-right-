@@ -147,6 +147,7 @@ primarily to advertise external products or services.
 | Chair | Constraint |
 |---|---|
 | Director | Sensitive-topic films carry primary citations; no advice register; the narrator never becomes a character. |
+| Sound | One narrator forever; delivery varies per film from the register line. A uniquely owned voice is the standing upgrade. |
 | Art Director | Name each film's world AGAINST the catalogue: the last three films' worlds must be legibly different from this one. House tokens stay the spine; the world around them moves. A run of matching films is the "template" bucket arriving through the art department. |
 | Editor | Sources on every social edition. Keep motion and cards varied — never a slideshow. Karaoke captions by default (word timings exist for every film). |
 | Publisher | Cadence throttles **YouTube only**, two per 24h across all films, enforced by `cadence.mjs` per platform. Instagram, TikTok, X and Substack are unthrottled — their policies do not penalise the volume of your own original output. `drip.mjs` drains the queue daily and `verify.mjs` audits owner-side after every publish run. |
@@ -165,6 +166,14 @@ primarily to advertise external products or services.
   "generic and repetitive" bucket is not only a cadence problem — a catalogue of
   visually identical films is the template pattern however good each one is.
   The Art Director names each world against the last three films'.
+- **The voice does NOT vary — one narrator, permanently** (decided 2026-08-03,
+  deliberately the opposite of the visual rule). Visual sameness reads as a
+  template at a glance across a grid; voice is experienced serially, where
+  consistency is the "it could only be this channel" signal YouTube says it
+  wants. Rotation buys nothing under the AI-persona rule either — that rule is
+  about identity, not timbre. Delivery (pace, temperature, register) varies per
+  film inside the same voice. Standing intent: replace the stock ElevenLabs
+  voice with a designed voice unique to kernel.chat — ownership, not rotation.
 
 ## Sources
 

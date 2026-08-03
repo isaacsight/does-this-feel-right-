@@ -68,41 +68,64 @@ costs the same as 120 seconds. Compose to the minute.
 
 ### Pass one — the voice
 
-1. **Cast the voice against the register line**, not against your taste. An
-   editorial film wants an unhurried reader who trusts the sentence; a voice
-   that performs the copy fights it.
-2. **Read the script aloud against a timer** before spending anything. If it
+1. **The narrator is one voice, permanently — casting happened once.** The
+   channel's voice is settled doctrine (ratified 2026-08-03), and it is the
+   OPPOSITE of the visual rule on purpose: the world varies per film because
+   visual sameness reads as a template at a glance across a grid; voice is
+   experienced serially, inside films, across weeks — there, consistency is
+   what "it could only be this channel" sounds like. The School of Life ran
+   one narrator for a decade; that is authorship, not farming. Rotating
+   voices would also buy nothing under the AI-persona rule, which is about
+   identity (name, face, credentials), not timbre — and fifty voices reads
+   MORE synthetic, not less.
+
+   **What varies per film is the DELIVERY, not the narrator.** Pace,
+   temperature, where the read is allowed to go quiet — executed from the
+   Director's register line inside the same instrument. A night-world film
+   takes a lower, slower read of the same voice.
+
+   **Standing intent: a voice that is ours.** The current voice is stock
+   ElevenLabs, which any channel can use. The upgrade is ownership — a
+   designed or blended voice unique to kernel.chat, the audio equivalent of
+   the house palette. One-time voice-design session, not a per-film cost. The
+   day the stock voice is heard on someone else's channel, this stops being
+   optional.
+
+2. **Read the register line before touching delivery.** An editorial film
+   wants an unhurried reader who trusts the sentence; a voice that performs
+   the copy fights it.
+3. **Read the script aloud against a timer** before spending anything. If it
    runs long, that is a note back to the Director. Never fix length with
    delivery speed — a rushed read is audible and it is the first thing that
    makes a film feel cheap.
-3. **Record in act blocks, not one continuous take.** A retake of act three
+4. **Record in act blocks, not one continuous take.** A retake of act three
    should not cost you acts one through seven, and block boundaries give the
    Editor natural seams.
-4. **Estimate, present, wait** — even at zero fal dollars. Subscription
+5. **Estimate, present, wait** — even at zero fal dollars. Subscription
    credits are still Isaac's money, and the gate is about consent, not price.
-5. **Listen to the whole thing.** Check for mispronounced proper nouns,
+6. **Listen to the whole thing.** Check for mispronounced proper nouns,
    swallowed numbers, and wrong emphasis on the turn. Researcher surnames and
    years are the usual failures; a film that cites Schultz and says it wrong
    loses the authority the citation bought.
 
 ### Pass two — the score and design
 
-6. **Write one line of score intent per act** from the Director's emotional
+7. **Write one line of score intent per act** from the Director's emotional
    temperature before generating anything.
-7. **Generate act beds, not one long cue.** Five 60-second beds cost exactly
+8. **Generate act beds, not one long cue.** Five 60-second beds cost exactly
    what one 300-second bed costs, and they buy you a score that turns with the
    film, retakes one act at a time, and gives the Editor crossfade points.
    A single long generation is one bad note away from a $4 retake.
-8. **Score under, never over.** The narration is the film. A bed that asks to
+9. **Score under, never over.** The narration is the film. A bed that asks to
    be noticed is a bed that will be pulled down in the mix until it may as
    well not exist — write it quiet and sparse from the start.
-9. **Design sparingly.** A handful of cues placed where picture already has a
+10. **Design sparingly.** A handful of cues placed where picture already has a
    physical event: a paper turn, a lever, a bead settling. Sound on everything
    is sound on nothing. Add one room tone for the whole film so the silence
    has a texture rather than being digital nothing.
-10. **Deliver separate stems.** Never pre-mix. Voice, score, and design arrive
+11. **Deliver separate stems.** Never pre-mix. Voice, score, and design arrive
     as separate files so the Editor can duck and balance against picture.
-11. **Append every batch to the ledger**, including retakes.
+12. **Append every batch to the ledger**, including retakes.
 
 ## What you file
 
