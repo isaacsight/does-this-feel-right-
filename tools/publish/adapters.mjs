@@ -138,6 +138,25 @@ export async function tiktok({ short, caption, publish }) {
     await page.screenshot({ path: `output/publish/proof-tiktok-${short.slug}.png` })
     if (!publish) return { note: 'staged' }
 
+    // AI-generated content toggle. Not required for our non-realistic line art
+    // (TikTok's rule covers realistic scenes and people), but TikTok states the
+    // label "won't affect the distribution of your video", so it costs nothing
+    // and removes all ambiguity — docs/video/PLATFORM-POLICY.md. Best-effort:
+    // the switch moves around the settings panel, so a miss logs and proceeds.
+    try {
+      const aiLabel = page.getByText(/ai-generated content/i).first()
+      if (await aiLabel.isVisible({ timeout: 3000 }).catch(() => false)) {
+        const sw = page.locator('[role="switch"]').filter({ has: aiLabel })
+          .or(aiLabel.locator('xpath=ancestor::*[position()<=3]').locator('[role="switch"]').first())
+        const target = sw.first()
+        if (await target.isVisible({ timeout: 2000 }).catch(() => false) &&
+            (await target.getAttribute('aria-checked').catch(() => 'true')) === 'false') {
+          await target.click({ force: true })
+          log('AI-generated label set')
+        }
+      } else log('AI label switch not found — skipping (not required for non-realistic art)')
+    } catch { log('AI label attempt failed — proceeding without') }
+
     // Let TikTok's copyright / content checks finish before posting. If they
     // are still running, clicking Post raises a "Continue to post?" dialog
     // offering to ABANDON the check — waiting a couple of minutes is cheaper
@@ -379,4 +398,74 @@ export async function instagram({ short, caption, publish }) {
   } finally { await page.close().catch(() => {}) }
 }
 
-export const ADAPTERS = { youtube, tiktok, instagram }
+// ---------------------------------------------------------------------- x --
+
+/**
+ * Native video post, then the film link as a reply. X throttles posts whose
+ * primary content is an outbound link, so the URL never rides in the post
+ * itself. Ported from x-post.mjs (2026-08-02) so X gets the same manifest
+ * state, idempotency and retry story as the other three — before this it was
+ * fire-and-forget, and auditing "is this short on X?" meant scraping the
+ * live profile.
+ */
+export async function x({ short, caption, publish, filmUrl }) {
+  // X caps at 280 chars. The hook is written to stand alone; the caption()
+  // fallback chain would hand us the full TikTok caption, which does not fit.
+  let text = short.hook || caption
+  if (text.length > 270) text = text.slice(0, 267).trimEnd() + '...'
+  const reply = filmUrl ? `Full film, with sources: ${filmUrl}` : null
+
+  const page = await (await ctx()).newPage()
+  try {
+    await page.goto('https://x.com/compose/post', { waitUntil: 'domcontentloaded' })
+    const box = page.locator('[data-testid="tweetTextarea_0"]').first()
+    await box.waitFor({ state: 'visible', timeout: 60_000 })
+    log('composer open')
+
+    const input = page.locator('input[type=file][accept*="video"], input[type=file]').first()
+    await input.waitFor({ state: 'attached', timeout: 30_000 })
+    await input.setInputFiles(resolve(short.file))
+    log('video attached')
+
+    // The Post button stays disabled while the upload processes; its enabling
+    // is the honest signal the media is ready. If it never enables, that is a
+    // failure, not a warning — the TikTok adapter taught us what swallowing a
+    // verification costs (PLAYBOOK 10.26).
+    await page.waitForFunction(() => {
+      const b = document.querySelector('[data-testid="tweetButton"]')
+      return b && b.getAttribute('aria-disabled') !== 'true'
+    }, { timeout: 300_000 })
+    log('upload processed')
+
+    await box.click()
+    await page.keyboard.type(text, { delay: 8 })
+    const got = (await box.innerText().catch(() => '')).trim()
+    if (!got.startsWith(text.slice(0, 20))) throw new Error('text did not take')
+    log('text verified')
+
+    await page.screenshot({ path: `output/publish/proof-x-${short.slug}.png` })
+    if (!publish) return { note: 'staged' }
+
+    await page.locator('[data-testid="tweetButton"]').first().click()
+    await page.waitForURL(u => !u.toString().includes('/compose/'), { timeout: 120_000 })
+    log('posted')
+
+    if (reply) {
+      await page.goto('https://x.com/Kernelchatkbot', { waitUntil: 'domcontentloaded' })
+      await page.waitForTimeout(5000)
+      const first = page.locator('[data-testid="reply"]').first()
+      await first.waitFor({ state: 'visible', timeout: 60_000 })
+      await first.click()
+      const rbox = page.locator('[data-testid="tweetTextarea_0"]').first()
+      await rbox.waitFor({ state: 'visible', timeout: 60_000 })
+      await rbox.click()
+      await page.keyboard.type(reply, { delay: 8 })
+      await page.locator('[data-testid="tweetButton"]').first().click()
+      await page.waitForTimeout(6000)
+      log('reply posted')
+    }
+    return { url: 'https://x.com/Kernelchatkbot' }
+  } finally { await page.close().catch(() => {}) }
+}
+
+export const ADAPTERS = { youtube, tiktok, instagram, x }

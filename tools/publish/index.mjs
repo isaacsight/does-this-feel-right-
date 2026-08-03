@@ -70,7 +70,8 @@ async function attempt(job, m) {
   const text = caption(short, platform)
   for (let try_ = 1; try_ <= RETRIES + 1; try_++) {
     try {
-      const res = await ADAPTERS[platform]({ short, caption: text, publish: PUBLISH })
+      const res = await ADAPTERS[platform]({ short, caption: text, publish: PUBLISH,
+                                             filmUrl: m.film?.url ?? m.film_url })
       const state = PUBLISH ? 'posted' : 'staged'
       mark(m, short.slug, platform, state, res)
       console.log(`  ${ICON[state]} ${platform}/${short.slug}${res.url ? ' → ' + res.url : ''}`)
@@ -143,7 +144,18 @@ async function run(m) {
   status(m)
 }
 
+if (cmd === 'verify') {
+  // Delegate: verify audits ALL manifests against the live accounts, so it
+  // does not load one manifest the way status/run do.
+  const { execFileSync } = await import('node:child_process')
+  execFileSync('node', ['tools/publish/verify.mjs',
+    ...(flag('platform') ? ['--platform', flag('platform')] : []),
+    ...(flag('manifest') ? ['--manifest', flag('manifest')] : [])],
+    { stdio: 'inherit' })
+  process.exit(0)
+}
+
 const m = load(flag('manifest') ?? 'output/publish/manifest.json')
 if (cmd === 'status') status(m)
 else if (cmd === 'run') await run(m)
-else { console.log('commands: status | run'); process.exit(1) }
+else { console.log('commands: status | run | verify'); process.exit(1) }

@@ -251,9 +251,24 @@ def main():
     p.add_argument("--retire", metavar="VIDEO_ID", action="append", default=[],
                    help="set an existing video private (repeatable) — for "
                         "retiring an upload a corrected re-cut supersedes")
+    p.add_argument("--check", metavar="IDS",
+                   help="comma-separated video ids: print '<id> <privacyStatus>' "
+                        "per line, or '<id> missing'. Read-back for verify.mjs.")
     args = p.parse_args()
 
     youtube = authenticate()
+
+    if args.check:
+        ids = [i for i in args.check.split(",") if i]
+        # One call per 50 ids is the API's own batching.
+        found = {}
+        for i in range(0, len(ids), 50):
+            r = youtube.videos().list(part="status", id=",".join(ids[i:i+50])).execute()
+            for item in r.get("items", []):
+                found[item["id"]] = item["status"]["privacyStatus"]
+        for vid in ids:
+            print(f"{vid} {found.get(vid, 'missing')}")
+        return
 
     if args.retire:
         for vid in args.retire:

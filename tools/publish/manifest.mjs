@@ -9,7 +9,12 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-export const PLATFORMS = ['youtube', 'tiktok', 'instagram']
+// x joined 2026-08-02. It was fire-and-forget through x-post.mjs before, which
+// meant no idempotency and no record — auditing "is this short on X?" required
+// scraping the live profile. Substack is deliberately NOT here: shorts do not
+// go to Substack, essays do, and a platform in this list is one every short is
+// expected to reach.
+export const PLATFORMS = ['youtube', 'tiktok', 'instagram', 'x']
 
 export function load(path = 'output/publish/manifest.json') {
   const p = resolve(path)
