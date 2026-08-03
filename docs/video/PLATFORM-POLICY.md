@@ -5,8 +5,8 @@ Checked against primary sources 2026-08-02. Four platforms, four different rules
 
 > **The one-line version.** Only YouTube penalises a channel for publishing a lot
 > of similar things. Instagram and TikTok define "unoriginal" against copying
-> **other people**, which we never do. X has no such rule at all. And **none of
-> our shorts qualify for TikTok's programme, because every one is under 60s.**
+> **other people**, which we never do. X has no such rule at all. Shorts are cut
+> at **61–74s** so every one clears TikTok's one-minute programme floor.
 
 Do not generalise one platform's policy to the others. The first version of this
 document did, and the cadence guard throttled all four platforms to YouTube's
@@ -22,7 +22,7 @@ ceiling — buying nothing on three of them and costing reach.
 | "Unoriginal" means | generic, templated, no arc | reposting **others'** work | copying **others'** work | n/a |
 | Judged on | the **channel** | the account | account + per video | per post |
 | AI disclosure | not needed (non-realistic exempt) | not specified | only if **realistic** | only for **armed conflict** |
-| Our shorts eligible | yes | yes | **no — under 60s** | yes |
+| Our shorts eligible | yes | yes | yes — 61–74s since 2026-08-02 | yes |
 
 ---
 
@@ -86,9 +86,10 @@ whole rule is about republishing others. No cadence limit applied.
 Creator Rewards requires an account to have **10,000 followers** and **100,000
 views in 30 days**, and requires each video to *"be at least one minute long."*
 
-**Every short we have ever cut is under 60 seconds** — the longest is 59.1s,
-across all six films. So none of them can earn under the programme regardless of
-anything else. Cadence is not the binding constraint on TikTok; length is.
+**Shorts are cut at 61–74s** (since 2026-08-02) so every one clears the
+one-minute floor. The 24 shorts cut before that date are all under 60s and
+cannot earn under the programme; they stay up as reach, and re-cutting them is
+optional once the follower bar is in sight.
 
 Original content is *"designed, filmed, and produced by you."* The not-original
 list is again about copying others — duets and stitches, others' watermarks,
