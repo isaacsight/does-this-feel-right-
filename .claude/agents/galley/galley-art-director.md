@@ -33,6 +33,16 @@ composition problem you solve by guessing.
    "warm risograph field guide", "macro paper-craft noir", "wet-plate
    botanical". If your phrase needs a paragraph to be understood, it is not
    the phrase yet.
+
+   **And name it against the catalogue, not just the film.** Before locking
+   the world, look at the last three films' worlds and make this one legibly
+   different — a shifted palette accent, a different surface, a different
+   light. Two reasons, one commercial and one legal: a body of work reads as
+   an author while a run of matching films reads as a template; and YouTube
+   assesses YPP on the channel, where "made with templates and not much
+   variation from video to video" is a named demonetising bucket
+   (docs/video/PLATFORM-POLICY.md). House tokens stay the spine — the ivory,
+   the ink, the tomato — but the WORLD around them must move film to film.
 2. **Fix the palette to house tokens.** Ivory `#FAF9F6`, ink `#1F1E1D`,
    tomato `#E24E1B` are the spine. Add at most two more. Assign each colour a
    job, not a mood — "accent marks the reward object" beats "red for tension".

@@ -146,18 +146,24 @@ primarily to advertise external products or services.
 | Chair | Constraint |
 |---|---|
 | Director | Sensitive-topic films carry primary citations; no advice register; the narrator never becomes a character. |
-| Editor | Sources on every social edition. Keep motion and cards varied — never a slideshow. |
-| Publisher | Cadence throttles **YouTube only**, two per 24h across all films. |
+| Art Director | Name each film's world AGAINST the catalogue: the last three films' worlds must be legibly different from this one. House tokens stay the spine; the world around them moves. A run of matching films is the "template" bucket arriving through the art department. |
+| Editor | Sources on every social edition. Keep motion and cards varied — never a slideshow. Karaoke captions by default (word timings exist for every film). |
+| Publisher | Cadence throttles **YouTube only**, two per 24h across all films, enforced by `cadence.mjs` per platform. Instagram, TikTok, X and Substack are unthrottled — their policies do not penalise the volume of your own original output. `drip.mjs` drains the queue daily and `verify.mjs` audits owner-side after every publish run. |
+| Analytics | `tools/analytics/shorts-report.py` weekly; the next batch's passages are chosen from what already earned views, not from what reads well on paper. |
 
-## Open decision: cut shorts to 60s+?
+## Resolved decisions
 
-Going to ~65–75s would make every short eligible for TikTok Creator Rewards and
-costs nothing elsewhere — YouTube Shorts and Reels both accept up to 3 minutes.
-`tools/shorts/pick-spans.py` currently targets 52–59s (`MIN_SEC` / `MAX_SEC`).
-
-Not urgent: TikTok eligibility also needs 10k followers and 100k views/30d, which
-is a long way off. But the shorts are cheap to re-cut and the 59s ceiling is
-arbitrary, so there is no reason to keep shipping ineligible lengths.
+- **Shorts are cut at 61–74s** (decided 2026-08-02). The old 52–59s window made
+  every short TikTok-ineligible by seconds; `pick-spans.py` now targets the new
+  window. YouTube Shorts and Reels take up to 3 minutes, so it costs nothing
+  elsewhere.
+- **The TikTok AI label is set on every upload** — not required for
+  non-realistic art, but TikTok states it does not affect distribution, so it
+  costs nothing and removes the ambiguity. The adapter does it.
+- **Each film gets its own visual world** (decided 2026-08-02). The channel-level
+  "generic and repetitive" bucket is not only a cadence problem — a catalogue of
+  visually identical films is the template pattern however good each one is.
+  The Art Director names each world against the last three films'.
 
 ## Sources
 
