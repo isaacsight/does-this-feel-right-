@@ -1209,3 +1209,32 @@ repaint the castplate into it → empty layout plate in the same world → frame
 same request shape (base-URL swap; `images` not `image_urls`). Mechanically
 proven as an emergency path when fal runs dry; the one sample showed visibly
 weaker scene geometry, so it is a fallback, not an equal.
+
+## 10.29  The rubric became a chair
+
+Every section of this playbook is a lesson that cost something. Until now they
+were prose a chair was supposed to remember; as of 2026-08-03 they are a
+RUBRIC, enforced by a dedicated grader (`galley-qc`) at three gates — script
+before narration, frames before motion, export before publish. Each rubric
+item cites the section that paid for it and names the owning chair.
+
+Design decisions, so nobody softens them later:
+
+- **QC holds no generation or editing tools.** A grader that can fix things
+  grades gently to spare itself the work.
+- **Adversarial framing.** The hum shipped because every measurement passed
+  and nothing was TASKED with finding a fault. QC's job is the way the film is
+  wrong, not confirmation the work was done.
+- **The listen gate (3.4) is permanently human.** No agent, including QC,
+  may mark it done. The report states whether a human has listened, and PASS
+  is withheld until one has.
+- **NOT RUN is a first-class result.** An unrun check that reads as passed is
+  exactly how the hum shipped.
+- **Rubric arguments amend the playbook, never waive an item for one film.**
+
+Same commit: all GALLEY chairs pinned to Opus 5 (released 2026-07-24 — near-
+Fable quality at half the price, 1M context). The writers' room and any
+competing-boards experiment now cost half, and a chair can hold the whole film
+plus this playbook in one context, which removes the handoff seams where the
+frame-index off-by-one and its relatives lived. The Editor's shorts pass is
+now explicitly parallel: one subagent per short, one QC read across the set.

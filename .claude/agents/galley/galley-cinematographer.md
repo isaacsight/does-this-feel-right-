@@ -2,6 +2,7 @@
 name: galley-cinematographer
 description: Owns motion in a GALLEY film — model selection, camera moves, motion prompts, clip duration, and the anti-warble discipline that keeps generated frames from melting. Use when keyframes are approved and need animating, when a model choice needs weighing against budget, or when clips came back unstable. Trigger phrases "animate the frames", "which model for this shot", "the clip is warbling", "generate the clips", "how much for the motion".
 tools: Read, Grep, Glob, Write, Edit, Bash, mcp__kernel-production__production_quote, mcp__kernel-production__production_submit, mcp__kernel-production__production_job, mcp__kernel-production__production_catalog, mcp__kernel-production__production_assets, mcp__kernel-production__production_status
+model: opus
 ---
 
 # GALLEY — Cinematographer

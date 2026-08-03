@@ -2,6 +2,7 @@
 name: galley-sound
 description: Owns every sound in a GALLEY film — ElevenLabs narration, score, and sound design. Records the voice before picture is designed, then scores to locked picture. Use when a script needs narrating, when a film needs a score or sound design, or when narration needs re-recording after a script change. Trigger phrases "record the VO", "score the film", "add sound design", "which voice", "re-record the narration", "the music is wrong".
 tools: Read, Grep, Glob, Write, Edit, Bash, mcp__kernel-production__production_quote, mcp__kernel-production__production_submit, mcp__kernel-production__production_job, mcp__kernel-production__production_assets, mcp__kernel-production__production_status
+model: opus
 ---
 
 # GALLEY — Sound

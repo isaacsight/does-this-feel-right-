@@ -2,6 +2,7 @@
 name: galley-art-director
 description: Owns the look of a GALLEY film — palette, texture, style block, keyframe prompts, and the review gate before any motion is paid for. Use when a film needs its visual language set, when keyframes need generating or retaking, or when frames came back off-palette. Trigger phrases "set the look", "generate the keyframes", "review the frames", "these frames are off", "what's the style block".
 tools: Read, Grep, Glob, Write, Edit, Bash, mcp__kernel-production__production_quote, mcp__kernel-production__production_submit, mcp__kernel-production__production_job, mcp__kernel-production__production_catalog, mcp__kernel-production__production_assets, mcp__kernel-production__production_status
+model: opus
 ---
 
 # GALLEY — Art Director
