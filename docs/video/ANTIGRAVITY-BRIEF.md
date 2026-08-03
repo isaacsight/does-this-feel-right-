@@ -1,5 +1,32 @@
 # Brief for Antigravity — generate a GALLEY film's frames with your built-in image generator
 
+> ## VERDICT, tested 2026-08-02: cannot produce film frames. Use it for previz and plates.
+>
+> Antigravity's built-in `generate_image` is **hard-locked to 1024×1024 square**.
+> Its tool schema accepts exactly three parameters — `Prompt`, `ImageName`,
+> `ImagePaths` — and has no `width`, `height`, `aspect_ratio`, `resolution` or
+> `model`. Prompts ending "16:9 landscape" are ignored; there is no config field
+> or alternative model behind it. Verified on disk, not from the preview.
+>
+> Our films assemble at 1920×1080. A 1024 square cropped to 16:9 is 1024×576,
+> which is below the delivery format before any upscale, and cropping destroys
+> compositions built for a wide frame. **Final frames stay on fal.**
+>
+> **What it IS good for, and this was better than expected:** conditioned on the
+> film's reference plate it locked house style and character *immediately* —
+> flat solid fills, even black outlines, cream ground, no gradients, and the
+> character's exactly-two hairs correct on the first try. Content adherence to
+> the boarded prompt was accurate too.
+>
+> So use it, free, for:
+> - **previz** — does this boarded frame read at all, before spending on fal;
+> - **square deliverables** — thumbnails, square social cards;
+> - **motif and character plates**, where square is fine and the plate is then
+>   used to condition the real 16:9 run.
+>
+> Everything below still applies to those uses. Only the "generate the film's
+> frames" framing is dead.
+
 You are producing the **frame set** for a kernel.chat film in the repo
 `~/blog design`. Everything else in the pipeline already exists and works. Your
 job replaces exactly one step: the frames, which are normally generated against
@@ -48,11 +75,25 @@ silently revert it.
 
 ## Reference conditioning — read this before your first image
 
+**Find the plates before you assume a path.** They are in a different place in
+every film, and the first run of this brief looked in `production/refs/`, found
+it empty for that film, and generated with no conditioning at all:
+
+```
+find videos/<film>/ -iname '*ref*' -o -iname '*plate*' | grep -i png
+```
+
+- `you-watched-it-happen` → `production/refs/castplate.png`
+- `you-happen-to-life`   → `production/refs/layout-plate.png`, `dial-plate.png`
+- `you-are-not-finished` → `public/images/REFERENCE-notext.png`
+
+**If the search returns nothing, stop and say so.** Generating 100+ frames with
+no reference is not a degraded version of this job, it is a different one.
+
 **If your image generator accepts reference/input images, use both plates:**
 
-- `production/refs/castplate.png` — the character sheet. Teaches construction
-  and palette.
-- A **layout plate** — teaches geometry only.
+- **the character sheet** — teaches construction and palette.
+- **a layout plate** — teaches geometry only.
 
 **A reference image is a prior on EVERYTHING it contains.** This is the single
 most expensive lesson in this project and it has been relearned three times:
@@ -137,18 +178,28 @@ normalise toward the painted panel rather than the full canvas.
    Report the frame count back before generating anything.
 2. **Confirm the plates exist** and are correct. Build the empty layout plate if
    it does not exist.
-3. **Generate three frames first** — one dialogue, one wide, one detail. Stop.
-   Show them. Do not proceed on your own judgement.
-4. **Then generate in batches**, writing each PNG as you go so a crash loses
+3. **Generate ONE frame, then check the file before anything else:**
+   ```
+   magick identify -format '%wx%h\n' videos/<film>/public/images/frames/<id>.png
+   ```
+   It must be **16:9 landscape** and at least 1920 wide. The first run of this
+   brief produced three 1024×1024 squares — every prompt ends "16:9 landscape"
+   and the model ignored it. Square frames are unusable at any quality, and
+   nothing downstream can fix an aspect ratio. If your generator cannot emit
+   16:9 at that size, **stop and say so** — that ends this approach, and the
+   film goes back to fal.
+4. **Then generate two more** — one wide, one detail. Stop. Show all three.
+   Do not proceed on your own judgement.
+5. **Then generate in batches**, writing each PNG as you go so a crash loses
    nothing. Re-running must skip files that already exist.
-5. **Contact-sheet the whole film before declaring done:**
+6. **Contact-sheet the whole film before declaring done:**
    ```
    magick montage 'videos/<film>/public/images/frames/*.png' \
      -tile 8x -geometry 200x113+2+2 /tmp/contact.png
    ```
    Look at it. Character drift, stray lettering, donated props and boxed panels
    are all obvious on a contact sheet and all invisible frame by frame.
-6. **Report**: frames generated, frames skipped, anything you could not do, and
+7. **Report**: frames generated, frames skipped, anything you could not do, and
    your honest read of the contact sheet.
 
 ---
