@@ -43,6 +43,16 @@ composition problem you solve by guessing.
    variation from video to video" is a named demonetising bucket
    (docs/video/PLATFORM-POLICY.md). House tokens stay the spine — the ivory,
    the ink, the tomato — but the WORLD around them must move film to film.
+
+   **A new world starts by repainting the castplate into it.** Measured
+   2026-08-02: the same scene prompted into four worlds off the house plate
+   held the character in all four but only fully shifted where the world kept
+   a paper-warm ground — the night world kept a cream floor, the riso world
+   barely moved, because the plate is a prior on the WORLD it was painted in,
+   not just the cast. One repaint of the sheet into the target world
+   ($0.04, "keep every pose and construction line identical; change ONLY the
+   colour world"), then conditioning on that, produced a complete shift with
+   the character intact. Plate first, then frames — always.
 2. **Fix the palette to house tokens.** Ivory `#FAF9F6`, ink `#1F1E1D`,
    tomato `#E24E1B` are the spine. Add at most two more. Assign each colour a
    job, not a mood — "accent marks the reward object" beats "red for tension".

@@ -1183,3 +1183,29 @@ on medicine routinely — what exempts us is that we have narration, not a
 presenter), and **on any such claim the authority is the citation, never the
 narration**. "The research found X" is reporting. "You should do X" is advice
 from a persona.
+
+## 10.28  A world shift needs a world-native castplate
+
+Tested 2026-08-02, six frames, $0.27. One scene (the character at a bus stop),
+one castplate, four style blocks: house cream, night slate, riso duotone,
+autumn field. The character held in all four — and the WORLD only fully
+shifted in one. The night world kept a cream ground under a slate sky; the
+riso world barely moved at all.
+
+The reference plate is a prior on the world it was painted in, not just on the
+cast (the same law as 10.9, arriving from the palette side). Style-block words
+lose to plate pixels wherever they disagree.
+
+**The fix, verified:** repaint the castplate itself into the target world first
+— "keep every pose, proportion and construction line identical; change ONLY
+the colour world" — then condition every frame on the world-native plate. One
+$0.039 image turned the half-night into a complete night with the character
+intact through both hops.
+
+So a film's look locks in this order: name the world against the catalogue →
+repaint the castplate into it → empty layout plate in the same world → frames.
+
+**Fallback note, same session:** WaveSpeed serves nano-banana/edit with the
+same request shape (base-URL swap; `images` not `image_urls`). Mechanically
+proven as an emergency path when fal runs dry; the one sample showed visibly
+weaker scene geometry, so it is a fallback, not an equal.
