@@ -33,8 +33,14 @@ import re
 import sys
 from pathlib import Path
 
-MIN_SEC = 52.0          # below this a short reads as thin
-MAX_SEC = 59.0          # YouTube Shorts / Reels / TikTok all take 60
+# 61-74s, retargeted 2026-08-02. The old window was 52-59s on the belief that
+# every platform capped at 60 - but YouTube Shorts and Reels both take up to
+# 3 minutes, and TikTok's Creator Rewards requires videos "at least one minute
+# long", so a 59s short is ineligible there BY ONE SECOND. Every short cut
+# before this change is under 60s (longest 59.1s across six films). The floor
+# clears TikTok's bar with margin; the ceiling keeps a short a short.
+MIN_SEC = 61.0
+MAX_SEC = 74.0
 LEAD = 0.18             # breath before the first word, so it does not clip
 
 
