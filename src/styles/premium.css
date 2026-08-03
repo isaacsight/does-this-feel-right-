@@ -1,0 +1,115 @@
+/* ──────────────────────────────────────────────────────────────
+   kernel.chat — Premium finishing layer (editorial surface only)
+   Craft-density pass: micro-typography, paper physicality, spread
+   continuity, and the cover settle. All CSS-only per the editorial
+   motion contract (amplitudes ≤ 8% opacity / ≤ 4px translate; the
+   site-wide prefers-reduced-motion override collapses everything).
+   ────────────────────────────────────────────────────────────── */
+
+/* ── 1 · Typography finishing ─────────────────────────────── */
+
+/* Balanced display lines — no orphaned word under a monument. */
+.pop-landing h1,
+.pop-landing h2,
+.pop-landing h3,
+.pop-feature-title,
+.pop-issue h1,
+.pop-issue h2,
+.pop-issue h3 {
+  text-wrap: balance;
+  hanging-punctuation: first allow-end;
+}
+
+/* Prose rag control — kill orphans in body copy. */
+.pop-landing p,
+.pop-issue p {
+  text-wrap: pretty;
+}
+
+/* Mono meta always sets tabular figures — catalog numbers,
+   datelines and folios align like a ledger. */
+.pop-kicker,
+.pop-banner,
+.pop-hash,
+.pop-folio,
+.pop-landing .mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── 2 · Paper physicality ────────────────────────────────── */
+
+/* A barely-there paper grain over the whole editorial landing.
+   One static SVG turbulence layer at ~2.5% — reads as stock, not
+   texture. Per-surface (this overlay), never a repeating pattern
+   baked into a component. */
+.pop-landing {
+  position: relative;
+}
+
+.pop-landing::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483000;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+/* Print keeps its own paper. */
+@media print {
+  .pop-landing::after { display: none; }
+}
+
+/* ── 3 · Spread continuity — folios ───────────────────────── */
+
+/* Every spread carries a folio in the margin: ★ 02. Pure CSS
+   counters — the markup stays untouched. */
+.pop-landing {
+  counter-reset: spread;
+}
+
+.pop-landing .pop-section-inner {
+  position: relative;
+  counter-increment: spread;
+}
+
+.pop-landing .pop-section-inner::before {
+  content: '\2605\2002' counter(spread, decimal-leading-zero);
+  position: absolute;
+  top: 28px;
+  right: 48px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--pop-ink, currentColor);
+  opacity: 0.35;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .pop-landing .pop-section-inner::before { right: 24px; top: 20px; }
+}
+
+/* The cover is spread 01 but already carries its dateline — no
+   folio over the monument. */
+.pop-landing .pop-cover .pop-section-inner::before,
+.pop-landing .pop-cover-inner::before {
+  content: none;
+}
+
+/* ── 4 · The cover settle ─────────────────────────────────── */
+
+/* One confident motion on arrival: the cover settles onto the
+   page — 4px, 700ms, once. Nothing else moves. Collapsed by the
+   site-wide reduced-motion override. */
+@keyframes pop-cover-settle {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.pop-landing .pop-cover-inner {
+  animation: pop-cover-settle 700ms var(--ease-out, ease-out) both;
+}

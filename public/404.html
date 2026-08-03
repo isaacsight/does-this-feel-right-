@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Kernel</title>
+  <title>kernel.chat — misprint</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
     // GitHub Pages SPA redirect
     // Converts path-based URLs to hash routes for createHashRouter
@@ -14,6 +15,42 @@
       window.location.replace('/');
     }
   </script>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FAF9F6;
+      color: #1F1E1D;
+      font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+      text-align: center;
+    }
+    .misprint { max-width: 26em; padding: 24px; }
+    .kicker {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #E24E1B;
+      margin-bottom: 16px;
+    }
+    .note {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .rule { width: 64px; height: 2px; background: #E24E1B; border: 0; margin: 20px auto; }
+    a { color: #1F1E1D; }
+  </style>
 </head>
-<body></body>
+<body>
+  <div class="misprint">
+    <div class="kicker">[ MISPRINT &middot; 落丁 ]</div>
+    <p class="note">This page never made it to press.
+    The signature was bound out of order.</p>
+    <hr class="rule">
+    <p class="note"><a href="/">&larr; Back to the cover</a></p>
+  </div>
+</body>
 </html>

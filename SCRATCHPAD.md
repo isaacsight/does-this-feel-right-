@@ -3605,3 +3605,26 @@ total, not a scraped grid.
 **Pre-existing duplicate still on TikTok:** "You have watched sugar turn a calm
 child into a wild one..." posted twice on Jul 31 (10:43 PM / 10:25 PM). From
 yesterday's run, not today's. Isaac's call whether to remove one.
+
+## Session 2026-08-02 — Premium finishing pass (editorial surface)
+
+Shipped `src/styles/premium.css` (imported in index.css after editorial.css):
+text-wrap balance/pretty on editorial display+prose, tabular figures on mono
+meta, 2.5% SVG-turbulence paper grain overlay on .pop-landing, CSS-counter
+folios (★ 01) on every spread's .pop-section-inner, 700ms/4px cover settle.
+index.css: focus ring → tomato, ::selection → tomato 22% wash, thin scrollbar
+on ka-scrollable-page, LandingKbot terminal purple #A78BFA → var(--pop-tomato)
+(3 spots). public/404.html restyled as "[ MISPRINT · 落丁 ]" page (redirect
+script intact). tsc clean.
+
+NOTE (pane quirk, confirmed by A/B): Claude browser-pane screenshots below
+the fold render blank ivory even with the change reverted — DOM/computed-style
+verification is the reliable path; not a site bug.
+
+### Addendum — self-hosted fonts (same session)
+EB Garamond (variable 400-800, normal+italic) + Courier Prime (4 styles)
+now self-hosted in public/fonts/ (141KB total, latin subsets from Google).
+`src/styles/fonts.css` = @font-face + metric-matched fallbacks computed
+with fontTools (EBG→Georgia size-adjust 120.24%, CP→Courier New 99.92%).
+index.html: 3 preloads for first-paint files; Google Fonts link slimmed
+to Noto Serif JP only. Build clean, fonts verified loading from /fonts.

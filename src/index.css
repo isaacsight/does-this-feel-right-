@@ -1,5 +1,7 @@
 /* Editorial primitives live in the design-system layer (loaded first so app rules can still override). */
+@import "./styles/fonts.css";
 @import "./styles/editorial.css";
+@import "./styles/premium.css";
 :root {
     /* Rubin Palette */
     --rubin-ivory: #FAF9F6;
@@ -45,8 +47,8 @@
     --accent-on-dark: #A78BFA;
 
     /* Fonts */
-    --font-serif: "EB Garamond", Georgia, serif;
-    --font-mono: "Courier Prime", "Courier New", monospace;
+    --font-serif: "EB Garamond", "EB Garamond Fallback", Georgia, serif;
+    --font-mono: "Courier Prime", "Courier Prime Fallback", "Courier New", monospace;
     --font-jp: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
     /* Semantic aliases — use these in components */
     --font-prose: var(--font-serif);
@@ -281,14 +283,26 @@ h4 {
     flex-direction: column;
 }
 
-/* Focus States */
+/* Focus States — the press's own ring, never the browser blue */
 :focus-visible {
-    outline: 2px solid var(--rubin-accent);
+    outline: 2px solid var(--pop-tomato);
     outline-offset: 2px;
 }
 
 :focus:not(:focus-visible) {
     outline: none;
+}
+
+/* Text selection — ink under a tomato wash, not browser blue */
+::selection {
+    background: rgba(226, 78, 27, 0.22);
+    color: inherit;
+}
+
+/* Editorial pages scroll on a hairline, not a chrome bar */
+body.ka-scrollable-page {
+    scrollbar-width: thin;
+    scrollbar-color: var(--rubin-ivory-dark) transparent;
 }
 
 /* Scrollbar */
@@ -10368,7 +10382,7 @@ h4 {
 }
 
 .landing-kbot-term-prefix {
-    color: #A78BFA;
+    color: var(--pop-tomato);
 }
 
 .landing-kbot-term-text {
@@ -10376,7 +10390,7 @@ h4 {
 }
 
 .landing-kbot-cursor {
-    color: #A78BFA;
+    color: var(--pop-tomato);
     animation: kbot-blink 0.8s step-end infinite;
 }
 
@@ -10385,7 +10399,7 @@ h4 {
 }
 
 .landing-kbot-term-art {
-    color: #A78BFA;
+    color: var(--pop-tomato);
     opacity: 0.7;
     font-size: 0.65rem;
     line-height: 1.4;
