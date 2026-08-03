@@ -3628,3 +3628,23 @@ now self-hosted in public/fonts/ (141KB total, latin subsets from Google).
 with fontTools (EBG→Georgia size-adjust 120.24%, CP→Courier New 99.92%).
 index.html: 3 preloads for first-paint files; Google Fonts link slimmed
 to Noto Serif JP only. Build clean, fonts verified loading from /fonts.
+
+## Session 2026-08-02 (late) — workflow build-out
+
+Shipped: x as a 4th manifest platform (backfilled from profile scan, 4 gaps
+filled), verify command (owner-side audit, <72h scope), drip runner (drains
+queues inside cadence, then verifies), TikTok AI-label toggle, KARAOKE captions
+(word-by-word tomato highlight from words.json — tested, beautiful), pick-spans
+retargeted 61-74s (TikTok minute floor), shared tools/video/generate-frames.mjs
+(plates REQUIRED, per-film copies dead), tools/video/new-film.mjs scaffold,
+tools/analytics/shorts-report.py (first run: 945-view top short vs 8-view
+bottom — read output/analytics/ before cutting).
+
+Credits: fal $3.53, WaveSpeed $5.62. A film's frames ~$4.70 — fal needs a
+top-up before the next film ($25 = ~312 images).
+
+Known limit: verify.mjs TikTok Studio scan reads ~top 8 rows only (inner
+virtualised list) — older posts flag found=0 falsely. Posts verified live
+2026-08-01. Isaac said stop working on posting for now.
+
+Pending: $0.04 single-frame test of the shared generator awaiting OK.
