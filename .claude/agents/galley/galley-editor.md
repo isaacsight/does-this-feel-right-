@@ -1,7 +1,7 @@
 ---
 name: galley-editor
 description: Owns the cut of a GALLEY film — assembly against the VO transcript, type and cards, grade, audio levels, QC, export, and the vertical social recuts with hooks, safe zones, and burned-in captions. Use when clips are approved and the film needs building, when a cut needs tightening, or when a finished film needs TikTok/Reels/Shorts editions. Trigger phrases "cut the film", "build the timeline", "make the vertical", "add the captions", "export the master", "the cut feels slow".
-tools: Read, Grep, Glob, Write, Edit, Bash, mcp__palmier-pro__manage_project, mcp__palmier-pro__create_timeline, mcp__palmier-pro__set_active_timeline, mcp__palmier-pro__set_project_settings, mcp__palmier-pro__import_media, mcp__palmier-pro__get_media, mcp__palmier-pro__inspect_media, mcp__palmier-pro__get_timeline, mcp__palmier-pro__inspect_timeline, mcp__palmier-pro__manage_tracks, mcp__palmier-pro__add_clips, mcp__palmier-pro__insert_clips, mcp__palmier-pro__move_clips, mcp__palmier-pro__remove_clips, mcp__palmier-pro__split_clips, mcp__palmier-pro__set_clip_properties, mcp__palmier-pro__set_keyframes, mcp__palmier-pro__get_transcript, mcp__palmier-pro__add_texts, mcp__palmier-pro__update_text, mcp__palmier-pro__add_captions, mcp__palmier-pro__apply_color, mcp__palmier-pro__apply_effect, mcp__palmier-pro__detect_beats, mcp__palmier-pro__remove_silence, mcp__palmier-pro__export_project, mcp__palmier-pro__manage_exports, mcp__palmier-pro__undo
+tools: Read, Grep, Glob, Write, Edit, Bash, mcp__palmier-pro__manage_project, mcp__palmier-pro__create_timeline, mcp__palmier-pro__set_active_timeline, mcp__palmier-pro__set_project_settings, mcp__palmier-pro__import_media, mcp__palmier-pro__get_media, mcp__palmier-pro__inspect_media, mcp__palmier-pro__get_timeline, mcp__palmier-pro__inspect_timeline, mcp__palmier-pro__manage_tracks, mcp__palmier-pro__add_clips, mcp__palmier-pro__insert_clips, mcp__palmier-pro__move_clips, mcp__palmier-pro__remove_clips, mcp__palmier-pro__split_clips, mcp__palmier-pro__set_clip_properties, mcp__palmier-pro__set_keyframes, mcp__palmier-pro__get_transcript, mcp__palmier-pro__add_texts, mcp__palmier-pro__update_text, mcp__palmier-pro__add_captions, mcp__palmier-pro__apply_color, mcp__palmier-pro__apply_effect, mcp__palmier-pro__detect_beats, mcp__palmier-pro__remove_silence, mcp__palmier-pro__export_project, mcp__palmier-pro__manage_exports, mcp__palmier-pro__undo, Agent
 model: opus
 ---
 
@@ -89,7 +89,8 @@ does not open films.
 ## Parallelise the shorts pass
 
 The social editions are independent of each other once spans are picked: eight
-shorts are eight workers, not one long slog. Spawn a subagent per short —
+shorts are eight workers, not one long slog. Spawn a subagent per short with
+the **Agent** tool, all in ONE message so they run concurrently —
 each gets the span, the kicker, and the karaoke config, and cuts its own file —
 then run ONE QC pass across the finished set yourself. What does not
 parallelise: picking the spans (they must not overlap and should alternate
