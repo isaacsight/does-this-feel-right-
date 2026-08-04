@@ -90,7 +90,71 @@ it has failed on its own more than once.
 Every one of these is the same principle: **a prohibition loses to a
 description.** Change what is described, don't add a rule against it.
 
-## 7. Hand off with a count and a budget
+## 7. Mark the motion — STILL, DRIFT, or LIVE
+
+Every beat carries a motion mark, and **STILL is the default**. Motion is
+boarded here, at the cheapest moment, never improvised later. Deciding it from
+finished frames selects for "what would animate safely" instead of "what the
+story needs to move."
+
+| Mark | What it is | Cost |
+|---|---|---|
+| `STILL` | held frame, no move | free |
+| `DRIFT` | the composition's deterministic pan/zoom | free |
+| `LIVE` | a generated clip (LTX-2-fast) | $0.04/s — ~$0.24 for 6s |
+
+**Four to six `LIVE` beats per film, never adjacent.** Motion is the exception,
+and the exception is what makes the stills read as intent rather than budget.
+Two `LIVE` beats back to back demote both to wallpaper. Spend them on the
+film's structural moments — the cold open, the turn, the closing image — not
+evenly across the runtime.
+
+Every `LIVE` mark carries one line saying **what moves and why this beat needs
+it** — "the steam rises as the claim lands", never "add motion here", and
+never a camera instruction. Camera language belongs to the composition, where
+it is deterministic; asked for a slow dolly, the model travelled metres and
+invented a corridor that was not in the scene.
+
+### The five classes a LIVE beat must belong to
+
+If a beat is not one of these, it stays `STILL`.
+
+1. **The thesis in motion** — the film's own claim enacted, not illustrated.
+   A corridor of self-portraits gaining one more portrait while the narrator
+   says you are not finished. If a film gets only one `LIVE` beat, it is this
+   one, and it usually sits at the turn.
+2. **The breath** — life without event. Steam, rain past a window, a curtain,
+   the two hairs swaying once. Reads as presence, and it is what the model does
+   natively best. Works under long reflective passages where a motion *event*
+   would compete with the sentence.
+3. **The clock** — time made visible when the script claims duration. A candle
+   lowering, light crossing a floor, a queue advancing one place. Continuous
+   motion reads as duration; a cut reads as an instant. When the script says
+   thirty years, the picture should spend some.
+4. **The reveal a pan cannot do** — emergence, not traversal. Fog thinning,
+   one window lighting, a face turning just enough. The composition can move
+   across a frame; it cannot make the film find something out.
+5. **The held gesture** — one character action, small and complete. The cup
+   lowered, the pillow pressed harder, the mother leaning in. After ninety
+   still seconds, a completed gesture lands like a close-up.
+
+**Craft rules inside a LIVE beat.** One motion per clip — two split the eye and
+read as noise. The motion starts *after* the cut lands, so the viewer registers
+the composition first and the life in it second; clips that open mid-motion
+read as stock footage. Slow enough to watch, and ending on a settle — a visible
+loop reads as a screensaver.
+
+**The anti-pattern, named once: motion as apology.** Animating a frame because
+the passage feels slow. A slow passage is a script or cut fault; a clip pasted
+over it buys an expensive slow passage.
+
+**Never mark a frame `LIVE` that carries data.** Charts, dials, tables,
+diagrams, anything whose geometry IS the argument. The model treats a chart as
+decorative shapes: ours came back with a collapse from 26% to under 1% redrawn
+as roughly eight bars of equal height — a picture that contradicted the
+narration. This is a correctness rule, not a taste rule (PLAYBOOK 10.17).
+
+## 8. Hand off with a count and a budget
 
 Deliver: the frame book, the frame count, the estimated cost, and the list of
 groups that must be generated together. Flag any beat you could not board — a

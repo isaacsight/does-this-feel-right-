@@ -1238,3 +1238,76 @@ competing-boards experiment now cost half, and a chair can hold the whole film
 plus this playbook in one context, which removes the handoff seams where the
 frame-index off-by-one and its relatives lived. The Editor's shorts pass is
 now explicitly parallel: one subagent per short, one QC read across the set.
+
+## 10.30  Motion is boarded, and a great clip is one where the motion IS the meaning
+
+Decided 2026-08-04. A few generated clips per film, chosen at the STORYBOARD —
+not after the fact from finished frames, which selects for "what would animate
+safely" instead of "what the story needs to move."
+
+Every beat now carries a motion mark, default `STILL`:
+
+| Mark | What | Cost |
+|---|---|---|
+| `STILL` | held frame | free |
+| `DRIFT` | the composition's deterministic pan/zoom | free |
+| `LIVE` | a generated clip (LTX-2-fast) | $0.04/s — ~$0.24 for 6s |
+
+**4–6 `LIVE` beats per film, never adjacent**, quoted at board time (~$1.20–1.50
+a film) rather than discovered later. Motion is the exception, and the exception
+only reads if the stills around it are genuinely still — two `LIVE` beats back
+to back demote both to wallpaper. Spend them on structure: the cold open, the
+turn, the closing image.
+
+### The five classes — if a beat is none of these, it stays STILL
+
+1. **The thesis in motion** — the film's claim enacted, not illustrated. A
+   corridor of self-portraits gaining one more while the narrator says you are
+   not finished. If a film gets one `LIVE` beat, this is it, usually at the turn.
+2. **The breath** — life without event: steam, rain past a window, the two hairs
+   swaying once. What the model does natively best, and what separates an
+   illustrated film from a slideshow. Works under reflective passages where a
+   motion *event* would compete with the sentence.
+3. **The clock** — time made visible when the script claims duration. Continuous
+   motion reads as duration; a cut reads as an instant.
+4. **The reveal a pan cannot do** — emergence, not traversal. Fog thinning, one
+   window lighting. The composition can move across a frame; it cannot make the
+   film find something out.
+5. **The held gesture** — one small complete character action. After ninety
+   still seconds it lands like a close-up.
+
+**Inside a clip:** one motion only; motion begins AFTER the cut lands, so the
+composition registers first and the life in it second (clips that open
+mid-motion read as stock footage); slow enough to watch and ending on a settle,
+because a visible loop reads as a screensaver.
+
+**The anti-pattern, named once: motion as apology** — animating a frame because
+the passage feels slow. A slow passage is a script or cut fault, and a clip
+pasted over it buys an expensive slow passage.
+
+**Never `LIVE` on a frame that carries data.** Correctness, not taste: our
+five-bar chart came back as roughly eight bars of equal height — a picture
+contradicting its own narration.
+
+Separation of powers, same as everywhere else in the crew: **the board decides
+whether, the frames decide when it is safe (QC Gate 2), the Cinematographer
+decides how, and QC looks at what came back.**
+
+## 10.31  Films open cold — no intro
+
+Decided 2026-08-04. No title beat, no channel mark, no logo animation before the
+first line. Frame 0 is the film's first image and the narration starts in the
+first breath.
+
+This is the vertical rule — "no logo intro, no slow build, no throat-clearing" —
+applied where it matters most. The opening seconds are the only ones every
+viewer watches, and spending them on branding spends them on the one thing the
+viewer did not come for. Recognition is earned by the work, not by a card in
+front of the work.
+
+The mark still belongs to the film, at the **colophon**, at the end — where
+someone who stayed is the person worth introducing yourself to.
+
+`videos/kernel-chat-intro/` is retired from film assembly and kept in the repo:
+it is a good title beat and may serve a trailer or a channel banner. It does not
+open films.

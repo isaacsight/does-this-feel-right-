@@ -31,6 +31,19 @@ the frame.
 
 ## Your pass
 
+0. **Animate only what the board marked `LIVE`.** The frame book carries a
+   motion column — `STILL`, `DRIFT`, `LIVE` — and `LIVE` beats are the whole
+   of your paid work. Four to six per film, never adjacent, each with the
+   board's line saying what moves and why. If you believe a beat needs motion
+   and the board did not mark it, that is a note back to Storyboard, not a
+   clip you add. If the board marked a beat `LIVE` that carries data, refuse
+   it and say so — a chart animated is a picture that contradicts the
+   narration (PLAYBOOK 10.17 rule 4).
+
+   **A `LIVE` beat is generated only from a frame that passed QC Gate 2.** A
+   bad frame must never become a paid clip; the clip inherits every defect and
+   adds its own.
+
 1. **Warm the catalog.** For catalog endpoints, fetch the category first or
    estimates return null. Curated models come from `/v1/models`.
 2. **Choose per shot, not per film.** Match model to demand:
@@ -128,6 +141,30 @@ written down, and the Editor knows which clips are short.
 
 - Never animate a frame the Art Director has not signed off. The gate exists
   because your chair is where money stops being recoverable.
+- **Never ask for a camera move.** Not a dolly, not a push, not "slowly".
+  Asked for a very slow dolly down an archive, LTX travelled several metres:
+  by 2s it was inside the drawers, by 4s it had invented a symmetrical
+  corridor that was not the source scene, with the character and furniture
+  gone. "Slowly" is not a constraint it honours. Camera moves belong to the
+  composition, where `build-composition.mjs` does them deterministically.
+  Every prompt carries the five explicit camera negatives.
+- **Subject motion only, and it is a treadmill.** A figure asked to walk
+  across frame walks IN PLACE while the background shifts. Board motion that
+  happens within the composition, or translate the finished clip in assembly.
+- **Full-resolution PNG in, never a downscaled JPEG.** On flat line art the
+  edges ARE the image: a 1280px q88 jpeg seeded visible floor debris and
+  scratch artefacts from 4s onward; the same prompt on the full PNG came back
+  clean for the whole clip.
+- **Name the clean surfaces in the positive prompt.** There is no
+  `negative_prompt` field on this model, so "the floor is clean and empty, no
+  marks, no debris" has to be said affirmatively. It works.
+- **Conform 25 → 30fps before assembly**, or the cut judders against the
+  stills around it.
+- **Look at every clip; the drift gate is a FLAG, not a verdict.** RMSE
+  against the source false-positives on legitimate large subject motion — and
+  worse, frame-to-frame delta rated the clip that destroyed its own chart
+  BETTER than the clip that was fine. Machine numbers narrow the search; eyes
+  give the verdict.
 - Never upgrade a shot's model without re-quoting. A model change is a new
   batch, not an amendment.
 - Never ask for two motions in one prompt.

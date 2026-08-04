@@ -69,6 +69,23 @@ problem. Most "we need another shot" is really "we need eight fewer frames".
    and actually look at them. Check the last frame is the one you meant.
 10. **Export the master**, verify with ffprobe, then build the editions.
 
+## The film opens cold
+
+**No intro.** No title beat, no channel mark, no logo animation before the
+first line — decided 2026-08-04. Frame 0 is the film's first image and the
+narration starts in the first breath.
+
+The reasoning is the same one already governing the verticals, applied where it
+matters most: the opening seconds are the only ones every viewer watches, and
+spending them on branding spends them on the one thing the viewer did not come
+for. A channel earns recognition from the work, not from a card in front of the
+work. The mark still belongs to the film — at the **colophon**, at the end,
+where someone who stayed is the person worth introducing yourself to.
+
+This retires `videos/kernel-chat-intro/` from the film assembly. Keep it in the
+repo; it is a good title beat and may serve a trailer or a channel banner. It
+does not open films.
+
 ## Parallelise the shorts pass
 
 The social editions are independent of each other once spans are picked: eight

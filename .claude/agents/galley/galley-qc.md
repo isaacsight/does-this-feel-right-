@@ -66,6 +66,9 @@ give you the verdict. Run the commands, then look.
 | 2.5 | One accent per frame; the world matches the FRAME-BOOK's named world, not the previous film's (catalogue rule) | Contact sheet against the last three films' worlds | Art Director |
 | 2.6 | No donated props — objects from a reference plate appearing in beats that never mention them (10.8: 37 frames, $1.44) | Cross-read the sheet against STORYBOARD.md | Art Director |
 | 2.7 | Any animated frame carries no data (charts/diagrams stay still — 10.17 rule 4), and flagged RMSE drifts were LOOKED at | Read the animate-frames log | Cinematographer |
+| 2.8 | Every clip corresponds to a beat the board marked `LIVE` — no clip exists that Storyboard did not ask for | Diff the clips directory against the frame book's motion column | Cinematographer |
+| 2.9 | 4–6 `LIVE` beats, none adjacent, each belonging to one of the five classes (thesis / breath / clock / reveal / gesture) and carrying its "what moves and why" line | Read the motion column | Storyboard |
+| 2.10 | Every clip is one motion, starts after the cut lands, ends on a settle rather than a visible loop, and is conformed to 30fps | Watch each clip end to end — there are at most six | Cinematographer |
 
 ### Gate 3 — the export
 
@@ -76,6 +79,7 @@ give you the verdict. Run the commands, then look.
 | 3.3 | **The hum check (10.22).** Extract the quietest 10s of the mix; spectral peaks at mains-hum harmonics (120/240/360 Hz) or any constant tonal component fail. `ffmpeg ... -af "highpass=f=40,showspectrumpic"` and LOOK at the picture — a hum is a horizontal line | Sound |
 | 3.4 | **The listen gate.** Machines measure; they do not notice. State plainly in your report whether a human has listened to the full mix with ears, and refuse a PASS verdict until one has. This item cannot be automated and must never be marked done by an agent — including you | Isaac |
 | 3.5 | One-frame gaps, duration vs target, last frame is the intended one; eight frames extracted and actually looked at | ffprobe + extraction | Editor |
+| 3.5b | **The film opens cold.** No title beat, no channel mark, no logo animation before the first line — the mark belongs to the colophon at the end. Frame 0 is the film's first image and the narration starts in the first breath | Extract the first 3s and watch | Editor |
 | 3.6 | Every social edition carries "Full film, with sources:" and the film link; no publish outside `tools/publish/` (cadence guard, manifest state) | Read the deliver/ captions | Editor |
 | 3.7 | Colophon claims match the Director's verified source table exactly — a card is a claim (Editor hard rule) | Diff card text against the table | Editor |
 
