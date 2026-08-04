@@ -1346,3 +1346,53 @@ Band, reasoning and per-film numbers: `docs/video/VOICE-SPEC.md`. QC Gate 1.1
 runs the gate; 1.1b is the judgement the gate cannot make — whether the "we"
 lands where the film is actually being honest, or was sprinkled to clear a
 number.
+
+## 10.33  Locking a world: three tests, and one accent we had to give up
+
+`cognitive-debt` is the first film to choose its world under the catalogue rule
+(10.28 / PLATFORM-POLICY). Twenty-one images, ~$0.82, and the process is worth
+repeating verbatim because two of the three findings were not the obvious answer.
+
+**Establish the break first.** The previous three films were the SAME world —
+the last two byte-identical style blocks, cream `#F4E8C8` / ink `#1F1E1D`. Read
+the catalogue before naming a world; we had drifted into a template without
+anyone choosing it.
+
+**Test four worlds against one scene, world-native plates, then judge.** Night
+slate, blueprint, ledger, x-ray. Two useful failures: blueprint produced two
+figures in a scene that asked for one person alone — because the plate was
+another film's CAST sheet and donated its adjacent pair (10.8 yet again) — and
+x-ray came back muddy, reading as a worse night slate.
+
+**Then test the winner for CONSISTENCY, not beauty.** One good frame proves
+nothing; a world has to survive scale changes and stay itself across ~120 frames.
+Three findings:
+
+1. **The ground drifts unless the drift is forbidden explicitly.** A close-up
+   came back warm tan while wides on the identical clause held sage-grey. Naming
+   the colour is not enough — name it, then forbid the drift ("the SAME pale
+   sage-grey across the whole frame with no warm or brown tint anywhere"). That
+   held across all six frames of the final test.
+
+2. **An accent the model cannot place reliably must be forbidden, not hoped
+   for.** A thin red margin rule appeared *unbidden* in one frame of three and
+   was genuinely good. Tested specified-always vs forbidden-always across three
+   compositions: specified produced the rule every time but could not place it
+   consistently — full height, stopping at the horizon, terminating mid-frame.
+   Forbidden was clean every time. **Across 120 frames an inconsistent
+   structural line reads as sloppiness, not design.** Losing a good accent is a
+   real loss; keeping it was never on offer.
+
+3. **One refusal is noise. Retest before concluding.** A two-figure scene
+   returned "the model did not generate the expected output for this prompt"
+   with no image — which looked like a limit that would have killed the world,
+   since most films have more than one person in frame. Three retest variants
+   all generated. Two unexplained refusals occurred across ~20 calls today.
+
+**And never put a hex code in a prompt.** `#D9E2DA` came back drawn into the
+frame as the string `D9EE13D`. A hex is a label and the model draws labels —
+the same trap as naming a concrete example object in a style block. Name colours
+in words.
+
+The locked clause and its reasoning live in the film at `videos/<film>/WORLD.md`,
+so the Art Director ratifies rather than rediscovers.
