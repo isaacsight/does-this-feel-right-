@@ -1430,3 +1430,52 @@ title beats as if they were speech.
 **Standing rule: an estimate that disagrees with the measured read loses.** The
 purpose of the estimate is to know whether to send an act back to the room
 BEFORE recording — not to authorise a cut.
+
+## 10.35  One provider, and a registry that had gone two generations stale
+
+Motion moved from WaveSpeed's LTX-2-fast to **fal `kling-video/v2.6/pro`**
+(2026-08-05). Two reasons, one administrative and one craft.
+
+**Administrative:** one provider, one balance, one ledger. Splitting frames
+across fal and motion across WaveSpeed meant two top-ups to track and two
+places to look when something ran out mid-film.
+
+**Craft:** the playbook already records kling as the workhorse that HOLDS
+STRUCTURE. The five LIVE beats on `cognitive-debt` are a tread lowering into a
+gap, a single red dot being placed, and two hairs lifting — all of which are
+*exactly countable geometry*, and LTX is the model that redrew a five-bar chart
+into different data (10.17 rule 4). $0.03/s more is the cheapest insurance on
+the board.
+
+### The registry had drifted, and nothing failed to tell us
+
+`tools/video-models.mjs` pinned `kling-video/v2.5-turbo` while **v2.6, v3 and
+o3 had all shipped**. v2.6 is the *same* $0.07/s. We had been paying current
+prices for a two-generation-old model, and no error would ever have surfaced
+it — a stale model registry is a silent tax.
+
+Re-verified against the live catalogue (40 image-to-video models). Audio-off
+rates at 1080p, for a 28-second film's worth of clips:
+
+| model | $/s | 28s |
+|---|---:|---:|
+| veo3.1/lite | 0.05 | $1.40 |
+| **kling v2.6 pro** | **0.07** | **$1.96** |
+| kling o3 / v3 standard | 0.084 | $2.35 |
+| kling v3 pro | 0.112 | $3.14 |
+| wan v2.7 | 0.15 | $4.20 |
+| seedance 2.0 | 0.682 | $19.10 |
+
+`veo3.1/lite` is cheaper and **untested on our material** — it is in the
+registry with that warning attached, not adopted.
+
+### AUDIO OFF, ALWAYS
+
+Every current-generation model generates audio by default and charges roughly
+double for it. Sound owns every sound in a GALLEY film, and a model-generated
+bed is the exact shape of the hum that shipped in four published videos
+(10.22). `generate_audio: false` is now explicit in the request body, and the
+registry's prices are the audio-off rates.
+
+**Standing rule: re-verify the registry before every film.** It costs one
+API call and it caught a two-generation drift the first time it was run.

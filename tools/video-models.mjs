@@ -1,6 +1,18 @@
 // Curated fal.ai video model registry for the Creative Canvas video node.
 // Prices are USD per output second as listed on fal.ai model pages —
 // re-verify against https://fal.ai/models when adding or bumping a model.
+//
+// Re-verified 2026-08-05 against the live catalogue (40 image-to-video models).
+// The registry had drifted two generations behind: it pinned kling v2.5-turbo
+// while v2.6, v3 and o3 had all shipped, and v2.6 is the SAME $0.07/s. A stale
+// registry is a silent tax — you keep paying current prices for last year's
+// model because nothing ever fails.
+//
+// AUDIO OFF, ALWAYS. Every current-generation model generates audio by default
+// and charges roughly double for it. Sound owns every sound in a GALLEY film;
+// a model-generated bed is both unwanted and the exact shape of the hum that
+// shipped in four published videos (PLAYBOOK 10.22). Prices below are the
+// audio-off rate.
 
 export const MODELS = [
   {
@@ -15,13 +27,39 @@ export const MODELS = [
   },
   {
     id: 'kling-pro',
-    label: 'Kling (Pro)',
-    textEndpoint: 'fal-ai/kling-video/v2.5-turbo/pro/text-to-video',
-    imageEndpoint: 'fal-ai/kling-video/v2.5-turbo/pro/image-to-video',
-    usdPerSecond: 0.07,
+    label: 'Kling v2.6 (Pro)',
+    textEndpoint: 'fal-ai/kling-video/v2.6/pro/text-to-video',
+    imageEndpoint: 'fal-ai/kling-video/v2.6/pro/image-to-video',
+    usdPerSecond: 0.07,           // audio off; $0.14 with native audio
     defaultDurationSeconds: 5,
     maxDurationSeconds: 10,
     durationParam: 'duration',
+    // The house workhorse. The playbook's reason still holds: it HOLDS
+    // STRUCTURE, which is what held illustration needs and what seedance
+    // failed at. Same price as the v2.5-turbo it replaces.
+  },
+  {
+    id: 'veo-lite',
+    label: 'Veo 3.1 Lite',
+    textEndpoint: 'fal-ai/veo3.1/lite/text-to-video',
+    imageEndpoint: 'fal-ai/veo3.1/lite/image-to-video',
+    usdPerSecond: 0.05,           // 1080p audio off; $0.08 with audio
+    defaultDurationSeconds: 5,
+    maxDurationSeconds: 8,
+    durationParam: 'duration',
+    // Cheapest credible option and UNTESTED on our material. Do not put a
+    // film on it without a smoke test against kling on the same frame.
+  },
+  {
+    id: 'kling-v3-pro',
+    label: 'Kling v3 (Pro)',
+    textEndpoint: 'fal-ai/kling-video/v3/pro/text-to-video',
+    imageEndpoint: 'fal-ai/kling-video/v3/pro/image-to-video',
+    usdPerSecond: 0.112,          // audio off; $0.168 with audio
+    defaultDurationSeconds: 5,
+    maxDurationSeconds: 10,
+    durationParam: 'duration',
+    // Reserve for a shot the film genuinely turns on. 60% more than v2.6.
   },
   {
     id: 'seedance-lite',
@@ -32,6 +70,10 @@ export const MODELS = [
     defaultDurationSeconds: 5,
     maxDurationSeconds: 10,
     durationParam: 'duration',
+    retired: true,
+    // RETIRED (PLAYBOOK: "caused every elaboration defect"). Kept in the
+    // registry so nobody rediscovers it as the cheap option; the $0.03/s
+    // saving bought a film's worth of retakes.
   },
   {
     id: 'luma-ray',

@@ -41,9 +41,17 @@
 //    spurious change        1.25% -> 0.94% of pixels
 //    RMSE drift over 6s     0.145 -> 0.155 (drifting) vs 0.145 -> 0.144 (holds)
 //
-// COST: $0.04/s, duration is an enum [6,8,10,12,14,16,18,20], so $0.24 floor
-// per clip. Output is 25fps - conform to the film's rate before assembly or
-// the cut judders.
+// PROVIDER: fal, kling-video v2.5-turbo pro image-to-video, $0.07/s.
+//
+// Moved off WaveSpeed's LTX-2-fast (2026-08-05) for two reasons. One is
+// housekeeping: one provider, one balance, one ledger. The other is craft -
+// the playbook records kling as the workhorse that HOLDS STRUCTURE, and these
+// clips are a tread lowering into a gap, one red dot being placed, and two
+// hairs lifting. LTX is the model that redrew a five-bar chart into different
+// data. $0.03/s more is the cheapest insurance on the board.
+//
+// Kling takes camera prompts well. We still never ask for one - see rule 1.
+// Duration is a free integer up to 10s, not LTX's enum, so a 5s beat costs 5s.
 //
 // Usage:
 //   node tools/video/animate-frames.mjs <film-dir> --spec motion.json [--publish]
@@ -64,8 +72,8 @@ const spec = arg('spec')
 const seconds = Number(arg('seconds', 6))
 const fps = Number(arg('fps', 30))
 if (!argv[0] || !spec) { console.error('need <film-dir> --spec motion.json'); process.exit(1) }
-if (![6, 8, 10, 12, 14, 16, 18, 20].includes(seconds)) {
-  console.error('seconds must be one of 6,8,10,12,14,16,18,20'); process.exit(1)
+if (!(Number.isInteger(seconds) && seconds >= 1 && seconds <= 10)) {
+  console.error('seconds must be a whole number 1-10 (kling max is 10)'); process.exit(1)
 }
 
 // The camera lock and the clean-surface clause are not per-shot decisions.
@@ -80,17 +88,19 @@ const LOCK =
 
 const motions = JSON.parse(readFileSync(join(FILM, spec), 'utf8'))
 const ids = Object.keys(motions)
-const cost = ids.length * 0.04 * seconds
+const cost = ids.length * USD_PER_SECOND * seconds
 console.log(`${ids.length} frames x ${seconds}s = $${cost.toFixed(2)}`)
 for (const id of ids) console.log(`  ${id}  ${motions[id].slice(0, 68)}`)
 if (!has('publish')) { console.log('\ndry run. add --publish to spend.'); process.exit(0) }
 
 const KEY = readFileSync(join(REPO, '.env'), 'utf8').split('\n')
-  .filter(l => l.startsWith('WAVESPEED_API_KEY='))
-  .pop()?.slice('WAVESPEED_API_KEY='.length).trim().replace(/^["']|["']$/g, '')
-if (!KEY) { console.error('WAVESPEED_API_KEY not in .env'); process.exit(1) }
+  .filter(l => l.startsWith('FAL_KEY='))
+  .pop()?.slice('FAL_KEY='.length).trim().replace(/^["']|["']$/g, '')
+if (!KEY) { console.error('FAL_KEY not in .env'); process.exit(1) }
 
-const H = { 'content-type': 'application/json', authorization: `Bearer ${KEY}` }
+const ENDPOINT = 'fal-ai/kling-video/v2.6/pro/image-to-video'
+const USD_PER_SECOND = 0.07
+const H = { 'content-type': 'application/json', authorization: `Key ${KEY}` }
 const OUT = join(FILM, 'public', 'clips'); mkdirSync(OUT, { recursive: true })
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
@@ -102,21 +112,27 @@ async function animate(id) {
   if (!existsSync(src)) return 'no-frame'
   const image = 'data:image/png;base64,' + readFileSync(src).toString('base64')
 
-  const sub = await fetch('https://api.wavespeed.ai/api/v3/lightricks/ltx-2-fast/image-to-video', {
+  const sub = await fetch(`https://queue.fal.run/${ENDPOINT}`, {
     method: 'POST', headers: H,
-    body: JSON.stringify({ image, prompt: `${motions[id]} ${LOCK}`,
-                           duration: seconds, generate_audio: false }),
+    body: JSON.stringify({ image_url: image, prompt: `${motions[id]} ${LOCK}`,
+                           duration: String(seconds),
+                           // Sound owns every sound in a GALLEY film, and
+                           // native audio also doubles the per-second rate.
+                           generate_audio: false }),
   })
   const txt = await sub.text()
   if (!sub.ok) throw new Error(`${sub.status}: ${txt.slice(0, 180)}`)
-  const poll = JSON.parse(txt).data.urls.get
+  const { status_url, response_url } = JSON.parse(txt)
 
   for (let i = 0; i < 90; i++) {
     await sleep(6000)
-    const st = await (await fetch(poll, { headers: H })).json()
-    if (st.data.status === 'completed') {
-      const raw = join(OUT, `.${id}-25.mp4`)
-      writeFileSync(raw, Buffer.from(await (await fetch(st.data.outputs[0])).arrayBuffer()))
+    const st = await (await fetch(status_url, { headers: H })).json()
+    if (st.status === 'COMPLETED') {
+      const out = await (await fetch(response_url, { headers: H })).json()
+      const url = out?.video?.url ?? out?.videos?.[0]?.url
+      if (!url) throw new Error(`${id}: completed but no video url`)
+      const raw = join(OUT, `.${id}-src.mp4`)
+      writeFileSync(raw, Buffer.from(await (await fetch(url)).arrayBuffer()))
       // Conform 25 -> the film's rate. Without this the cut judders against
       // the stills around it.
       execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', raw,
@@ -155,7 +171,7 @@ async function animate(id) {
       }
       return `ok  drift ${(drift >= 0 ? '+' : '')}${drift.toFixed(3)}`
     }
-    if (st.data.status === 'failed') throw new Error(JSON.stringify(st).slice(0, 180))
+    if (['FAILED', 'ERROR'].includes(st.status)) throw new Error(JSON.stringify(st).slice(0, 180))
   }
   throw new Error('timed out')
 }
@@ -164,7 +180,7 @@ let spent = 0
 for (const id of ids) {
   try {
     const r = await animate(id)
-    if (!['skip', 'no-frame'].includes(r)) spent += 0.04 * seconds
+    if (!['skip', 'no-frame'].includes(r)) spent += USD_PER_SECOND * seconds
     console.log(`  ${id}  ${r}`)
   } catch (e) { console.log(`  FAIL     ${id}: ${e.message}`) }
 }
