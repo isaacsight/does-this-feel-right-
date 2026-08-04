@@ -1311,3 +1311,38 @@ someone who stayed is the person worth introducing yourself to.
 `videos/kernel-chat-intro/` is retired from film assembly and kept in the repo:
 it is a good title beat and may serve a trailer or a channel banner. It does not
 open films.
+
+## 10.32  The register gate is now a gate
+
+`register-profile.py` measured and reported; "gate every script with it" was
+honour-system, and honour-system checks are the ones that quietly stop
+happening. It now has `--gate`, which exits non-zero out of band.
+
+Measured 2026-08-04 against 997 School of Life transcripts (963k words), 10
+Modern Wisdom transcripts, and our own three films:
+
+|  | you /1k | we /1k | syll/word | FK grade |
+|---|---:|---:|---:|---:|
+| School of Life | 13.8 | **38.8** | 1.49 | 8.9 |
+| Modern Wisdom | 34.7 | 11.2 | 1.39 | 6.3 |
+| **kernel.chat** | **49.2** | 7.9 | 1.33 | 6.2 |
+
+**We are not School of Life and should stop half-imitating them.** They confess
+in dense grade-8.9 sentences; we address in plain grade-6.2 ones. A film is
+heard once, in order, with no scrollback — plain is correct for the ear. The
+corpus is a reference point, not a destination.
+
+**But we over-corrected on address.** The rituals script said "you" ZERO times
+in 1,043 words — the likeliest cause of two "I got lost watching it"
+rejections. Fixing that floor removed the ceiling: `you-are-not-finished`
+measured **65.5 "you" per 1k and "we" exactly 0.00**. The two films whose
+narration was judged good both sit near 41 "you" / 11 "we".
+
+"You" accuses. "We" confesses. The honest beat — where the easy version of the
+argument overstates itself and the film says so — cannot be written without
+"we", and it is the whole method. Hence a floor on "we" as well as on "you".
+
+Band, reasoning and per-film numbers: `docs/video/VOICE-SPEC.md`. QC Gate 1.1
+runs the gate; 1.1b is the judgement the gate cannot make — whether the "we"
+lands where the film is actually being honest, or was sprinkled to clear a
+number.

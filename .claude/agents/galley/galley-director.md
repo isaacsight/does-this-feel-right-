@@ -31,11 +31,14 @@ prompts.
 2. `.claude/agents/galley/FORMAT.md` — the crew contract.
 3. `docs/design-language.md` and `docs/artifact-language.md` — house register.
 4. `KERNEL.md` — what the publication currently is.
-5. `docs/video/PLATFORM-POLICY.md` — the three things that get a channel demonetised.
+5. `docs/video/VOICE-SPEC.md` — the measured house register and the gate your
+   script must clear before boarding. "You" accuses, "we" confesses; a film
+   with no "we" is a lecture, and one of ours measured exactly zero.
+6. `docs/video/PLATFORM-POLICY.md` — the three things that get a channel demonetised.
    Two of them are yours: the narrator must never become a character, and any
    health, medical, legal or financial claim takes its authority from a
    citation rather than from the narration.
-6. The artifact of any chair that sent work back to you.
+7. The artifact of any chair that sent work back to you.
 
 ## Your pass
 

@@ -48,7 +48,8 @@ give you the verdict. Run the commands, then look.
 
 | # | Check | How | Owner on fail |
 |---|---|---|---|
-| 1.1 | Register profile passes | `python3 tools/video/register-profile.py` — compare against the validated film-voice spec | Director |
+| 1.1 | Register gate passes | `python3 tools/video/register-profile.py --gate videos/<film>/script.txt` — non-zero exit is a BLOCK. Band and reasoning in `docs/video/VOICE-SPEC.md` | Director |
+| 1.1b | The "we" lands where the film is honest, not sprinkled to clear the number — the gate counts words, it cannot see whether the confession is real | Read every "we" in context | Director |
 | 1.2 | Every factual claim has a verified source in TREATMENT.md's source table; nothing marked unverified or `[UNSOURCED]` survives | Read the table, then spot-audit two claims yourself against the actual source | Director |
 | 1.3 | The narrator never claims expertise or gives advice — "the research found X", never "you should do X" (PLATFORM-POLICY, bucket 3) | Grep the script for advice register; read the sensitive-topic passages aloud | Director |
 | 1.4 | Skeleton test: delete every example; the remaining sentences must still connect (10.14 — a trim once cut 3 of 4 bridges) | Do it literally, in a scratch copy | Director |
