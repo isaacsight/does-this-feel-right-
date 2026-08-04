@@ -1396,3 +1396,37 @@ in words.
 
 The locked clause and its reasoning live in the film at `videos/<film>/WORLD.md`,
 so the Art Director ratifies rather than rediscovers.
+
+## 10.34  The house rate was measuring the wrong thing
+
+The Director's chair carried "~115 words per minute" as the house speaking rate,
+derived from an 891-word script that ran 7:46. QC caught it at Gate 1 on
+`cognitive-debt`: **7:46 was the finished FILM's runtime**, not the narration
+inside it. Dividing script words by film duration and calling the result a
+speaking rate understates the voice by roughly a third.
+
+Measured properly, from the two films that carry exact per-word timings in
+`audio/words.json`:
+
+| film | script words | narration | script-words/min |
+|---|---:|---:|---:|
+| you-happen-to-life | 1,198 | 6:28 | 185.3 |
+| you-watched-it-happen | 1,200 | 7:04 | 169.9 |
+
+**~178 script-words per minute**, with a ~9% spread — so quote a band, not a
+number, and let Sound's measured read settle it.
+
+The cost of the old figure on this film: an 846-word script estimated at **7:19**
+against a 6–7 minute target, with two trims pre-nominated to bring it down. It
+will actually run about **4:46**. The film is a minute and a half SHORT, and the
+error was about to remove material from a script that needs more.
+
+Note that QC's own replacement rate (126.5 wpm, from `batman-effect`) was also
+wrong, for a smaller version of the same reason. The check that settles it is
+`words.json`: count the words, take the span from the first word's start to the
+last word's end, and divide. Everything else is measuring silence, colophons and
+title beats as if they were speech.
+
+**Standing rule: an estimate that disagrees with the measured read loses.** The
+purpose of the estimate is to know whether to send an act back to the room
+BEFORE recording — not to authorise a cut.

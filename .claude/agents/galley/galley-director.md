@@ -134,9 +134,31 @@ Call the gates; a gate you skip is a gate that failed silently.
 
 ## Length is measured, never estimated
 
-A word count is not a runtime. At the house pace an 891-word script ran **7:46**,
-not the "4–5 minutes" its header claimed — and my own "798 words" was a guess
-that turned out to be 906. Count the words, then measure the recording.
+A word count is not a runtime, and the estimate you use must divide script words
+by **narration time**, never by finished film runtime.
+
+**The house rate is ~178 script-words per minute of narration.** Measured
+2026-08-04 from the two films that carry exact per-word timings:
+
+| film | script words | narration | rate |
+|---|---:|---:|---:|
+| you-happen-to-life | 1,198 | 6:28 | 185.3 |
+| you-watched-it-happen | 1,200 | 7:04 | 169.9 |
+
+Treat it as a range, not a constant — the spread is ~9%, so quote an estimate as
+a band (846 words is 4:34–4:59, call it "about five minutes") and let Sound's
+measured read settle it.
+
+**The rate that was here before — "115 wpm", from an 891-word script running
+7:46 — was wrong, and wrong in a way worth understanding.** 7:46 was the
+finished FILM's runtime; the narration inside it was shorter. Dividing script
+words by film duration and calling the result a speaking rate understates the
+voice by about a third, which makes every script look longer than it is. On
+`cognitive-debt` it produced a 7:19 estimate for a script that will run about
+4:46 — and nearly cost the film two trims it did not need.
+
+If a script estimates short of target, that is a note back to the room for more
+material, not something to discover after recording.
 
 ElevenLabs `speed` is badly non-linear at the top: 0.75 gave 7:46, 1.0 gave 7:01,
 1.2 gave 4:40. Almost all the leverage is in the last fifth of the range.
