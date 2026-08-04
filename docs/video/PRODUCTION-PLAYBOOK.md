@@ -1479,3 +1479,60 @@ registry's prices are the audio-off rates.
 
 **Standing rule: re-verify the registry before every film.** It costs one
 API call and it caught a two-generation drift the first time it was run.
+
+## 10.36  A transform that runs on 88 things cannot be cleared by checking four
+
+`build-prompts.py` broke the prompts twice in one session, and the second break
+was worse than the first.
+
+**Bug one.** The furniture stripper matched inside words — `\bAnchor\s*` hit
+"Anchored to", leaving descriptions that began *"ed to ."* Damaged 15 of 88.
+
+**Bug two, the fix for bug one.** Deleting the whole clause containing a frame
+reference took the sentence's SUBJECT with it. Damaged **19 of 88**:
+
+```
+b37  "The protagonist crouched at eye level with it..."  ->  "at eye level with it..."
+b41  "One figure holding out the block, the other taking it"  ->  "the other taking it"
+b72  (lost the entire footnote composition)
+```
+
+Every one produced a frame that was plausible on a contact sheet and wrong
+against the board. Both bugs shipped because the fix was **spot-checked on four
+prompts and declared clean**. A sample cannot clear a transform that runs on all
+of them — that is the whole lesson, and it is the same shape as measuring the
+preview instead of the artifact (10.28) and trusting an adapter's "posted"
+(10.26).
+
+### The fix is a verifier that blocks the write
+
+`build-prompts.py` now runs `verify()` over every prompt and **refuses to write
+the file** if any fails. It found 21 problems across 18 prompts on its first
+run, then 5, then 2, then 1, then clean — each round exposing a class the
+previous fix had not considered:
+
+| check | what it caught |
+|---|---|
+| furniture survived | `HOLD RISK:` — the board writes crew notes in CAPS and the pattern was case-sensitive |
+| starts mid-sentence | subject deleted with the reference clause |
+| dangling preposition | `"Same tread dimensions as ."` — the reference the preposition pointed at was removed |
+| double space / orphaned comma | `"Same field,."` |
+| **content retention** | a transform quietly eating the description |
+
+Three things learned building the verifier itself:
+
+- **`[^.]*\.` breaks on decimals.** `HOLD RISK: below the 1.8s floor` terminates
+  inside the number. Run lazily to the next capital instead.
+- **Short sentences are not stubs.** An early filter dropped anything under
+  three words and ate `"No figures. No crowd."` — deliberate prohibitions, and
+  exactly the instructions that keep a frame clean.
+- **The retention baseline must strip what the transform is SUPPOSED to
+  remove**, or legitimate reference-stripping reads as content loss. It is a
+  backstop at 55%; the precise checks are the fragment tests.
+
+### And archive the prompts with the batch
+
+`prompts.json` was overwritten seven minutes after the frames were generated, so
+**no frame in that batch could be audited against the text that made it.** QC
+found this while trying to verify a claim and could not. Prompt sets now go to
+`production/prompt-archive/prompts-<timestamp>.json` before any generation run.

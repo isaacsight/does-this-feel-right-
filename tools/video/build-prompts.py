@@ -190,7 +190,7 @@ FURNITURE = [
     # description that began "ed to ." — 15 of 88 prompts were damaged that
     # way, and the damage is invisible unless you read the prompts rather than
     # the frame count.
-    r'\bG\d+\b\s*·?\s*',                        # continuity group codes
+    r'\bG\d+[a-z]?\b\s*·?\s*',                  # continuity group codes (G1, G3b)
     r'\bLive\s+L\d+\b\s*·?\s*class\s*\d+\.?',  # LIVE class markers
     r'\bAnchored?\b\s+(?:to|on)?\s*',           # "Anchor", "Anchored to"
     r'\bPlate\b\s*',
@@ -207,10 +207,41 @@ FURNITURE = [
 # Delete the whole clause rather than the token, or the prompt is left with
 # "same horizon height as ." Applied before FURNITURE so the connective goes
 # with its object.
-DEAD_CLAUSE = [
-    r'[^,.;]*\b`?b\d+`?\b[^,.;]*',              # any clause naming a frame
-    r'[^,.;]*`[^`]+\.png`[^,.;]*',                # any clause naming a plate
-    r'[^,.;]*\bas reference #\d+[^,.;]*',
+# Cross-references and plate names are meaningless to an image model, but they
+# sit INSIDE sentences that carry real content. An earlier version deleted the
+# whole clause containing them and took the sentence's SUBJECT with it:
+#
+#   b37  "The protagonist crouched at eye level with it..."  ->  "at eye level with it..."
+#   b41  "One figure holding out the block, the other taking it"  ->  "the other taking it"
+#
+# That damaged 19 of 88 prompts — worse than the 15 the previous bug damaged —
+# and it shipped because the fix was spot-checked on four prompts instead of
+# verified on all of them. Remove the REFERENCE PHRASE ONLY. "same horizon
+# height as b57" -> "same horizon height" is harmless filler; losing the
+# subject is not.
+REFERENCE = [
+    r'\s*(?:,\s*)?\b(?:as|to|in|at|from|with|than|like)\s+`?b\d+`?\b',  # "as b57"
+    r'\s*`?b\d+`?\b',                                       # a bare frame id
+    r'\s*`[^`]*\.png`',                                      # a plate filename
+    r'\s*\bas reference #\d+',
+]
+
+# Notes written for the crew that must never reach the model. Whole sentences,
+# not clauses — these stand alone and carry no scene content.
+ANNOTATION = [
+    # NOTE the lazy run-to-next-capital rather than [^.]*\. — "Hold risk: below
+    # the 1.8s floor" contains a decimal point, so a period-terminated pattern
+    # stops inside the number and leaves "8s floor - see §8." in the prompt.
+    r'Hold risk:.*?(?=\s+[A-Z]|$)',
+    r'Still by ruling.*?(?=\s+[A-Z]|$)',
+    r'See\s*§\s*\d+.*?(?=\s+[A-Z]|$)',
+    r'\bAccepted risk.*?(?=\s+[A-Z]|$)',
+    r'\bFallback.*?(?=\s+[A-Z]|$)',
+    # Sentences that exist only to name a plate or its provenance.
+    r'[—-]?\s*this frame (?:is|establishes)[^.]*\.',
+    r'\bDoubles as production frame[^.]*\.',
+    r'On the measured read[^.]*\.',
+    r'\bthis should be the (?:longest|shortest)[^.]*\.',
 ]
 
 
@@ -247,8 +278,15 @@ def compose(f):
     are notes to a human reader and mean nothing to an image model."""
     img = re.sub(r'\*\*(.+?)\*\*', r'\1', f['image'])
     img = re.sub(r'\*(.+?)\*', r'\1', img)
-    for pat in DEAD_CLAUSE:
-        img = re.sub(pat, ' ', img)
+    for pat in ANNOTATION:
+        img = re.sub(pat, ' ', img, flags=re.I)
+    for pat in REFERENCE:
+        img = re.sub(pat, '', img, flags=re.I)
+    # Removing what a preposition pointed at strands the preposition:
+    # "Same tread dimensions as `stair.png`." -> "Same tread dimensions as."
+    # "seated as in `b61`, alone now"          -> "seated as, alone now"
+    img = re.sub(r'\s+\b(?:as|to|at|in|from|than|with|like|on)\b\s*(?=[.,;])', '', img, flags=re.I)
+    img = re.sub(r'\s+\bas\b\s*(?=[.,;])', '', img, flags=re.I)
     img = img.replace('`', ' ')
     for pat in FURNITURE:
         img = re.sub(pat, ' ', img, flags=re.I | re.M)
@@ -257,6 +295,21 @@ def compose(f):
     # A sentence reduced to "Same field." no longer says what it matches, so it
     # is noise rather than instruction. Drop the fragment, keep the rest.
     img = re.sub(r'(?:^|(?<=\. ))(?:Same|Identical)\s+\w+(?:\s+\w+)?\.\s*', '', img)
+    # A sentence reduced to a stub by the removals above ("Anchor.", "+.",
+    # "this frame is the, generated from.") is noise, not instruction. Rebuild
+    # from the sentences that still carry content.
+    keep = []
+    for s in re.split(r'(?<=[.!?])\s+', img):
+        core = re.sub(r'[^A-Za-z ]', ' ', s)
+        words = [w for w in core.split() if len(w) >= 2]
+        s = s.strip()
+        if len(words) >= 2 and re.match(r'^[A-Z0-9"\']', s):
+            keep.append(s)
+    img = ' '.join(keep)
+    # STRAND: "seated as, alone now" — the reference the preposition pointed at
+    # is gone. Run after the rebuild as well as before it, because a rebuild
+    # can re-join sentences and expose new strands.
+    img = re.sub(r'\s*\b(?:as|to|at|in|from|than|with|like|on)\b\s*(?=[.,;])', '', img, flags=re.I)
     img = re.sub(r'^[\s,.;—-]+', '', img)
     img = re.sub(r'\s+([,.;])', r'\1', img)
     img = re.sub(r'\s{2,}', ' ', img).strip(' .·—-') + '.' 
@@ -268,6 +321,60 @@ def compose(f):
     if re.search(r'the person in the red jacket', img, re.I):
         img = re.sub(r'the person in the red jacket', CHARACTER, img, count=1, flags=re.I)
     return f"{img} {WORLD} {COMMON}"
+
+
+def verify(frames, prompts):
+    """Check EVERY prompt before anything is written. Two bugs shipped from
+    this file because a fix was spot-checked on a handful of prompts and
+    declared clean — the first damaged 15 of 88, the second 19 of 88, and both
+    produced frames that looked plausible and were wrong. A sample cannot
+    clear a transform that runs on all of them.
+
+    The content-retention check is the one that matters: it compares the
+    composed scene against the board's own words and fails when the transform
+    has eaten the description. Both historical bugs would have tripped it."""
+    bad = []
+    for f in frames:
+        fid = f['id']
+        scene = prompts[fid].split(WORLD)[0].strip() if WORLD in prompts[fid] else prompts[fid]
+
+        # 1. Production furniture that must never survive.
+        for pat, label in [(r'`', 'backtick'), (r'\bb\d{2}\b', 'frame ref'),
+                           (r'\bG\d+[a-z]?\b', 'group code'), (r'\.png', 'plate file'),
+                           (r'reference #', 'reference marker'),
+                           (r'Hold risk|See §|What moves', 'QA prose')]:
+            if re.search(pat, scene):
+                bad.append((fid, f'{label} survived: ...{scene[max(0,re.search(pat,scene).start()-30):][:60]}'))
+
+        # 2. A description that lost its subject reads as a fragment.
+        if scene and not re.match(r'^[A-Z0-9"\']', scene):
+            bad.append((fid, f'starts mid-sentence: "{scene[:50]}"'))
+        if re.match(r'^(?:at|in|on|the other|then|and|but|with|from|as)\b', scene, re.I):
+            bad.append((fid, f'starts with a fragment: "{scene[:50]}"'))
+
+        # 3. Punctuation left dangling by a removal.
+        for pat, label in [(r'\s[,.;]', 'space before punctuation'), (r'[,;]\s*\.', 'orphaned comma'),
+                           (r'\s{2,}', 'double space'), (r'\b(?:as|to|at|from|than)\s*[.,]', 'dangling preposition')]:
+            if re.search(pat, scene):
+                bad.append((fid, f'{label}'))
+
+        # 4. CONTENT RETENTION - the check that catches a transform eating the
+        #    description. Compare against the board's raw scene text.
+        raw = re.sub(r'[*`]', '', f['image'])
+        for pat in ANNOTATION + FURNITURE + REFERENCE:
+            raw = re.sub(pat, ' ', raw, flags=re.I | re.M)
+        raw_words = set(w.lower() for w in re.findall(r"[A-Za-z']{4,}", raw))
+        got_words = set(w.lower() for w in re.findall(r"[A-Za-z']{4,}", scene))
+        if raw_words:
+            kept = len(raw_words & got_words) / len(raw_words)
+            # Deliberately loose. The PRECISE checks are the fragment tests
+            # above — they caught both real bugs by name. This is a backstop
+            # for catastrophic loss, and it has to tolerate crew commentary
+            # the annotation list cannot enumerate exhaustively.
+            if kept < 0.55:
+                bad.append((fid, f'lost {100*(1-kept):.0f}% of the board\'s words '
+                                 f'({len(raw_words & got_words)}/{len(raw_words)} kept)'))
+    return bad
 
 
 if __name__ == '__main__':
@@ -287,8 +394,19 @@ if __name__ == '__main__':
     if dupes:
         sys.exit(f'duplicate frame ids: {sorted(dupes)}')
 
-    json.dump({f['id']: compose(f) for f in frames},
-              open(sys.argv[2], 'w'), indent=2)
+    prompts = {f['id']: compose(f) for f in frames}
+
+    problems = verify(frames, prompts)
+    if problems:
+        print(f'\nVERIFY FAILED - {len(problems)} problem(s) across '
+              f'{len({p[0] for p in problems})} of {len(frames)} prompts. '
+              f'Nothing written.\n')
+        for fid, why in problems:
+            print(f'  {fid}  {why}')
+        sys.exit(1)
+    print(f'verify: all {len(frames)} prompts clean')
+
+    json.dump(prompts, open(sys.argv[2], 'w'), indent=2)
 
     meta = sys.argv[2].replace('.json', '-meta.json')
     json.dump(frames, open(meta, 'w'), indent=2)
