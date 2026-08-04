@@ -131,3 +131,9 @@ tools/send-via-gmail.mjs
 ribbon-in-the-sky-rendition.md
 ribbon-in-the-sky-rendition.mid
 ribbon-in-the-sky-rendition.mp3
+
+# Local-only social publishing projects and rendered media.
+docs/video/one-of-one-2027/
+tools/video-assets/
+tiktok/templates/
+videos/**
