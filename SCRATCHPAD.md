@@ -3648,3 +3648,59 @@ virtualised list) — older posts flag found=0 falsely. Posts verified live
 2026-08-01. Isaac said stop working on posting for now.
 
 Pending: $0.04 single-frame test of the shared generator awaiting OK.
+
+## Session 2026-08-03/04 — QC chair, voice gate, and COGNITIVE DEBT in production
+
+**Film in flight:** `videos/cognitive-debt/` — working title **One Study Deep**.
+Thesis: the evidence that AI is costing us something is thinner than the phrase
+that carried it, and that we believed it anyway — exactly as we did with Google
+in 2011 — is the more interesting finding. Turn at ~two-thirds: "We have done
+this before, and it is worth knowing how it ended last time."
+
+**State:** Director is adding a sixth act (~350 words) and fixing QC's R1.
+Storyboard is next, boarding with the motion column. World is LOCKED (ledger),
+plates installed. NOT YET BOARDED, NOT RECORDED.
+
+### What the crew caught that we would have shipped
+
+- QC Gate 1 FAILED the script. It caught a Q3/Q4 measure fusion that had already
+  been caught once and re-entered during the merge — and found the paper's own
+  Discussion sentence commits the same fusion, so citing it does not save the
+  pairing. Tell: "about a third" computes to 0.40 against the script's pairing,
+  exactly 0.33 against the correct one.
+- **The house speaking rate was wrong and had been for every film.** ~115 wpm
+  divided script words by finished FILM runtime. True rate from words.json is
+  ~178 script-words/min (185.3 / 169.9 across two films). cognitive-debt is
+  ~4:46, not 7:19 — SHORT, not long. Two trims were about to remove material
+  from a script that needed more. PLAYBOOK 10.34.
+- The Act 2 writer downloaded the 206-page preprint and found the 83% figure IS
+  real (15/18, Session 1) AND decays, and that a **v2 exists** (2025-12-31,
+  removes F and t statistics). The Director refused to narrate that v2 landed
+  two days after the critique — "timing is not causation".
+- The Act 5 writer challenged its own best line and the Director CUT it: "never
+  looked for the study that would have let us off" was false of the audit —
+  it did look, and found Storm & Stone. Performative confession.
+
+### Built this session
+
+- `galley-qc` chair — 20-item rubric across 3 gates, adversarial, no generation
+  tools, listen gate permanently human. All chairs pinned `model: opus`.
+- **Director and Editor were missing the Agent tool** their chairs assumed —
+  the writers' room silently failed on this film's first pass. Fixed.
+- `register-profile.py --gate` — the voice band is now enforced, not honour
+  system. Band measured against 997 School of Life + 10 Modern Wisdom
+  transcripts. `docs/video/VOICE-SPEC.md`.
+- Motion column STILL/DRIFT/LIVE + the five clip classes (PLAYBOOK 10.30).
+- **No intro** — films open cold, mark moves to the colophon (10.31).
+- Ledger world locked (10.33): margin rule FORBIDDEN (model cannot place it
+  consistently), ground drift must be forbidden explicitly not just named,
+  never put a hex in a prompt — `#D9E2DA` came back drawn as "D9EE13D".
+
+### Costs
+fal ~$0.86 today (21 world-test images + 1 frame test). Board will be ~130
+frames ≈ $5.10, plus 4–6 LIVE clips at ~$0.24. Quote before generating.
+
+### Open
+- QC 3.4 listen gate — outstanding, human only, cannot be marked by an agent.
+- Two unexplained fal refusals across ~20 calls; both transient on retest.
+- `verify.mjs` TikTok Studio scan reads only ~top 8 rows (inner virtualised list).
