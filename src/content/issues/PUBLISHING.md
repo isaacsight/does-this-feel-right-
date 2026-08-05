@@ -208,7 +208,7 @@ register is expressed by SWITCHING the accent, not adding one.
 Create `src/content/issues/<N>.ts` following the shape of the most
 recent same-format issue (`371.ts` for essay-as-profile,
 `402.ts` for essay-as-argument (dossier + pull quote),
-`400.ts` for essay-with-dataBlock, `401.ts` for dispatch,
+`400.ts` for essay-with-dataBlock, `428.ts` for dispatch,
 `403.ts` for forecast, `427.ts` for interview (real named subject, quotes trimmed not invented — see also 365.ts for the composite-subject variant),
 `404.ts` for review (graded survey),
 `398.ts` for colloquy (two-voice),
@@ -503,7 +503,15 @@ branch — only main publishes.
 
 ---
 
-_Last updated: ISSUE 427 · FEB 2027 (THE MOAT IS REALITY — the
+_Last updated: ISSUE 428 · MAR 2027 (THE ONE PERCENT — a `dispatch`
+on the video platform's cluster-termination sweep (50,000 clusters,
+130,000 channels, overturn under 1%) and the Kurzgesagt false
+positive; ledger stock + ledger-rule + graphite per 372's
+audit-register precedent; artifact edition
+`artifacts/428-the-one-percent.html` drafted first — an operable
+sweep field with a threshold radiogroup, authored hit rates
+disclosed, and a claims register at the floor. Prior: 427 THE MOAT
+IS REALITY — the
 second `interview` instance, and the first with a real named subject
 (Alex Hormozi) rather than a composite. Nine exchanges trimmed, not
 invented, from a reader-supplied transcript of a real broadcast
