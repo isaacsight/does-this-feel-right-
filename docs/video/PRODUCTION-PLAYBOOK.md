@@ -1536,3 +1536,192 @@ Three things learned building the verifier itself:
 **no frame in that batch could be audited against the text that made it.** QC
 found this while trying to verify a claim and could not. Prompt sets now go to
 `production/prompt-archive/prompts-<timestamp>.json` before any generation run.
+
+---
+
+## 10.37  The gate that failed closed, and cost $12.44 in one run
+
+QC Gate 2 failed `cognitive-debt` at 50 frames of 88 — after the frames were paid
+for. The fix was a **per-frame acceptance gate** that blocks a frame at generation
+time (`tools/video/frame-gate.py`), so a fault costs a $0.039 retry instead of a
+50-frame rebuild. Its thresholds are not invented: QC's report states a "fixed
+looks like" criterion for every finding, and the gate is those criteria made
+executable and moved upstream of the spend.
+
+### Calibrate against ground truth, and tune for zero false positives
+
+The first cut flagged 34 frames on the hue census and 41 on OCR, in a film with
+no type. Tuned against the 88 frames where QC had established truth by hand, the
+target being **zero false positives on frames QC passed** — a gate that cries wolf
+gets switched off, and then it protects nothing.
+
+Two corrections worth keeping:
+
+- **An edge-strip mean cannot find letterboxing.** A dark object touching the
+  frame edge pulled a strip mean to 0.704; the black bars read 0.000. Those are
+  not far apart. Counting near-black *depth* inward from each edge separates them
+  exactly — `b33` at 110px, every other frame at 0.
+- **"Two comparable accent regions" fired on 25 of 88 and one was real.** A red
+  jacket plus any second red object trips it and most frames legitimately have
+  both. It is opt-in per frame in `production/gate.json`, declared only where the
+  board says the accent IS the subject.
+
+### Test a detector in both directions
+
+A detector that never fires is not evidence of a clean film. Draw the fault into
+a good frame and confirm the gate catches it: a synthetic margin rule, painted
+bars, a hex string, a title card. All four were caught; the untouched control
+passed. This took ten minutes and is the only reason the "no type anywhere"
+result can be believed.
+
+### The expensive part: never let a broken gate condemn a picture
+
+The first live run quarantined **48 of 48 frames** and spent **$12.44**
+regenerating every one of them three times. Every frame was fine. The gate had
+been wired as bare `python3`, which resolved to a homebrew interpreter with no
+numpy; it crashed on import, exited non-zero, and the caller read *any* non-zero
+exit as "this frame is bad."
+
+A safety mechanism that cannot tell **"the frame failed"** from **"I failed"** is
+not a safety mechanism. It is an amplifier pointed at your budget, and it fails
+silently because every log line looks like it is working.
+
+Three rules, now enforced in both files:
+
+1. **Exit codes are load-bearing.** `0` pass, `1` the frame failed, `2` the gate
+   broke. Only `1` is a verdict on the picture. A missing dependency exits `2`
+   before any check runs.
+2. **Preflight before the spend.** `--selftest` proves the gate can run, and the
+   generator refuses to start without it. Running unchecked has to be a decision
+   someone typed (`--no-gate`), never a thing that happens.
+3. **Break loud, mid-batch.** If the gate dies during a run, say so, stop gating,
+   and mark the remaining frames unchecked — do not fail them closed.
+
+**Quarantine rather than delete.** All 144 rejected images were kept, so when the
+bug was found 46 of 49 frames were recovered from `try1` and the other three from
+`try2` — the full batch, at no further cost. Had they been discarded the $12.44
+would have bought nothing.
+
+The retry mechanism did work, incidentally: `b15`, `b64` and `b77` genuinely
+failed on the first attempt and passed on the second. That is the gate doing its
+job, and it was only visible because the attempts were kept.
+
+---
+
+## 10.38  "The images are boring" is a board fault, and it is cheap to fix
+
+`cognitive-debt` shipped a first cut Isaac rejected: *"the images are pretty boring
+and nothing fun about them or exaggerated."* He was right, and the diagnosis was
+visible the moment all four contact sheets were laid out together — something
+nobody had done, because QC had been grading frames one at a time against the
+world clause, where all 88 passed.
+
+**The fault was uniformity, and uniformity is invisible per-frame.** Roughly 70 of
+88 were the same shot: full-body figure, side-on, standing on a ground line at a
+fixed height, filling the same fraction of frame. Two close-ups in the whole film.
+No overheads, no low angles. One facial expression for seven and a half minutes.
+Six consecutive near-identical "figure at a desk" frames in Act 2.
+
+### The money is never the constraint here
+
+**Regenerating all 88 frames costs $3.43.** The board is free to rewrite. Any
+argument that starts "we can't afford to re-board" is wrong by an order of
+magnitude — a single bad session of iteration costs more than the whole batch.
+
+### Three moves, proven on a $0.31 pilot
+
+Before re-boarding 88 frames, six were re-boarded and generated to test the
+register. All three moves below appeared in every one, and the pilot frames had
+more life than the 88 they replaced:
+
+- **SCALE** — something absurdly large, absurdly small, or absurdly numerous. A
+  stack running off the top edge with the figure knee-high to it. Hundreds of
+  identical figures receding to the horizon.
+- **POSTURE** — the body does what the sentence says, past realism. A head
+  drooping below the level of the seat. A backward lean no chair survives.
+- **CAMERA** — anything but the side-on wide.
+
+### Put the quota in the code, because nobody counts by eye
+
+`videos/cognitive-debt/board-v2.py` refuses to emit prompts unless the board meets
+a camera quota (12+ close-ups, 6+ overheads, 6+ low angles, 8+ extreme wides) and
+**no more than three consecutive frames share a camera distance**. v1 failed every
+one of these and failed silently, because the failure only exists across frames
+and every per-frame check passed. A rubric that can only be evaluated on the whole
+set has to be enforced where the whole set exists.
+
+Every frame also names an explicit EXPRESSION. v1's protagonist had one face
+because no line of the board ever asked for a second.
+
+### Never name a glyph, even to forbid it
+
+A frame boarded as *"a single enormous near-black question-hook shape - NOT a
+letter and NOT a number"* produced no such thing, and a **giant red question mark**
+appeared in a different frame entirely. Naming a symbol makes the model draw it,
+exactly as the hex code `#D9E2DA` came back drawn as the string `D9EE13D` (10.33).
+Describe the shape by what it physically is — "a length of cord dropped on the
+paper, both ends free."
+
+### Two more traps from this pass
+
+**Pure white is invisible to the gate.** The first v2 smoke frame returned a huge
+white light cone. White is unsaturated, so the ground check — which reads the
+median of unsaturated pixels — sees nothing wrong. Cheaper to forbid in every
+prompt than to detect in every frame: *the palest tone in the frame is the paper
+itself.*
+
+**When a frame fails twice, stop rolling and composite.** `b72` is `b53` with the
+footnote not yet there. Two generations produced a red question mark and then two
+figures. Erasing the dot from `b53` took one ImageMagick call, cost nothing, and
+made the rhyme exact **by construction** — which is what a rhyme needs.
+
+---
+
+## 10.39  Substack: the editor eats markdown, and the embed is already dead
+
+Publishing *The Lab and the Jungle* to Substack on 2026-08-04 took six attempts at
+filling one draft. Both causes are non-obvious and both will recur.
+
+### The editor applies markdown INPUT RULES to inserted text
+
+`page.keyboard.insertText()` on a paragraph containing `**bold**` produces an
+**empty block**. Not mangled text — nothing. The paragraph is silently consumed by
+the editor's markdown rule and the caret moves on.
+
+In this post exactly one paragraph contained `**`, and it was the opening one, so
+the symptom looked like "the first paragraph never lands". Three plausible
+hypotheses were tested and all were wrong: the editor needing priming, caret
+navigation destroying it (`Meta+ArrowUp` then `Enter` DOES select-to-top and
+replace, so that was a real bug, just not this one), and a positional "slot 2 is
+eaten" theory disproved by a sacrificial block that survived.
+
+**Strip markdown before inserting.** It is a rich-text editor and does not want the
+syntax anyway: remove `**`/`*`, drop leading `#`, and rewrite `[text](url)` as
+`text: url`.
+
+**And read the editor's contents before theorising.** One `innerText()` dump showed
+`SACRIFICIAL-BLOCK\n\n\n\n\nMaybe it was...` — five newlines where a paragraph
+should be — which named the fault instantly. That should have been step one, not
+step five.
+
+### The YouTube embed does not render
+
+A pasted YouTube URL embeds correctly (a real clipboard paste — `insertText` does
+NOT fire the paste handler that triggers it, so the link stays plain text). But the
+embed then displays **"Video unavailable — playback on other websites has been
+disabled by the video owner."** Embedding is switched off at the channel level, so
+no Substack embed will ever play. Use a plain link until that setting changes.
+
+### Field targeting
+
+Probed structure of the composer: `textarea[1]` is the title, `textarea[2]` the
+subtitle, and `div[contenteditable]` **[0]** is the body — index 0, not `.last()`,
+which is a hidden second editor that times out on click. Tabbing from the title
+lands in the SUBTITLE and will dump an entire essay into it.
+
+### Publishing is Continue -> "Send to everyone now"
+
+The button click did not take when driven headless, and **the page returning to the
+editor is not evidence of failure or success either way**. Verify against
+`/archive` — the newest `/p/` link is the truth. This is the same rule as the
+TikTok adapter that reported eight posts that never existed (10.26).
