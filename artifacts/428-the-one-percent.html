@@ -1,0 +1,366 @@
+<style>
+  /* ISSUE 428 — THE ONE PERCENT · 一パーセント
+     Single-file artifact edition. Tokens mirrored from src/index.css.
+     Accent: graphite (audit seed) on ledger stock — the sweep is a register.
+     Simulation drawn in-house; the register at the floor cites public
+     reporting, printed as claims with sources. Seed prints. */
+  :root{
+    --ink:#1F1E1D; --ivory:#FAF9F6; --ledger:#F2EFE2;
+    --graphite:#5A5A56; --graphite-deep:#3C3C39; --graphite-lift:#8B8B85;
+    --alarm:#8C3B2E;
+    --hair:rgba(31,30,29,.16); --hair-strong:rgba(31,30,29,.5);
+    --serif:"EB Garamond","Iowan Old Style",Palatino,Georgia,serif;
+    --mono:"Courier Prime","Courier New",monospace;
+    --jp:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  }
+  .op-root{background:var(--ledger);color:var(--ink);font-family:var(--serif);
+    margin:0;min-height:100svh;position:relative;overflow-x:hidden;
+    background-image:repeating-linear-gradient(0deg,transparent 0 27px,rgba(31,30,29,.045) 27px 28px)}
+  .op-root *{box-sizing:border-box}
+  .op-frame{position:relative;max-width:1020px;margin:0 auto;padding:0 clamp(16px,4vw,44px)}
+
+  .op-mast{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    padding:20px 0 14px;border-bottom:1px solid var(--hair-strong);
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase}
+  .op-mast b{color:var(--graphite-deep);font-weight:400}
+  .op-seed{opacity:.6}
+
+  .op-hero{padding:clamp(30px,6vh,60px) 0 8px}
+  .op-kicker{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;color:var(--graphite-deep)}
+  .op-kicker::before{content:"[ "}.op-kicker::after{content:" ]"}
+  .op-hero h1{font-size:clamp(2.4rem,7.4vw,5.2rem);line-height:.98;letter-spacing:-.025em;
+    margin:.32em 0 .12em;font-weight:700;text-wrap:balance}
+  .op-hero h1 em{font-style:italic;color:var(--graphite)}
+  .op-jp{font-family:var(--jp);font-size:clamp(.9rem,2vw,1.15rem);color:var(--graphite);opacity:.9}
+  .op-deck{max-width:60ch;font-size:1.05rem;line-height:1.62;margin:1.2em 0 0}
+
+  .op-gauge{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:baseline;margin:26px 0 12px;
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+  .op-gauge span b{color:var(--graphite-deep);font-weight:400;font-variant-numeric:tabular-nums}
+  .op-gauge .fp b{color:var(--alarm)}
+
+  fieldset.op-dial{border:1px solid var(--hair-strong);margin:0 0 16px;padding:12px 14px}
+  .op-dial legend{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--graphite-deep);padding:0 6px}
+  .op-dial [role="radio"]{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+    background:none;border:1px solid var(--graphite);color:var(--graphite-deep);
+    padding:11px 16px;min-height:44px;margin:0 8px 6px 0;cursor:pointer}
+  .op-dial [role="radio"][aria-checked="true"]{background:var(--graphite-deep);color:var(--ivory)}
+  .op-dial [role="radio"]:focus-visible{outline:2px solid var(--graphite-deep);outline-offset:3px}
+  .op-dial small{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;opacity:.65;margin-top:4px;max-width:60ch}
+
+  .op-field{border:1px solid var(--hair-strong);background:rgba(250,249,246,.55);
+    padding:18px;margin:0 0 14px;position:relative}
+  .op-field .tick{position:absolute;width:9px;height:9px;border:1px solid var(--graphite-deep)}
+  .tick.tl{top:-1px;left:-1px;border-right:0;border-bottom:0}
+  .tick.tr{top:-1px;right:-1px;border-left:0;border-bottom:0}
+  .tick.bl{bottom:-1px;left:-1px;border-right:0;border-top:0}
+  .tick.br{bottom:-1px;right:-1px;border-left:0;border-top:0}
+  .op-grid{display:grid;grid-template-columns:repeat(20,1fr);gap:6px}
+  .op-ch{aspect-ratio:1;border:1px solid var(--graphite-lift);background:var(--ivory);position:relative}
+  .op-ch[data-kind="farm"]{background:repeating-linear-gradient(45deg,#DDD9CB 0 3px,var(--ivory) 3px 6px)}
+  .op-ch[data-kind="human"]{background:var(--ivory)}
+  .op-ch[data-kind="human"]::after{content:"";position:absolute;inset:28%;border-radius:50%;background:var(--graphite-deep)}
+  .op-ch[data-state="swept"]{background:var(--graphite-deep);border-color:var(--graphite-deep)}
+  .op-ch[data-state="swept"]::after{background:var(--ledger)}
+  .op-ch[data-state="swept"][data-kind="human"]{background:var(--alarm);border-color:var(--alarm)}
+  .op-legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:12px;
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase}
+  .op-legend i{display:inline-block;width:11px;height:11px;border:1px solid var(--graphite-lift);
+    vertical-align:-1px;margin-right:6px;font-style:normal}
+  .op-legend .l-farm i{background:repeating-linear-gradient(45deg,#DDD9CB 0 3px,var(--ivory) 3px 6px)}
+  .op-legend .l-human i{background:var(--ivory);position:relative}
+  .op-legend .l-swept i{background:var(--graphite-deep);border-color:var(--graphite-deep)}
+  .op-legend .l-fp i{background:var(--alarm);border-color:var(--alarm)}
+
+  .op-probe{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:0 0 30px}
+  .op-probe button{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    background:none;border:1px solid var(--graphite-deep);color:var(--graphite-deep);
+    padding:15px 24px;min-height:44px;cursor:pointer;transition:transform .14s cubic-bezier(.2,1.6,.4,1),background .14s,color .14s}
+  .op-probe button:hover{background:var(--graphite-deep);color:var(--ivory)}
+  .op-probe button:active{transform:scale(.96)}
+  .op-probe button:focus-visible{outline:2px solid var(--graphite-deep);outline-offset:3px}
+  .op-probe button[disabled]{opacity:.45;cursor:default}
+  .op-probe small{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;opacity:.65;max-width:46ch}
+
+  .op-prose{max-width:62ch;font-size:1.02rem;line-height:1.66;margin:34px 0}
+  .op-prose p{margin:0 0 1em}
+  .op-prose p:first-child::first-letter{font-size:3.1em;float:left;line-height:.82;
+    padding:.06em .12em 0 0;color:var(--graphite-deep)}
+
+  .op-ledgerlist{border-top:1px solid var(--hair-strong);margin-top:6px;padding-top:14px}
+  .op-ledgerlist h2,.op-reg h2{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--graphite-deep);font-weight:400;margin:0 0 10px}
+  .op-ledgerlist ul{list-style:none;margin:0;padding:0;font-family:var(--mono);font-size:.7rem;line-height:2;
+    font-variant-numeric:tabular-nums}
+  .op-ledgerlist li{border-bottom:1px dashed var(--hair);display:flex;justify-content:space-between;gap:12px}
+  .op-ledgerlist .empty{opacity:.5;font-style:italic;border:0}
+
+  .op-reg{background:var(--ink);color:var(--ivory);margin:52px calc(50% - 50vw) 0;padding:44px 0 30px}
+  .op-reg .op-frame{max-width:1020px}
+  .op-reg h2{color:var(--graphite-lift)}
+  .op-reg .note{font-size:.98rem;line-height:1.6;max-width:60ch;margin:0 0 20px}
+  .op-rtable{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.72rem;font-variant-numeric:tabular-nums}
+  .op-rtable th{font-weight:400;letter-spacing:.14em;text-transform:uppercase;font-size:.58rem;
+    text-align:left;color:var(--graphite-lift);border-bottom:1px solid rgba(250,249,246,.7);padding:5px 12px 5px 0}
+  .op-rtable td{border-bottom:1px dashed rgba(250,249,246,.22);padding:6px 12px 6px 0;vertical-align:top}
+  .op-rtable td:first-child{white-space:nowrap;color:var(--graphite-lift)}
+  .op-reg .wrap{overflow-x:auto}
+
+  .op-colophon{padding:40px 0 48px;font-family:var(--mono);font-size:.64rem;
+    letter-spacing:.08em;line-height:2;opacity:.82}
+  .op-colophon b{color:var(--graphite-deep);font-weight:400}
+  .op-glyph{color:var(--graphite-deep)}
+
+  @media (max-width:700px){.op-grid{grid-template-columns:repeat(10,1fr)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  @media print{
+    .op-root{background:#fff}
+    .op-dial,.op-probe{display:none}
+    .op-reg{margin:24px 0 0;background:none;color:var(--ink)}
+    .op-rtable th{color:var(--graphite-deep);border-color:var(--ink)}
+    .op-rtable td{border-color:rgba(31,30,29,.3)}
+    .op-rtable td:first-child{color:var(--graphite-deep)}
+  }
+</style>
+
+<div class="op-root" id="op-root">
+<div class="op-frame">
+
+  <header class="op-mast">
+    <span>KERNEL.CHAT · ISSUE <b>428</b> · MAR 2027</span>
+    <span class="op-glyph">★</span>
+    <span class="op-seed">SEED 428-0805 · PRINTED</span>
+  </header>
+
+  <section class="op-hero">
+    <p class="op-kicker">DISPATCH · 速報 · THE PLATFORM DESK</p>
+    <h1>The one <em>percent.</em></h1>
+    <p class="op-jp">一パーセント — 検出器の誠実さは控訴窓口で測る</p>
+    <p class="op-deck">A video platform's classifier learned to terminate channels by the
+    neighbourhood — shared behaviour, shared upload rhythm, shared infrastructure — and
+    swept a hundred and thirty thousand of them. Its appeal-overturn rate is under one
+    percent, and one percent of an industrial sweep is still a street of real people.
+    The field below is yours to sweep. Choose a threshold, run the classifier, and read
+    what the tally calls the remainder.</p>
+  </section>
+
+  <div class="op-gauge" aria-live="polite">
+    <span>SWEEPS RUN <b id="op-runs">0</b></span>
+    <span>CHANNELS SWEPT <b id="op-swept">0</b></span>
+    <span class="fp">HUMANS SWEPT <b id="op-fp">0</b></span>
+  </div>
+
+  <fieldset class="op-dial">
+    <legend>Threshold · 閾値 — carried into every sweep below</legend>
+    <div role="radiogroup" aria-label="Classifier threshold" id="op-thresh">
+      <button type="button" role="radio" aria-checked="false" data-t="lenient" tabindex="-1">LENIENT · farms slip through</button>
+      <button type="button" role="radio" aria-checked="true" data-t="standard" tabindex="0">STANDARD · the published posture</button>
+      <button type="button" role="radio" aria-checked="false" data-t="strict" tabindex="-1">STRICT · humans get caught</button>
+    </div>
+    <small>The trade is the whole argument: every notch of recall is bought with
+    precision, and the price is paid by whoever the classifier is wrong about.</small>
+  </fieldset>
+
+  <div class="op-field" role="img" aria-label="A field of four hundred channels; hatched cells are coordinated farm clusters, dotted cells are human channels; dark cells have been swept; red cells are humans swept in error" id="op-fieldbox">
+    <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+    <div class="op-grid" id="op-grid"></div>
+    <div class="op-legend">
+      <span class="l-farm"><i></i>FARM CLUSTER</span>
+      <span class="l-human"><i></i>HUMAN CHANNEL</span>
+      <span class="l-swept"><i></i>SWEPT</span>
+      <span class="l-fp"><i></i>HUMAN, SWEPT IN ERROR</span>
+    </div>
+  </div>
+
+  <div class="op-probe">
+    <button id="op-run" type="button">Run the sweep</button>
+    <button id="op-reset" type="button" disabled>Restore the field</button>
+    <small>The desk's two controls. The classifier decides who goes; you only
+    choose how hungry it is — that is the argument.</small>
+  </div>
+
+  <section class="op-prose">
+    <p>The unit of moderation used to be the video. This year it became the
+    neighbourhood. A cluster-termination system does not ask whether a channel's
+    latest upload broke a rule; it asks who the channel resembles — who it shares a
+    template with, an upload cadence with, a server with — and when the resemblance
+    crosses a threshold, the whole block goes at once. Against content farms filing
+    synthetic videos at industrial scale, nothing else works. You cannot adjudicate
+    twenty million daily uploads one screen at a time.</p>
+    <p>But resemblance is a statistic, and a decade-old animation studio with
+    twenty-five million subscribers can resemble a farm on the day the threshold
+    moves. When it happened, the misread channel was not deleted — it was quietly
+    starved, its reach choked while its click-through rate and watch time said the
+    audience wanted more. It was repaired within days, because that channel had
+    people to call. The overturn rate stays under one percent partly because most of
+    the one percent never finds the phone.</p>
+  </section>
+
+  <section class="op-ledgerlist">
+    <h2>Session ledger · 台帳 — this desk only; unrecorded; reload erases it</h2>
+    <ul id="op-receipts"><li class="empty">No sweeps yet. The field stands as filed.</li></ul>
+  </section>
+</div>
+
+  <section class="op-reg">
+    <div class="op-frame">
+      <h2>The register · what is claimed on the public record</h2>
+      <p class="note">The field above is a simulation drawn in-house. These rows are
+      not — they are the claims this dispatch is filed against, printed with their
+      sources, as a magazine that names its sources must.</p>
+      <div class="wrap"><table class="op-rtable">
+        <thead><tr><th>CLAIM</th><th>AS REPORTED</th></tr></thead>
+        <tbody>
+          <tr><td>THE SYSTEM</td><td>A Google research paper describes a scalable cluster-termination
+            system (SCCTS) — an LLM-enabled multimodal defense — deployed to "a major online video
+            platform" against coordinated synthetic-media abuse.</td></tr>
+          <tr><td>THE SWEEP</td><td>Roughly 50,000 coordinated clusters identified; on the order of
+            130,000 channels terminated; independent reporting puts the purge above 100,000 channels
+            inside six months.</td></tr>
+          <tr><td>THE ERROR BAR</td><td>Appeal-overturn rate reported under one percent — hundreds of
+            legitimate channels terminated and later restored, in the paper's own sample.</td></tr>
+          <tr><td>THE SCALE</td><td>The platform stated in 2025 that at least 20 million videos are
+            uploaded per day. At that volume, a one-percent error rate is not a rounding error;
+            it is a population.</td></tr>
+          <tr><td>THE FALSE POSITIVE</td><td>Kurzgesagt — 25 million subscribers, over 3.5 billion
+            views, human-made for over a decade — publicly reported that the platform's automatic
+            AI-detection tools wrongly classified its videos as synthetic and throttled the channel;
+            platform contacts confirmed and repaired it.</td></tr>
+          <tr><td>THE ASYMMETRY</td><td>A five-million-subscriber creator reported months of decaying
+            reach with no way to learn whether a classifier was the cause — the appeal that repaired
+            the larger channel was a relationship, not a process.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+<div class="op-frame">
+  <footer class="op-colophon">
+    <p>THE ONE PERCENT · 一パーセント · KERNEL PRESS <span class="op-glyph">★</span><br>
+    The field above is a simulation drawn in-house — no classifier was queried, no
+    request leaves this page. Its four hundred channels are deterministic from seed
+    <b>428-0805</b>, printed at the masthead; at rest the field always reads the same.
+    The sweep's hit rates are authored to illustrate the threshold trade, not measured
+    from the platform. The session ledger counts only this desk's sweeps and is erased
+    on reload; nothing is recorded. The register at the floor cites public reporting.
+    Under reduced motion every sweep resolves instantly. Print keeps the field and the
+    register and hides the controls.</p>
+  </footer>
+</div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* deterministic PRNG — seed prints on the masthead */
+  function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  var SEED=4280805;
+
+  /* ---- the field: 400 channels, seeded. Farms arrive in clusters. ---- */
+  var N=400, COLS=20, cells=[], kinds=[];
+  (function(){
+    var r=mulberry32(SEED);
+    for(var i=0;i<N;i++)kinds.push('human');
+    /* plant 14 farm clusters as contiguous blocks on the grid */
+    for(var c=0;c<14;c++){
+      var cx=Math.floor(r()*COLS),cy=Math.floor(r()*(N/COLS)),size=8+Math.floor(r()*18);
+      var placed=0,radius=1;
+      while(placed<size&&radius<9){
+        for(var dy=-radius;dy<=radius&&placed<size;dy++)for(var dx=-radius;dx<=radius&&placed<size;dx++){
+          var x=cx+dx,y=cy+dy;
+          if(x<0||x>=COLS||y<0||y>=N/COLS)continue;
+          var idx=y*COLS+x;
+          if(kinds[idx]==='human'&&r()<.62){kinds[idx]='farm';placed++}
+        }
+        radius++;
+      }
+    }
+  })();
+
+  var grid=document.getElementById('op-grid');
+  for(var i=0;i<N;i++){
+    var d=document.createElement('div');d.className='op-ch';
+    d.dataset.kind=kinds[i];cells.push(d);grid.appendChild(d);
+  }
+
+  /* ---- threshold radiogroup (roving tabindex) ---- */
+  var thresh='standard';
+  var radios=[].slice.call(document.querySelectorAll('#op-thresh [role="radio"]'));
+  function pick(btn){
+    radios.forEach(function(b){var on=b===btn;b.setAttribute('aria-checked',on?'true':'false');b.tabIndex=on?0:-1});
+    thresh=btn.dataset.t;
+  }
+  radios.forEach(function(b,i){
+    b.addEventListener('click',function(){pick(b)});
+    b.addEventListener('keydown',function(e){
+      var j=-1;
+      if(e.key==='ArrowRight'||e.key==='ArrowDown')j=(i+1)%radios.length;
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp')j=(i-1+radios.length)%radios.length;
+      if(j>=0){e.preventDefault();pick(radios[j]);radios[j].focus()}
+    });
+  });
+
+  /* authored hit rates — illustrative of the trade, disclosed in the colophon */
+  var RATES={
+    lenient:  {farm:.62, human:.002},
+    standard: {farm:.94, human:.010},
+    strict:   {farm:.995,human:.055}
+  };
+
+  var runs=0,runsEl=document.getElementById('op-runs'),
+      sweptEl=document.getElementById('op-swept'),fpEl=document.getElementById('op-fp'),
+      receipts=document.getElementById('op-receipts'),
+      runBtn=document.getElementById('op-run'),resetBtn=document.getElementById('op-reset');
+
+  function receipt(a,b){
+    var e=receipts.querySelector('.empty');if(e)e.remove();
+    var li=document.createElement('li');
+    li.innerHTML='<span></span><span></span>';
+    li.children[0].textContent=a;li.children[1].textContent=b;
+    receipts.appendChild(li);
+    while(receipts.children.length>7)receipts.removeChild(receipts.firstChild);
+  }
+
+  function restore(){
+    cells.forEach(function(c){delete c.dataset.state});
+    sweptEl.textContent='0';fpEl.textContent='0';
+    resetBtn.disabled=true;runBtn.disabled=false;
+  }
+  resetBtn.addEventListener('click',function(){restore();receipt('□ field restored','all fates cleared')});
+
+  runBtn.addEventListener('click',function(){
+    runs++;runsEl.textContent=runs;
+    var r=mulberry32(SEED+runs*97), rate=RATES[thresh];
+    var fates=[],swept=0,fp=0;
+    for(var i=0;i<N;i++){
+      var hit=r()<(kinds[i]==='farm'?rate.farm:rate.human);
+      fates.push(hit);
+      if(hit){swept++;if(kinds[i]==='human')fp++}
+    }
+    runBtn.disabled=true;resetBtn.disabled=true;
+    function apply(i){
+      if(fates[i])cells[i].dataset.state='swept';else delete cells[i].dataset.state;
+    }
+    function done(){
+      sweptEl.textContent=swept;fpEl.textContent=fp;
+      resetBtn.disabled=false;runBtn.disabled=false;
+      receipt('◆ '+thresh.toUpperCase()+' sweep',swept+' swept · '+fp+' human'+(fp===1?'':'s')+' in error');
+    }
+    if(reduced){for(var i=0;i<N;i++)apply(i);done();return}
+    /* timer-robust row-by-row sweep: rAF raced against a timer (house law) */
+    var row=0;
+    function step(){
+      for(var x=0;x<COLS;x++)apply(row*COLS+x);
+      row++;
+      if(row>=N/COLS){done();return}
+      var fired=false;
+      function go(){if(fired)return;fired=true;step()}
+      requestAnimationFrame(go);setTimeout(go,80);
+    }
+    step();
+  });
+})();
+</script>

@@ -2,6 +2,29 @@
 
 > This file persists context between Claude Code sessions.
 
+## Session 2026-08-05 — ISSUE 428 "THE ONE PERCENT" drafted on branch
+
+**Branch:** `claude/youtube-ai-slop-detection-ckgsez` (not merged to main;
+nothing live until main takes it).
+
+A `dispatch` on the video platform's cluster-termination sweep, filed
+from a reader-supplied transcript of a video commentary: the Google
+SCCTS paper (50,000 clusters, ~130,000 channels terminated, appeal
+overturn under 1%), the Kurzgesagt false positive (25M subs, human-made,
+throttled by AI detection, repaired via platform contacts), and the
+access asymmetry for creators without those contacts. Doctrine filed:
+measure the detector at its appeal desk, not its precision figure.
+
+Identity: ledger stock + ledger-rule layout + graphite accent (372's
+audit-register precedent); seal TERMINATED · OVERTURNED; bridge to 417.
+Artifact edition drafted first at `artifacts/428-the-one-percent.html` —
+operable sweep field, 400 seeded channels (seed 428-0805 printed),
+threshold radiogroup with authored hit rates disclosed, claims register
+citing sources at the floor. Registered in index.ts; tsc clean (local
+TS 5.9.3 — the global 6.0.2 emits pre-existing tsconfig deprecation
+noise, ignore it), vite build clean, 145 registry tests pass.
+PUBLISHING.md hygiene pass done (§IV dispatch example → 428, footer).
+
 ## Session 2026-07-30 (late) - "You Are Not Finished" WRITTEN AND SHIPPED
 
 **Live:** https://youtu.be/yEeL5u4nwNw - 7:01, public. Shorts on YouTube
