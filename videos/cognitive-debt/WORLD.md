@@ -36,6 +36,44 @@ free, which the cream world never gave us.
 Plus the house common block (flat fills, no gradients, no text, edge to edge,
 one scene one camera, 16:9).
 
+## The same clause, for the scanner
+
+The prose above is written for the model. The block below is the same clause
+written for `tools/video/frame-gate.py`, which blocks a frame at generation time
+rather than reporting it after the batch. One world, one file, two audiences — a
+world that ships without its assertions can only be checked by eye, and Gate 2
+proved what that costs.
+
+Values are calibrated against the 88 frames of this film, where QC established
+ground truth by hand. The tuning target was **zero false positives on frames QC
+passed**, not maximum sensitivity.
+
+```assertions
+letterbox_max_rows: 4
+vertical_min_vcov: 0.95
+vertical_min_dev: 4.0
+ground_hue: [55.0, 80.0]
+ground_sat: [0.0, 12.0]
+ground_val: [82.0, 98.0]
+accent_hue: [0.0, 20.0]
+hue_census_max: 3.00
+glyph_min_conf: 78.0
+```
+
+**What the scanner catches, measured:** black bars (`b33`, exact, no false
+positives), the forbidden margin rule (`b13` `b87` at vcov 1.00, and a synthetic
+rule drawn as a control), warm drift in the ground, a second chromatic accent
+(`b31`'s brown at 17.2%), and generated type (a drawn `D9EE13D` at confidence 92,
+`COGNITIVE DEBT 2025` at 95).
+
+**What it misses, and you should not assume otherwise:** `b21`'s margin rule,
+which is faint enough that raising sensitivity to catch it also flags `b19`'s red
+hood. Marginal second accents below ~1.2% of frame. Any non-text glyph — the heart
+drawn on `b04`'s fingertip is a shape, and no OCR pass will see it. And every
+question of whether the frame is the *picture the board asked for*: `b08` and `b72`
+pass every check here and are still unanimatable. A green gate means the frame is
+inside the world, not that it is the right frame. That judgment stays with QC.
+
 ## The three things that had to be tested, and what they cost
 
 **1. The ground drifts warm unless it is locked.** A close-up came back on warm

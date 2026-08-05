@@ -1,0 +1,8 @@
+{
+  "master": "renders/REPLACE-ME.mp4",
+  "segments": "segments.json",
+  "words": "audio/words.json",
+  "karaoke": true,
+  "out": "deliver/shorts",
+  "shorts": []
+}

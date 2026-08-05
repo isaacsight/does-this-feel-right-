@@ -1,36 +1,65 @@
-# QC — GATE 2 (the frames) · cognitive-debt
+# QC — GATE 2 (the frames) · cognitive-debt · RE-RUN 2
 
 **Filed 2026-08-04 · QC chair · run before any motion or assembly is paid for.**
 Artifacts audited: 88 frames in `public/images/frames/`, `production/prompts.json`,
-`production/refs/` (10 plates), `STORYBOARD.md`, `WORLD.md`.
+`production/prompt-archive/prompts-20260804-162359.json`, 4 contact sheets in
+`production/qc/`, `STORYBOARD.md`, `WORLD.md`.
+
+This supersedes the first Gate 2 report of the same date. A short record of what
+run 1 failed, and whether it is now fixed, is in **§A** below — nothing from run 1
+is dropped.
 
 ---
 
 ## VERDICT — **FAIL**
 
-Do not pay for motion. Do not assemble.
+**Do not commission motion. Do not assemble.** The five LIVE stills cost ~$1.96 to
+animate; **two of the five cannot be animated as boarded at all**, and one of those
+two (`b72`) is the identical failure filed in run 1 and not touched since.
 
-**Blocking items, in order of severity:**
+**Blocking items, worst first:**
 
-1. **2.3 — LETTERING IS IN THE FILM.** `b17`'s machine screen carries a rendered
-   scene with a green segmented display showing garbled glyph characters.
-2. **2.6 / 2.4 — the STATION motif is absent from 10 of its 11 frames.** The
-   electrode cap and cords exist correctly in `refs/station.png` and appear only
-   in `b13`. Elsewhere they are a red or black **baseball cap**, or nothing.
-3. **2.4 — the STAIR motif breaks at `b85`: EIGHT treads**, measured, not
-   eyeballed. The film's principal motif is "exactly seven".
-4. **2.9 — 4 of the 5 LIVE stills are not animatable as boarded.** `b72`'s
-   composition is entirely absent; `b08` cannot show a tread lowering into a gap;
-   `b46` shows the face the board forbids; `b14` has the wrong cap.
-5. **WORLD violation — the forbidden red margin rule is in 7 frames.**
-6. **Board prohibition 2 violated — the Carr figure's face is visible** in `b45`,
-   `b46`, `b50`. Named living person.
-7. **`production/prompts.json` is still damaged in 19 of 88 records** — a
-   different bug from the one reported, still live, and it deletes frame subjects.
-8. **10 frames the board specifies as "No figure" contain a figure**, including
-   `b69` ("Nobody came to the funeral"), which is the exact inverse of its board.
+1. **`b08` — the LIVE thesis beat is unanimatable.** The stair in `b08` is not the
+   film's stair. It is a generated outline staircase with **risers, ~8 steps, no
+   tread fills, no gap and no red tread**. The boarded motion is *"the tomato-red
+   tread lowers into the gap and settles."* There is no gap and no red tread.
+   Measured: `b06`/`b07`/`b83` all share a byte-identical tread grid (six sage
+   treads at 229×68 px on a 141/−74 pitch); **`b08` contains zero 229×68 tread
+   blobs.** The figure's arms are also raised, where the board says "hands lowered
+   to the figure's sides."
+2. **`b72` — the LIVE landing beat does not contain its composition.** Board: *the
+   identical `b53` framing, sheet lifted at the bottom corner, bare bottom edge,
+   a hand arrives and sets the dot down.* Delivered: **two figures standing on the
+   ground line. No sheet, no corner, no hand, no dot.** Identical to run 1. The
+   film's best visual rhyme (`b53`→`b72`) is dead on one side.
+3. **`b33` has black bars painted into the image.** Confirmed and measured: pure
+   black (max channel < 10) rows `0–109` and `971–1079`. The painted panel is
+   **1920×861 (2.23:1)** inside a 1920×1080 file. PLAYBOOK 10.7.
+4. **`b04` contains an emoji.** A **red heart glyph** is drawn on the fingertip.
+   Rubric item 7 forbids emoji outright; the board forbids marks on every object.
+5. **The forbidden red margin rule survives in `b13`, `b21`, `b87`** — full-height
+   (vcov = 1.00), 8–14 px, measurably redder than the paper baseline. `b13` is the
+   **G2 anchor** and `b21` is the three-desks plate frame. WORLD.md §2 forbids it
+   by name and by test.
+6. **Motif 3 (THE DOCUMENTS) is still substituted.** `sheaf.png` is *"a thick loose
+   stack of blank pale sheets, no binding, no clip, no writing of any kind."*
+   Delivered as **bound books with solid red label-blocks on the spines and covers**
+   in `b27` `b29` `b55` `b60` `b67`. Run-1 R7, unfixed.
+7. **Ten frames the board specifies as figure-free contain a figure**, including
+   **`b69` ("Nobody came to the funeral")** — board: *"No figures. No crowd. Nothing
+   else in the frame at all."* Delivered: a figure. Run-1 R8, unfixed.
+8. **Motif 5 (THE SHELF) does not exist in half of G5.** `b76` and `b78` contain no
+   shelf board at all; `b78`'s boxes float in mid-air. `b75`'s shelf is **tomato-red**;
+   `b77`'s is pale with **brown** boxes. Run-1 R10, unfixed.
+9. **A second chromatic accent — warm brown/tan — is in the film.** `b31`'s desk
+   field is 10.75 % of frame at hue 30–45 (the red is 8.18 %); also `b02` `b05`
+   `b70` `b74` `b77`. WORLD.md: *"no warm or brown tint anywhere."*
 
-**63 of 88 frames require retake.** Full list in Returns.
+**Genuinely fixed since run 1:** the world colour lock, the station cap, `b17`'s
+lettering, `b23`'s invented cube, `b85`'s tread count, Carr's face, the `b11`↔`b81`
+inverse pair, the two-hair count, and the prompt archive. Detail in §A.
+
+**~50 of 88 frames require retake.** List in Returns.
 
 ---
 
@@ -38,158 +67,202 @@ Do not pay for motion. Do not assemble.
 
 | # | Check | Evidence | Verdict |
 |---|---|---|---|
-| 2.1 | Frame count vs prompts.json | `ls public/images/frames \| wc -l` = **88**; `len(json.load(prompts.json))` = **88**; key sets identical (`b01`–`b88`) | **PASS** |
-| 2.2 | 1920×1080, no inset painted panel | `magick identify` on all 88: every frame `1920x1080 sRGB 8`. Trim-box at fuzz 0 = `1920x1080+0+0` on all 88. Fuzz-3% trim run on all 88 (not the 12 floor): width stays 1920 on 87 of 88; only vertical trim (top ≤49px, bottom ≤50px) = paper margin above the first rule, not an inset. `b60` = `1891x985+0+46` (29px width loss, no x-offset) — not a panel. | **PASS** |
-| 2.3 | No lettering anywhere | Whole film contact-sheeted (3 sheets, 8-up) and read; then re-read at 458px in six 4×4 sheets. **`b17` FAILS**: the machine screen carries an interior scene with a green segmented display bearing glyph characters (~"8A8"), plus a red LED block and a thumbnail panel. Verified at 2.5× crop. No lettering found in the other 87. | **FAIL — b17** |
-| 2.4 | Character holds: head shape, EXACTLY two hairs, jacket | All 88 crowns cropped via red-jacket anchor and read; ambiguous frames re-zoomed twice (third pass run where reads disagreed, per hard rule). **Head shape: holds on all 88. Jacket: holds on all 88 — no deviation found.** **Hair-count deviations: 3 — `b18` (ZERO hairs), `b51` (ONE), `b87` (ONE).** Separately the crown is covered by a **wrong hat** in 5 frames (`b14` `b15` `b20` `b22` `b24`) and is bare where the board requires the capped head in `b19`. Note `b06`/`b07` initially read as one hair at 0.47× and are TWO at 1.25× — third pass confirms two; recorded because the low-zoom read was wrong. | **FAIL — b18, b51, b87** |
-| 2.5 | One accent per frame; world matches WORLD.md | Hue census across all 88. A **second chromatic accent — saturated warm brown/tan (h≈30-36, s 0.33-0.47, v 0.57-0.81)** — appears in `b14 b17 b18 b20 b22 b27 b32 b47 b75 b76 b77`; **blue** (h=224) in `b24`; **amber** headlamp/marker in `b09`; **cyan/teal/green** inside `b17`'s screen. Desks are brown in `b02 b17 b40 b65` and grey/white in `b13 b15 b18 b20 b32` — inconsistent inside continuity group G2. **World clause violation:** the forbidden red vertical margin rule is present in **7 frames — `b04` `b18` `b22` `b30` `b50` `b82` `b87`** (detected on the R−G channel at two independent thresholds; confirmed visually on a 7-up left-strip crop). WORLD.md §2 forbids it by name and by test. World is the ledger, not a previous film's cream — no catalogue collision. | **FAIL** |
-| 2.6 | No donated / invented props | Cross-read against STORYBOARD.md §5. **Invented props:** `b23` a small tomato-red cube in the interviewer's palm — the board says the hand is **empty**, and `b24`'s punchline is that it stays empty; `b82` a large red paperclip on the sheet, absent from `b03` which `b82` must match exactly; `b60` a stack of red bricks where the board asks for one sheaf and a blank card. **Motif substitution:** the `sheaf.png` stack (blank pale sheets) is drawn as **bound books with coloured spines/edges** in `b27 b29 b42 b60 b63 b80`. **Motif absence:** the electrode cap + cords of `refs/station.png` are missing from `b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 b32` — present only in `b13`. | **FAIL** |
-| 2.7 | Animated frames carry no data; RMSE drifts looked at | No clips exist; no animate-frames log exists (`find` returns nothing for `*.mp4`, `*animate*`). Nothing to read. | **NOT RUN — no artifact yet** |
-| 2.8 | Every clip corresponds to a `LIVE` beat | `renders/` empty, no clips directory, zero `.mp4` in the tree. No unrequested clip can exist. Board's motion column marks exactly 5 `LIVE`. | **PASS (vacuous — no clips)** |
-| 2.9 | 4–6 `LIVE`, non-adjacent, classed, "what moves" line, no data | Board §4: **5 LIVE** — `b08` `b14` `b46` `b72` `b88`. Non-adjacent (gaps 6/32/26/16). Classes assigned 1·3·5·1·2, each in the five-class set (class 1 used twice, class 4 unused — permitted). Each carries an explicit "what moves, and why this beat needs it" line. Six data-carrying beats (`b21 b31 b33 b34 b37 b66`) explicitly refused for LIVE. **The board's plan passes.** **The stills do not:** `b72` does not contain the boarded composition at all (no sheet, no lifted corner, no dot, no hand); `b08` shows the figure standing on the stair with both arms raised and no gap, so "the red tread lowers into the gap" has nothing to lower into and no matching `b07` framing; `b46` shows the face; `b14` has a baseball cap instead of the electrode cap. Only `b88` is animatable as boarded. | **FAIL — 4 of 5 stills unsafe to animate** |
-| 2.10 | Each clip: one motion, starts after the cut, settles, 30fps | No clips exist. | **NOT RUN — no artifact yet** |
+| **2.1** | Frame count vs prompts.json | `ls public/images/frames \| wc -l` = **88**. `len(json.load(prompts.json))` = **88**, keys `b01`–`b88`. Archive `prompts-20260804-162359.json` is **byte-identical** to the live file (`p == a` → `True`), so every frame can now be audited against the text that made it. Run-1 finding closed. | **PASS** |
+| **2.2** | 1920×1080, no inset painted panel | `magick identify` on all 88: every file `1920x1080`. Fuzz-0 trim = `1920x1080+0+0` on all 88. Edge-strip luminance scan on all 88 (24 px, four edges): 87 frames sit at 0.89–0.95 mean. **`b33` = 0.000 top and bottom.** Row analysis: pure-black bands `y0–109` and `y971–1079`; painted panel **1920×861**, aspect 2.23:1. Letterboxing painted into the pixels. | **FAIL — b33** |
+| **2.3** | No lettering, numbers, hex-code artifacts | All four contact sheets read end to end, then 14 zoomed crops at 1.5–2.5×. **No lettering, no numerals, no glyph strings, no `D9EE13D`-class artifact anywhere in the 88.** The run-1 `b17` screen glyphs are gone — verified at 2.5× (`b17` panel is blank pale, no screen content, no LED). **But painted non-type marks are present and are board prohibition 1:** `b04` red **heart glyph** on a fingertip; `b39` red dot on the back of the hand; `b15` solid red square **on the machine's pale panel**; `b27` `b29` `b67` red label-blocks on book spines; `b64` a red pen on the plinth; `b80` a red tab on the machine lid. | **FAIL — b04 (emoji), b15, b27, b29, b39, b64, b67, b80** |
+| **2.4** | Character holds: head shape, EXACTLY two hairs, jacket | Two automated counters disagreed with each other and with the sheet, so a **third pass** was run per the hard rule: 26 crowns cropped by head-bbox and read at 420 px. **Two hairs on every one** — `b01 b02 b05 b07 b08 b11 b12 b25 b26 b27 b35 b37 b45 b50 b51 b56 b57 b58 b62 b69 b73 b81 b84 b86 b87 b88`. Head shape and red hooded jacket hold across all 88. Run-1's `b18`/`b51`/`b87` hair failures are **resolved**. **Two defects remain:** (a) `b46` (LIVE) shows a **bare crown, zero hairs**, where its own anchor `b45` has two — inside a group whose board text says "identical framing to `b45`"; (b) the protagonist's cream hand is drawn as a **solid tomato-red hand** in `b82`, breaking the character's own palette in the frame that must match `b03`. | **FAIL — b46, b82** |
+| **2.5** | One accent per frame; world matches WORLD.md | **Paper lock PASSES decisively.** Modal background across 87 frames (excl. `b33`): rgb(228–231, 230–233, 218–221), hue 64.6–70.0, sat 5.2–5.6, val 90.2–91.4. **Zero warm/brown drift in the ground, zero cream-world collision with the last three films.** Ruled lines horizontal throughout. **Two failures:** (a) **the forbidden vertical margin rule is in `b13` `b21` `b87`** — differential paper-redness scan, columns x124–137 / x210–217 / x240–252, dev +12.5/+13.0, **vertical coverage 1.00**, confirmed visually on a 3-up left-strip crop; (b) **a second chromatic accent, warm brown/tan (hue 30–45)**, at 10.75 % of frame in `b31` (exceeding the red at 8.18 %), 1.61 % in `b77`, plus `b02` (2.09 % h15–30), `b05` (3.40 %), `b70`, `b74`. | **FAIL — b13, b21, b87 (margin rule); b02, b05, b31, b70, b74, b77 (brown)** |
+| **2.6** | No donated / invented / substituted props | Sheets cross-read against STORYBOARD.md §2/§5. **Motif substitution:** `sheaf.png` (blank loose sheets) drawn as **bound books with red spine labels** in `b27 b29 b55 b60 b67`. **Motif absence:** the shelf board of `shelf.png` is **missing entirely** from `b76` and `b78`. **Motif colour drift:** `single-sheet.png` is pale in `b44`–`b49` and **tomato-red** in `b43` and `b50`; the hinged slab machine is pale in `b02 b13`–`b17 b79`, **red** in `b63`, **dark grey** in `b80`. **Invented props:** `b64` a red **pen**; `b30` a large red block under the fanned stack; `b39` a red dot on a hand; `b04` a heart. **Object substitution:** `b41` carries a small red **cup** where `b40` set down a large red **block** — the carried-claim object breaks between two adjacent frames. | **FAIL** |
+| **2.7** | Animated frames carry no data; RMSE drifts looked at | `find . -name "*.mp4"` returns nothing. No animate-frames log exists. Nothing to read. | **NOT RUN — no artifact yet** |
+| **2.8** | Every clip corresponds to a `LIVE` beat | `renders/` empty, zero `.mp4` in the tree. No unrequested clip can exist. Board marks exactly 5 `LIVE`. | **PASS (vacuous — no clips)** |
+| **2.9** | 4–6 `LIVE`, non-adjacent, classed, "what moves" line, no data | **The board's plan passes, again.** 5 LIVE: `b08 b14 b46 b72 b88`; gaps 6/32/26/16, none adjacent; classes 1·3·5·1·2, all in the five-class set; each carries an explicit "what moves, and why" line; six data-carrying beats explicitly refused. **The stills fail 3 of 5.** `b08` — no gap, no red tread, wrong stair object, wrong pose: **nothing to animate**. `b72` — the boarded composition is absent: **nothing to animate**. `b46` — animatable in isolation, but it is not "identical framing to `b45`": different window (2-pane sash vs 4-pane cross), different position, **black office chair vs pale wooden chair**, and a bare crown against `b45`'s two hairs. The cut into it will jump and the motion will advertise the jump. **`b14` PASSES** (cap present, hourglass present with a sand column that can fall, cord correct). **`b88` PASSES** (small figure, facing away, wide ruled field, ground line y=903 matching `b86`/`b83`/`b01`, two hairs clearly present to lift). | **FAIL — b08, b72 unanimatable; b46 breaks its group** |
+| **2.10** | Each clip: one motion, starts after the cut, settles, 30fps | No clips exist. | **NOT RUN — no artifact yet** |
 
-### Additional findings outside the numbered rubric — filed, not waived
+### Board fidelity — graded separately because it is where the film is losing
 
 | Finding | Evidence |
 |---|---|
-| **`production/prompts.json` is damaged in 19 of 88 records, right now** | The reported `\bAnchor\s*` bug is genuinely fixed — I reconstructed the old builder and diffed; it accounts for 5 records, not 15. The live damage is the **`DEAD_CLAUSE` regex** `[^,.;]*\b`?b\d+`?\b[^,.;]*`, which deletes the whole clause containing a frame reference **including the sentence's subject**. `b72` → *"same last sheet lifted at the same bottom corner…"* (lost the entire composition). `b37` → *"at eye level with it…"* (lost "The protagonist crouched"). `b41` → *"the other taking it…"* (lost the tomato-red block). `b55` → *"then a gap, then the two thick stacks together"* (lost the folded sheet). `b62` → lost "The protagonist seated as in b61". `b70`, `b51`, `b31`, `b45`, `b46`, `b86`, `b88` likewise. Production codes leak **into** the prompt in `b66 b67 b69` ("G3b."), and `b69` carries QA prose: *"Hold risk: below the 1.8s floor — see §8."* `b03`/`b82` self-inline into a duplicate with a dangling *", same hand position, same sheet size."* |
-| **The prompts that produced these frames no longer exist** | `spend.log` last write 22:15:46; `prompts.json` mtime 15:22 local (7 min later). No archived copy. **No frame in this film can be audited against the text that made it.** Archive the prompt file with the batch. |
-| **The plates are correct; the frames ignored them** | `refs/stair.png` = seven treads, fourth red ✔. `refs/station.png` = electrode cap + cords ✔. `refs/three-desks.png` = three capped stations ✔. `refs/footnote.png` = lifted corner + exactly one red dot ✔. `refs/castplate.png` = two hairs on all three views ✔. `refs/shelf.png`, `layout-plate.png` ✔. Every failing motif above had a correct master on disk. This is a batch/reference failure, not a plate failure. |
-| **`stair-gap.png` does not double as `b06`** | `magick compare -metric AE` = 2,028,310 px differing (97.8%). Board §7 counts them as one image for budget. They are two. |
-| **`castplate.png` and `layout-plate.png` are 1344×768**, not 1920×1080 | The two most-used anchors are a different aspect (1.750 vs 1.778) from the frames they condition. |
-| **The `b11`↔`b81` DRIFT inverse pair is dead** | `b11` shows the walker at the left third **facing and walking LEFT**, with the ground line running to the right **behind** them. The board requires left-to-right with the line drawn **ahead**. `b81` is correct (right third, walking left). Both now walk the same way: the inverse pair is not inverse, and the Act 1 → Act 6 callback does not read. |
-| **3 of the 4 board-declared plant/payoff callbacks are broken** | stair (`b06 b07 b08` → `b83 b85 b87`): `b85` is eight treads. sheet-from-above (`b03` → `b82`): `b82` adds a red paperclip and does not match `b03`'s camera or hand. ground line (`b11` → `b81`): direction inverted. Only the footnote pair survives on one side — `b53` is correct, `b72` is absent. |
+| **Ten "no figure" frames contain a figure** | Board says no person; a person is drawn: `b42`✔(clean) but **`b51` `b52` `b55` `b57` `b60` `b64` `b69` `b72` `b79`** and `b43`-adjacent. **`b69`** — *"Nobody came to the funeral" / "No figures. No crowd. Nothing else in the frame at all."* — has a figure. **`b79`** — board asks for *three objects in a row, no figure*; delivered is **three protagonists**. **`b52`** — board asks for *three objects, no figure*; delivered is **two figures and no objects**. |
+| **`b51` contains a solid black humanoid silhouette** | Board: *"Both on the ruled ground, side by side... The folded sheet flat and settled; the thick stack squarely upright beside it. **No figure.**"* Delivered: the protagonist at left and a **tall solid-black featureless figure** at right. Neither boarded object is present. The black figure appears nowhere else in the film's design and reads as a different world. |
+| **G4 (Carr) has no invariants left** | Board invariants: face never visible ✔ (**resolved**); *chair feet on the same ruled line*; *the window frame's left edge at the same frame position*; *the folded sheet the same size in every frame*. Delivered: `b45` 4-pane window far left + pale chair; `b46` 2-pane sash centre-left + **black chair**; `b47` **no window**, two pale chairs; `b48` no window; `b49` a **large 4-pane window centred**, and the third figure holds a sheet where the board requires the slab machine; `b50` **no chair, no window**, figure standing, sheet **red**. |
+| **G3 (the field count) is three unrelated cameras** | Board: *identical camera height and horizon rule; figures the same size in all three.* `b31` is a deep perspective recession with figures at a dozen scales and a horizon at y=150; `b33` is a flat centred row at y≈530 inside black bars; `b34` is two flat blocks of unequal size (≈12 vs ≈9), so the "one in six / a scatter" comparison the board calls *the argument* is not legible. |
+| **G3b (the plinths) is four different objects** | `b64` a cream **box**; `b65` a classical **column**; `b66` a row of grey **bars of unequal height**; `b67` white **boxes**; `b68`/`b69` a low grey **slab**. `b66` additionally reads as a bar chart of varying heights — the exact PLAYBOOK 10.17b failure the board wrote a paragraph to prevent. |
+| **`b03` → `b82` callback is broken** | Both fail the boarded camera (*"close from directly above"*); both read as a hand raised beside a standing sheet. And they do not match each other: `b03` a **cream hand with a red cuff**, sheet bottom on the ground line; `b82` a **solid red hand, no wrist, no cuff**, smaller, lower, sheet larger and crossing the line. Board: *"same camera height, same hand position, same sheet size."* |
+| **`b23` → `b24` "identical framing" is broken** | `b23` — two figures seated on the bare ground, no furniture. `b24` — the same two at a **table on stools**. The punchline (*the hand stays open, and stays empty*) needs the two frames to be the same shot. |
+| **`b85`: right count, unreadable picture** | Tread count **fixed** — 3 treads, middle red, hand touching (measured: sage 512×192 at x704, RED 512×192 at x1094, sage 435×192 at x1484). **But** the arm entering frame is a solid tomato-red sleeve of **141,852 px — 43 % larger than the red tread's 99,009 px**, in the identical accent colour, immediately adjacent. The tread reads as a continuation of the sleeve. The one thing this frame exists to show — *a different colour from everything it belongs to* — is destroyed. Tread aspect 2.7:1 vs `b83`'s 3.4:1, so "same tread geometry as `b83`" also fails. |
+| **`b01` is not the establishing wide it is boarded as** | Board: *"A very small figure... far to the left, seen from behind and slightly above... the room is enormous."* Delivered: a medium-scale figure near centre-left, seen from the side, at a table. Chair limit is three wides; the film's cold-open frame is not one of them. |
+| **The protagonist is mass-replicated** | `b31` renders roughly ninety copies of the spine character; `b38` `b59` `b71` `b79` render "plain adult figures" as the protagonist; `b45`–`b50` render **Nicholas Carr** as the protagonist, two hairs and red hood included. WORLD.md: *"The character is spine; supporting cast varies per film and is governed per frame."* Governance is absent. |
 
 ---
 
-## Verified correct — recorded so re-checks are cheap
+## §A — What run 1 failed, and where it stands now
 
-Measured by connected-component analysis of tread fills, not by eye:
+| Run-1 return | Status |
+|---|---|
+| **R1** `b17` green segmented display with glyph characters | **FIXED.** Verified at 2.5×: blank pale panel, no screen content, no LED, no second accent. |
+| **R2** STATION motif absent from 10 of 11 frames | **FIXED.** The disc-studded pale cap and the single cord are present in `b13 b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 b32`. |
+| **R3** `b85` EIGHT treads | **FIXED** on the count (3 treads, red centre, measured). **NEW FAIL:** the red sleeve now swamps the red tread — see the board-fidelity table. |
+| **R4** Carr's face visible in `b45` `b46` `b50` | **FIXED.** Face not visible in any of the three (verified at zoom). |
+| **R5** red vertical margin rule in 7 frames | **PARTLY FIXED.** 7 → **3**: `b13` `b21` `b87`. Still a WORLD.md violation and still blocking. |
+| **R6** hair count `b18` `b51` `b87` | **FIXED.** Two hairs on all 26 crowns read at 420 px. |
+| **R7** donated/substituted props | **PARTLY FIXED.** `b23`'s red cube **gone**; `b82`'s paperclip **gone**; `b60`'s red bricks **gone**. **Books-for-sheaf persists** in `b27 b29 b55 b60 b67`, now with red spine labels added. |
+| **R8** ten "No figure" frames contain a figure | **NOT FIXED.** `b51 b52 b55 b57 b60 b64 b69 b72 b79` still carry a figure. `b69` and `b79` are unchanged in kind. |
+| **R9** extra / wrong figures where the board names one | **PARTLY FIXED.** `b25` and `b37` now read; `b36` now has **three** figures where the board says two; `b38` renders protagonists as "plain adult figures". |
+| **R10** inverted punchlines | **NOT FIXED.** `b41` (cup, not the block), `b62` (on the ground, not the stool), `b75`/`b76`/`b78` (shelf red / absent / absent), `b66` (unequal-height bar chart). `b56` and `b34` improved but `b34` is still illegible. |
+| **R11** `DEAD_CLAUSE` regex damage in `prompts.json` | **FIXED at the tooling level and archived.** `prompts.json` and the archive are byte-identical; frames are now auditable against their prompts. |
+| **R12** the LIVE stills | **NOT FIXED.** `b14` and `b88` are good. `b08` and `b72` are still unanimatable; `b46` is animatable but breaks G4. |
+| **R13** `b11`↔`b81` inverse pair dead | **FIXED, cleanly.** `b11` walks left→right at the left third, line drawn ahead to the right edge, nothing behind. `b81` walks right→left at the right third, line ahead to the left edge, nothing behind. Ground line y=908 vs y=901 — 7 px apart. The Act 1 → Act 6 callback reads. |
+| **Prompt archive missing** | **FIXED.** `production/prompt-archive/prompts-20260804-162359.json`. |
+| **`b33` black bars** | Newly confirmed and measured this run — see 2.2. |
 
-- **`b06`** — 6 sage treads at 230×69 on a 141/−74 pitch, position 4 (1046,611) **absent**. Gap correct. PASS.
-- **`b07`** — tread grid byte-identical to `b06`, gap at 4. Geometry PASS (composition fails, below).
-- **`b08`** — 6 sage + red at (894,611) = **7 treads, red fourth**. Geometry PASS.
-- **`b83`** — 6 sage + red at (1046,611), grid **identical to `b06`/`b07`**. **7 treads, red fourth, gap position matched exactly.** The best-executed frame in the film.
-- **`b85`** — 7 sage + red at (752,565) on a ~190px pitch = **EIGHT treads**, three below the red and **four above**, flight running off both frame edges. FAIL.
-- **`b87` — Isaac's revised judgment is CORRECT.** One tomato-red tread lying flat on the ground line (273×104 at 568,783), protagonist crouched beside it, hand resting on it. Matches the board. (It still carries the margin rule and one hair.)
-- **`b53`** and **`b54`** — the footnote plant and its echo, both correct, exactly one dot each.
-- Frames passing clean: `b01 b02 b05 b06 b10 b12 b13 b26 b28 b31 b35 b36 b39 b42 b44 b47 b53 b54 b58 b61 b67 b71 b73 b77 b81 b83 b84 b88`.
+---
+
+## Verified correct — recorded so the re-check is cheap
+
+- **The world clause held.** 87 of 88 frames sit inside rgb(228–231, 230–233,
+  218–221) / hue 64.6–70.0 / sat 5.2–5.6. This is the single best-executed thing
+  in the film and no retake should be allowed to move it.
+- **The stair grid is deterministic and exact.** `b06`, `b07`, `b83` share a
+  byte-identical tread grid: six sage treads at 229×68 on a 141/−74 pitch, gap at
+  position 4. `b83` places the red tread at x[1046–1275] y[611–679] — **precisely
+  the vacancy in `b06`/`b07`**. `b83` is the best frame in the film.
+- **`b53`** — the footnote plate: lifted corner, exactly one red dot, correct scale.
+- **`b14`, `b88`** — LIVE stills, safe to animate as boarded.
+- **`b11` / `b81`** — the inverse pair, correct in both directions.
+- Frames passing clean on every check run: `b06 b07 b09 b10 b12 b14 b19 b20 b22
+  b25 b26 b28 b32 b35 b40 b42 b44 b47 b53 b54 b56 b58 b61 b65 b71 b73 b81 b83
+  b84 b86 b88`.
 
 ---
 
 ## Returns
 
-### R1 — Art Director · PLAYBOOK 10.7 / 2.3 · **b17**
-The hinged slab machine is drawn as a rendered console containing a scene, a red
-LED, coloured cabling and a **green display bearing glyph characters**. Board §1
-prohibition 1: *"a plain hinged slab with a blank pale panel and a key deck, no
-marks on it… no screen image."*
-**Fixed looks like:** `b17` regenerated with a blank pale panel, flat fills, no
-screen content, no second accent colour. Re-check = re-read the crop at 2.5×.
+### R1 — Art Director · PLAYBOOK 10.7 · **`b33`**
+Black bars painted into the pixels: rows 0–109 and 971–1079, painted panel
+1920×861 (2.23:1). **Fixed looks like:** the edge-strip scan returns mean > 0.8 on
+all four edges of `b33`, and the ruled ground runs to all four frame edges.
+Re-check is one command.
 
-### R2 — Art Director · PLAYBOOK 10.9 / 10.11 · the STATION motif
-`refs/station.png` and `refs/three-desks.png` are correct and were not used as
-reference #1 as board §7 requires. Retake with the plate anchored:
-`b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 b32`.
-**Fixed looks like:** every G2 frame carries the soft pale disc-studded cap and
-the cord exiting frame on the same side; `b21` is three *stations*, not three
-standing figures; `b15`'s arcade cabinet and `b23`'s red cube are gone.
+### R2 — Art Director · rubric item 7 / board §1 prohibition 1 · **`b04`**
+A **red heart glyph** on the fingertip. Emoji are forbidden outright, and the board
+forbids marks on every object. Also `b04` is not the boarded overhead of three
+identical sheets with a hand flat beside them. **Fixed looks like:** the boarded
+overhead, three identical blank pale sheets, cream hand, no mark of any kind on
+skin or paper.
 
-### R3 — Art Director · board §2 Motif 1 · **b85**
-Eight treads. The motif is exactly seven, fourth red, three below and three above.
-`b85` is also boarded as a **close on three treads**; it shows the whole flight.
-**Fixed looks like:** three treads in frame, the red one centre, hand touching it,
-tread pitch matching `b83`. Re-check = the CC tread count, which must be 3.
+### R3 — Art Director · WORLD.md §2 · **`b13` `b21` `b87`**
+Full-height red vertical margin rule. `b13` is the G2 anchor; `b21` is the
+three-desks plate frame. **Fixed looks like:** the differential paper-redness scan
+returns **zero** thin columns with vertical coverage > 0.75 across all 88.
 
-### R4 — Art Director · board §1 prohibition 2 · **b45 b46 b50**
-Nicholas Carr's face is visible. `b45` is the G4 anchor, so the whole group
-inherits it. `b46` is a LIVE beat.
-**Fixed looks like:** figure from behind and slightly to one side, face not
-visible in any frame; window frame at a fixed left-edge position across
-`b45`–`b50`; `b48` and `b49` regain the window.
+### R4 — Cinematographer / Art Director · board §4 L1 · **`b08`** — DO NOT BUY THIS CLIP
+`b08` must be `b07`'s exact frame — same tread grid (six sage treads at 229×68,
+origin x623 y833, pitch 141/−74), gap at position 4, ruled ground at y=903 — with
+the figure's hands **at their sides**. It currently contains a different object: an
+outlined staircase with risers and no fills. **Fixed looks like:** `magick compare`
+of `b07` and `b08` shows difference only in the figure's arms; a connected-component
+tread count on `b08` returns six 229×68 sage blobs with the position-4 vacancy at
+x[1046–1275] y[611–679]. Verify by coordinates, not by eye.
 
-### R5 — Art Director · WORLD.md §2 · the margin rule
-`b04 b18 b22 b30 b50 b82 b87` carry a full-height red vertical rule. WORLD.md
-forbids it explicitly and by test.
-**Fixed looks like:** zero hits from the R−G thin-tall-component scan across all 88.
+### R5 — Cinematographer / Art Director · board §4 L4 · **`b72`** — DO NOT BUY THIS CLIP
+The boarded composition is absent for the second run running. `b72` must be `b53`'s
+frame with a bare bottom edge. **Fixed looks like:** `b72` and `b53` agree on the
+sheet bbox and the lifted-corner angle to within a few pixels, and `b72` contains
+**zero** red blobs on the sheet's bottom edge.
 
-### R6 — Art Director · PLAYBOOK 10.20 / 2.4 · **b18 b51 b87**
-Hair count: `b18` zero, `b51` one, `b87` one. `castplate.png` is correct.
-**Fixed looks like:** exactly two hairs, counted, in every frame containing the
-protagonist's uncovered crown.
+### R6 — Art Director · PLAYBOOK 10.9 / board §5 G4 · **`b45`–`b50`**
+Face is fixed; nothing else in the group is. Window present in 3 of 6 frames, in
+three different shapes and three different positions; chair pale / black / absent;
+the folded sheet pale in four frames and **tomato-red** in `b43` and `b50`.
+**Fixed looks like:** `b45` re-approved as the anchor, then `b46`–`b50` generated
+from it with the window's left edge at a fixed x, the chair identical, and the
+folded sheet the same pale object at the same size in all five.
 
-### R7 — Art Director · PLAYBOOK 10.8 / 2.6 · donated and substituted props
-`b23` red cube · `b82` red paperclip · `b60` red bricks · books-for-sheaf in
-`b27 b29 b42 b60 b63 b80`.
-**Fixed looks like:** `refs/sheaf.png` anchored as reference #1 on every sheaf
-beat; the interviewer's hand empty in `b23`; `b82` identical to `b03`.
+### R7 — Art Director · PLAYBOOK 10.8 / board §2 Motif 3 · the DOCUMENTS
+Books-for-sheaf in `b27 b29 b55 b60 b67`, now carrying **red label-blocks** on the
+spines. **Fixed looks like:** `refs/sheaf.png` anchored as reference #1 on every
+sheaf beat; loose blank pale sheets, no binding, no spine, no label, no red.
 
-### R8 — Art Director · the ten "No figure" frames
-Board specifies no person; a person is drawn: `b43 b51 b52 b55 b57 b60 b64 b69
-b72 b79`. `b69` ("Nobody came to the funeral") is the inverse of its board — the
-plinth is absent and a figure is present. `b79` renders three objects as three
-people. `b55` renders two stacks as two people.
-**Fixed looks like:** each of the ten regenerated from a repaired prompt (see R11)
-with no figure in frame.
+### R8 — Art Director · board §2 Motif 5 · **`b75` `b76` `b77` `b78`**
+`b76` and `b78` have **no shelf board**; `b78`'s boxes float. `b75`'s shelf is red,
+`b77`'s is pale with brown boxes. **Fixed looks like:** `refs/shelf.png` anchored
+as reference #1; one pale bracketed board at a fixed height in all four; boxes the
+same pale object at the same size; the only red in the frame is the jacket.
 
-### R9 — Art Director · extra / wrong figures where the board names one
-`b25` (two, board says alone) · `b27` (two) · `b33` (a giant foreground figure
-inside establishing wide 2 of 3, breaking G3's "figures the same size in all
-three") · `b37` (two crouching adults) · `b38` (four figures, no handshake; board
-requires five and a handshake) · `b59` (protagonists where the board says plain
-adult figures).
+### R9 — Art Director · board §5 / the "no figure" ruling · **`b51` `b52` `b55` `b57` `b60` `b64` `b69` `b79`**
+Each of these frames is boarded with objects and no person, and each contains a
+person. `b69` is the film's coldest line and its board says "nothing else in the
+frame at all". `b79` and `b52` render objects as people. `b51` additionally invents
+a **solid black humanoid silhouette** that exists nowhere else in the film.
+**Fixed looks like:** eight frames regenerated from their archived prompts with the
+figure deleted, and the boarded objects present and countable.
 
-### R10 — Art Director · beats whose punchline is inverted
-- `b56` — the block is held in both hands. The beat is *empty hands, and the thing
-  still carried*.
-- `b41` — the single large red block became two small cubes; the carried-claim
-  object breaks between `b40` and `b41`.
-- `b62` — the figure sits on the ground, not the stool from `b61`, and is not
-  reaching; the measured *delay* is the beat.
-- `b75` — the second box under the arm is missing; *hands free, and immediately
-  full again* does not read.
-- `b78` — the shelf board has vanished; two boxes float.
-- `b34` / `b66` — both carry a proportion and neither is legible: `b34`'s two
-  blocks show the same ratio, `b66` shows eight plinths all occupied where the
-  board asks for a long row running off both edges, most occupied, some bare.
+### R10 — Art Director · WORLD.md the locked clause · **`b31` `b02` `b05` `b70` `b74` `b77`**
+Warm brown/tan as a second chromatic accent — 10.75 % of `b31` at hue 30–45, more
+of the frame than the red. **Fixed looks like:** the hue census returns no bucket
+above 0.30 % outside hue 0–15 on any of the 88.
 
-### R11 — **Director / tooling owner** · `tools/video/build-prompts.py`
-The `DEAD_CLAUSE` regex deletes the clause containing a frame reference **and the
-sentence subject with it**. 19 of 88 current prompts are damaged; at least 8 lost
-the frame's subject entirely. Production codes (`G3b.`) and QA prose ("Hold risk:
-below the 1.8s floor — see §8") leak into image prompts.
-**Fixed looks like:** `python3 -c` scan over `prompts.json` returns zero records
-that begin lowercase, zero containing `G\d+b?\b`, zero containing `anchor[.,]`,
-zero containing `§`, and every record's scene text is a complete sentence.
-**And:** the prompt file is archived alongside the batch before generation, so a
-future Gate 2 can audit a frame against the text that made it.
+### R11 — Art Director · board §3 G3 / G3b · **`b31` `b33` `b34`** and **`b64` `b66` `b67` `b68` `b69`**
+Neither group has a shared camera or a shared object. `b66` reads as a bar chart of
+unequal heights, which the board wrote a paragraph forbidding. **Fixed looks like:**
+one approved anchor per group, then every member generated from it; identical
+horizon y, identical figure size, identical plinth height and silhouette; `b34`'s
+two blocks the same size so the proportion is the only difference between them.
 
-### R12 — Art Director / Cinematographer · the LIVE stills
-Do not commission clips. `b72` must be regenerated as the exact `b53` composition
-with a bare bottom edge; `b08` must match `b07`'s framing with the figure's hands
-at their sides and the stair at `b07`'s tread grid (origin 623,833); `b46` must
-hide the face; `b14` must carry the electrode cap. Re-check `b08` and `b72`
-against `b07` and `b53` by CC coordinates, not by eye.
+### R12 — Art Director · board §9 the four callbacks · **`b03`/`b82`** and **`b85`**
+`b82` uses a solid red hand where `b03` uses a cream hand with a red cuff, at a
+different size and position; neither is the boarded overhead. `b85`'s red sleeve is
+43 % larger than the red tread it sits against, in the same colour, so the motif is
+illegible in its payoff. **Fixed looks like:** `b03` and `b82` differ in nothing a
+pixel diff can find outside the sheet's contents; `b85` shows a cream hand and a
+minimal sleeve, red confined to the single tread, tread aspect matching `b83`.
 
-### R13 — Storyboard · two small corrections to the board's own record
-- §7 counts `stair-gap.png` and `b06` as one image; they differ by 97.8% of pixels.
-- `b11`'s scene text and the delivered frame disagree on walk direction. Confirm
-  the board is right and the frame is wrong (it is), and note that the inverse
-  pair needs both frames re-checked together, not separately.
+### R13 — Art Director · board §1 prohibition 1 · **`b15` `b39` `b64` `b80`**
+Marks painted on objects: a red square on the machine's pale panel (`b15`), a red
+dot on a hand (`b39`), a red pen (`b64`), a red tab on the machine lid (`b80`).
+**Fixed looks like:** every object in these four frames blank, and the only red in
+frame is the boarded accent.
+
+### R14 — Art Director · PLAYBOOK 10.20 / WORLD.md cast governance
+The protagonist is replicated ~90× in `b31`, stands in for "plain adult figures" in
+`b38` `b59` `b71` `b79`, and **is Nicholas Carr** in `b45`–`b50`. **Fixed looks
+like:** supporting cast described at point of use as a distinct figure — no red
+hood, no two hairs — in every frame the board does not name the protagonist.
+
+### R15 — Art Director · board §5 · inverted or broken punchlines
+`b41` (red cup, not the block from `b40`) · `b62` (on the ground, not the stool from
+`b61`) · `b36` (three figures, board says two) · `b23`/`b24` (not the same shot) ·
+`b01` (not a wide, not from behind and above).
+
+### R16 — Storyboard · one correction to the board's own record
+`b09` is boarded as *"a plain parked car"* in a world of flat fills and even
+outlines. The delivered car is the most rendered object in the film — grille,
+mirrors, wheel arches, window shading. Either the board specifies the car in this
+world's vocabulary, or the beat takes a simpler object. Recorded so it is decided
+rather than regenerated three times.
 
 ---
 
-## Retake list — 63 frames
+## Retake list — 50 frames
 
 ```
-b03 b04 b07 b08 b09 b11 b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 b25
-b27 b29 b30 b32 b33 b34 b37 b38 b40 b41 b43 b45 b46 b48 b49 b50 b51 b52
-b55 b56 b57 b59 b60 b62 b63 b64 b65 b66 b68 b69 b70 b72 b74 b75 b76 b78
-b79 b80 b82 b85 b86 b87
+b01 b02 b03 b04 b05 b08 b13 b15 b21 b23 b24 b27 b29 b30 b31 b33 b34 b36
+b38 b39 b41 b43 b45 b46 b48 b49 b50 b51 b52 b55 b57 b59 b60 b62 b63 b64
+b66 b67 b68 b69 b70 b72 b74 b75 b76 b77 b78 b79 b80 b82 b85 b87
 ```
-plus `b39`-adjacent check on `b38`, and `b47`/`b53`/`b54` held as the G4/G6
-reference points they now are.
 
-**Gate 2 does not reopen until every item above is re-run, not just the retaken
-frames — a sampled check that failed once has made the sample the population.**
+**Hold as approved reference points, do not regenerate:** `b06` `b07` `b83`
+(the stair grid — `b08` must be built to match these, not the reverse),
+`b53` (the footnote — `b72` must be built to match it), `b11` and `b81`
+(the inverse pair), `b14` and `b88` (the two sound LIVE stills), `b86`
+(the G7 anchor).
+
+**Gate 2 does not reopen on the retaken frames alone.** Every item in the table
+above is re-run against all 88 — the margin-rule scan failed once at three frames
+after failing at seven, and a check that has failed twice does not get sampled a
+third time.
+
+---
+
+*Item 3.4, the listen gate, belongs to Gate 3 and to a human ear. It is not
+addressed here and must never be marked done by an agent.*
