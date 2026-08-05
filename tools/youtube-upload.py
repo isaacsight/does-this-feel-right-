@@ -109,6 +109,11 @@ def upload(youtube, meta, privacy):
         "status": {
             "privacyStatus": privacy,
             "selfDeclaredMadeForKids": False,
+            # Explicit, because videos.update REPLACES the whole status part and
+            # embeddable defaults to False. Substack rendered "Video unavailable -
+            # playback on other websites has been disabled by the video owner"
+            # for exactly this reason.
+            "embeddable": True,
             # NOTE: there is NO synthetic-media field in the Data API v3 status
             # object. This code used to send "containsSyntheticMedia": True and
             # YouTube silently DROPPED it - unknown fields are ignored rather
@@ -226,10 +231,20 @@ def set_privacy(youtube, video_id, target="public"):
     # sending it looked like it worked for weeks and never did. The real
     # control is the altered-content disclosure in Studio, and non-realistic
     # animation is exempt from it anyway.
+    # videos.update REPLACES the status part — every field omitted here resets to
+    # its default. The old partial body silently turned OFF embedding on any video
+    # flipped from unlisted to public, which is how The Lab and the Jungle reached
+    # Substack as a dead player while its own shorts embedded fine. Read the
+    # current status and change only what we mean to change.
+    current = youtube.videos().list(part="status", id=video_id).execute()
+    cur = current["items"][0]["status"]
+    status = {k: cur[k] for k in ("license", "publicStatsViewable",
+                                  "selfDeclaredMadeForKids") if k in cur}
+    status["privacyStatus"] = target
+    status["embeddable"] = True
+    status.setdefault("selfDeclaredMadeForKids", False)
     youtube.videos().update(
-        part="status",
-        body={"id": video_id, "status": {"privacyStatus": target,
-                                         "selfDeclaredMadeForKids": False}},
+        part="status", body={"id": video_id, "status": status},
     ).execute()
     time.sleep(3)
     now = youtube.videos().list(part="status", id=video_id).execute()
