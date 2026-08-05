@@ -14,6 +14,7 @@ Config shape — see videos/polyvagal/shorts.json for a worked example:
 `from`/`to` are frame numbers in the segments file's own fps.
 """
 import json, os, re, shutil, subprocess, sys
+from pathlib import Path
 
 FONT = "/System/Library/Fonts/Avenir Next Condensed.ttc"  # default face IS Condensed Heavy
 
@@ -216,7 +217,9 @@ def main(cfg_path):
     words = None
     if karaoke:
         wpath = rel(cfg.get('words', os.path.join(base, 'audio', 'words.json')))
-        words = json.load(open(wpath))['words']
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from words_io import load_words   # one reader, three shapes in this repo
+    words = load_words(Path(wpath).parent.parent)
 
     for sh in cfg['shorts']:
         name, a, b = sh['name'], sh['from'], sh['to']

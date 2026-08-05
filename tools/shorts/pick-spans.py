@@ -77,7 +77,21 @@ def pick(words, sents, target):
 
 def main(film, targets):
     film = Path(film)
-    words = json.load(open(film / 'audio' / 'words.json'))['words']
+    # Two shapes exist in the wild: the older films wrote {"words": [...]}, and
+    # tools/video/narrate-acts.mjs writes a bare list. Accept both rather than
+    # rewriting finished films' artifacts.
+    _w = json.load(open(film / 'audio' / 'words.json'))
+    words = _w['words'] if isinstance(_w, dict) else _w
+    # ...and two key namings: older films use w/s/e, narrate-acts.mjs writes
+    # word/start/end. Normalise here rather than rewriting either producer —
+    # map-shots.py reads the long names and finished films carry the short ones.
+    # This file itself mixes conventions — sentences() reads w['w'] while --list
+    # reads words[i]['start'] — so give every word BOTH namings and let either
+    # path work, instead of chasing which line wants which.
+    def _norm(x):
+        w = x.get('w', x.get('word')); s = x.get('s', x.get('start')); e = x.get('e', x.get('end'))
+        return {'w': w, 's': s, 'e': e, 'word': w, 'start': s, 'end': e}
+    words = [_norm(x) for x in words]
     sents = sentences(words)
 
     if targets == ['--list']:

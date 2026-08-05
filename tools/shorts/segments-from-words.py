@@ -23,6 +23,8 @@ Usage: python3 segments-from-words.py <film-dir> <out.json> [fps]
 """
 import json
 import re
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import sys
 from pathlib import Path
 
@@ -34,7 +36,8 @@ GAP_BREAK = 0.45        # a pause this long is a natural card boundary
 
 def build(film, fps):
     film = Path(film)
-    words = json.load(open(film / 'audio' / 'words.json'))['words']
+    from words_io import load_words   # one reader, three shapes
+    words = load_words(film)
 
     cards, cur = [], []
     def flush():
