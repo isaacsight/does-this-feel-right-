@@ -3704,3 +3704,62 @@ frames ≈ $5.10, plus 4–6 LIVE clips at ~$0.24. Quote before generating.
 - QC 3.4 listen gate — outstanding, human only, cannot be marked by an agent.
 - Two unexplained fal refusals across ~20 calls; both transient on retest.
 - `verify.mjs` TikTok Studio scan reads only ~top 8 rows (inner virtualised list).
+
+## Session 2026-08-04 (evening) — Cognitive Debt v2 shipped, approved
+
+**Master:** `videos/cognitive-debt/build/cognitive-debt-master.mp4` — 7:33,
+1920x1080, 88/88 frames pass the gate. Isaac: "its good."
+
+**The v1 cut was rejected** for two things: images mismatched to the narration,
+and images boring/unexaggerated. Both fixed:
+
+1. *Mismatch* — I had thrown away the board's frame-to-line mapping because my
+   grep looked for `` `b01` `` where the rows are `**b01**`. `map-shots.py` now
+   anchors every frame to its own line (mean drift 0.84s from the board).
+2. *Boring* — see PLAYBOOK 10.38. `board-v2.py` re-boards all 88 with a camera
+   quota it ENFORCES: close-ups 2 -> 20, overheads 0 -> 8, low angles 0 -> 8,
+   max 3 consecutive same camera, expression named on 37 frames.
+
+**New this session:** `tools/video/frame-gate.py` (per-frame acceptance gate,
+exit codes 0/1/2, `--selftest`), gate wired into `generate-frames.mjs` with
+retry + quarantine, `narrate.mjs`, `assemble.mjs`, `map-shots.py`, `board-v2.py`.
+PLAYBOOK 10.37 (the gate that failed closed and cost $12.44) and 10.38.
+
+**NOT DONE:** no motion clips (5 LIVE beats are stills), no score, no room tone,
+no shorts. `b08` and `b72` now exist properly, so clips are safe to buy.
+
+**fal balance $9.78** (usage this month $30.57). Clips ~$1.96.
+
+**NOTHING IS COMMITTED.**
+
+## Session 2026-08-04 (night) — ONE film shipped, two shelved
+
+**SHIPPED: The Lab and the Jungle** — 6:24, riso two-ink, the house character in
+comic jungle-lab environments, pure stills.
+- Film https://youtu.be/Y64WF1mGZc0 (public, embeddable)
+- Substack https://kernelchat.substack.com/p/the-lab-and-the-jungle
+- 3 shorts x YouTube/TikTok/Instagram/X — all 12 posted
+- Isaac approved the look: "I love a lot of the cartoonish comic book things"
+
+**SHELVED, will not be used: `cognitive-debt` and `who-you-measured`.** Both are
+finished and rendered. Do NOT offer to publish them, colophon them or cut shorts.
+Why they failed is in memory (feedback_two_films_shelved) — short version:
+cognitive-debt's rebuild inherited a pre-quota script and board, and
+who-you-measured is cast-free, which reads as a diagram not a film.
+
+**The formula that worked, use it again:** the recurring character, redrawn bold
+for the process; comic cluttered environments; riso two inks + deterministic
+printed panel (tools/video/panel.py); exaggeration in scale and posture; an
+expression named on every frame; narration over PURE STILLS, no camera move.
+
+**Never go cast-free to satisfy a process constraint.** Redraw the character for
+the process instead — the riso world test said he could not survive halftone, and
+he could; he just needed thick kinked hairs and bolder shapes.
+
+**Committed today** (4 commits, a7bc746 / 132f249 / 172a2d0 / 4665296): frame-gate,
+assemble-stills, panel.py, narrate-acts, words_io, the three films' sources,
+PLAYBOOK 10.37-10.39, and the youtube --publish embeddable fix. ~175 pre-existing
+paths deliberately left uncommitted.
+
+**Open:** verify.mjs never run on today's 12 posts. fal balance ~$0.54 — top up
+before the next film ($3-4 for 78 frames).
