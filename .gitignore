@@ -3,6 +3,10 @@ node_modules
 packages/*/dist/
 .env
 .env.local
+# Anything .env-prefixed. A stray ".envrm" holding a live API key was created
+# by a malformed shell quote on 2026-07-31 and was NOT covered by the two exact
+# names above - one "git add ." from being committed.
+.env*
 .DS_Store
 legacy/
 *.log
@@ -19,6 +23,9 @@ kernel-chat-site/
 *.pdf
 *.py
 !agent/*.py
+# tools/ is checked-in tooling, not scratch — cut-verticals.py builds the
+# social verticals and was invisible to git under the blanket rule above.
+!tools/**/*.py
 *.sh
 !packages/kbot/install.sh
 memory/
@@ -131,3 +138,37 @@ tools/send-via-gmail.mjs
 ribbon-in-the-sky-rendition.md
 ribbon-in-the-sky-rendition.mid
 ribbon-in-the-sky-rendition.mp3
+.venv-youtube/
+
+# Generated film assets — frames, VO stems, test renders. 540MB and growing;
+# output/ was already ignored, these were the gap.
+#
+# Note the shape: `videos/**` not `videos/`. Git will not descend into an
+# excluded DIRECTORY, so a trailing-slash exclude makes the `!` re-includes
+# below dead letters. Excluding the contents instead, then re-including the
+# subdirectories, keeps the scripts and cut lists tracked — SCRIPT.md carries
+# the verified citations and generate.mjs carries the frame prompts.
+videos/**
+!videos/*/
+!videos/*/*.md
+!videos/*/*.mjs
+# .py and .json carry work that cannot be reconstructed: the edit decision list
+# (edl-*.json — the actual cut), the content-lock/re-time pass (place-*.py), the
+# narration segment timings (segments.json), and the fal.ai job audit trail.
+# All small text. Losing them means redoing a placement pass, not a re-download.
+!videos/*/*.py
+!videos/*/*.json
+# The locked script is the file everything else derives from - narration,
+# captions, the board's 1:1 sentence mapping. It is the least reconstructible
+# text in the tree.
+!videos/*/*.txt
+# One level deeper for delivery kits — the .md there is the publish copy.
+# Media in deliver/ stays ignored by the videos/** rule above.
+!videos/*/*/
+!videos/*/*/*.md
+tmp/
+vendor/agent-reach/
+
+# compiled python is an artifact, never source
+__pycache__/
+*.pyc

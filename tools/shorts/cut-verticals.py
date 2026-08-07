@@ -233,12 +233,31 @@ def main(cfg_path):
 
         shrunk, static_fallbacks = [], 0
         overlays = []                # (path, start, end) in clip time
-        wi = 0
+        # SEED THE CURSOR AT THE CLIP'S OWN START, not at word zero.
+        #
+        # align_words scans FORWARD from `wi` for the card's first token and
+        # then demands an exact run. Starting every short at 0 means a clip from
+        # late in the film matches its opening word against an early, unrelated
+        # occurrence, the run check fails, the function returns without moving
+        # the cursor — and so does every card after it. On the queue episode
+        # that silently dropped karaoke from 25 of 36 cards: three shorts came
+        # out fully static and the fourth, which happened to open on a
+        # distinctive phrase, aligned all 42 of its overlays. A feature failing
+        # on 3 of 4 clips while reporting "OK" is the shape of bug this repo
+        # keeps paying for.
+        wi = next((k for k, w in enumerate(words) if (w['s'] or 0) >= t0 - 0.5), 0) \
+             if karaoke and words else 0
         for i, (s, e, t) in enumerate(sub):
             st = max(0, s / fps - t0); en = min(dur, e / fps - t0)
             got = None
             if karaoke:
                 got, wi = align_words(words, wi, t)
+                # A PARTIAL alignment is worse than none: the highlight loop
+                # indexes got[k+1] for every token, so a card whose tokens
+                # outnumber its aligned words crashed the cut (duel film,
+                # card with an em-dash token). Full alignment or static.
+                if got is not None and len(got) != len(t.split()):
+                    got = None
             if got:
                 toks = [x for x in enumerate(t.split())]
                 variants = karaoke_cards(toks, d, f'{i:03d}')

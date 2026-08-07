@@ -1,0 +1,32 @@
+{
+  "master": "build/first-come-first-served-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    {
+      "name": "01-the-noise",
+      "from": 9604,
+      "to": 10247,
+      "kicker": "THE NOISE IS THE SYSTEM"
+    },
+    {
+      "name": "02-two-intruders",
+      "from": 7427,
+      "to": 8262,
+      "kicker": "TWO PEOPLE BREAKS IT"
+    },
+    {
+      "name": "03-ten-percent",
+      "from": 5782,
+      "to": 6345,
+      "kicker": "ONLY 10% STOPPED THEM"
+    },
+    {
+      "name": "04-your-turn",
+      "from": 13705,
+      "to": 14282,
+      "kicker": "IT'S YOUR TURN"
+    }
+  ]
+}

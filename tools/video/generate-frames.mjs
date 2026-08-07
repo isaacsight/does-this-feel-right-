@@ -88,6 +88,28 @@ const enc = (src, tag) => {
 const refDataUri = enc(REFERENCE, 'chars')
 const layoutDataUri = enc(LAYOUT_REF, 'layout')
 
+// FRAMES WITH NO CAST DO NOT GET THE CAST SHEET.
+//
+// A character sheet is a prior on EVERYTHING it contains, including "there are
+// people in this picture". On the queue episode, b44 is an arm reaching out of
+// the clouds and nobody else — and it came back with both characters standing
+// underneath it, twice, the second time with a clause in the prompt reading
+// "if the description names nobody there are NO PEOPLE IN THE IMAGE AT ALL".
+//
+// The clause could not win, and no wording of it ever will: you cannot negate
+// in text what a reference asserts in pixels. That is the same fault as the
+// second-medium clause that tried to switch marks off per frame, and it has the
+// same fix — OMISSION. If a film ships production/cast.json, the ids listed in
+// its `nocast` array are generated against the layout plate alone.
+const NOCAST = (() => {
+  const p = join(FILM, 'production', 'cast.json')
+  if (!existsSync(p)) return new Set()
+  const s = new Set(JSON.parse(readFileSync(p, 'utf8')).nocast ?? [])
+  if (s.size) console.log(`${s.size} frames name no character — cast sheet withheld from those`)
+  return s
+})()
+const refsFor = id => NOCAST.has(id) ? [layoutDataUri] : [refDataUri, layoutDataUri]
+
 mkdirSync(OUT_DIR, { recursive: true })
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 const H = { 'content-type': 'application/json', authorization: `Key ${FAL_KEY}` }
@@ -177,7 +199,7 @@ async function renderOnce(id, prompt, dest) {
 
   const sub = await fetch(`https://queue.fal.run/${ENDPOINT}`, {
     method: 'POST', headers: H,
-    body: JSON.stringify({ prompt, image_urls: [refDataUri, layoutDataUri], num_images: 1 }),
+    body: JSON.stringify({ prompt, image_urls: refsFor(id), num_images: 1 }),
   })
   const subText = await sub.text()
   if (!sub.ok) throw new Error(`submit ${sub.status}: ${subText.slice(0, 220)}`)

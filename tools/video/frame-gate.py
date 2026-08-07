@@ -73,6 +73,11 @@ DEFAULTS = {
     # frame; a false negative costs a note in a report.
     "hue_census_max": 3.00,
     "hue_census_min_sat": 25.0,
+    # A brightness floor on what counts as chromatic. load_world DROPS any key
+    # that is not already in DEFAULTS, silently — so a new assertion is inert
+    # until it is declared here. Default 0.0 keeps every world calibrated before
+    # 2026-08-07 behaving exactly as it did.
+    "hue_census_min_val": 0.0,
     "glyph_min_conf": 78.0,       # below this tesseract reads the ruled lines as type
     "glyph_min_chars": 3,
     # Fraction of frame that must be unsaturated for the ground check to run at
@@ -178,7 +183,19 @@ def check_ground(arr, cfg, exp):
     """The paper must be the locked colour. The world clause's whole reason for its
     doubled phrasing is that the ground drifts warm on close-ups unless pinned."""
     h, s, v = hsv_planes(arr)
-    paper = s < 15                                 # the unsaturated majority IS the paper
+    # Low saturation alone is NOT the paper: near-black and grey are unsaturated
+    # too. In the ledger world everything dark was linework, so a bare `s < 15`
+    # held. In a collage world with near-black paper elements it does not — eight
+    # good frames reported a "ground" of val 15.7 to 22.0, which was the black
+    # figure, not the sheet. Paper is UNSATURATED AND BRIGHT, and saying so is the
+    # difference between measuring the ground and measuring the ink.
+    # The mask thresholds are per-world, defaulting to the values every earlier
+    # world was calibrated against. The gillray world's aged laid paper is a warm
+    # TINT — sat 15-30 by construction — so `s < 15` finds no paper at all there
+    # and every ground check silently becomes "too little paper to judge". A
+    # world whose paper IS saturated overrides the MASK; it does not loosen the
+    # colour band, which still has to hold on whatever the mask finds.
+    paper = (s < cfg.get("mask_sat_max", 15.0)) & (v > cfg.get("mask_val_min", 60.0))
     if paper.sum() < arr.shape[0] * arr.shape[1] * cfg["ground_min_paper"]:
         return True, "too little bare paper to judge — colour unchecked"
     hh = float(np.median(h[paper])); ss = float(np.median(s[paper])); vv = float(np.median(v[paper]))
@@ -193,7 +210,14 @@ def check_hue(arr, cfg, exp):
     """One accent, and only one. b31 came back with brown at 10.75% of frame - more of
     the frame than the red at 8.18%. A second chromatic accent is a different world."""
     h, s, v = hsv_planes(arr)
-    chroma = s > cfg["hue_census_min_sat"]
+    # SATURATION ALONE IS NOT COLOUR. s = (max-min)/max, so in near-black ink a
+    # two-point RGB difference reads as 40% saturation — pure quantisation noise
+    # with a hue attached. In a heavily-inked black-and-white world that noise IS
+    # most of the frame: the woodcut batch quarantined 13 frames for a "second
+    # accent" whose chromatic pixels had a median brightness of 4 out of 100.
+    # Every one of them was monochrome. A pixel that dark cannot be an accent.
+    # Default 0.0 preserves every world calibrated before 2026-08-07.
+    chroma = (s > cfg["hue_census_min_sat"]) & (v > cfg.get("hue_census_min_val", 0.0))
     total = arr.shape[0] * arr.shape[1]
     lo, hi = cfg["accent_hue"]
     offenders = []

@@ -139,13 +139,48 @@ def profile(label, paths):
 # The band is centred on the two films whose narration was judged good, not on
 # either corpus - we are not trying to become School of Life, we are trying to
 # stay ourselves on purpose rather than by accident.
+# REVISED 2026-08-05, and the reason matters more than the numbers.
+#
+# The previous band was measured from OUR OWN THREE FILMS and then enforced as a
+# rule. That is circular: it described what we were doing and made us keep doing
+# it. Two of those three films have since been shelved as not good, and Isaac's
+# note on the third was "I don't know what this is about." The band was locking in
+# the register of films that did not work.
+#
+# What he actually wants: "when I listen to podcasts and School of Life it feels
+# like I'm there with them." Same room. That register is not what we had.
+#
+# Three changes, all pointed at the room rather than at the lectern:
+#
+# CONTRACTIONS, newly measured and newly enforced. Every film before this ran at
+# 0.0 to 2.4 per 1k. We were writing WRITTEN ENGLISH and having it read aloud —
+# "it is not fraud and it is not sloppiness" is a sentence nobody has said in a
+# room. This is the single biggest lever on the same-room feel and it was
+# invisible because nothing measured it.
+#
+# The band is MEASURED, not guessed. First attempt used 12-34 from an assumption
+# that "natural speech runs 15-30", which was never checked against anything:
+#     School of Life   1,001 files, 990,682 words   22.6 / 1k   (scripted)
+#     Modern Wisdom       10 files,  90,128 words   43.2 / 1k   (unscripted)
+# So 20-46 spans a written-to-be-heard essay at one end and real podcast talk at
+# the other. A first draft written to this rule came in at 65.8, which is looser
+# than unscripted conversation — the lesson cuts both ways.
+#
+# WE over YOU. School of Life sits at we 38.8 / you 13.8 and feels like company;
+# we sat at the inverse and feel like a lecture. "You" accuses from a distance,
+# "we" sits beside. The floor on `we` goes up hard and the floor on `you` comes
+# down.
+#
+# LONGER SENTENCES ARE ALLOWED. School of Life runs 17.3 words at grade 8.9 and is
+# perfectly easy to listen to. Clipped declaratives read as pronouncements.
 BAND = {
-    'you_per_1k':      (35.0, 58.0),
-    'we_per_1k':       (8.0,  22.0),
-    'syllables_word':  (1.26, 1.42),
-    'words_sentence':  (13.0, 19.0),
-    'flesch_ease':     (72.0, 84.0),
-    'fk_grade':        (5.6,  7.2),
+    'you_per_1k':          (15.0, 45.0),
+    'we_per_1k':           (18.0, 45.0),
+    'contractions_per_1k': (20.0, 46.0),
+    'syllables_word':      (1.26, 1.45),
+    'words_sentence':      (13.0, 20.0),
+    'flesch_ease':         (70.0, 84.0),
+    'fk_grade':            (5.6,  8.2),
 }
 
 
@@ -168,6 +203,18 @@ def gate(path):
 
     got = {
         'you_per_1k':     1000 * second / n,
+        # Apostrophe-'s is BOTH a contraction and a possessive, and the first
+        # version of this counted "somebody's face" and "Bartlett's students" as
+        # speech. It read 67/1k on a script that actually sits near 40. Count the
+        # unambiguous suffixes anywhere, and 's only after the pronouns and
+        # function words where it can only be a contraction.
+        'contractions_per_1k': 1000 * (
+            len(re.findall(r"\b\w+n't\b|\b\w+'(?:re|ve|ll|m)\b", body, re.I))
+            + len(re.findall(
+                r"\b(?:it|that|there|here|what|who|he|she|let|this|"
+                r"how|where|why|one|nobody|somebody|everybody)'s\b", body, re.I))
+            + len(re.findall(r"\b(?:i|you|we|they|he|she|it|that|there)'d\b", body, re.I))
+        ) / n,
         'we_per_1k':      1000 * first / n,
         'syllables_word': s2,
         'words_sentence': wps,
@@ -191,6 +238,11 @@ def gate(path):
     for k, v, lo, hi in fails:
         direction = 'below' if v < lo else 'above'
         note = {
+            'contractions_per_1k': ("this reads as WRITTEN english, not speech. "
+                "Every film before 2026-08-05 ran 0.0-2.4 per 1k against 15-30 in "
+                "natural talk. 'It is not fraud' is not a sentence anyone says out "
+                "loud; 'it's not fraud' is. This is the biggest single lever on "
+                "sounding like you are in the room"),
             'you_per_1k': ('too little direct address — the rituals failure, and '
                            'the likeliest cause of "I got lost watching it"'
                            if v < lo else
