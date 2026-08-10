@@ -1,0 +1,15 @@
+{
+  "master": "build/lonely-chapter-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    { "name": "01-the-phone",     "from": 0,     "to": 2101,  "kicker": "THE SIX-HUNDRED-POUND PHONE" },
+    { "name": "02-the-numbers",   "from": 2723,  "to": 4913,  "kicker": "3% BECAME 15%" },
+    { "name": "03-the-portraits", "from": 5503,  "to": 7533,  "kicker": "MEN USED TO HOLD HANDS" },
+    { "name": "04-the-lodge",     "from": 7248,  "to": 9442,  "kicker": "YOUR GREAT-GRANDFATHER HAD A TEMPLE" },
+    { "name": "05-bowling",       "from": 10199, "to": 12351, "kicker": "WE KEPT THE HOBBY, FIRED THE HUMANS" },
+    { "name": "06-the-bill",      "from": 12367, "to": 14428, "kicker": "THE BILL, PLAYED STRAIGHT" },
+    { "name": "07-the-price",     "from": 13890, "to": 15942, "kicker": "200 HOURS. PICK A TUESDAY." }
+  ]
+}

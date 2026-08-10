@@ -4032,3 +4032,37 @@ prompts.json; tipping map-shots uses the register splitter + first-shot
 t=0 clamp. b015 was hand-promoted from quarantine (ground check read the
 slab's pale sage screens, sat 6.7 = hue is noise; sat-floor fix is the
 top improvement for next film).
+
+## 2026-08-10 — Episode 5 "Why Men Have No Friends Anymore" SHIPPED same-day + the Museum
+
+Film: https://youtu.be/nK6nqNM9PVQ (11:03, public, 12 chapters, SRT, sources
+comment UgxZIx8X-4NSuRhoAJl4AaABAg NEEDS PINNING; auto-captions need
+unpublishing). Substack live: /p/why-men-have-no-friends-anymore (verified).
+7 shorts x 4 platforms ALL posted same day (YT burst again Isaac's explicit
+call): YT VWSyWJZNms4 07Y4ivtMnaY uGBAnnUp4i8 gH8gcK7RN9A -qK3b1qFCEU
+UP6O9MKimPg VgNrlkwnAxU, all API-verified public; TikTok/IG/X 21/21 posted.
+Drip verify exit-1 = KNOWN FALSE ALARM (old posts below the virtualized-grid
+lazy-load window; X lane verifies everything).
+
+Build: topic from live Rogan/Williamson slates (rode Modern Wisdom's "lonely
+chapter"); EMBER direction from a 12-probe bake-off ($0.47) + VACANCY staging
+law + PROCESSION accent + THE WARM-MAN LAW. 3-seat Fable room, fusion 7/7
+register gates, narration re-recorded 154.6->157.5wpm at speed 0.98 (the
+0.95 house value is script-rhythm dependent — MEASURE EVERY FILM). 140-frame
+board, 135 generated + 5 deterministic data cards, ~$8.40 fal total.
+
+NEW LESSONS (filed in board comments + here): (1) a flat object on a table
+needs a camera that can SEE the tabletop — at eye level the model stands the
+object up; elevation beats adjectives (3 failed rolls proved it). (2) The
+laptop prior: dark rectangle + coffee table = laptop; shape-anchor as "one
+flat closed tile". (3) The empty-study lesson: 6th instance of places drawing
+their occupants; "still and unattended, dust hanging in the lamp light"
+worked. (4) Naming venues in a scene invites signage — "every signboard a
+BLANK painted board" at point of use. (5) drip verify needs an age cutoff
+(older-than-7-days = unverifiable, not mismatched) — STILL exits 1 on old
+films, fix before it blocks a future publish.
+
+ALSO: Museum of Unwritten Rules artifact published (claude.ai/code/artifact/
+e9cf0223-a82b-49c4-8a39-e462919387a7) — the catalog world as a walkable town,
+5 wings + annex, ember dusk toggle. The town-world bible (5 laws) now exists;
+candidate for a kernel.chat page later.
