@@ -101,11 +101,17 @@ const MOVES = {
   TILTU: n => ({ z: '1.08', x: 'iw/2-(iw/zoom/2)',         y: `(ih-ih/zoom)*(1-on/${n})` }),
 }
 
-let built = 0, reused = 0
+let built = 0, reused = 0, spliced = 0
 const queue = []
 shots.forEach((s, i) => {
   const src = join(FRAMES, `${s.id}-final.png`)
-  if (!existsSync(src)) { console.error(`missing frame ${s.id}`); process.exit(1) }
+  // THE CLIP SEAM (grip-strength onward): a generated clip in public/clips/
+  // takes precedence over the still. The still remains the fallback, which is
+  // also what a data frame IS in a motion film — its board row generates no
+  // clip, so it flows through the stills path below untouched.
+  const gen = join(FILM, 'public', 'clips', `${s.id}.mp4`)
+  const hasGen = existsSync(gen) && statSync(gen).size > 1024
+  if (!hasGen && !existsSync(src)) { console.error(`missing frame ${s.id}`); process.exit(1) }
   const clip = join(CLIPS, `${String(i).padStart(4, '0')}.mp4`)
 
   // Resume: keep a clip only if it exists AND already has the duration we want.
@@ -113,6 +119,32 @@ shots.forEach((s, i) => {
     try {
       if (Math.abs(ffprobe(clip) - s.dur) < 0.05) { reused++; return }
     } catch { /* unreadable, fall through and rebuild */ }
+  }
+
+  if (hasGen) {
+    spliced++
+    const genDur = ffprobe(gen)
+    if (genDur >= s.dur) {
+      // Clip longer than the hold: keep the HEAD. Motion begins after the cut
+      // lands and the head carries the settle-in; the tail is the part that
+      // was always going to be trimmed.
+      queue.push(['-y', '-loglevel', 'error', '-i', gen,
+        '-t', s.dur.toFixed(3),
+        '-vf', `scale=1920:1080,fps=${FPS},setsar=1`,
+        '-c:v', 'libx264', '-preset', 'medium', '-crf', '18',
+        '-pix_fmt', 'yuv420p', clip])
+    } else {
+      // Clip shorter than the hold: freeze-hold the last frame. tpad clones it
+      // rather than slow-stretching, which telegraphs generation — and a held
+      // final frame IS the house "end on a settle".
+      const pad = (s.dur - genDur).toFixed(3)
+      queue.push(['-y', '-loglevel', 'error', '-i', gen,
+        '-vf', `tpad=stop_mode=clone:stop_duration=${pad},` +
+               `scale=1920:1080,fps=${FPS},setsar=1,trim=duration=${s.dur.toFixed(3)}`,
+        '-c:v', 'libx264', '-preset', 'medium', '-crf', '18',
+        '-pix_fmt', 'yuv420p', clip])
+    }
+    return
   }
 
   const n = Math.max(2, Math.round(s.dur * FPS))
@@ -139,6 +171,7 @@ if (MOVE) {
   const mc = shots.reduce((a, s) => (a[s.move || 'PUSH'] = (a[s.move || 'PUSH'] || 0) + 1, a), {})
   console.log('moves: ' + Object.entries(mc).sort().map(([k, v]) => `${k}=${v}`).join('  '))
 } else console.log('STILLS — no camera movement (--move to enable the board\'s moves)')
+if (spliced) console.log(`${spliced} shots use generated clips from public/clips/`)
 console.log(`${reused} clips reused, ${queue.length} to build, ${JOBS} at a time`)
 let cursor = 0
 await Promise.all(Array.from({ length: Math.min(JOBS, queue.length) }, async () => {

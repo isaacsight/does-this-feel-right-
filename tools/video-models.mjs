@@ -34,6 +34,10 @@ export const MODELS = [
     defaultDurationSeconds: 5,
     maxDurationSeconds: 10,
     durationParam: 'duration',
+    // v2.6 rejects anything but these two values ("Input should be '5' or
+    // '10'"), and fal reports the job COMPLETED with the validation error in
+    // the payload — the failure mode reads as "no video url", not as a 422.
+    durationEnum: [5, 10],
     // The house workhorse. The playbook's reason still holds: it HOLDS
     // STRUCTURE, which is what held illustration needs and what seedance
     // failed at. Same price as the v2.5-turbo it replaces.
@@ -85,7 +89,34 @@ export const MODELS = [
     maxDurationSeconds: 9,
     durationParam: 'duration',
   },
+  {
+    id: 'wan-27',
+    label: 'Wan v2.7 (1080p)',
+    textEndpoint: 'fal-ai/wan/v2.7/text-to-video',
+    imageEndpoint: 'fal-ai/wan/v2.7/image-to-video',
+    usdPerSecond: 0.15,           // 1080p; 720p is $0.10/s
+    defaultDurationSeconds: 5,
+    maxDurationSeconds: 15,
+    durationParam: 'duration',
+    // Arena i2v leader as of 2026-08. Two quirks, both load-bearing:
+    // prompt expansion rewrites prompts server-side and must stay OFF, and
+    // negative_prompt exists — buildInput passes the LOCK negatives there.
+    extraInput: { resolution: '1080p', enable_prompt_expansion: false },
+    supportsNegativePrompt: true,
+    // Wan validates duration as a NUMBER (2-15) and rejects the string "5" —
+    // the exact inverse of Veo's "8s". Three vendors, three duration types.
+    durationNumeric: true,
+  },
 ]
+
+// Re-verified 2026-08-09 against the live model pages (llms.txt variants):
+// kling v2.6 pro $0.07/s and v3 pro $0.112/s confirmed unchanged; veo3.1 lite
+// confirmed $0.05/s 1080p audio-off with the string-suffix duration ("8s");
+// wan v2.7 ADDED — it was the arena i2v leader and absent, which is exactly
+// the silent-tax drift this header warns about. Wan quirks that matter:
+// `negative_prompt` exists (first model here that can carry the LOCK clause on
+// both sides) and `enable_prompt_expansion` MUST be false — a server-side
+// prompt rewriter would undo the one-mover/LOCK discipline word by word.
 
 export function getModel(id) {
   return MODELS.find(m => m.id === id) ?? null
@@ -98,8 +129,16 @@ export function effectiveSeconds(modelId, durationSeconds) {
   if (!model) return null
   if (!model.durationParam) return model.defaultDurationSeconds
   const requested = Number(durationSeconds)
-  const seconds = Number.isFinite(requested) && requested > 0 ? requested : model.defaultDurationSeconds
-  return Math.min(seconds, model.maxDurationSeconds)
+  let seconds = Number.isFinite(requested) && requested > 0 ? requested : model.defaultDurationSeconds
+  seconds = Math.min(seconds, model.maxDurationSeconds)
+  if (model.durationEnum) {
+    // Snap DOWN to the nearest allowed value (or up to the smallest): a
+    // shorter clip freeze-pads into a held settle in assembly, which is the
+    // house form anyway; snapping up doubles the bill.
+    const below = model.durationEnum.filter(v => v <= seconds)
+    seconds = below.length ? Math.max(...below) : Math.min(...model.durationEnum)
+  }
+  return seconds
 }
 
 export function estimateUsd(modelId, durationSeconds) {
@@ -114,15 +153,26 @@ export function pickEndpoint(modelId, hasImage) {
   return hasImage && model.imageEndpoint ? model.imageEndpoint : model.textEndpoint
 }
 
-export function buildInput(modelId, prompt, durationSeconds, imageUrl) {
+export function buildInput(modelId, prompt, durationSeconds, imageUrl, opts = {}) {
   const model = getModel(modelId)
   if (!model) return null
   const input = { prompt }
   if (model.durationParam) {
     const seconds = effectiveSeconds(modelId, durationSeconds)
-    input[model.durationParam] = String(seconds)
+    // Veo takes the string "8s"; kling and wan take the bare "8". The suffix
+    // lives on the model entry so callers never special-case a vendor.
+    input[model.durationParam] = model.durationNumeric
+      ? seconds
+      : String(seconds) + (model.durationSuffix ?? '')
   }
   if (imageUrl && model.imageEndpoint) input.image_url = imageUrl
+  // Per-model required extras (wan: resolution + prompt expansion OFF).
+  if (model.extraInput) Object.assign(input, model.extraInput)
+  // The LOCK clause's prohibitions, for the models that have somewhere to put
+  // them. Everyone else keeps carrying them in the positive prompt.
+  if (opts.negativePrompt && model.supportsNegativePrompt) {
+    input.negative_prompt = opts.negativePrompt
+  }
   return input
 }
 

@@ -1,0 +1,32 @@
+{
+  "master": "build/million-dollar-pigeon-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    {
+      "name": "01-milk-cartons",
+      "from": 12519,
+      "to": 13364,
+      "kicker": "CAUGHT BY A MILK CARTON"
+    },
+    {
+      "name": "02-cocaine",
+      "from": 9718,
+      "to": 10485,
+      "kicker": "A PIGEON ON COCAINE"
+    },
+    {
+      "name": "03-the-ledger",
+      "from": 15760,
+      "to": 16872,
+      "kicker": "FASTER THAN COCAINE"
+    },
+    {
+      "name": "04-one-move",
+      "from": 17517,
+      "to": 18179,
+      "kicker": "IT ONLY HAS ONE MOVE"
+    }
+  ]
+}
