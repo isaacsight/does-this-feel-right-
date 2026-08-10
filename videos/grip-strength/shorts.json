@@ -1,8 +1,32 @@
 {
-  "master": "renders/REPLACE-ME.mp4",
+  "master": "build/grip-strength-master.mp4",
   "segments": "segments.json",
-  "words": "audio/words.json",
-  "karaoke": true,
   "out": "deliver/shorts",
-  "shorts": []
+  "karaoke": true,
+  "shorts": [
+    {
+      "name": "01-the-squeeze",
+      "from": 0,
+      "to": 405,
+      "kicker": "SQUEEZE. THAT'S THE TEST"
+    },
+    {
+      "name": "02-co-authors",
+      "from": 1177,
+      "to": 1521,
+      "kicker": "GRANDPA HAS 645,000 CO-AUTHORS"
+    },
+    {
+      "name": "03-the-receipt",
+      "from": 1521,
+      "to": 2093,
+      "kicker": "THE DIAL IS A RECEIPT PRINTER"
+    },
+    {
+      "name": "04-cant-cheat",
+      "from": 4299,
+      "to": 5053,
+      "kicker": "YOU CAN'T CHEAT THE METER"
+    }
+  ]
 }

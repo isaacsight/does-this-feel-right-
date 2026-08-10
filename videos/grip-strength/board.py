@@ -125,11 +125,11 @@ S = [
  "gently curved, with faint ruled item lines and no writing of any kind, on a deep "
  "ink-blue-black field."),
 (14,"MED","hands","ambient",5,
- "the hand hoists the crate smoothly upward past the frame edge",
+ "the crate rises slightly in the hand and settles, everything staying inside the frame",
  "A warm-skinned hand and forearm hoisting a plain bone-white crate drawn flat and "
  "graphic, mid-lift against the dark field, one small ORANGE corner mark on the crate."),
 (15,"XCU","hands","ambient",5,
- "the open hand turns palm-up and settles",
+ "the loose fingers curl slightly further open and settle, the hand staying the same shape",
  f"{HAND} open and relaxed, palm beginning to turn upward, fingers loose, filling the frame "
  f"against the dark field, warm-lit from one side."),
 (16,"MED","instrument","ambient",5,
@@ -218,7 +218,7 @@ S = [
  "The torn end of a bone-white receipt strip filling the frame diagonally, its perforated "
  "edge crisp, faint ruled lines, warm-lit against the deep ink-blue-black field."),
 (29,"MED","hands","ambient",5,
- "the hand lifts the heavy case smoothly off the ground",
+ "the case rises a short distance in the grip and stops, staying the same size",
  f"{HAND} gripping the steel handle of a plain heavy case drawn flat and graphic, arm taut, "
  f"the case just leaving the ground, one small ORANGE tag on the handle, deep ink-blue-black "
  f"field."),

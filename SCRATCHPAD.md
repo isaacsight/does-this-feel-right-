@@ -1,3 +1,60 @@
+## Session 2026-08-09 - "A Handshake Predicts Death" SHIPPED: first all-motion piece
+
+**Live:** https://youtu.be/ZHHp_AjDIs4 - 2:48, public, 10 chapters, SRT, dark
+strand-native thumbnail. Substack live:
+https://kernelchat.substack.com/p/a-handshake-predicts-death-better
+Shorts 4x4 platforms incl. YouTube, ALL verified owner-side 16/16.
+NO SCORE - offered at the cut, declined; house rule holds across both strands
+(recorded in FORMAT.md). Sources comment UgyOWzNQGSDud1LDTT94AaABAg NEEDS
+PINNING; auto-captions need unpublishing (also still open on ZHHp/w9To/NYAl).
+
+**THE MOTION PIPELINE, built this session and now shared:**
+- video-models.mjs: wan-27 added; THREE vendor duration types (kling enum
+  {5,10} as string, veo "8s" suffix, wan bare number) each learned from a live
+  validation failure; fal marks validation-failed jobs COMPLETED - the error
+  hides in the payload as "no video url".
+- animate-frames.mjs: --board mode (per-shot motion_class/secs/model),
+  registry routing, 4-way concurrency (serial was an assembly-lesson leak -
+  90min -> 25min), --drift per world, quarantine keeps evidence.
+- assemble-stills.mjs clip seam: public/clips/<id>.mp4 preferred; trim head
+  when long, tpad freeze-hold when short. DATA CARDS enter as deterministic
+  ImageMagick clips through the same seam - data is never generated OR
+  animated by a model.
+- Board: mover gate replaced face gate (one mover, mover in keyframe,
+  instrument movers are ORANGE); the orange-is-the-mover world design tells
+  the i2v model what moves.
+
+**DRIFT THRESHOLD IS WORLD-DEPENDENT.** 0.02 was measured on flat line art;
+the dark glow/grain world breathes +0.03-0.09 innocently. First batch
+quarantined 23; only FOUR were real (anatomy, scale-inflation, off-frame
+recomposition, INVENTED SCISSORS). All four fixed by SIZE/FRAME ANCHORS in the
+mover ("staying the same shape/size", "everything staying inside the frame") -
+same trick as the slim-needle fix. 19 promoted free from quarantine evidence.
+
+**GATE BANDS: as the INSTRUMENT measures, not as the author imagines.** Dark
+world: letterbox_luma must sit BELOW the field's own luma (0.04 < 0.089); the
+"ground" check reads the bright unsaturated region (the PAPER hue 40-70), not
+the background. 30 false quarantines before recalibration, all rescued at $0.
+NEW WORLD RULE: 5-frame calibration round before any batch.
+
+**Cost: ~$22.40 total** (keyframes $4.25 incl. miscalibration overrun, probes
+$5.68, batch $10.85, retries $1.40+$0.39) vs $25-27 plan. Bake-off verdict:
+kling-pro beat kling-v3-pro (wandered micro-hold) and wan-27 (thinned dot
+field) AT THE LOWEST PRICE.
+
+**LOCAL IMAGE GEN (research, actionable):** mflux installed w/ M3 Max 36GB;
+Z-Image-Turbo weights cached; local-image-server.mjs :5411 already wraps it.
+The mflux binary list includes kontext, qwen-edit, in-context-edit, fibo-edit,
+controlnet, redux - i.e. LOCAL REFERENCE-CONDITIONED EDITING exists. A
+bake-off vs nano-banana/edit could take keyframes to $0. NOT yet tested.
+
+**GIT: video production is PRIVATE-intent.** Repo isaacsight/kernel is PUBLIC;
+25 unpushed commits incl. all recent film sources. Isaac: only video
+production must stay private (kbot/site stay public). Plan on record: private
+kernel-production repo + rewrite the unpushed range before any push. Old
+films/docs already public from pre-Aug-2 pushes - menu decision pending.
+HOLD ALL PUSHES until the split.
+
 # SCRATCHPAD — Session Memory
 
 > This file persists context between Claude Code sessions.

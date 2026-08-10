@@ -55,6 +55,11 @@ const boardMode = has('board')
 const only = arg('only')
 const fps = Number(arg('fps', 30))
 const defaultModel = arg('model', 'kling-pro')
+// Drift threshold is WORLD-DEPENDENT: 0.02 was measured on flat line art on
+// cream; the grip film's dark glow-and-grain world breathes ~5x that
+// innocently (eyeballed range: +0.03-0.09 all sound, real failures at +0.15
+// and +0.44). Pass --drift per world; the default preserves old behaviour.
+const DRIFT = Number(arg('drift', 0.02))
 if (!argv[0] || (!spec && !boardMode)) {
   console.error('need <film-dir> and either --spec motion.json or --board'); process.exit(1)
 }
@@ -180,7 +185,7 @@ async function animate(job) {
       }
       const a = rmse(0.2), b = rmse(job.secs - 0.3)
       const drift = b - a
-      if (drift > 0.02) {
+      if (drift > DRIFT) {
         if (job.big) {
           // The known false-positive: a BIG move legitimately changes the
           // frame. Reported, kept, waived — but still LOOK at it in QC.
@@ -199,12 +204,20 @@ async function animate(job) {
   throw new Error('timed out')
 }
 
-let spent = 0
-for (const job of jobs) {
-  try {
-    const r = await animate(job)
-    if (!['skip', 'no-frame'].includes(r)) spent += estimateUsd(job.model, job.secs)
-    console.log(`  ${job.id}  ${r}`)
-  } catch (e) { console.log(`  FAIL     ${job.id}: ${e.message}`) }
-}
+// Generation is network-bound and the drift gate is per-clip, so clips run
+// CONCURRENTLY (bounded). The serial design was inherited from the assembly
+// memory lesson, which never applied here — a 33-clip batch was taking ~90
+// minutes that four workers do in ~25.
+const JOBS = Math.max(1, Math.min(4, Number(arg('jobs', 4))))
+let spent = 0, cursor = 0
+await Promise.all(Array.from({ length: Math.min(JOBS, jobs.length) }, async () => {
+  while (cursor < jobs.length) {
+    const job = jobs[cursor++]
+    try {
+      const r = await animate(job)
+      if (!['skip', 'no-frame'].includes(r)) spent += estimateUsd(job.model, job.secs)
+      console.log(`  ${job.id}  ${r}`)
+    } catch (e) { console.log(`  FAIL     ${job.id}: ${e.message}`) }
+  }
+}))
 console.log(`\nspent ~$${spent.toFixed(2)} -> ${OUT}`)

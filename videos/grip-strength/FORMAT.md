@@ -8,7 +8,7 @@ strand, decided with Isaac 2026-08-09:
 | length | 8-10 min | 2-3 min |
 | medium | gated still frames, no camera moves | fal.ai video clips, every shot moves |
 | world | recurring mid-century painted cel | motion design (Buck/Territory/DIA register), fresh per WORLD.md |
-| sound | narration only (house rule) | narration + quiet score + SFX hits on BIG moves — a DELIBERATE exception, mute-tested |
+| sound | narration only (house rule) | narration only — the score exception was offered and DECLINED at the cut (2026-08-09); the house rule holds across both strands |
 | thumbnail | series cream-panel template | own treatment; do NOT reuse the catalog template |
 | playlist | kernel.chat films (PLck9Xx5O7sBY) | new playlist when a second motion piece exists |
 
@@ -23,6 +23,6 @@ measured on 8-10 min scripts; rate-only breaches are hand-adjudicated and
 documented, never fixed by editing the bands), frame gate, cadence guard,
 owner-side publish verification.
 
-The narration-only rule for the CATALOG is unchanged. The exception lives
-here, in this strand, and the mute test is its guardrail: the film must fully
-work with the score removed.
+The narration-only rule held here too: Isaac watched the cut and shipped it
+without a score. The exception clause stays in this file as the record that it
+was considered and declined, not forgotten.
