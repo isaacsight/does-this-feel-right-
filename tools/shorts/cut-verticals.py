@@ -139,9 +139,28 @@ def karaoke_cards(tokens, d, tag):
     colour and reused across variants: a 6-word card costs 12 label renders
     and 6 composites, not 36 renders.
     """
-    pt = next((p for p in range(CAPTION_PT, CAPTION_MIN_PT - 1, -6)
-               if layout(tokens, p)), CAPTION_MIN_PT)
-    lines, line_h = layout(tokens, pt) or layout(tokens, CAPTION_MIN_PT)
+    # A single token wider than the safe width (a long hyphenated compound
+    # like "seven-hundred-and-twenty-million-dollar") defeats word-wrap at
+    # every size. Split such tokens at their hyphens into wrappable pieces
+    # before giving up — the karaoke highlight then covers the pieces.
+    def fit(toks):
+        p = next((p for p in range(CAPTION_PT, CAPTION_MIN_PT - 1, -6)
+                  if layout(toks, p)), CAPTION_MIN_PT)
+        return layout(toks, p), p
+    (got, pt) = fit(tokens)
+    if not got:
+        split = []
+        for idx, word in tokens:
+            if '-' in word and len(word) > 18:
+                parts = word.split('-')
+                half = len(parts) // 2 or 1
+                split.append((idx, '-'.join(parts[:half]) + '-'))
+                split.append((idx, '-'.join(parts[half:])))
+            else:
+                split.append((idx, word))
+        tokens = split
+        (got, pt) = fit(tokens)
+    lines, line_h = got or layout(tokens, CAPTION_MIN_PT)
     space = measure('n', pt)[0] // 2 + 2
     block_h = len(lines) * line_h
     top = CANVAS_H - CAPTION_UP - block_h
@@ -265,9 +284,13 @@ def main(cfg_path):
                 # reads a gap between words as a dropped highlight, so the card
                 # never shows all-ivory mid-line. First variant starts with the
                 # card, not with its word, for the same reason.
+                # A split over-wide token (see karaoke_cards) can yield more
+                # variants than timed words; clamp the lookups so the extra
+                # piece rides its sibling's timing instead of overflowing.
                 for k, path in variants:
-                    ws = st if k == 0 else max(st, got[k]['start'] - t0)
-                    we = en if k == len(variants) - 1 else max(st, got[k + 1]['start'] - t0)
+                    kk = min(k, len(got) - 1)
+                    ws = st if k == 0 else max(st, got[kk]['start'] - t0)
+                    we = en if kk >= len(got) - 1 else max(st, got[kk + 1]['start'] - t0)
                     if we > ws:
                         overlays.append((path, ws, we))
             else:

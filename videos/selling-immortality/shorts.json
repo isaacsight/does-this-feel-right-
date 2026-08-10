@@ -1,0 +1,15 @@
+{
+  "master": "build/selling-immortality-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    { "name": "01-twelve-thousand", "from": 1921,  "to": 3930,  "kicker": "ONE MAN'S MOOD, 12,000 DOCTORS" },
+    { "name": "02-monkey-glands",   "from": 4396,  "to": 6595,  "kicker": "THE MONKEY-GLAND QUEUE" },
+    { "name": "03-radium-water",    "from": 6469,  "to": 8595,  "kicker": "THE RADIUM WATER, TOLD STRAIGHT" },
+    { "name": "04-720-million",     "from": 8745,  "to": 10892, "kicker": "$720,000,000 FOR A POSSIBILITY" },
+    { "name": "05-111-pills",       "from": 13232, "to": 15434, "kicker": "111 PILLS BEFORE 11 A.M." },
+    { "name": "06-the-referee",     "from": 14931, "to": 17143, "kicker": "WE ASK THE REFEREE" },
+    { "name": "07-the-turn",        "from": 18071, "to": 20237, "kicker": "WHAT THE BOOTH ACTUALLY SOLD" }
+  ]
+}

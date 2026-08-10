@@ -4066,3 +4066,43 @@ ALSO: Museum of Unwritten Rules artifact published (claude.ai/code/artifact/
 e9cf0223-a82b-49c4-8a39-e462919387a7) — the catalog world as a walkable town,
 5 wings + annex, ember dusk toggle. The town-world bible (5 laws) now exists;
 candidate for a kernel.chat page later.
+
+## Episode 7 candidate (2026-08-10, from Isaac sharing the Godin/DOAC transcript)
+QUITTING — "never quit" as the unwritten rule everyone obeys and nobody audits.
+Passes the topic filter: Buridan's ass (700-yr philosophy), Kahneman loss
+aversion, sunk-cost lit, Langer & Rodin 1976 plant/control study (~halved
+mortality — verify precisely), Jackson Pollock's failed second cycle, and the
+verified irony that Michael Jordan (author of the gym-wall quote) quit twice.
+The paradox act: we celebrate every start; every start required an
+uncelebrated quit. Godin's dip/cul-de-sac distinction = the claims-safe
+decision frame. Sits perfectly after Selling Immortality (which ends on
+stepping out of a queue — i.e., quitting it).
+
+## 2026-08-11 — Episode 6 "They've Been Selling Immortality for 140 Years" SHIPPED
+
+Film: https://youtu.be/jw8KNTY2ttw (11:59, public, 11 chapters, SRT, sources
+comment UgzwrJPKXzLpiC9C7Od4AaABAg NEEDS PINNING + auto-captions unpublish).
+Substack live: /p/theyve-been-selling-immortality-for (verified). 7 shorts x
+4 platforms same day, all verified (YT: 16BpDOdcwoI IaQShPrZ2ws CmSsKPg3Qgs
+QeWPMHz5P3I 4JyTHEHO_9M 1qqwJzp0qII oZ5WEiYIagE; TikTok/IG/X 21/21). Drip
+exit-1 = the known virtualized-grid false alarm again.
+
+Build: MIDWAY direction (bulb-booth = 3rd monument), 3-seat room, fusion
+needed 2 register passes (subject vocab inflates syllables; Schur weave is
+what carries you/we). 143-frame board; ISAAC'S FLAT-FRAME NOTE led to the
+flat-run law (3+ castless same-setting frames = dead stretch; 9 frames
+rewritten concrete; MAKE IT A BOARD GATE next film). New laws also: label-
+invitation (type-nouns/proper names get lettered), never truncate a gate's
+output (tail masked BOARD REJECTED -> 9 stale-prompt rolls), narration take
+variance beats the speed knob (4 takes: 156.4/154.9/154.0/157.4), YouTube
+descriptions reject angle brackets, cut-verticals now splits mega-tokens.
+Spend ~$9.40 fal. CTA decision REAFFIRMED: no greeting, no spoken like/
+subscribe (the commentator never sells; esp. not in the film about warm
+voices selling things) — end screens (Isaac's Studio task, ALL 6 FILMS) +
+pinned-comment line.
+
+Episode 7 leading candidate filed: QUITTING (from the Godin/DOAC transcript
+Isaac shared) — Buridan's ass, sunk cost, Langer & Rodin 1976, Jordan quit
+twice. Channel thesis filed in memory: the commentator on the game of being
+alive; the interviews are already done (claims book = transcript reduced to
+what survives).
