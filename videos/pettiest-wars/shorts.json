@@ -1,0 +1,32 @@
+{
+  "master": "build/pettiest-wars-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    {
+      "name": "01-not-about-the-bucket",
+      "from": 1879,
+      "to": 4080,
+      "kicker": "IT'S NOT ABOUT THE BUCKET"
+    },
+    {
+      "name": "02-they-got-promoted",
+      "from": 4688,
+      "to": 6830,
+      "kicker": "THE KETTLE GOT A PUBLICIST"
+    },
+    {
+      "name": "03-gentleman-with-a-flag",
+      "from": 7606,
+      "to": 9770,
+      "kicker": "A GENTLEMAN WITH A FLAG"
+    },
+    {
+      "name": "04-buy-the-new-bucket",
+      "from": 11838,
+      "to": 13759,
+      "kicker": "BUY THE NEW BUCKET"
+    }
+  ]
+}

@@ -22,6 +22,7 @@ const PrototypePage = lazyRetry(() => import('./pages/PrototypePage').then(m => 
 const CreativeCanvasPage = lazyRetry(() => import('./pages/CreativeCanvasPage').then(m => ({ default: m.CreativeCanvasPage })))
 const MotionSheetPage = lazyRetry(() => import('./pages/MotionSheetPage').then(m => ({ default: m.MotionSheetPage })))
 const PalmierSuitePage = lazyRetry(() => import('./pages/PalmierSuitePage').then(m => ({ default: m.PalmierSuitePage })))
+const ChannelStudioPage = lazyRetry(() => import('./pages/ChannelStudioPage').then(m => ({ default: m.ChannelStudioPage })))
 const AtelierPage = lazyRetry(() => import('./pages/AtelierPage').then(m => ({ default: m.AtelierPage })))
 const ArchivePage = lazyRetry(() => import('./pages/ArchivePage').then(m => ({ default: m.ArchivePage })))
 
@@ -54,6 +55,14 @@ if (legacyPath) {
 }
 
 export const router = createBrowserRouter([
+  {
+    path: '/channel-studio',
+    element: withErrorBoundary(
+      <Suspense fallback={<div className="ka-page-loading">Opening the private press...</div>}>
+        <ChannelStudioPage />
+      </Suspense>
+    ),
+  },
   {
     path: '/palmier-suite',
     element: withErrorBoundary(

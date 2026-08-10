@@ -1,0 +1,1517 @@
+{
+ "version": 1,
+ "source": "script.txt",
+ "duration": 409.469,
+ "cutCount": 122,
+ "exactClauseTiming": true,
+ "frames": [
+  {
+   "frame": 1,
+   "label": "Think of who you were",
+   "act": "The receipt",
+   "start": 0.0,
+   "end": 2.627,
+   "duration": 2.627,
+   "shots": [
+    {
+     "id": "01a",
+     "start": 0.0,
+     "end": 2.627,
+     "duration": 2.627,
+     "cue": "Think of who you were ten years ago.",
+     "shot": "Think of who you were ten years ago.",
+     "image": "public/images/literal-16x9/01a-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 2,
+   "label": "That comes easily you can",
+   "act": "The receipt",
+   "start": 2.627,
+   "end": 18.717,
+   "duration": 16.09,
+   "shots": [
+    {
+     "id": "02a",
+     "start": 2.627,
+     "end": 5.254,
+     "duration": 2.627,
+     "cue": "That comes easily: you can see the clothes,",
+     "shot": "That comes easily: you can see the clothes,",
+     "image": "public/images/literal-16x9/02a-final.png"
+    },
+    {
+     "id": "02b",
+     "start": 5.254,
+     "end": 10.836,
+     "duration": 5.582,
+     "cue": "you can still hear the song you played until the people around you begged you to stop,",
+     "shot": "you can still hear the song you played until the people around you begged you to stop,",
+     "image": "public/images/literal-16x9/02b-final.png"
+    },
+    {
+     "id": "02c",
+     "start": 10.836,
+     "end": 14.777,
+     "duration": 3.941,
+     "cue": "and you can feel exactly how certain you were about a person,",
+     "shot": "and you can feel exactly how certain you were about a person,",
+     "image": "public/images/literal-16x9/02c-final.png"
+    },
+    {
+     "id": "02d",
+     "start": 14.777,
+     "end": 18.717,
+     "duration": 3.94,
+     "cue": "or a job, or a plan that was going to work out.",
+     "shot": "or a job, or a plan that was going to work out.",
+     "image": "public/images/literal-16x9/02d-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 3,
+   "label": "Now turn around and face",
+   "act": "The receipt",
+   "start": 18.717,
+   "end": 24.3,
+   "duration": 5.583,
+   "shots": [
+    {
+     "id": "03a",
+     "start": 18.717,
+     "end": 21.344,
+     "duration": 2.627,
+     "cue": "Now turn around and face the other way.",
+     "shot": "Now turn around and face the other way.",
+     "image": "public/images/literal-16x9/03a-final.png"
+    },
+    {
+     "id": "03b",
+     "start": 21.344,
+     "end": 24.3,
+     "duration": 2.956,
+     "cue": "Picture who you will be ten years from now.",
+     "shot": "Picture who you will be ten years from now.",
+     "image": "public/images/literal-16x9/03b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 4,
+   "label": "Notice what happens the picture",
+   "act": "The receipt",
+   "start": 24.3,
+   "end": 36.778,
+   "duration": 12.478,
+   "shots": [
+    {
+     "id": "04a",
+     "start": 24.3,
+     "end": 27.583,
+     "duration": 3.283,
+     "cue": "Notice what happens: the picture goes soft at the edges.",
+     "shot": "Notice what happens: the picture goes soft at the edges.",
+     "image": "public/images/literal-16x9/04a-final.png"
+    },
+    {
+     "id": "04b",
+     "start": 27.583,
+     "end": 29.553,
+     "duration": 1.97,
+     "cue": "You can manage a rough sketch,",
+     "shot": "You can manage a rough sketch,",
+     "image": "public/images/literal-16x9/04b-final.png"
+    },
+    {
+     "id": "04c",
+     "start": 29.553,
+     "end": 33.166,
+     "duration": 3.613,
+     "cue": "but it is mostly this person again, in slightly better shoes,",
+     "shot": "but it is mostly this person again, in slightly better shoes,",
+     "image": "public/images/literal-16x9/04c-final.png"
+    },
+    {
+     "id": "04d",
+     "start": 33.166,
+     "end": 36.778,
+     "duration": 3.612,
+     "cue": "holding slightly more money, with all the same opinions professionally upholstered.",
+     "shot": "holding slightly more money, with all the same opinions professionally upholstered.",
+     "image": "public/images/literal-16x9/04d-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 5,
+   "label": "Some part of you has",
+   "act": "The receipt",
+   "start": 36.778,
+   "end": 47.286,
+   "duration": 10.508,
+   "shots": [
+    {
+     "id": "05a",
+     "start": 36.778,
+     "end": 40.718,
+     "duration": 3.94,
+     "cue": "Some part of you has quietly decided that the changing is over,",
+     "shot": "Some part of you has quietly decided that the changing is over,",
+     "image": "public/images/literal-16x9/05a-final.png"
+    },
+    {
+     "id": "05b",
+     "start": 40.718,
+     "end": 44.659,
+     "duration": 3.941,
+     "cue": "and that the person who shows up in ten years will be,",
+     "shot": "and that the person who shows up in ten years will be,",
+     "image": "public/images/literal-16x9/05b-final.png"
+    },
+    {
+     "id": "05c",
+     "start": 44.659,
+     "end": 47.286,
+     "duration": 2.627,
+     "cue": "more or less, the one sitting here tonight.",
+     "shot": "more or less, the one sitting here tonight.",
+     "image": "public/images/literal-16x9/05c-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 6,
+   "label": "That decision is wrong at",
+   "act": "The receipt",
+   "start": 47.286,
+   "end": 51.226,
+   "duration": 3.94,
+   "shots": [
+    {
+     "id": "06a",
+     "start": 47.286,
+     "end": 51.226,
+     "duration": 3.94,
+     "cue": "That decision is wrong at every age, and it has a name.",
+     "shot": "That decision is wrong at every age, and it has a name.",
+     "image": "public/images/literal-16x9/06a-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 7,
+   "label": "In 2013",
+   "act": "The finding",
+   "start": 51.226,
+   "end": 57.678,
+   "duration": 6.452,
+   "shots": [
+    {
+     "id": "07a",
+     "start": 51.226,
+     "end": 52.426,
+     "duration": 1.2,
+     "cue": "In 2013,",
+     "shot": "In 2013,",
+     "image": "public/images/literal-16x9/07a-final.png"
+    },
+    {
+     "id": "07b",
+     "start": 52.426,
+     "end": 56.247,
+     "duration": 3.821,
+     "cue": "three researchers put the question to more than nineteen thousand people,",
+     "shot": "three researchers put the question to more than nineteen thousand people,",
+     "image": "public/images/literal-16x9/07b-final.png"
+    },
+    {
+     "id": "07c",
+     "start": 56.247,
+     "end": 57.678,
+     "duration": 1.431,
+     "cue": "aged eighteen to sixty-eight.",
+     "shot": "aged eighteen to sixty-eight.",
+     "image": "public/images/literal-16x9/07c-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 8,
+   "label": "They asked one group how",
+   "act": "The finding",
+   "start": 57.678,
+   "end": 75.41,
+   "duration": 17.732,
+   "shots": [
+    {
+     "id": "08a",
+     "start": 57.678,
+     "end": 62.527,
+     "duration": 4.849,
+     "cue": "They asked one group how much they had changed in the past ten years.",
+     "shot": "They asked one group how much they had changed in the past ten years.",
+     "image": "public/images/literal-16x9/08a-final.png"
+    },
+    {
+     "id": "08b",
+     "start": 62.527,
+     "end": 67.376,
+     "duration": 4.849,
+     "cue": "They asked another group how much they expected to change in the next ten.",
+     "shot": "They asked another group how much they expected to change in the next ten.",
+     "image": "public/images/literal-16x9/08b-final.png"
+    },
+    {
+     "id": "08c",
+     "start": 67.376,
+     "end": 69.825,
+     "duration": 2.449,
+     "cue": "They asked about personality and about values,",
+     "shot": "They asked about personality and about values,",
+     "image": "public/images/literal-16x9/08c-final.png"
+    },
+    {
+     "id": "08d",
+     "start": 69.825,
+     "end": 73.303,
+     "duration": 3.478,
+     "cue": "and then they asked about plain taste: the favourite food,",
+     "shot": "and then they asked about plain taste: the favourite food,",
+     "image": "public/images/literal-16x9/08d-final.png"
+    },
+    {
+     "id": "08e",
+     "start": 73.303,
+     "end": 75.41,
+     "duration": 2.107,
+     "cue": "the favourite hobby, the closest friend.",
+     "shot": "the favourite hobby, the closest friend.",
+     "image": "public/images/literal-16x9/08e-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 9,
+   "label": "Almost everyone said the same",
+   "act": "The finding",
+   "start": 75.41,
+   "end": 83.223,
+   "duration": 7.813,
+   "shots": [
+    {
+     "id": "09a",
+     "start": 75.41,
+     "end": 77.86,
+     "duration": 2.45,
+     "cue": "Almost everyone said the same two things.",
+     "shot": "Almost everyone said the same two things.",
+     "image": "public/images/literal-16x9/09a-final.png"
+    },
+    {
+     "id": "09b",
+     "start": 77.86,
+     "end": 82.023,
+     "duration": 4.163,
+     "cue": "I have changed a great deal. And I am now, at last,",
+     "shot": "I have changed a great deal. And I am now, at last,",
+     "image": "public/images/literal-16x9/09b-final.png"
+    },
+    {
+     "id": "09c",
+     "start": 82.023,
+     "end": 83.223,
+     "duration": 1.2,
+     "cue": "finished.",
+     "shot": "finished.",
+     "image": "public/images/literal-16x9/09c-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 10,
+   "label": "The eighteen year olds said",
+   "act": "The finding",
+   "start": 83.223,
+   "end": 94.736,
+   "duration": 11.513,
+   "shots": [
+    {
+     "id": "10a",
+     "start": 83.223,
+     "end": 86.016,
+     "duration": 2.793,
+     "cue": "The eighteen-year-olds said it, the forty-year-olds said it,",
+     "shot": "The eighteen-year-olds said it, the forty-year-olds said it,",
+     "image": "public/images/literal-16x9/10a-final.png"
+    },
+    {
+     "id": "10b",
+     "start": 86.016,
+     "end": 87.78,
+     "duration": 1.764,
+     "cue": "and the sixty-eight-year-olds said it.",
+     "shot": "and the sixty-eight-year-olds said it.",
+     "image": "public/images/literal-16x9/10b-final.png"
+    },
+    {
+     "id": "10c",
+     "start": 87.78,
+     "end": 91.258,
+     "duration": 3.478,
+     "cue": "Every group could see the road behind them in detail,",
+     "shot": "Every group could see the road behind them in detail,",
+     "image": "public/images/literal-16x9/10c-final.png"
+    },
+    {
+     "id": "10d",
+     "start": 91.258,
+     "end": 94.736,
+     "duration": 3.478,
+     "cue": "and every group was confident the road ahead ran straight.",
+     "shot": "and every group was confident the road ahead ran straight.",
+     "image": "public/images/literal-16x9/10d-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 11,
+   "label": "They called it the end",
+   "act": "The finding",
+   "start": 94.736,
+   "end": 102.034,
+   "duration": 7.298,
+   "shots": [
+    {
+     "id": "11a",
+     "start": 94.736,
+     "end": 97.528,
+     "duration": 2.792,
+     "cue": "They called it the end of history illusion.",
+     "shot": "They called it the end of history illusion.",
+     "image": "public/images/literal-16x9/11a-final.png"
+    },
+    {
+     "id": "11b",
+     "start": 97.528,
+     "end": 102.034,
+     "duration": 4.506,
+     "cue": "You keep deciding that history is the thing that already happened to you.",
+     "shot": "You keep deciding that history is the thing that already happened to you.",
+     "image": "public/images/literal-16x9/11b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 12,
+   "label": "So why would the same",
+   "act": "Why it happens",
+   "start": 102.034,
+   "end": 105.995,
+   "duration": 3.961,
+   "shots": [
+    {
+     "id": "12a",
+     "start": 102.034,
+     "end": 105.995,
+     "duration": 3.961,
+     "cue": "So why would the same mistake turn up at every age?",
+     "shot": "So why would the same mistake turn up at every age?",
+     "image": "public/images/literal-16x9/12a-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 13,
+   "label": "Because the two questions are",
+   "act": "Why it happens",
+   "start": 105.995,
+   "end": 109.237,
+   "duration": 3.242,
+   "shots": [
+    {
+     "id": "13a",
+     "start": 105.995,
+     "end": 109.237,
+     "duration": 3.242,
+     "cue": "Because the two questions are not the same job.",
+     "shot": "Because the two questions are not the same job.",
+     "image": "public/images/literal-16x9/13a-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 14,
+   "label": "Remembering is reading",
+   "act": "Why it happens",
+   "start": 109.237,
+   "end": 115.836,
+   "duration": 6.599,
+   "shots": [
+    {
+     "id": "14a",
+     "start": 109.237,
+     "end": 110.437,
+     "duration": 1.2,
+     "cue": "Remembering is reading,",
+     "shot": "Remembering is reading,",
+     "image": "public/images/literal-16x9/14a-final.png"
+    },
+    {
+     "id": "14b",
+     "start": 110.437,
+     "end": 115.836,
+     "duration": 5.399,
+     "cue": "because the past is written down already and you only have to look it up.",
+     "shot": "because the past is written down already and you only have to look it up.",
+     "image": "public/images/literal-16x9/14b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 15,
+   "label": "Predicting is writing",
+   "act": "Why it happens",
+   "start": 115.836,
+   "end": 124.957,
+   "duration": 9.121,
+   "shots": [
+    {
+     "id": "15a",
+     "start": 115.836,
+     "end": 117.036,
+     "duration": 1.2,
+     "cue": "Predicting is writing,",
+     "shot": "Predicting is writing,",
+     "image": "public/images/literal-16x9/15a-final.png"
+    },
+    {
+     "id": "15b",
+     "start": 117.036,
+     "end": 121.715,
+     "duration": 4.679,
+     "cue": "because you have to build a whole person who does not exist yet,",
+     "shot": "because you have to build a whole person who does not exist yet,",
+     "image": "public/images/literal-16x9/15b-final.png"
+    },
+    {
+     "id": "15c",
+     "start": 121.715,
+     "end": 124.957,
+     "duration": 3.242,
+     "cue": "and you have to do it out of nothing.",
+     "shot": "and you have to do it out of nothing.",
+     "image": "public/images/literal-16x9/15c-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 16,
+   "label": "One of those is easy",
+   "act": "Why it happens",
+   "start": 124.957,
+   "end": 128.559,
+   "duration": 3.602,
+   "shots": [
+    {
+     "id": "16a",
+     "start": 124.957,
+     "end": 128.559,
+     "duration": 3.602,
+     "cue": "One of those is easy. One of those is work.",
+     "shot": "One of those is easy. One of those is work.",
+     "image": "public/images/literal-16x9/16a-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 17,
+   "label": "And when the work is",
+   "act": "Why it happens",
+   "start": 128.559,
+   "end": 143.331,
+   "duration": 14.772,
+   "shots": [
+    {
+     "id": "17a",
+     "start": 128.559,
+     "end": 130.723,
+     "duration": 2.164,
+     "cue": "And when the work is hard,",
+     "shot": "And when the work is hard,",
+     "image": "public/images/literal-16x9/17a-final.png"
+    },
+    {
+     "id": "17b",
+     "start": 130.723,
+     "end": 133.965,
+     "duration": 3.242,
+     "cue": "the mind does something unhelpful with the empty space:",
+     "shot": "the mind does something unhelpful with the empty space:",
+     "image": "public/images/literal-16x9/17b-final.png"
+    },
+    {
+     "id": "17c",
+     "start": 133.965,
+     "end": 136.488,
+     "duration": 2.523,
+     "cue": "it treats the blank as an answer.",
+     "shot": "it treats the blank as an answer.",
+     "image": "public/images/literal-16x9/17c-final.png"
+    },
+    {
+     "id": "17d",
+     "start": 136.488,
+     "end": 140.449,
+     "duration": 3.961,
+     "cue": "It does not report that the picture is missing. It reports,",
+     "shot": "It does not report that the picture is missing. It reports,",
+     "image": "public/images/literal-16x9/17d-final.png"
+    },
+    {
+     "id": "17e",
+     "start": 140.449,
+     "end": 143.331,
+     "duration": 2.882,
+     "cue": "with enormous confidence, that nothing much is coming.",
+     "shot": "with enormous confidence, that nothing much is coming.",
+     "image": "public/images/literal-16x9/17e-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 18,
+   "label": "You have felt this from",
+   "act": "Why it happens",
+   "start": 143.331,
+   "end": 161.698,
+   "duration": 18.367,
+   "shots": [
+    {
+     "id": "18a",
+     "start": 143.331,
+     "end": 146.214,
+     "duration": 2.883,
+     "cue": "You have felt this from the other side.",
+     "shot": "You have felt this from the other side.",
+     "image": "public/images/literal-16x9/18a-final.png"
+    },
+    {
+     "id": "18b",
+     "start": 146.214,
+     "end": 150.175,
+     "duration": 3.961,
+     "cue": "Think of whatever changed you most in the last ten years,",
+     "shot": "Think of whatever changed you most in the last ten years,",
+     "image": "public/images/literal-16x9/18b-final.png"
+    },
+    {
+     "id": "18c",
+     "start": 150.175,
+     "end": 154.495,
+     "duration": 4.32,
+     "cue": "and ask whether you saw it coming. Almost nobody does. It arrived,",
+     "shot": "and ask whether you saw it coming. Almost nobody does. It arrived,",
+     "image": "public/images/literal-16x9/18c-final.png"
+    },
+    {
+     "id": "18d",
+     "start": 154.495,
+     "end": 156.299,
+     "duration": 1.804,
+     "cue": "and then it was obvious,",
+     "shot": "and then it was obvious,",
+     "image": "public/images/literal-16x9/18d-final.png"
+    },
+    {
+     "id": "18e",
+     "start": 156.299,
+     "end": 161.698,
+     "duration": 5.399,
+     "cue": "and the obviousness arranged itself backwards until it seemed to have been there all along.",
+     "shot": "and the obviousness arranged itself backwards until it seemed to have been there all along.",
+     "image": "public/images/literal-16x9/18e-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 19,
+   "label": "There is a second failure",
+   "act": "The objection",
+   "start": 161.698,
+   "end": 168.456,
+   "duration": 6.758,
+   "shots": [
+    {
+     "id": "19a",
+     "start": 161.698,
+     "end": 165.452,
+     "duration": 3.754,
+     "cue": "There is a second failure sitting underneath the first one,",
+     "shot": "There is a second failure sitting underneath the first one,",
+     "image": "public/images/literal-16x9/19a-final.png"
+    },
+    {
+     "id": "19b",
+     "start": 165.452,
+     "end": 168.456,
+     "duration": 3.004,
+     "cue": "and it belongs to the same two researchers.",
+     "shot": "and it belongs to the same two researchers.",
+     "image": "public/images/literal-16x9/19b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 20,
+   "label": "Suppose someone handed you the",
+   "act": "The objection",
+   "start": 168.456,
+   "end": 181.596,
+   "duration": 13.14,
+   "shots": [
+    {
+     "id": "20a",
+     "start": 168.456,
+     "end": 172.961,
+     "duration": 4.505,
+     "cue": "Suppose someone handed you the future. You get to see the events,",
+     "shot": "Suppose someone handed you the future. You get to see the events,",
+     "image": "public/images/literal-16x9/20a-final.png"
+    },
+    {
+     "id": "20b",
+     "start": 172.961,
+     "end": 176.34,
+     "duration": 3.379,
+     "cue": "all of them, in order. The job you lose.",
+     "shot": "all of them, in order. The job you lose.",
+     "image": "public/images/literal-16x9/20b-final.png"
+    },
+    {
+     "id": "20c",
+     "start": 176.34,
+     "end": 180.094,
+     "duration": 3.754,
+     "cue": "The person who leaves. The thing you have been dreading,",
+     "shot": "The person who leaves. The thing you have been dreading,",
+     "image": "public/images/literal-16x9/20c-final.png"
+    },
+    {
+     "id": "20d",
+     "start": 180.094,
+     "end": 181.596,
+     "duration": 1.502,
+     "cue": "arriving exactly as dreaded.",
+     "shot": "arriving exactly as dreaded.",
+     "image": "public/images/literal-16x9/20d-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 21,
+   "label": "You would still get it",
+   "act": "The objection",
+   "start": 181.596,
+   "end": 190.231,
+   "duration": 8.635,
+   "shots": [
+    {
+     "id": "21a",
+     "start": 181.596,
+     "end": 185.725,
+     "duration": 4.129,
+     "cue": "You would still get it wrong. Not the events. The weather.",
+     "shot": "You would still get it wrong. Not the events. The weather.",
+     "image": "public/images/literal-16x9/21a-final.png"
+    },
+    {
+     "id": "21b",
+     "start": 185.725,
+     "end": 190.231,
+     "duration": 4.506,
+     "cue": "You would badly overestimate how long each one was going to hurt.",
+     "shot": "You would badly overestimate how long each one was going to hurt.",
+     "image": "public/images/literal-16x9/21b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 22,
+   "label": "Gilbert and wilson called this",
+   "act": "The objection",
+   "start": 190.231,
+   "end": 215.384,
+   "duration": 25.153,
+   "shots": [
+    {
+     "id": "22a",
+     "start": 190.231,
+     "end": 193.234,
+     "duration": 3.003,
+     "cue": "Gilbert and Wilson called this the durability bias,",
+     "shot": "Gilbert and Wilson called this the durability bias,",
+     "image": "public/images/literal-16x9/22a-final.png"
+    },
+    {
+     "id": "22b",
+     "start": 193.234,
+     "end": 197.739,
+     "duration": 4.505,
+     "cue": "and they found it everywhere they looked: in people imagining a breakup,",
+     "shot": "and they found it everywhere they looked: in people imagining a breakup,",
+     "image": "public/images/literal-16x9/22b-final.png"
+    },
+    {
+     "id": "22c",
+     "start": 197.739,
+     "end": 201.493,
+     "duration": 3.754,
+     "cue": "a rejected job application, an election going the wrong way,",
+     "shot": "a rejected job application, an election going the wrong way,",
+     "image": "public/images/literal-16x9/22c-final.png"
+    },
+    {
+     "id": "22d",
+     "start": 201.493,
+     "end": 202.995,
+     "duration": 1.502,
+     "cue": "a denial of tenure.",
+     "shot": "a denial of tenure.",
+     "image": "public/images/literal-16x9/22d-final.png"
+    },
+    {
+     "id": "22e",
+     "start": 202.995,
+     "end": 209.377,
+     "duration": 6.382,
+     "cue": "In every case the forecast was roughly right about the direction and badly wrong about the duration.",
+     "shot": "In every case the forecast was roughly right about the direction and badly wrong about the duration.",
+     "image": "public/images/literal-16x9/22e-final.png"
+    },
+    {
+     "id": "22f",
+     "start": 209.377,
+     "end": 213.132,
+     "duration": 3.755,
+     "cue": "People expected to be levelled, and they were levelled, briefly,",
+     "shot": "People expected to be levelled, and they were levelled, briefly,",
+     "image": "public/images/literal-16x9/22f-final.png"
+    },
+    {
+     "id": "22g",
+     "start": 213.132,
+     "end": 215.384,
+     "duration": 2.252,
+     "cue": "and then they were mostly fine.",
+     "shot": "and then they were mostly fine.",
+     "image": "public/images/literal-16x9/22g-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 23,
+   "label": "The reason is almost embarrassing",
+   "act": "The objection",
+   "start": 215.384,
+   "end": 242.04,
+   "duration": 26.656,
+   "shots": [
+    {
+     "id": "23a",
+     "start": 215.384,
+     "end": 219.514,
+     "duration": 4.13,
+     "cue": "The reason is almost embarrassing: you have a psychological immune system,",
+     "shot": "The reason is almost embarrassing: you have a psychological immune system,",
+     "image": "public/images/literal-16x9/23a-final.png"
+    },
+    {
+     "id": "23b",
+     "start": 219.514,
+     "end": 223.268,
+     "duration": 3.754,
+     "cue": "and when something bad happens it goes to work immediately,",
+     "shot": "and when something bad happens it goes to work immediately,",
+     "image": "public/images/literal-16x9/23b-final.png"
+    },
+    {
+     "id": "23c",
+     "start": 223.268,
+     "end": 224.77,
+     "duration": 1.502,
+     "cue": "without asking you first.",
+     "shot": "without asking you first.",
+     "image": "public/images/literal-16x9/23c-final.png"
+    },
+    {
+     "id": "23d",
+     "start": 224.77,
+     "end": 228.524,
+     "duration": 3.754,
+     "cue": "You find the reason it was probably for the best,",
+     "shot": "You find the reason it was probably for the best,",
+     "image": "public/images/literal-16x9/23d-final.png"
+    },
+    {
+     "id": "23e",
+     "start": 228.524,
+     "end": 233.405,
+     "duration": 4.881,
+     "cue": "and you notice all the ways that person was wrong for you anyway.",
+     "shot": "and you notice all the ways that person was wrong for you anyway.",
+     "image": "public/images/literal-16x9/23e-final.png"
+    },
+    {
+     "id": "23f",
+     "start": 233.405,
+     "end": 239.036,
+     "duration": 5.631,
+     "cue": "You quietly rewrite the job you did not get into a job you never wanted.",
+     "shot": "You quietly rewrite the job you did not get into a job you never wanted.",
+     "image": "public/images/literal-16x9/23f-final.png"
+    },
+    {
+     "id": "23g",
+     "start": 239.036,
+     "end": 242.04,
+     "duration": 3.004,
+     "cue": "It is not lying, exactly. It is maintenance.",
+     "shot": "It is not lying, exactly. It is maintenance.",
+     "image": "public/images/literal-16x9/23g-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 24,
+   "label": "And like your other immune",
+   "act": "The objection",
+   "start": 242.04,
+   "end": 262.689,
+   "duration": 20.649,
+   "shots": [
+    {
+     "id": "24a",
+     "start": 242.04,
+     "end": 246.17,
+     "duration": 4.13,
+     "cue": "And like your other immune system, you cannot feel it running.",
+     "shot": "And like your other immune system, you cannot feel it running.",
+     "image": "public/images/literal-16x9/24a-final.png"
+    },
+    {
+     "id": "24b",
+     "start": 246.17,
+     "end": 248.422,
+     "duration": 2.252,
+     "cue": "So when you picture next year,",
+     "shot": "So when you picture next year,",
+     "image": "public/images/literal-16x9/24b-final.png"
+    },
+    {
+     "id": "24c",
+     "start": 248.422,
+     "end": 251.05,
+     "duration": 2.628,
+     "cue": "you picture the wound without the healing.",
+     "shot": "you picture the wound without the healing.",
+     "image": "public/images/literal-16x9/24c-final.png"
+    },
+    {
+     "id": "24d",
+     "start": 251.05,
+     "end": 254.054,
+     "duration": 3.004,
+     "cue": "You see yourself standing out in the rain,",
+     "shot": "You see yourself standing out in the rain,",
+     "image": "public/images/literal-16x9/24d-final.png"
+    },
+    {
+     "id": "24e",
+     "start": 254.054,
+     "end": 257.057,
+     "duration": 3.003,
+     "cue": "and you forget that you own a coat,",
+     "shot": "and you forget that you own a coat,",
+     "image": "public/images/literal-16x9/24e-final.png"
+    },
+    {
+     "id": "24f",
+     "start": 257.057,
+     "end": 259.685,
+     "duration": 2.628,
+     "cue": "and that you will put it on,",
+     "shot": "and that you will put it on,",
+     "image": "public/images/literal-16x9/24f-final.png"
+    },
+    {
+     "id": "24g",
+     "start": 259.685,
+     "end": 262.689,
+     "duration": 3.004,
+     "cue": "and that you will barely remember being wet.",
+     "shot": "and that you will barely remember being wet.",
+     "image": "public/images/literal-16x9/24g-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 25,
+   "label": "Which is the first mistake",
+   "act": "What it costs",
+   "start": 262.689,
+   "end": 284.839,
+   "duration": 22.15,
+   "shots": [
+    {
+     "id": "25a",
+     "start": 262.689,
+     "end": 266.067,
+     "duration": 3.378,
+     "cue": "Which is the first mistake again, pointed somewhere new.",
+     "shot": "Which is the first mistake again, pointed somewhere new.",
+     "image": "public/images/literal-16x9/25a-final.png"
+    },
+    {
+     "id": "25b",
+     "start": 266.067,
+     "end": 270.197,
+     "duration": 4.13,
+     "cue": "You are not only bad at picturing who you will be.",
+     "shot": "You are not only bad at picturing who you will be.",
+     "image": "public/images/literal-16x9/25b-final.png"
+    },
+    {
+     "id": "25c",
+     "start": 270.197,
+     "end": 273.952,
+     "duration": 3.755,
+     "cue": "You are bad at picturing how that person will feel,",
+     "shot": "You are bad at picturing how that person will feel,",
+     "image": "public/images/literal-16x9/25c-final.png"
+    },
+    {
+     "id": "25d",
+     "start": 273.952,
+     "end": 278.081,
+     "duration": 4.129,
+     "cue": "and you get it wrong in one direction. You underestimate them.",
+     "shot": "and you get it wrong in one direction. You underestimate them.",
+     "image": "public/images/literal-16x9/25d-final.png"
+    },
+    {
+     "id": "25e",
+     "start": 278.081,
+     "end": 281.085,
+     "duration": 3.004,
+     "cue": "The future you is tougher than you think,",
+     "shot": "The future you is tougher than you think,",
+     "image": "public/images/literal-16x9/25e-final.png"
+    },
+    {
+     "id": "25f",
+     "start": 281.085,
+     "end": 284.839,
+     "duration": 3.754,
+     "cue": "and you will not give them the credit in advance.",
+     "shot": "and you will not give them the credit in advance.",
+     "image": "public/images/literal-16x9/25f-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 26,
+   "label": "Now the part that most",
+   "act": "What it costs",
+   "start": 284.839,
+   "end": 292.032,
+   "duration": 7.193,
+   "shots": [
+    {
+     "id": "26a",
+     "start": 284.839,
+     "end": 289.382,
+     "duration": 4.543,
+     "cue": "Now the part that most retellings leave out: the study has problems,",
+     "shot": "Now the part that most retellings leave out: the study has problems,",
+     "image": "public/images/literal-16x9/26a-final.png"
+    },
+    {
+     "id": "26b",
+     "start": 289.382,
+     "end": 292.032,
+     "duration": 2.65,
+     "cue": "and they are worth saying out loud.",
+     "shot": "and they are worth saying out loud.",
+     "image": "public/images/literal-16x9/26b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 27,
+   "label": "It did not follow the",
+   "act": "What it costs",
+   "start": 292.032,
+   "end": 301.876,
+   "duration": 9.844,
+   "shots": [
+    {
+     "id": "27a",
+     "start": 292.032,
+     "end": 295.818,
+     "duration": 3.786,
+     "cue": "It did not follow the same people for ten years;",
+     "shot": "It did not follow the same people for ten years;",
+     "image": "public/images/literal-16x9/27a-final.png"
+    },
+    {
+     "id": "27b",
+     "start": 295.818,
+     "end": 301.876,
+     "duration": 6.058,
+     "cue": "it asked different people of different ages on a single afternoon and lined the answers up.",
+     "shot": "it asked different people of different ages on a single afternoon and lined the answers up.",
+     "image": "public/images/literal-16x9/27b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 28,
+   "label": "It leaned on memory and",
+   "act": "What it costs",
+   "start": 301.876,
+   "end": 307.933,
+   "duration": 6.057,
+   "shots": [
+    {
+     "id": "28a",
+     "start": 301.876,
+     "end": 304.526,
+     "duration": 2.65,
+     "cue": "It leaned on memory, and memory flatters,",
+     "shot": "It leaned on memory, and memory flatters,",
+     "image": "public/images/literal-16x9/28a-final.png"
+    },
+    {
+     "id": "28b",
+     "start": 304.526,
+     "end": 307.933,
+     "duration": 3.407,
+     "cue": "because you are the one grading your own past.",
+     "shot": "because you are the one grading your own past.",
+     "image": "public/images/literal-16x9/28b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 29,
+   "label": "And there is a sharper",
+   "act": "What it costs",
+   "start": 307.933,
+   "end": 326.863,
+   "duration": 18.93,
+   "shots": [
+    {
+     "id": "29a",
+     "start": 307.933,
+     "end": 310.205,
+     "duration": 2.272,
+     "cue": "And there is a sharper objection.",
+     "shot": "And there is a sharper objection.",
+     "image": "public/images/literal-16x9/29a-final.png"
+    },
+    {
+     "id": "29b",
+     "start": 310.205,
+     "end": 312.855,
+     "duration": 2.65,
+     "cue": "Suppose you know that you will change,",
+     "shot": "Suppose you know that you will change,",
+     "image": "public/images/literal-16x9/29b-final.png"
+    },
+    {
+     "id": "29c",
+     "start": 312.855,
+     "end": 315.505,
+     "duration": 2.65,
+     "cue": "but you have no idea which way.",
+     "shot": "but you have no idea which way.",
+     "image": "public/images/literal-16x9/29c-final.png"
+    },
+    {
+     "id": "29d",
+     "start": 315.505,
+     "end": 319.67,
+     "duration": 4.165,
+     "cue": "What is your best guess for the person you will be?",
+     "shot": "What is your best guess for the person you will be?",
+     "image": "public/images/literal-16x9/29d-final.png"
+    },
+    {
+     "id": "29e",
+     "start": 319.67,
+     "end": 324.213,
+     "duration": 4.543,
+     "cue": "It is the person you are now. Not because you lack imagination,",
+     "shot": "It is the person you are now. Not because you lack imagination,",
+     "image": "public/images/literal-16x9/29e-final.png"
+    },
+    {
+     "id": "29f",
+     "start": 324.213,
+     "end": 326.863,
+     "duration": 2.65,
+     "cue": "but because that is the smart bet.",
+     "shot": "but because that is the smart bet.",
+     "image": "public/images/literal-16x9/29f-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 30,
+   "label": "So part of this famous",
+   "act": "What it costs",
+   "start": 326.863,
+   "end": 331.406,
+   "duration": 4.543,
+   "shots": [
+    {
+     "id": "30a",
+     "start": 326.863,
+     "end": 331.406,
+     "duration": 4.543,
+     "cue": "So part of this famous effect may be arithmetic rather than blindness.",
+     "shot": "So part of this famous effect may be arithmetic rather than blindness.",
+     "image": "public/images/literal-16x9/30a-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 31,
+   "label": "What survives is smaller and",
+   "act": "Close",
+   "start": 331.406,
+   "end": 339.357,
+   "duration": 7.951,
+   "shots": [
+    {
+     "id": "31a",
+     "start": 331.406,
+     "end": 334.435,
+     "duration": 3.029,
+     "cue": "What survives is smaller and still worth having:",
+     "shot": "What survives is smaller and still worth having:",
+     "image": "public/images/literal-16x9/31a-final.png"
+    },
+    {
+     "id": "31b",
+     "start": 334.435,
+     "end": 339.357,
+     "duration": 4.922,
+     "cue": "change is far easier to see behind you than in front of you.",
+     "shot": "change is far easier to see behind you than in front of you.",
+     "image": "public/images/literal-16x9/31b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 32,
+   "label": "The researchers went further and",
+   "act": "Close",
+   "start": 339.357,
+   "end": 342.762,
+   "duration": 3.405,
+   "shots": [
+    {
+     "id": "32a",
+     "start": 339.357,
+     "end": 342.762,
+     "duration": 3.405,
+     "cue": "The researchers went further, and put a price on that gap.",
+     "shot": "The researchers went further, and put a price on that gap.",
+     "image": "public/images/literal-16x9/32a-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 33,
+   "label": "They asked people what they",
+   "act": "Close",
+   "start": 342.762,
+   "end": 351.109,
+   "duration": 8.347,
+   "shots": [
+    {
+     "id": "33a",
+     "start": 342.762,
+     "end": 347.703,
+     "duration": 4.941,
+     "cue": "They asked people what they would pay to see their favourite band play in ten years,",
+     "shot": "They asked people what they would pay to see their favourite band play in ten years,",
+     "image": "public/images/literal-16x9/33a-final.png"
+    },
+    {
+     "id": "33b",
+     "start": 347.703,
+     "end": 351.109,
+     "duration": 3.406,
+     "cue": "and the answer came back at a hundred and twenty-nine dollars.",
+     "shot": "and the answer came back at a hundred and twenty-nine dollars.",
+     "image": "public/images/literal-16x9/33b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 34,
+   "label": "Then they asked what those",
+   "act": "Close",
+   "start": 351.109,
+   "end": 358.479,
+   "duration": 7.37,
+   "shots": [
+    {
+     "id": "34a",
+     "start": 351.109,
+     "end": 357.279,
+     "duration": 6.17,
+     "cue": "Then they asked what those same people would pay to see the band they loved ten years ago play tonight.",
+     "shot": "Then they asked what those same people would pay to see the band they loved ten years ago play tonight.",
+     "image": "public/images/literal-16x9/34a-final.png"
+    },
+    {
+     "id": "34b",
+     "start": 357.279,
+     "end": 358.479,
+     "duration": 1.2,
+     "cue": "Eighty dollars.",
+     "shot": "Eighty dollars.",
+     "image": "public/images/literal-16x9/34b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 35,
+   "label": "Same money same seat same",
+   "act": "Unknown",
+   "start": 358.479,
+   "end": 364.368,
+   "duration": 5.889,
+   "shots": [
+    {
+     "id": "35a",
+     "start": 358.479,
+     "end": 360.349,
+     "duration": 1.87,
+     "cue": "Same money, same seat, same band.",
+     "shot": "Same money, same seat, same band.",
+     "image": "public/images/literal-16x9/35a-final.png"
+    },
+    {
+     "id": "35b",
+     "start": 360.349,
+     "end": 364.368,
+     "duration": 4.019,
+     "cue": "The only thing that changed was which way you were facing in time.",
+     "shot": "The only thing that changed was which way you were facing in time.",
+     "image": "public/images/literal-16x9/35b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 36,
+   "label": "You will happily buy a",
+   "act": "Unknown",
+   "start": 364.368,
+   "end": 369.336,
+   "duration": 4.968,
+   "shots": [
+    {
+     "id": "36a",
+     "start": 364.368,
+     "end": 367.16,
+     "duration": 2.792,
+     "cue": "You will happily buy a ticket for a stranger,",
+     "shot": "You will happily buy a ticket for a stranger,",
+     "image": "public/images/literal-16x9/36a-final.png"
+    },
+    {
+     "id": "36b",
+     "start": 367.16,
+     "end": 369.336,
+     "duration": 2.176,
+     "cue": "as long as the stranger is you.",
+     "shot": "as long as the stranger is you.",
+     "image": "public/images/literal-16x9/36b-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 37,
+   "label": "That is the quiet cost",
+   "act": "Unknown",
+   "start": 369.336,
+   "end": 379.245,
+   "duration": 9.909,
+   "shots": [
+    {
+     "id": "37a",
+     "start": 369.336,
+     "end": 372.742,
+     "duration": 3.406,
+     "cue": "That is the quiet cost of it. You sign the lease,",
+     "shot": "That is the quiet cost of it. You sign the lease,",
+     "image": "public/images/literal-16x9/37a-final.png"
+    },
+    {
+     "id": "37b",
+     "start": 372.742,
+     "end": 375.226,
+     "duration": 2.484,
+     "cue": "take the job and book the ten-year plan,",
+     "shot": "take the job and book the ten-year plan,",
+     "image": "public/images/literal-16x9/37b-final.png"
+    },
+    {
+     "id": "37c",
+     "start": 375.226,
+     "end": 379.245,
+     "duration": 4.019,
+     "cue": "and you price every one of them for the person standing here tonight.",
+     "shot": "and you price every one of them for the person standing here tonight.",
+     "image": "public/images/literal-16x9/37c-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 38,
+   "label": "So here is the part",
+   "act": "Unknown",
+   "start": 379.245,
+   "end": 381.902,
+   "duration": 2.657,
+   "shots": [
+    {
+     "id": "38a",
+     "start": 379.245,
+     "end": 381.902,
+     "duration": 2.657,
+     "cue": "So here is the part you can use.",
+     "shot": "So here is the part you can use.",
+     "image": "public/images/literal-16x9/38a-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 39,
+   "label": "You are not the final",
+   "act": "Unknown",
+   "start": 381.902,
+   "end": 393.527,
+   "duration": 11.625,
+   "shots": [
+    {
+     "id": "39a",
+     "start": 381.902,
+     "end": 385.888,
+     "duration": 3.986,
+     "cue": "You are not the final draft. The taste you would defend tonight,",
+     "shot": "You are not the final draft. The taste you would defend tonight,",
+     "image": "public/images/literal-16x9/39a-final.png"
+    },
+    {
+     "id": "39b",
+     "start": 385.888,
+     "end": 387.881,
+     "duration": 1.993,
+     "cue": "the plan you are certain of,",
+     "shot": "the plan you are certain of,",
+     "image": "public/images/literal-16x9/39b-final.png"
+    },
+    {
+     "id": "39c",
+     "start": 387.881,
+     "end": 392.198,
+     "duration": 4.317,
+     "cue": "the person you cannot imagine living without \u2014 some of that is scaffolding,",
+     "shot": "the person you cannot imagine living without \u2014 some of that is scaffolding,",
+     "image": "public/images/literal-16x9/39c-final.png"
+    },
+    {
+     "id": "39d",
+     "start": 392.198,
+     "end": 393.527,
+     "duration": 1.329,
+     "cue": "and scaffolding comes down.",
+     "shot": "and scaffolding comes down.",
+     "image": "public/images/literal-16x9/39d-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 40,
+   "label": "Treat who you are now",
+   "act": "Unknown",
+   "start": 393.527,
+   "end": 403.159,
+   "duration": 9.632,
+   "shots": [
+    {
+     "id": "40a",
+     "start": 393.527,
+     "end": 398.177,
+     "duration": 4.65,
+     "cue": "Treat who you are now as a reasonable working estimate rather than a verdict,",
+     "shot": "Treat who you are now as a reasonable working estimate rather than a verdict,",
+     "image": "public/images/literal-16x9/40a-final.png"
+    },
+    {
+     "id": "40b",
+     "start": 398.177,
+     "end": 400.502,
+     "duration": 2.325,
+     "cue": "make the promises you can actually keep,",
+     "shot": "make the promises you can actually keep,",
+     "image": "public/images/literal-16x9/40b-final.png"
+    },
+    {
+     "id": "40c",
+     "start": 400.502,
+     "end": 403.159,
+     "duration": 2.657,
+     "cue": "and hold the rest a little more loosely.",
+     "shot": "and hold the rest a little more loosely.",
+     "image": "public/images/literal-16x9/40c-final.png"
+    }
+   ]
+  },
+  {
+   "frame": 41,
+   "label": "You are not finished you",
+   "act": "Unknown",
+   "start": 403.159,
+   "end": 409.469,
+   "duration": 6.31,
+   "shots": [
+    {
+     "id": "41a",
+     "start": 403.159,
+     "end": 406.48,
+     "duration": 3.321,
+     "cue": "You are not finished. You are the most recent version,",
+     "shot": "You are not finished. You are the most recent version,",
+     "image": "public/images/literal-16x9/41a-final.png"
+    },
+    {
+     "id": "41b",
+     "start": 406.48,
+     "end": 409.469,
+     "duration": 2.989,
+     "cue": "and the next one is already on the way.",
+     "shot": "and the next one is already on the way.",
+     "image": "public/images/literal-16x9/41b-final.png"
+    }
+   ]
+  }
+ ]
+}

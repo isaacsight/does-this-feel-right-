@@ -19,14 +19,16 @@ re-nested since this was last verified.
 
 ```
 kernelchat/
-├── Billing.md                 # Pricing history, why billing was removed
-├── Bootstrap System.md        # kbot's meta self-improvement agent team
-├── Current Status.md          # What's live, recent work, pending
-├── Discord.md                 # Community server structure, channel agents
-├── E-Ink Phones (2026).md     # Unrelated personal research note
-├── Pressroom — KERNEL PRESS.md  # KERNEL PRESS design-studio identity
-├── Roadmap.md                  # Version history, planned work
-└── Kernel/                    # Synced memory data (don't modify)
+├── Billing.md                       # Pricing history, why billing was removed
+├── Bootstrap System.md              # kbot's meta self-improvement agent team
+├── Current Status.md                # What's live, recent work, pending
+├── Discord.md                       # Community server structure, channel agents
+├── E-Ink Phones (2026).md           # Unrelated personal research note
+├── Home.md                          # Hand-maintained dashboard (added 2026-07-20) — start here
+├── KERNEL PRESS — Client Practice.md  # Agency pricing/pipeline for client builds (added 2026-07-07)
+├── Pressroom — KERNEL PRESS.md      # KERNEL PRESS design-studio identity
+├── Roadmap.md                        # Version history, planned work
+└── Kernel/                          # Synced memory data (don't modify)
     ├── Briefings/
     ├── Conversations/
     ├── Insights/
@@ -60,7 +62,9 @@ update this doc in the same pass if the shape has changed again.
      most likely to be stale, since new issues ship far more often than
      this sync runs. Get the real range from `src/content/issues/index.ts`
      (`ALL_ISSUES.length`, first/last issue numbers), not from memory.
-     Lives in `Current Status.md` and `Roadmap.md`.
+     Lives in `Current Status.md`, `Roadmap.md`, `Billing.md`, and the
+     `Home.md` dashboard's Vitals table — all four repeat the same two
+     numbers (kbot version, magazine cover/count), so update them together.
    - Pending vs. shipped work reflects reality (`Roadmap.md` — there is no
      separate `Backlog.md`; roadmap carries both)
    - No references to removed features (overage billing, Max tier, etc.)

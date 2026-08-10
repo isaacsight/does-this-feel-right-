@@ -1430,7 +1430,7 @@ Rules:
     <div className="cc-studio">
       <header className="cc-topbar">
         <div className="cc-brand">
-          <button className="cc-mark" aria-label="Back to kernel.chat" onClick={() => { window.location.hash = '#/' }}>K</button>
+          <button className="cc-mark" aria-label="Back to kernel.chat" onClick={() => { window.location.assign('/') }}>K</button>
           <div className="cc-brand-copy"><strong>Creative Studio</strong><span>Beta</span></div>
         </div>
         <div className="cc-project-title">

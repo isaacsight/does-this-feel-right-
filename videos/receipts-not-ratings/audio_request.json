@@ -1,0 +1,11 @@
+{
+  "provider": "auto",
+  "lang": "en",
+  "lines": [],
+  "bgm": {
+    "mode": "auto",
+    "query": "sparse percussive editorial underscore, brushed drums, muted piano pulse, tense minimal, 90 bpm",
+    "prompt": "Sparse, percussive editorial underscore at ~90 BPM: brushed drum kit pulse, muted felt piano, low upright bass, restrained and tense like a newsroom at night; minimal, dry, with space between hits; builds subtle intensity, thins to near-silence around two-thirds through, then one hard accented hit and a quiet resolving outro. Instrumental only, no melody hooks, no vocals.",
+    "arc": "steady pulse, thins at 2/3, single hard hit, quiet resolve"
+  }
+}

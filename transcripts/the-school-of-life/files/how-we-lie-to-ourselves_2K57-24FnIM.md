@@ -1,0 +1,16 @@
+# How We Lie to Ourselves
+**Video ID:** 2K57-24FnIM | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=2K57-24FnIM) | **Channel:** The School of Life
+
+---
+
+**[00:00]** [Music] you you you [Music]
+
+**[01:00]** because I just want to propose a toast to Friendship and yeah just having great times together so glad you came I hope you're all having fun you are you having fun yeah yeah that's really nice my so happy it's so nice to see you yeah it's really lovely it's really really fun it's been really fun it's amazing [Music]
+
+**[02:00]** but I'm I'm pleased I didn't go to university I got I mean I know you've met a lot of people and that your friends for life but I don't think that like paying nine thousand a year to make friends is really the best use of my money you know especially if I'm gonna have to pay that back I may have our friend into the contemporary movement practice I learned to walk when I was little I don't need to live I just learned that myself you follow if you get help he doesn't I don't need to tutor to tell me you know this is how movement looks in 20th century just say bus stop it was the village councillor and that's it you know they're all in the bed of breakfast and that's where it begins you know it's this orgy situation and I think first of all it's abuse of power but why people need to commit to group sex I just I find it so weird
+
+**[03:00]** and I'm gonna creep here discussing like I just I do not want to be in harness doing that kind of thing I'm just I'm not interested I think it's disgusting I I just I don't understand why somebody needs to have multiple partners cause you're so strong so good and talented and it is very unique I think actually you know what would happen if you just stripped it all back and took away all the bells and whistles the effects and just kind of just went justyou just the guitar just helped that's rude to sit there and just that's quite arrogant just to tell me what you think I should do with what I'm doing like what what do you even know about music
+
+**[04:00]** that do you know in it that you just press buttons and stuff don't you just press play and of course you don't actually create any music so for you to tell me what to do with mines just really it comes across really full of yourself you that you don't know what you're talking about I know what I'm doing with my music and if it doesn't appeal to you I'm sorry but you probably don't kind of know that genre that I'm going for or the feeling that maybe I'm not going for a genre what genre would you say my work was you don't know because you don't know music don't tell me how to do my craft in front of my friends and how I'm doing but you get it you absolutely get it earlier he doesn't get it [Music]
+
+**[05:00]** I'm so much happier being single like I couldn't you know the movies here even good on your own like I didn't know that I thought it was a couple thing but even that's even that's good now you know I've got more space in the apartment at the School of Life we believe in developing emotional intelligence to that end we've also created a whole range of products to support that growth find out more at the link on the screen now you

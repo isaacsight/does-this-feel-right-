@@ -1,0 +1,11 @@
+{
+  "name": "the-machine-makes-the-magazine",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.7.57 preview",
+    "check": "npx --yes hyperframes@0.7.57 check",
+    "render": "npx --yes hyperframes@0.7.57 render",
+    "publish": "npx --yes hyperframes@0.7.57 publish"
+  }
+}

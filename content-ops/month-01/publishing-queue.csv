@@ -1,0 +1,15 @@
+id,week,day,series,title,youtube,tiktok,instagram,x,status
+M01-01,1,Tuesday,Kernel in 60,"One agent, twenty providers",yes,yes,yes,yes,simulated
+M01-02,1,Thursday,Terminal Field Notes,"Local mode is the exit door",yes,yes,yes,yes,simulated
+M01-03,1,Saturday,Interface Report,"The lock-in test",yes,yes,yes,yes,simulated
+M01-04,2,Tuesday,Terminal Field Notes,"Fix an error without hiding the diff",yes,yes,yes,yes,simulated
+M01-05,2,Thursday,Kernel in 60,"Specialist routing",yes,yes,yes,yes,simulated
+M01-06,2,Saturday,Interface Report,"Why terminal evidence matters",yes,yes,yes,yes,simulated
+M01-L1,2,Sunday,Long-form,"A terminal agent should show its work",yes,no,no,yes,simulated
+M01-07,3,Tuesday,Kernel in 60,"Agents need an operating system",yes,yes,yes,yes,simulated
+M01-08,3,Thursday,Kernel in 60,"Capability tokens",yes,yes,yes,yes,simulated
+M01-09,3,Saturday,Interface Report,"What an audit trail proves",yes,yes,yes,yes,simulated
+M01-10,4,Tuesday,Kernel in 60,"Provenance in 45 seconds",yes,yes,yes,yes,simulated
+M01-11,4,Thursday,Interface Report,"Orchestration versus chat",yes,yes,yes,yes,simulated
+M01-12,4,Saturday,Terminal Field Notes,"The human approval gate",yes,yes,yes,yes,simulated
+M01-L2,4,Sunday,Long-form,"The stack beneath a trustworthy agent",yes,no,no,yes,simulated

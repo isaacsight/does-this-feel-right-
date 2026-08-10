@@ -1,0 +1,10 @@
+# Reasons to Remember Death
+**Video ID:** -A7VrTxuZIE | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=-A7VrTxuZIE) | **Channel:** The School of Life
+
+---
+
+**[00:00]** This is about death our death and how useful it might be to dwell on the prospect rather more than we're inclined to. Many things that we need to tackle are left aside because we're scared, we're scared to fail, scared to be alone with our own feelings, scared to reject certain people from our lives, scared to tell our partners who we really are, scared to take our dreams seriously. From fear we delay the lives we know we should be leading. There is a dark but useful solution to this delay it doesn't involve reassurance or reminding ourselves that there is time, it involves aligning our thoughts to something radically larger and scarier than any of our doubts and hesitations, something that can joilt us from our timid lethargy. We should use the thought of death not to make us despair of life but to shake us into more committedly pursuing the life we know we need to lead.
+
+**[01:00]** We will act when the fear of death is finally allowed to trump the fear of failure or humiliation, compromise or shame. We need with the best of intentions to nurture fear. Imagine you're 34 and will live optimistically to be 90. This is how many winters you have left. Frighten yourself at every turn, consider how often cancer and heart disease strike far ahead of the average death age. Read of the violent random ways of strokes and aneurysms. Talk to people at 55 and let them explain to you how swiftly their years went. Terrify yourself not in the name of despair but of inpatient courageous authenticity. In the olden days people would buy a skull and place it on their desk to keep their thoughts focused. It can now be awkward buying a skull, let this be a skull.
+
+**[02:00]** Fear is the big obstacle to doing the important stuff. Deliberately scare yourself about the only thing you need to fear and thereby be liberated to get on with everything else that so badly needs doing.

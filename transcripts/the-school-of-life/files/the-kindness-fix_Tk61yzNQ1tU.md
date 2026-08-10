@@ -1,0 +1,8 @@
+# The Kindness Fix
+**Video ID:** Tk61yzNQ1tU | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=Tk61yzNQ1tU) | **Channel:** The School of Life
+
+---
+
+**[00:00]** Saying you should try to be "kind" sounds like a really, really silly and obvious thing to say because everyone, but an idiot, knows that. DUH. It's the sort of thing you only need to tell little children to stop them being nasty in the playground. YOU know there are better things to try to be than "kind." Like be creative, inventing an app, or just in general, being the top dog. Kindness is for losers. This old, old lady is out of strength to be anything else. Now that no one goes to church anymore, we don't need a new religion of kindness and love. We don't need to hear that we shouldn't be greedy and exploitative. We don't need to take a pause and evaluate, every day, how our actions affect others. We don't need to hear regularly that we shouldn't trample on people weaker than ourselves;
+
+**[01:00]** the other people are fragile... that we need to look after one another, because we're all we have in a cold universe... that we should be slow to anger... that we shouldn't be vicious and horrible online, 'cause that hurts just as much as in the physical world... that we should try to see it in the other person's point of view. We don't need to hear that we should stop hating, dissing, insulting, overlooking, judging, slamming, and being a total ass. We know it all; it's so obvious-- didn't you know? And it's not important to be polite, either. Because politeness is FAKE, and it's always better to say and do what you really think, isn't it? No, let's not have a philosophy of kindness. Things are already going sooo well, just as they are.

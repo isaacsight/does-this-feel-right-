@@ -1,0 +1,82 @@
+{
+  "version": "5",
+  "redirects": {
+    "https://esm.sh/@supabase/supabase-js@2": "https://esm.sh/@supabase/supabase-js@2.110.8"
+  },
+  "remote": {
+    "https://deno.land/std@0.177.0/async/abortable.ts": "73acfb3ed7261ce0d930dbe89e43db8d34e017b063cf0eaa7d215477bf53442e",
+    "https://deno.land/std@0.177.0/async/deadline.ts": "c5facb0b404eede83e38bd2717ea8ab34faa2ffb20ef87fd261fcba32ba307aa",
+    "https://deno.land/std@0.177.0/async/debounce.ts": "adab11d04ca38d699444ac8a9d9856b4155e8dda2afd07ce78276c01ea5a4332",
+    "https://deno.land/std@0.177.0/async/deferred.ts": "42790112f36a75a57db4a96d33974a936deb7b04d25c6084a9fa8a49f135def8",
+    "https://deno.land/std@0.177.0/async/delay.ts": "73aa04cec034c84fc748c7be49bb15cac3dd43a57174bfdb7a4aec22c248f0dd",
+    "https://deno.land/std@0.177.0/async/mod.ts": "f04344fa21738e5ad6bea37a6bfffd57c617c2d372bb9f9dcfd118a1b622e576",
+    "https://deno.land/std@0.177.0/async/mux_async_iterator.ts": "70c7f2ee4e9466161350473ad61cac0b9f115cff4c552eaa7ef9d50c4cbb4cc9",
+    "https://deno.land/std@0.177.0/async/pool.ts": "fd082bd4aaf26445909889435a5c74334c017847842ec035739b4ae637ae8260",
+    "https://deno.land/std@0.177.0/async/retry.ts": "5efa3ba450ac0c07a40a82e2df296287b5013755d232049efd7ea2244f15b20f",
+    "https://deno.land/std@0.177.0/async/tee.ts": "47e42d35f622650b02234d43803d0383a89eb4387e1b83b5a40106d18ae36757",
+    "https://deno.land/std@0.177.0/http/server.ts": "cbb17b594651215ba95c01a395700684e569c165a567e4e04bba327f41197433",
+    "https://esm.sh/@supabase/supabase-js@2.110.8": "3fe5b529aba9ea7d19e980feb977d4da1f9300cb5378942b32f1522c21649623"
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@capacitor/android@^8.1.0",
+        "npm:@capacitor/app@^8.0.1",
+        "npm:@capacitor/cli@^8.4.2",
+        "npm:@capacitor/core@^8.1.0",
+        "npm:@capacitor/haptics@^8.0.1",
+        "npm:@capacitor/ios@^8.1.0",
+        "npm:@capacitor/push-notifications@^8.0.1",
+        "npm:@modelcontextprotocol/sdk@^1.27.1",
+        "npm:@playwright/test@^1.58.2",
+        "npm:@react-three/drei@^10.7.7",
+        "npm:@react-three/fiber@^9.6.1",
+        "npm:@sentry/react@^10.40.0",
+        "npm:@supabase/supabase-js@^2.110.7",
+        "npm:@testing-library/jest-dom@^6.9.1",
+        "npm:@testing-library/react@^16.3.2",
+        "npm:@testing-library/user-event@^14.6.1",
+        "npm:@types/blessed@~0.1.27",
+        "npm:@types/prismjs@^1.26.6",
+        "npm:@types/react-dom@^19.2.3",
+        "npm:@types/react@^19.2.14",
+        "npm:@types/three@0.182",
+        "npm:@vitejs/plugin-react@^4.7.0",
+        "npm:blessed@~0.1.81",
+        "npm:canvas@^3.2.1",
+        "npm:discord.js@^14.27.0",
+        "npm:docx@^9.7.1",
+        "npm:dotenv@^17.3.1",
+        "npm:fake-indexeddb@^6.2.5",
+        "npm:gh-pages@^6.3.0",
+        "npm:i18next-browser-languagedetector@^8.2.1",
+        "npm:i18next-http-backend@^3.0.6",
+        "npm:i18next@^25.8.13",
+        "npm:jsdom@^28.1.0",
+        "npm:motion@^12.34.5",
+        "npm:nodemailer@^9.0.3",
+        "npm:posthog-js@^1.404.1",
+        "npm:prismjs@^1.30.0",
+        "npm:puppeteer-core@^24.43.1",
+        "npm:react-dom@^19.2.4",
+        "npm:react-i18next@^16.5.4",
+        "npm:react-markdown@^10.1.0",
+        "npm:react-router-dom@^7.18.1",
+        "npm:react@^19.2.4",
+        "npm:sharp@~0.34.5",
+        "npm:three@0.182",
+        "npm:typescript@^5.9.3",
+        "npm:vite-plugin-pwa@^1.2.0",
+        "npm:vite@^6.4.3",
+        "npm:vitest@^4.0.18",
+        "npm:zustand@^5.0.11"
+      ],
+      "overrides": {
+        "undici": "^7.24.6",
+        "serialize-javascript": "^7.0.5",
+        "xml2js": "^0.6.2",
+        "protobufjs": "^7.6.5"
+      }
+    }
+  }
+}

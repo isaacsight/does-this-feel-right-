@@ -1,0 +1,10 @@
+{
+  "master": "../../output/publish/the-third-thing.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "shorts": [
+    { "name": "01-the-third-setting", "from": 1588, "to": 2824, "kicker": "THERE ARE THREE" },
+    { "name": "02-neuroception",      "from": 3595, "to": 4518, "kicker": "YOU DIDN'T DECIDE THAT" },
+    { "name": "03-co-regulation",     "from": 4617, "to": 5735, "kicker": "YOU CAN'T CALM YOURSELF" }
+  ]
+}

@@ -1,0 +1,10 @@
+# Van Gogh As a Guide to Confidence
+**Video ID:** tTRJ13PtUSk | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=tTRJ13PtUSk) | **Channel:** The School of Life
+
+---
+
+**[00:00]** in mid-september 1888 a penniless Dutchman who would in a few months be committed to an asylum and be dead within two years sat down in the Eastern corner of the plaster Forum in Al and set to work on one of the most astonishing and beloved paintings ever made Cafe Terrace at night juxtaposes are snug nighttime rituals under our defiant man-made lamps with the ultimate Mysteries and Sublimity of the cosmos and yet as we know Vincent van Gogh found no buyers for his Masterpiece no Museum came begging no Gallery gave a damn his work appeared wholly worthless to his entire era he could barely afford lunch or a new pair of shoes the local children mocked him rarely has a more despised or marginal figure walked the
+
+**[01:00]** Earth the story is so familiar that we are apt to lose sight of its ongoing relevance and Universal import people miss things on a very large scale they did so then and by implication they must continue to do so now the reasons are not very complicated and don't belong to any sort of conspiracy essentially humans are heard animals they show immense loyalty to group think and Resolute opposition to Independent analysis they follow what is fashionable they are appalled where they are told to be appalled and admiring where they are told to admire they will bow to Van Gogh when instructed to and stamp on Van Gogh when no one tells them not to without making any claims for our genius we should take inspiration if there are ways in which we are
+
+**[02:00]** presently neglected and criticized we should be wholly unsurprised and more importantly unfrightened this is the way things have always and will always be an alternative to hating and undermining ourselves is to be at points a lot more acerbic about the sort of people we live among and a lot more confident in our own path

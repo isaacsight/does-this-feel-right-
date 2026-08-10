@@ -1,0 +1,32 @@
+{
+  "master": "build/nobody-roots-for-goliath-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    {
+      "name": "01-the-lean",
+      "from": 1961,
+      "to": 4089,
+      "kicker": "YOU ALREADY PICKED"
+    },
+    {
+      "name": "02-the-trap",
+      "from": 5435,
+      "to": 7389,
+      "kicker": "HE CAN'T MENTION IT"
+    },
+    {
+      "name": "03-the-condition",
+      "from": 7972,
+      "to": 9984,
+      "kicker": "THE CONDITION WAS HE KEEP LOSING"
+    },
+    {
+      "name": "04-what-it-costs",
+      "from": 11633,
+      "to": 13531,
+      "kicker": "WHAT IT COSTS YOU"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+# When You Are Feeling Quiet and Numb
+**Video ID:** AmtZ_gBMyrc | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=AmtZ_gBMyrc) | **Channel:** The School of Life
+
+---
+
+**[00:00]** every year nature quietly takes us through a moral lesson that has much to teach us about how we might relate to certain of the more dispiriting and despair-inducing moments in our own development beginning in mid-october in the northern hemisphere the temperature drops the nights draw in the earth turns cold and hard fog lies low over the land and rain drives hard across the austere comatose grey-brown landscape there is nothing immediate we can hope for now we have nothing to do but wait with resigned patients until something better shows up far more than we can generally accept our minds too have cycles we cannot be permanently fruitful or creative excited or open there are necessary times of retrenchment when whatever we might desire there seems no alternative but to
+
+**[01:00]** stop we can no longer be productive we lose direction and inspiration we are immovably numb and sterile it can be easy to panic why should such a paralyzed and detached mood have descended on our formerly lively minds where have all our ideas and hopes gone what has happened to our previous animation and gladness we should at such times take reassurance from the late november landscape certainly things are lifeless cold and in suspension but this is not the end of the story the earth is like this not as a destination but as a phase the deadness is a prelude to new life the fallow period is a guarantor of second days to come all living organisms need to recharge themselves old leaves have to give way tired limbs must rest the dance and
+
+**[02:00]** ferment could not go on it may look as if nothing at all is happening as though this is a trance without purpose yet deep underground at this very moment nutrients are being gathered the groundwork for future ebullience and dynamism is being laid down another summer is very slowly collecting its strength as nature seeks to tell us we cannot permanently be in flower we need moments of repose and confusion there is nothing to fear things will re-emerge we should make our peace with our own mid-winters and lean on nature's wise accommodation to strengthen us in our pursuit of serenity and patience for more from the school of life you can subscribe to our channel and take a look at our range of products on our website
+
+**[03:00]** you

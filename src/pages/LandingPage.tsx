@@ -39,7 +39,7 @@ export function LandingPage() {
   // /issues/<number>. The landing is a convenience alias. Point
   // search engines at the durable URL.
   useEffect(() => {
-    const href = `https://kernel.chat/#/issues/${ISSUE.number}`
+    const href = `https://kernel.chat/issues/${ISSUE.number}`
     let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (!link) {
       link = document.createElement('link')

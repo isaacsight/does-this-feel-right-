@@ -1,0 +1,11 @@
+{
+  "name": "receipts-not-ratings",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.7.37 preview",
+    "check": "npx --yes hyperframes@0.7.37 lint && npx --yes hyperframes@0.7.37 validate && npx --yes hyperframes@0.7.37 inspect",
+    "render": "npx --yes hyperframes@0.7.37 render",
+    "publish": "npx --yes hyperframes@0.7.37 publish"
+  }
+}

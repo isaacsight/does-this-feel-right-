@@ -1,0 +1,32 @@
+{
+  "master": "build/canoes-became-boats-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    {
+      "name": "01-canoe-into-boat",
+      "from": 1946,
+      "to": 4159,
+      "kicker": "THE STORY THAT DRIFTED"
+    },
+    {
+      "name": "02-hit-or-smashed",
+      "from": 3940,
+      "to": 6038,
+      "kicker": "ONE WORD CHANGED IT"
+    },
+    {
+      "name": "03-seven-thousand-years",
+      "from": 6256,
+      "to": 8390,
+      "kicker": "A 7,000-YEAR MEMORY"
+    },
+    {
+      "name": "04-ask-somebody",
+      "from": 10611,
+      "to": 12760,
+      "kicker": "GO AND ASK"
+    }
+  ]
+}

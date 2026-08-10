@@ -1,0 +1,25 @@
+{
+  "master": "renders/you-watched-it-happen_2026-07-31_21-49-22.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "shorts": [
+    {
+      "name": "04-twenty-three-trials",
+      "from": 2224,
+      "to": 3993,
+      "kicker": "TWENTY-THREE TRIALS"
+    },
+    {
+      "name": "05-true-and-useless",
+      "from": 4139,
+      "to": 5896,
+      "kicker": "TRUE, AND USELESS"
+    },
+    {
+      "name": "06-what-it-is-good-at",
+      "from": 7881,
+      "to": 9609,
+      "kicker": "WHAT IT IS GOOD AT"
+    }
+  ]
+}

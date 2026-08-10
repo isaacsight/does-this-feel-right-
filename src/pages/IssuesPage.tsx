@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { MagazineFrame } from '../components/MagazineFrame'
 import { ALL_ISSUES } from '../content/issues'
 import './IssuesPage.css'
@@ -52,8 +53,8 @@ export function IssuesPage() {
 
         {latestIssue && (
           <article className="pop-issues-current">
-            <a
-              href={`#/issues/${latestIssue.number}`}
+            <Link
+              to={`/issues/${latestIssue.number}`}
               className="pop-issues-current-link"
               aria-label={`Read issue ${latestIssue.number}: ${latestIssue.feature}`}
             >
@@ -76,7 +77,7 @@ export function IssuesPage() {
                 </div>
               </div>
               <span className="pop-folio pop-issues-current-cta">READ THE CURRENT ISSUE <span aria-hidden="true">→</span></span>
-            </a>
+            </Link>
           </article>
         )}
 
@@ -90,8 +91,8 @@ export function IssuesPage() {
               <ol className="pop-issues-list">
                 {volume.issues.map((issue) => (
                   <li key={issue.number} className="pop-issues-row">
-                    <a
-                      href={`#/issues/${issue.number}`}
+                    <Link
+                      to={`/issues/${issue.number}`}
                       className="pop-issues-link"
                       aria-label={`Read issue ${issue.number}: ${issue.feature}`}
                     >
@@ -105,7 +106,7 @@ export function IssuesPage() {
                         <p className="pop-issues-feature-jp" lang="ja">{issue.featureJp}</p>
                       </div>
                       <span className="pop-issues-arrow" aria-hidden="true">→</span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ol>

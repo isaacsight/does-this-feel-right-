@@ -1,0 +1,8 @@
+# The Real Reason We Work So Hard
+**Video ID:** LFsVUWDNNT8 | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=LFsVUWDNNT8) | **Channel:** The School of Life
+
+---
+
+**[00:00]** we work as we do because of course we need to because nothing is cheap because the bills are incessant because of all the good and wise and sensible reasons that we've been highly aware of since midadolescence at least but that is too neat and we know it deep down we know that there is also alongside this something a bit more complicated that we use the idea of necessity to avoid we work so hard because we are in Terror of Stillness because being scared of the world offers the most respectable distraction from a dread of our own minds because we have no idea how to let anyone know us outside of our achievements because it seems inconceivable that we have any value beyond what we do because we were schooled early on in the art of Being terrified and we are
+
+**[01:00]** still too young to question our elders because we use the noise from without to drown the murmur from within because we can't read poetry for we despise anything that doesn't have a charted purpose or goal and that therefore threatens to collide us with the unexpected because we don't allow ourselves to be acquainted with the night because if we started with the questions we have no idea where we might have to go and what might need to be discarded because we are in flight from untenable sadness and regret because we haven't got too many or even any real friends because few people ever just held us quietly because we have no idea what to do with ourselves other than run because we find peace so much harder than war and because the real work might lie else swear

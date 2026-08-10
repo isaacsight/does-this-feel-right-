@@ -1,0 +1,11 @@
+{
+  "master": "renders/vertical-source-3x2.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "pictureY": 280,
+  "shorts": [
+    { "name": "01-arranging-ourselves", "from": 0,     "to": 1338,  "kicker": "NOT SUPERSTITION" },
+    { "name": "02-the-difficult-middle", "from": 4578, "to": 5562,  "kicker": "LEFT BUT NOT ARRIVED" },
+    { "name": "03-without-an-ending",    "from": 9780, "to": 10641, "kicker": "WITHOUT AN ENDING" }
+  ]
+}

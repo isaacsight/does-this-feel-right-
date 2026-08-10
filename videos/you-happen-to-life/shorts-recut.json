@@ -1,0 +1,19 @@
+{
+  "master": "renders/you-happen-to-life_2026-07-31_16-33-39.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "shorts": [
+    {
+      "name": "02-cause-or-report",
+      "from": 6085,
+      "to": 7782,
+      "kicker": "CAUSE, OR REPORT?"
+    },
+    {
+      "name": "03-said-kindly",
+      "from": 7818,
+      "to": 9545,
+      "kicker": "SAID KINDLY"
+    }
+  ]
+}

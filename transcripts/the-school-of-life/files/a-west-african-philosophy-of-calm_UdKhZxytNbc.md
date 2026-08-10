@@ -1,0 +1,12 @@
+# A West African Philosophy of Calm
+**Video ID:** UdKhZxytNbc | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=UdKhZxytNbc) | **Channel:** The School of Life
+
+---
+
+**[00:00]** among the Yuba people an ethnic group of some 52 million spread between Nigeria Togo and Benin one of the most flattering ways to describe a person is to say that they have much itutu the word denotes a particular approach to life unhurried composed assured and unflappable if a bus is late a person of itutu won't shout or get in a dispute with a ticket vendor they'll let out a minor sigh and pull a weary smile if the sky open just when they've laid out chairs in the garden for a party they will in their normal tranquil and unaffected way simply take them all back in again there isn't much that should rattle a person of itutu crucially itutu isn't any sort of divine gift or chance trait it's a
+
+**[01:00]** quality that can be cultivated and is the outcome of having absorbed a particular view of existence for the Yuba agitation and anger flow from a mistaken and overambitious sense of what it lies in our power to alter it's when we believe that we are more in command of external reality than we actually are that we respond to reversals and frustrations with rage the calm person of itutu may be every bit as sad as their hysterical counterpart about the delayed BS or torrential rain shower but what underpins their equinity is a sense that trouble could not be skirted and must be accepted as belonging to the order of things in their Noble resignation a person of itutu displays a grasp of another key term in Yuba philosophy aay which we might translate as Destiny existence or the cosmic order
+
+**[02:00]** what lies in the province of assay can't be altered by any human will but an enlightened person should understand the direction of assay and then adjust their desires and Ambitions accordingly there is one important detail here itutu doesn't only render a person wise it additionally makes them attractive including physically attractive and what we might call cool which is why any self-respecting young Yuba will strive hard to adopt its outward signs particularly when a distinguished local photographer like rashidi bisu has offered to take one's portrait many cultures retain a lingering suspicion that being effective might rely on a capacity to be frantic and hot-tempered for the Yuba agitation isn't merely an offense to a proper
+
+**[03:00]** understanding of the universe it's also just horribly unfashionable

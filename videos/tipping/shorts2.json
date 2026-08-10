@@ -1,0 +1,11 @@
+{
+  "master": "build/tipping-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    { "name": "05-cosplay",     "from": 2795,  "to": 5006,  "kicker": "TIPPING WAS COSPLAY" },
+    { "name": "06-made-up",     "from": 12798, "to": 14953, "kicker": "THE SCREEN IS TIPPING BEING HONEST" },
+    { "name": "07-the-prayer",  "from": 16871, "to": 18850, "kicker": "A STRANGE LITTLE AMERICAN PRAYER" }
+  ]
+}

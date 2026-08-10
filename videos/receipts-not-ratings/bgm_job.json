@@ -1,0 +1,15 @@
+[
+  {
+    "created_at": "2026-07-07T01:02:32.76309Z",
+    "display_name": "Sonilo Music",
+    "id": "725e7f70-a4a7-4123-9060-28b07ee94c6b",
+    "job_type": "sonilo_music",
+    "min_result_url": null,
+    "params": {
+      "duration": 78,
+      "prompt": "Sparse percussive editorial underscore at 90 BPM: brushed drum kit pulse, muted felt piano, low upright bass, restrained and tense like a newsroom at night, minimal and dry with space between hits, subtle build, thins to near-silence around two-thirds through, one hard accented hit, quiet resolving outro, instrumental only, no vocals, no melody hooks"
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G9QZoqA2PJJ1tbtQPwAmtK2RTs/hf_20260707_010232_725e7f70-a4a7-4123-9060-28b07ee94c6b.m4a",
+    "status": "completed"
+  }
+]

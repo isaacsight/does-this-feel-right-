@@ -1,0 +1,11 @@
+{
+  "name": "why-humans-need-rituals",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.7.83 preview",
+    "check": "npx --yes hyperframes@0.7.83 check",
+    "render": "npx --yes hyperframes@0.7.83 render",
+    "publish": "npx --yes hyperframes@0.7.83 publish"
+  }
+}

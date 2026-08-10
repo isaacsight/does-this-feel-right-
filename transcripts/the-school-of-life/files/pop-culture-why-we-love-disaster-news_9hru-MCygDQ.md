@@ -1,0 +1,10 @@
+# POP CULTURE: Why We Love Disaster News
+**Video ID:** 9hru-MCygDQ | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=9hru-MCygDQ) | **Channel:** The School of Life
+
+---
+
+**[00:00]** in another incident today 10 people died in a terrible portv crash there was a huge Fireball as the after days of torrential rain the landslide completely buried the house killing the inhabitants 32 after takeoff the plane's left-and engine blew up passengers reported hearing a bang before flame Park when the giant crocodile rushed to him and ate his leg in one bite we all love watching news of disasters it's embarrassing but true we like hearing about car crash cres we really love plane crashes we're fascinated by landslides we quite enjoy trains we're fascinated by deadly scorpions that bite holiday makers and we're really pretty gripped by crocodiles it all looks at the lowest distraction what monsters we are rubbernecking the scenes of tragedy on the worst day of other people's lives but it isn't all trivial we're trying to get at something important by looking at tragedy we're trying somehow to keep in mind that life is fragile for all of us
+
+**[01:00]** it might not be a plane crash that finishes us off or a fierce crocodile it might just be a slow cancer or the gradual wearing away of time but it will happen and yet Our Lives go wrong because we don't keep death in mind enough death is the most terrible thing but we can evoke the thought of death to evoke what life should be about it's this powerful fact that maybe at the back of our minds when we rush to check up on the latest disaster we're not being being ghoulish we're searching for the meaning of life we're reminding ourselves to do our hopes and talents Justice in the time that remains the thought of death has the power not only to stir our fears but also to strengthen our resolve to appreciate more fully and use more wisely the present moment to reform our priorities and to be kind grateful and serious in case Tomorrow Never Comes
+
+**[02:00]** e

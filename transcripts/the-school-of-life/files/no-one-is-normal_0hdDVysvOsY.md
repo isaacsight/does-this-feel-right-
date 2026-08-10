@@ -1,0 +1,8 @@
+# No One is 'Normal'
+**Video ID:** 0hdDVysvOsY | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=0hdDVysvOsY) | **Channel:** The School of Life
+
+---
+
+**[00:00]** We all want to be normal but our picture of what is normal is in fact really unhelpful. So many of the things were told that are weird are in fact completely average and widespread. For example, if you fear you married the wrong person; get sick with envy when a friend succeeds; fantasize about your wife's sister; want to cry when anyone criticizes you; dislike the way you look; panic at the thought of going to a party; worry a great deal about farting in public feel you might vomit during a meeting out of fear have ever had a lustful thought about a member of your own family bump your head while trying to get into a taxi are turned on by some pretty strange people are stories in the news frequently visit adult websites regard yourself as a fraud worry about not making it to the bathroom in time walk into doors lamppost, rearview mirrors, callers or that other people can see your private parts; still think about a relationship that ended badly
+
+**[01:00]** eleven years ago Then you can quietly congratulate yourself you are deeply normal We suffer so much and so unnecessarily because our picture of what is normal isn't true to how most of us actually are We get disgusted and ashamed of ourselves for no reason There's nothing strange about being compulsive, manic, anxious, sexual or even more mad Being odd is normal and that's ok It has become hard to say anything; especially on social media that won't upset someone somewhere has a myriad of

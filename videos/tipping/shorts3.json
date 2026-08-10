@@ -1,0 +1,9 @@
+{
+  "master": "build/tipping-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    { "name": "06-made-up", "from": 12798, "to": 14953, "kicker": "THE SCREEN IS TIPPING BEING HONEST" }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "master": "renders/you-are-not-finished_2026-07-30_14-35-11.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "shorts": [
+    {
+      "name": "01-you-have-changed",
+      "from": 0,
+      "to": 1537,
+      "kicker": "YOU HAVE CHANGED"
+    },
+    {
+      "name": "02-you-own-a-coat",
+      "from": 6462,
+      "to": 7881,
+      "kicker": "YOU OWN A COAT"
+    },
+    {
+      "name": "03-one-twenty-nine",
+      "from": 10181,
+      "to": 11377,
+      "kicker": "$129 VERSUS $80"
+    }
+  ]
+}

@@ -4006,3 +4006,29 @@ paths deliberately left uncommitted.
 
 **Open:** verify.mjs never run on today's 12 posts. fal balance ~$0.54 — top up
 before the next film ($3-4 for 78 frames).
+
+## 2026-08-09 (cont) — Episode 4 "America Banned Tipping. It Lost." SHIPPED same-day
+
+Film: https://youtu.be/W4Eu3uw49us (10:28, public, chapters, SRT, sources
+comment UgxEYpvq7xm06CSC9ip4AaABAg NEEDS PINNING in Studio; auto-caption track
+needs unpublishing). Substack live: /p/america-banned-tipping-it-lost
+(verified via fetch). 7 shorts posted to ALL FOUR platforms same day —
+YouTube burst of 7 was Isaac's explicit call over the measured 4-cap
+(ts0EkbTNlBo TocDyUmKGDM b-KPfyR9ssA K8VjxhaCHtM 5uaHbDLT9zA 8O-fnLOj4-A
+A3AtL2JTZCU) — watch reach-monitor for the self-competition cost, we now
+have a controlled experiment. TikTok/IG/X drip-verified 21/21; the drip's
+exit-1 "mismatches" are OLD films' virtualised-grid under-reporting, not
+real absences.
+
+Build: ~$7.37 fal (129 frames incl 4 deterministic data cards, castplate
+x3 rolls). Script: 3-seat Fable room (David trial spine / Historian
+"tipping made honest" / Schur prayer ending), 7/7 register gates.
+Narration 158.5wpm (house band). Tribunal direction: shaft = NAMED
+warm colours after 3 teal fights; theatre accent needs populated
+surround, empty black fails edge gate.
+
+New tool state: drip.mjs has --only <film>; board excludes data rows from
+prompts.json; tipping map-shots uses the register splitter + first-shot
+t=0 clamp. b015 was hand-promoted from quarantine (ground check read the
+slab's pale sage screens, sat 6.7 = hue is noise; sat-floor fix is the
+top improvement for next film).

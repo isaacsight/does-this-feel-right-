@@ -1,0 +1,10 @@
+# How to Use Death to Really Live
+**Video ID:** yg6i7nppkAw | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=yg6i7nppkAw) | **Channel:** The School of Life
+
+---
+
+**[00:00]** He died in 1849, aged 63. He was one of the important ones. Now we know nothing of him save his name. Dust to dust. It sounds peculiar to want to come out here, to the old graveyard and the ruined church - for no motive other than to take in the philosophy that emanates from them. How much these places have to teach us... Nothing can matter quite so much when this is what all achievement will amount to. There can be no protection from this fate. Once people sat in pews here; they were proud of their new hat or fine gloves; they nodded
+
+**[01:00]** to their neighbours and whispered the occasional rumour; they discretely scratched their legs; they examined their consciences; some felt deeply sorry for the wrongs they knew had done others. Now, the institution, and not just this particular building, is in ruins. They were trying hard of, course. They tried to make death less terrifying. They invented rituals to bring consolation and dignity to grief. They used soaring music. Lofty mysterious spaces. Stained glass. They invented powerful, magical stories which said that dying was only a transition to another, more real, existence. That there was a God who would show us mercy. They wanted to remind us that loss is universal, inevitable and not the end.
+
+**[02:00]** That the sorrow we feel, though heartbreaking, is part of the plan. We don’t want to go back to those old beliefs. And anyway, we can’t. But they didn't get everything wrong. The churchyard whispers to us about the shortness of our days. These people were just like us. Then it was over - as it will be for us too - before long. Life is at best 500 000 hours of consciousness. Many of which are behind us already. This haunting place urges us - with melancholy poetry - to alter our lives and our priorities while a little time still remains to us.

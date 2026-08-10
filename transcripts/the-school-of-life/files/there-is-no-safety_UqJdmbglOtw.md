@@ -1,0 +1,8 @@
+# There is no Safety
+**Video ID:** UqJdmbglOtw | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=UqJdmbglOtw) | **Channel:** The School of Life
+
+---
+
+**[00:00]** One of our deepest longings is for safety. We search for it through money, exercise, a good diet, a sound reputation, insurance, seat belts, love. And yet we remain always horribly vulnerable. A tiny blood clot and we're gone. A small slip and our reputations destroyed. A moment of inattention on the road and we're dead. A few temptations and relationships shatter. We remain subject to a constant array of random accidents. Meteorites far above and malignant cells deep within We don't have enough information to make wise choices over a lifetime. We can hold back the chaos for a while but entropy, erosion and destruction will win out in the end. The calm of a sunny morning, the money you're saving the house you feel you own the friendships you lay claim to the relationship you think is beyond question
+
+**[01:00]** none of these promise lasting safety. We are all always desperately vulnerable. Our grasp on life, therefore, needs to be loose, grateful, and ready for the worst. Our imaginations no strangers to the full range of scenarios. We should also have a small, dark space in our minds where we acknowledge just how perilous everything we are and do really is. We should, in this space, be solemn and awestruck by the dangers we're up against. And, when we can manage it, before the small, everyday apocalypses that do all of us in eventually we should struggle to be kind and cheerful. If you like our films, take a look at our shop theschooloflife.com/shop You'll find lots of thoughtful books, games, stationary, and more.

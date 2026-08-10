@@ -1,0 +1,12 @@
+# These Three Natural Things Can Save You...
+**Video ID:** xXPLbcsDOJQ | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=xXPLbcsDOJQ) | **Channel:** The School of Life
+
+---
+
+**[00:00]** We are preoccupied with ourselves in unhelpful ways. The clouds, however, know nothing of us, they float by utterly unaware of our concerns. These vast, quiet things are always to hand. There is a constant drama above our heads: collisions, fractures, swirls, separations… Human life is no less active, but it can be a moment of relief from our particular involvements to look up and be returned to a broader perspective, from where the agitations of the here and now seem less significant. It will all pass, even the current nastiness and anxiety, like the clouds that seemed so fixed and heavy but an hour ago – and yet have now moved on, leaving behind only two
+
+**[01:00]** or three of their numbers, apologetic and timid before the victorious sun, like the cowed remnants of a scattered army. They are an image of patience, and resolution. Their gnarled, worn barks speak of the hundreds of seasons they have endured. They have bent and lost branches in winter winds, they have been gnawed at by worms and beetles across the airless days of summer, they have been knocked and hacked at by farmers and children. But they endure – as we might better learn to do through their examples. All those leaves, resplendent in the summer sun, will soon be gone. Human life is as terminal, but it is the example of trees that best and most gracefully introduce
+
+**[02:00]** us to the inevitable facts of the life cycle. Nothing will be forever, say the trees. Enjoy these precious days, whisper their leaves. They are always communicating: whispering, exclaiming, arguing (with a rock or twig), confiding (in a quiet vortex), dozing (in midsummer) or shouting in rage (after a heavy shower). Like fires, they provide an ideal object of contemplation. Their constant activity enlivens the imagination. They don’t stare blankly
+
+**[03:00]** back at us, like pieces of paper on a desk. They distract our minds just enough that the good ideas, the ones that we hate to ask ourselves directly, can feel relieved of pressure and slip out - and we can make progress with ourselves. We need nature not just for physical health, but - as importantly - for sanity. No week should be counted complete if it does not include one or two minutes given over to the clouds, the trees and the streams: emissaries of perspective, patience and introspection.

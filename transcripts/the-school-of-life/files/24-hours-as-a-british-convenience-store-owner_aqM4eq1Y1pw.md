@@ -1,0 +1,12 @@
+# 24 Hours As a British Convenience Store Owner
+**Video ID:** aqM4eq1Y1pw | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=aqM4eq1Y1pw) | **Channel:** The School of Life
+
+---
+
+**[00:00]** we get here for about half five open up the shop bring the papers in from the back start making the news rounds for the paper boys deliveries sandwiches time just goes before you know it it's 10 11 12:00 most of the work is dealing with customers having a chat with some of them good morning yes beautiful thank you most of the time we just keep all the shell stocked up keep the shop tidy make a note of things that uh need replacing so that when we go to the cash and carry we know what to get got more or less everything we needed didn't need a much didn't need much more of a topup ship than anything else being a news agent you know it has
+
+**[01:00]** his ups and downs and uh one of the downsides is that you have to work long hours we have to wake up early every morning normally that's not a problem but uh sometimes it it can be difficult to wake up we bought bought the business in 2004 and for the first four or five years trade was very good it's just getting difficult less people are buying newspapers the younger generation tend to read online the older generation they're getting old and unfortunately some of them are dying this is a good oldfashioned shopkeeping Back to Basics you know how it should be how it has been and the modernday version of open all hours we quite like that interaction face to face where's my seat here she doesn't really have much family and uh she regards us as her family family so she come and sit
+
+**[02:00]** down and have a little chat with us it makes her feel better you love me coming in here don't you I do yeah we do she done me her for me as well one time she's very you know she sort of treats us like her kids Amon yeah where are you what are you doing down here I'm having a glass of water I'm going now they go away happier which makes you happy so which is very satisfying listen I'll see you tomorrow see you right here thing I don't like the most is that it's 7 days a week and it's 364 days of the year when we first had the shop I we used to have one day off now I've doubled the annual leave I have boxing day off as well so I just I don't like the fact that I only get two days off in the whole year
+
+**[03:00]** if I if I could have a week off that would be perfect for me overall it's okay I wouldn't knock it too much

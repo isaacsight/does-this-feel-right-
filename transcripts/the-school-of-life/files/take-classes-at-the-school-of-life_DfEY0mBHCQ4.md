@@ -1,0 +1,8 @@
+# Take Classes at The School of Life
+**Video ID:** DfEY0mBHCQ4 | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=DfEY0mBHCQ4) | **Channel:** The School of Life
+
+---
+
+**[00:00]** [Music] you can make the School of Life a helpful part of your life in so many ways the easiest and certainly the cheapest is to subscribe to our YouTube channel and our online book The Book of Life you can also browse our online shop where you can order our books and a variety of other products but we also have physical hubs around the world in London Paris Melbourne antwork Amsterdam Istanbul Soul sou poo and others and here you can come in and do something properly special and transformational attend one of our classes Over The Last 5 Years with the help of leading experts in a variety of fields we've designed what we call our Core Curriculum a set of just over 30 classes around the key issues that we consider most Central in emotional life especially in the area of relationships and work in our classrooms you'll find a warm Collegiate atmosphere our tutors are handpicked for their
+
+**[01:00]** friendliness empathy and knowledge we have plenty of interaction discussions and properly transformational experiences a day or evening on one of our core classes typically leads to astonishing insights new friendships and some breakthroughs you'll find our full list of Core Curriculum classes on our website go around the program slowly perhaps over a year or more or do it all at once in a short burst you'll even get a certificate in EQ when you complete the circuit a visit to a schoolof life classroom will give you the tools for a more self-aware effective and intelligent life it should also be immensely entertaining and interesting as well

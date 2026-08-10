@@ -1,0 +1,1478 @@
+{
+ "frames": [
+  {
+   "id": "m01",
+   "act": 1,
+   "group": "kitchen",
+   "env": "kitchen",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc4c/wBxo-5XFHIEJ3-24ZbvT8_nolGUfzi.png",
+   "jobId": "019fa0cd-7361-7680-8cc7-ff765ed091df",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A warm beige kitchen with pale yellow walls, a sink under a window on the back wall, a plain counter, and a red mug standing beside the sink. The stick-figure protagonist stands in the middle of the room facing the viewer, arms folded, chin slightly up, calm and completely certain. Blue curtains hang at the window.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m02",
+   "act": 1,
+   "group": "kitchen",
+   "env": "kitchen",
+   "people": false,
+   "url": "https://v3b.fal.media/files/b/0aa3dc4f/O335Xf2uMYL2UJJ_9MBvH_RPFybKwP.png",
+   "jobId": "019fa0cd-e7fd-79f2-a5ac-d2c4509fdfca",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc4c/wBxo-5XFHIEJ3-24ZbvT8_nolGUfzi.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group"
+   ],
+   "clauses": [
+    "LOCKED_CAMERA",
+    "STYLE_ENV"
+   ],
+   "prompt": "A warm beige kitchen with pale yellow walls, a sink under a window on the back wall, a plain counter, and a red mug standing beside the sink. Closer view of the sink, the counter and the red mug. Blue curtains at the window. The room is empty.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude hand-drawn cartoon in the style of a comedic explainer channel. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys. At most ONE flat red element as the accent, never on a person. Legible at a glance.\n\nCRITICAL CONSTRAINT ONE: this is an EMPTY ROOM. There are no people in this picture. No characters, no figures, no faces, no bodies, no hands, no silhouettes. Architecture, furniture and objects only.\n\nCRITICAL CONSTRAINT TWO: absolutely NO letters, words, numbers, labels, captions, signage or sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m03",
+   "act": 1,
+   "group": "kitchen",
+   "env": "kitchen",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc52/R9q5J7oVeVrVZutfR71B2_acTo5pdk.png",
+   "jobId": "019fa0ce-61bc-7410-9eee-d5da191ea847",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc4f/O335Xf2uMYL2UJJ_9MBvH_RPFybKwP.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "A warm beige kitchen with pale yellow walls, a sink under a window on the back wall, a plain counter, and a red mug standing beside the sink. The protagonist stands facing the viewer, arms folded, unaware. Behind them at the window, a second smaller stick-figure archivist stands on a wooden stepladder, calmly painting the curtains blue with a brush — one curtain is finished, the other is still bare fabric.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m04",
+   "act": 1,
+   "group": "kitchen",
+   "env": "kitchen",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc64/QjHq4kisydk8nvOsJMWUn_1Rwrx6y8.png",
+   "jobId": "019fa0ce-d608-7071-baf5-bba9075d1ea1",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc52/R9q5J7oVeVrVZutfR71B2_acTo5pdk.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "A warm beige kitchen with pale yellow walls, a sink under a window on the back wall, a plain counter, and a red mug standing beside the sink. Identical framing and identical protagonist pose. The window now has NO curtains at all — bare glass and a plain frame. The stepladder and the archivist are gone. Everything else in the room is unchanged.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m05",
+   "act": 1,
+   "group": "kitchen",
+   "env": "kitchen",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc58/yVYsIxBHWb8v1G5bCvJx1_Q10Jr8WH.png",
+   "jobId": "019fa0cf-4aa0-7b92-a768-b32e9daaf812",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc64/QjHq4kisydk8nvOsJMWUn_1Rwrx6y8.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "A warm beige kitchen with pale yellow walls, a sink under a window on the back wall, a plain counter, and a red mug standing beside the sink. The protagonist is turning their head sharply to look back over one shoulder, eyes wide, mouth open, having just noticed something. A folded wooden stepladder leans against the wall behind them.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m06",
+   "act": 1,
+   "group": "kitchen",
+   "env": "kitchen",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc5b/x1YqL1V2ySPxjFPm-52hm_ZARyP1mq.png",
+   "jobId": "019fa0cf-c435-7c20-ad36-b7f5bbcd5dfb",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc58/yVYsIxBHWb8v1G5bCvJx1_Q10Jr8WH.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "A warm beige kitchen with pale yellow walls, a sink under a window on the back wall, a plain counter, and a red mug standing beside the sink. The protagonist faces the viewer, one index finger raised, mid-objection, dignified and insistent. Behind them the archivist quietly carries the folded stepladder toward a doorway, not looking back.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m07",
+   "act": 2,
+   "group": "vault",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc5e/XMo7Q-dlQpGHCPaPjppYg_CV437XYj.png",
+   "jobId": "019fa0d0-3849-7922-9bf6-e6c13aa096fe",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A vast immaculate archive: long rows of identical pale shelving in perfect order, cool even light, no dust, nothing out of place. The protagonist stands small in the centre aisle, hands at their sides, looking pleased.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m08",
+   "act": 2,
+   "group": "vault",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc61/Urw8HUK_JE5YsqeGKOGs-_lKXwIDvd.png",
+   "jobId": "019fa0d0-ac97-74c2-99b1-11621e2b6170",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc5e/XMo7Q-dlQpGHCPaPjppYg_CV437XYj.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The same immaculate archive. The protagonist stands at a shelf, drawing out a single plain cream folder with one hand, looking satisfied.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m09",
+   "act": 2,
+   "group": "vault",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc64/Tvh8rpkv4X0W99Y4vvlIm_bjlLl4Al.png",
+   "jobId": "019fa0d1-21b6-7b51-b4c2-56963f1c1149",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc61/Urw8HUK_JE5YsqeGKOGs-_lKXwIDvd.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The same immaculate archive. The protagonist holds the cream folder open in both hands. It is completely empty — nothing inside at all. Their face has fallen: eyes wide, mouth a small flat line of dismay.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m10",
+   "act": 2,
+   "group": null,
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc67/96HdAEh2o_Clq1p5CqzFt_fengyoxm.png",
+   "jobId": "019fa0d1-9711-7ae3-8061-90b2e5891a9f",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. The protagonist kneels on the floor surrounded by a scatter of loose mismatched flat pieces of different sizes and beige tones, holding two of them up and trying to fit them together. Mild concentration.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m11",
+   "act": 2,
+   "group": "bartlett",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc6b/zQdQazp7n24zoi6bn2UQn_N2EvLUFd.png",
+   "jobId": "019fa0d2-1e56-7123-ba6f-78796bc1cd7c",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. Two stick-figure people. On the left one sits on a simple wooden chair, telling a story with an open hand raised. On the right a second sits on an identical chair holding a small blank cream notebook, listening. Deliberately undramatic and still.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m12",
+   "act": 2,
+   "group": "bartlett",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc6e/pI-brn_Dmx7qNicyunMlV_4p26cS4a.png",
+   "jobId": "019fa0d2-9126-7483-88b8-e5a442b546b0",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc6b/zQdQazp7n24zoi6bn2UQn_N2EvLUFd.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. The same two people, same chairs, same positions. The teller on the left is now gesturing wildly with both arms, body leaning, animated. The listener on the right sits perfectly still, and the blank page of their notebook is now filled with a neat, orderly, symmetrical pattern of tidy horizontal marks — no letters, just even ruled lines.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m13",
+   "act": 2,
+   "group": null,
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc71/cUccKF142gQ_xD4FetGpf_LBLuRPT3.png",
+   "jobId": "019fa0d3-1928-79a3-88b5-36231b48b051",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. The protagonist stands holding two objects, one in each hand: in the right hand a plain ordinary cup, in the left hand a strange lumpy unidentifiable object. They are calmly dropping the strange one behind their back while looking at the ordinary one. Completely untroubled.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m14",
+   "act": 3,
+   "group": "vault",
+   "env": "plain",
+   "people": false,
+   "url": "https://v3b.fal.media/files/b/0aa3dc74/iNDl8IcZ1gbf0MB3sWJrF_4if9HBZA.png",
+   "jobId": "019fa0d3-8d54-75f0-a26d-d8413f8cedeb",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc64/Tvh8rpkv4X0W99Y4vvlIm_bjlLl4Al.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group"
+   ],
+   "clauses": [
+    "LOCKED_CAMERA",
+    "STYLE_ENV"
+   ],
+   "prompt": "A vast immaculate archive: long rows of identical pale shelving in perfect order, cool even light, nothing out of place. The room is completely deserted.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude hand-drawn cartoon in the style of a comedic explainer channel. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys. At most ONE flat red element as the accent, never on a person. Legible at a glance.\n\nCRITICAL CONSTRAINT ONE: this is an EMPTY ROOM. There are no people in this picture. No characters, no figures, no faces, no bodies, no hands, no silhouettes. Architecture, furniture and objects only.\n\nCRITICAL CONSTRAINT TWO: absolutely NO letters, words, numbers, labels, captions, signage or sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m15",
+   "act": 3,
+   "group": null,
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc77/2kSYfoeMj7emP08DxH0cD_tKOIkgrQ.png",
+   "jobId": "019fa0d4-02e0-70f2-84a2-9c52aa051c74",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. The protagonist stands with their back mostly to us, pulling open a plain grey door in the far wall. Warm light spills out through the widening gap onto the floor. Their face is turned just enough to show curiosity.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m16",
+   "act": 3,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc89/P2PJDHe5e5Qucwffw6nr6_N5pOG5IK.png",
+   "jobId": "019fa0d4-7628-7d61-a4bd-52fe0330a16b",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:character-sheet",
+    "2:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. The protagonist stands at the left edge of the room, stopped dead, staring at the room with a huge shocked open-mouthed expression, arms hanging limp. Two archivist figures in the middle distance continue working on the set and do not look up.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m17",
+   "act": 3,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc7d/uoWXRWbOYeHh0mz4GNb9C_g90Q2o4W.png",
+   "jobId": "019fa0d4-ebf9-7ea0-9a63-dbb0fd6af619",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc89/P2PJDHe5e5Qucwffw6nr6_N5pOG5IK.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. An archivist stands at the workbench holding up one small blank cream index card between two fingers, presenting it. A fat open folder lies on the bench beside them, obviously otherwise empty. The protagonist looks at the card, unimpressed.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m18",
+   "act": 3,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc81/_jM8KvXID546DkxxDHXvy_1vi4YphP.png",
+   "jobId": "019fa0d5-74cc-7ed1-8a9f-2ab313f8c09e",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc7d/uoWXRWbOYeHh0mz4GNb9C_g90Q2o4W.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. The camera has moved round to see the theatrical set FROM BEHIND: raw unpainted backs of the flats, a lattice of timber braces, cables on the floor. One archivist steadies a brace with both hands.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m19",
+   "act": 3,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc85/3fL7bMP4nk_7BIodt_c13_sA5s8xeR.png",
+   "jobId": "019fa0d6-1690-7330-b058-dcd7740ef9a5",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc81/_jM8KvXID546DkxxDHXvy_1vi4YphP.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. An archivist lifts a flat painted wall panel out of a large cardboard document box on the floor, carrying it toward the set with both hands.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m20",
+   "act": 3,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc88/OmPphlHSvJFbHVtlg7278_PmwAjo1b.png",
+   "jobId": "019fa0d6-a0fd-7f92-9864-e380139637c2",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc85/3fL7bMP4nk_7BIodt_c13_sA5s8xeR.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. A second archivist stands on a low step adjusting a work lamp on a stand, aiming its beam at the set. Casual, routine, one hand on the lamp housing.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m21",
+   "act": 3,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc8c/UXYIX7vuHlR0veKHGOCu5_qGv7M1fF.png",
+   "jobId": "019fa0d7-290d-7f61-bc10-f0821287387a",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc88/OmPphlHSvJFbHVtlg7278_PmwAjo1b.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. A corner of the set is missing. An archivist is patching the gap with a panel that plainly does not match — noticeably different colour and clearly the wrong size, overlapping the edges. A second archivist walks past behind without reacting.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m22",
+   "act": 3,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc8f/z3FQ0cqTuX2az7d1TIney_W8WZVih1.png",
+   "jobId": "019fa0d7-b236-7153-9b85-d96b67fb64ef",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc8c/UXYIX7vuHlR0veKHGOCu5_qGv7M1fF.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. Two archivists push the finished set into position on castors, seen from three-quarters: the front face reads as a convincing warm kitchen, while bare timber bracing is still clearly visible around the side and back edge.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m22b",
+   "act": 3,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc92/UT9IrdEBy4Lo9AuhUvfjA_tWdwtRNA.png",
+   "jobId": "019fa0d8-26f3-73a2-8f66-0de0462eced4",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc8f/z3FQ0cqTuX2az7d1TIney_W8WZVih1.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. Seen straight on from the protagonist's eye line, the set now reads as a real warm beige kitchen with no bracing visible. The protagonist stands in the foreground looking at it, satisfied and nodding. One cupboard door on the set is a slightly different shade of beige from the others.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m23",
+   "act": 4,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc95/VIVYvgPyEMcoOArYBKLPu_N8fwGA1d.png",
+   "jobId": "019fa0d8-9c30-7d62-8696-c33aa3268deb",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc92/UT9IrdEBy4Lo9AuhUvfjA_tWdwtRNA.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. An archivist walks across the floor carrying a single small flat RED strip of card in one hand, heading toward the beige set. Purposeful and ordinary.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m24",
+   "act": 4,
+   "group": "l1974",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc99/JaQj5STysvGSYXdOaqUPL_S4xi22NN.png",
+   "jobId": "019fa0d9-24e1-7300-be20-550bfa6a5847",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. Two stick-figure people sit on simple wooden chairs side by side with their backs three-quarters to us, watching a small screen on a stand showing two simple cartoon cars. Still and attentive.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m25",
+   "act": 4,
+   "group": "l1974",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc9c/nR_anG2UAkX1s1PBMlrEM_TjisMIN3.png",
+   "jobId": "019fa0d9-98b9-7d41-8385-b60b0b00ba65",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc99/JaQj5STysvGSYXdOaqUPL_S4xi22NN.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. On the LEFT a stick-figure person sits on a simple wooden chair angled slightly toward the centre, feet on the floor, hands resting in their lap, completely neutral flat expression. On the RIGHT a second stick-figure person stands facing them holding a small blank cream notepad, UPRIGHT and still, weight even on both feet, free hand resting flat against their side, mouth a small neutral oval as they ask a short quiet question. Calm and procedural.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m26",
+   "act": 4,
+   "group": "l1974",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dc9f/zvsxqt-VmbLqqkF86mxQr_oHHborg2.png",
+   "jobId": "019fa0da-0dad-7940-a751-730e4e474987",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc9c/nR_anG2UAkX1s1PBMlrEM_TjisMIN3.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "EMPHATIC_NOT_ANGRY",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The SAME two people, SAME room, SAME chair. The seated figure on the left has not moved and keeps the exact same neutral flat expression. The ONLY change is the standing questioner on the right, who now leans forward from the waist and raises their free hand high in a large open emphatic gesture, asking the same question with much more emphasis.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nThe gesture is large but the mood is pleasant and procedural. Keep the face calm and neutral-friendly: eyebrows level, no frown, no bared teeth, no shouting, no sweat drops, no intimidation. This person is being emphatic, not aggressive.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m27",
+   "act": 4,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dca2/rLLljUo73tb43B6mlLbvA_thfEbVen.png",
+   "jobId": "019fa0da-8213-7053-a702-65abce349a02",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc95/VIVYvgPyEMcoOArYBKLPu_N8fwGA1d.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. On the theatrical set, a crash scene is being assembled — two simple cartoon cars nose to nose. An archivist leans in and scatters a small handful of flat RED fragments across the floor of the set, placing them deliberately.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m28",
+   "act": 4,
+   "group": null,
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dca6/Bed6DokJsdw4-41OmmtHb_Lq0w6x7w.png",
+   "jobId": "019fa0db-33aa-7661-93bf-4e3148de00d9",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. Two figures in one frame, connected by a single continuous motion: on the left a questioner with a blank notepad extends one open hand forward in a speaking gesture; that gesture flows directly into the hand of an archivist on the right, who is scattering flat RED fragments onto a small model floor. One movement, two people.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m29",
+   "act": 4,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dcaa/MHJ5GacIzhELgNWfFItPf_gPpD9NQA.png",
+   "jobId": "019fa0db-bc7e-79d2-852b-01cb6772ce17",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dca2/rLLljUo73tb43B6mlLbvA_thfEbVen.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. The protagonist stands in the foreground facing the viewer, tapping one index finger against their own temple, extremely pleased with themselves. Directly behind them an archivist quietly slips a small blank card into a pocket.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m30",
+   "act": 4,
+   "group": null,
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dcbc/lpC6b0iCKNi8aR7rDMsyo_NoV3j2du.png",
+   "jobId": "019fa0dc-3138-7990-bbc5-ec91132fe5d0",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. Five stick-figure people stand in a loose row facing the viewer, obviously different from each other in height and build — tall, short, stout, thin. Every one of them holds an identical small flat RED strip of card in one hand. All calm and neutral.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m31",
+   "act": 4,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dcb0/9HNPlbNsgMdsFHlIKpHRY_JiM5NtwI.png",
+   "jobId": "019fa0dc-ba72-70c2-93c5-f5ca4cf0b348",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dcaa/MHJ5GacIzhELgNWfFItPf_gPpD9NQA.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. On the theatrical set, a child's birthday scene has been assembled — a small table, a simple cake, paper hats. An archivist is carefully placing a large friendly dog into the middle of the scene with both hands. The dog looks entirely comfortable. Nobody else in the room reacts.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m32",
+   "act": 5,
+   "group": "lists",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dcb4/FGgBjr69ZQw-cL-yI7Lir_BdQWH4aY.png",
+   "jobId": "019fa0dd-582c-7ae1-8fde-9ee41f1647ec",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. The protagonist sits at a plain wooden table seen straight on, with a neat row of five simple distinct objects laid out in front of them. They study the row, concentrating.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m33",
+   "act": 5,
+   "group": "lists",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dcb7/irivJQrQzqwLZHzzDiXfK_dAhjMu6V.png",
+   "jobId": "019fa0dd-cce4-7563-93f7-30c988b93a8a",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dcb4/FGgBjr69ZQw-cL-yI7Lir_BdQWH4aY.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The SAME table and SAME protagonist in the SAME position. The objects are gone. An archivist stands beside the table holding up one small blank cream index card at eye level. Nothing else is happening. The protagonist glances at it.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m34",
+   "act": 5,
+   "group": "lists",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dcba/5phFRjJunnAEk0aINspU4_6QdgOtPK.png",
+   "jobId": "019fa0de-419f-7790-b5ae-39fd4799cdf0",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dcb7/irivJQrQzqwLZHzzDiXfK_dAhjMu6V.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The SAME table and SAME protagonist. A new row of five different simple objects is laid out in front of them. The archivist has gone. The protagonist studies the new row.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m35",
+   "act": 5,
+   "group": "lists",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dcbd/Wn6F3sChFJpuf5APcVvuv_c4TIf08f.png",
+   "jobId": "019fa0de-b59e-7ac2-b884-b25624978153",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dcba/5phFRjJunnAEk0aINspU4_6QdgOtPK.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The SAME table and SAME protagonist, who is now confidently laying out a row of five objects from memory, one hand placing the last one. Three of the objects are from the first row and two are unmistakably from the second row. The protagonist looks completely certain and has not noticed.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m36",
+   "act": 5,
+   "group": "lists",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dcc1/ER5ObQbkF3S1lbLB-g3dH_2Cl7adYU.png",
+   "jobId": "019fa0df-3d53-76c0-88e2-6d390ac96685",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dcbd/Wn6F3sChFJpuf5APcVvuv_c4TIf08f.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The SAME table and SAME protagonist, attempting the reverse: they push objects toward the far edge of the table but the objects slide straight off and tumble to the floor, refusing to stay. The protagonist watches them fall, puzzled.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m37",
+   "act": 5,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dcc5/h6dGj8NFOyxihvwgnnOBn_XGHSvLGe.png",
+   "jobId": "019fa0df-eec9-7c40-b884-675382d25a45",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dcb0/9HNPlbNsgMdsFHlIKpHRY_JiM5NtwI.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. An archivist holds a cream folder open in both hands at chest height. Its loose contents have lifted slightly and hang unsettled in the air just above the folder, as though weightless for a moment. The archivist watches them, waiting.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m38",
+   "act": 5,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3dcc9/yibPwclsprKxN91SpHquD_Q97TvRN1.png",
+   "jobId": "019fa0e0-8dc8-7b42-964a-4eb6cd7d84a6",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dcc5/h6dGj8NFOyxihvwgnnOBn_XGHSvLGe.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. The same archivist has closed the folder and is setting it down flat on the workbench with one hand. Completely ordinary and undramatic. Nothing is floating.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m39",
+   "act": 6,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de0b/qKNUs0ZSTZpDGWSOgbSEE_XkdSZOwS.png",
+   "jobId": "019fa111-ae4c-74e1-a2a2-5d7952992951",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dcc9/yibPwclsprKxN91SpHquD_Q97TvRN1.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. An archivist carries a stack of freshly built set pieces away from the stage toward the tall shelving, holding them flat against their chest.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m40",
+   "act": 6,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de0f/rKNaK7hq8K-DWxvSJAZ5s_JmEObztj.png",
+   "jobId": "019fa112-3933-7b33-8de0-e7eb6d142f13",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de0b/qKNUs0ZSTZpDGWSOgbSEE_XkdSZOwS.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. Close on a section of shelving. An archivist slides a cream folder into a narrow gap between other identical cream folders. Once in, it is indistinguishable from its neighbours.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m41",
+   "act": 6,
+   "group": "workshop",
+   "env": "workshop",
+   "people": false,
+   "url": "https://v3b.fal.media/files/b/0aa3de12/OF5-jQFrjhAis4GXociME_L8kR9ppf.png",
+   "jobId": "019fa112-aeb5-76f3-8694-1fa81e0a6762",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de0f/rKNaK7hq8K-DWxvSJAZ5s_JmEObztj.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:style-plate"
+   ],
+   "clauses": [
+    "LOCKED_CAMERA",
+    "STYLE_ENV"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. A still, straight-on view of one shelf packed with identical plain cream folders, edge to edge. Nothing distinguishes any of them. The room is deserted.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude hand-drawn cartoon in the style of a comedic explainer channel. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys. At most ONE flat red element as the accent, never on a person. Legible at a glance.\n\nCRITICAL CONSTRAINT ONE: this is an EMPTY ROOM. There are no people in this picture. No characters, no figures, no faces, no bodies, no hands, no silhouettes. Architecture, furniture and objects only.\n\nCRITICAL CONSTRAINT TWO: absolutely NO letters, words, numbers, labels, captions, signage or sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m42",
+   "act": 6,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de15/OVbvrQly1z5QtGVL0zyIx_BHdieQ6G.png",
+   "jobId": "019fa113-3838-73b2-ac32-d1a6d45b50e9",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de12/OF5-jQFrjhAis4GXociME_L8kR9ppf.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. Two archivists of identical build stand facing each other, each holding up an identical cream folder and pointing at the other's folder with the free hand, mid-disagreement. Both look equally certain.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m43",
+   "act": 6,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de19/rVLOWvic6ib3KRY3GvluT_jRPamOiG.png",
+   "jobId": "019fa113-c0c6-7820-867d-9bef0c2aa615",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de15/OVbvrQly1z5QtGVL0zyIx_BHdieQ6G.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. Wide view of the workshop in disarray: the set is half dismantled, a dropped stack of blank cream paper hangs scattered in mid-air, one archivist is slumped asleep across the workbench, and another is painting a wall panel that is lying face down on the floor.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m44",
+   "act": 6,
+   "group": "kitchen",
+   "env": "kitchen",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de1c/kkpQf9sFvK9ohKthwmp4P_SvIOOdHW.png",
+   "jobId": "019fa114-49f9-7b31-9673-ff57d83b11ac",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3dc5b/x1YqL1V2ySPxjFPm-52hm_ZARyP1mq.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "A warm beige kitchen with pale yellow walls, a sink under a window on the back wall, a plain counter, and a red mug standing beside the sink. The SAME kitchen and SAME camera as the reference image. The protagonist stands in the identical spot, arms folded. The impossible detail: the window somehow has BOTH blue curtains hanging at it AND a completely bare rail with plain glass, occupying the same window at once. Nobody reacts.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m45",
+   "act": 6,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de20/nQWSp7REoivHRTghbrBAu_U5Cwnm5d.png",
+   "jobId": "019fa114-d38a-71f1-a35d-240e388ee335",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de19/rVLOWvic6ib3KRY3GvluT_jRPamOiG.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. The protagonist stands in the centre of the workshop, one hand held out flat and open, palm up, asking for something. Three archivists are visible around the room and every single one of them is looking somewhere else — one at the ceiling, one down into a box, one at their own feet.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m46",
+   "act": 6,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de25/mWXziJL6uVotMJKOXy0In_CSVaJUln.png",
+   "jobId": "019fa115-9a49-7332-ae34-1f04ecbbc265",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de20/nQWSp7REoivHRTghbrBAu_U5Cwnm5d.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. The identical shot one moment later. Nobody has moved. The protagonist's hand is still out. Not one archivist is looking at them.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m47",
+   "act": 7,
+   "group": "workshop",
+   "env": "workshop",
+   "people": false,
+   "url": "https://v3b.fal.media/files/b/0aa3de2a/2ofKER2M8zB8T027EhNBg_rHdd4y4n.png",
+   "jobId": "019fa116-4c05-7de2-8be4-e081d263154b",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de25/mWXziJL6uVotMJKOXy0In_CSVaJUln.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:style-plate"
+   ],
+   "clauses": [
+    "LOCKED_CAMERA",
+    "STYLE_ENV"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. The workshop at the end of the day: dark, still and completely deserted. One small work lamp is left on over the bench, throwing a narrow pool of light. Every chair is empty. Nobody is in the room.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude hand-drawn cartoon in the style of a comedic explainer channel. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys. At most ONE flat red element as the accent, never on a person. Legible at a glance.\n\nCRITICAL CONSTRAINT ONE: this is an EMPTY ROOM. There are no people in this picture. No characters, no figures, no faces, no bodies, no hands, no silhouettes. Architecture, furniture and objects only.\n\nCRITICAL CONSTRAINT TWO: absolutely NO letters, words, numbers, labels, captions, signage or sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m48",
+   "act": 7,
+   "group": "evidence",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de2d/TVDFZGLSBYadIQsRnovNq_WjKlgitU.png",
+   "jobId": "019fa116-c3fb-7733-a83b-0f9864fdd3d9",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. A single plain stick-figure person sits at a simple desk seen straight on, one hand resting on a blank sheet of paper, calm and businesslike. Nothing else in the room.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m49",
+   "act": 7,
+   "group": "evidence",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de30/bKRWcVn_BWEG3xqHpDjSJ_V17eF8EZ.png",
+   "jobId": "019fa117-50f4-7690-a02c-e90310bd298e",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de2d/TVDFZGLSBYadIQsRnovNq_WjKlgitU.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The SAME plain room and SAME camera. Now four plain stick-figure people sit at four identical simple desks in a row, each with a blank sheet, each working separately. None of them look at each other.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m50",
+   "act": 7,
+   "group": "evidence",
+   "env": "plain",
+   "people": false,
+   "url": "https://v3b.fal.media/files/b/0aa3de33/Szw5wiJ-b-0i53Fw_9LRS_Tl4WYDNV.png",
+   "jobId": "019fa117-c52f-7c82-9200-2e02708196b9",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de30/bKRWcVn_BWEG3xqHpDjSJ_V17eF8EZ.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group"
+   ],
+   "clauses": [
+    "LOCKED_CAMERA",
+    "STYLE_ENV"
+   ],
+   "prompt": "The SAME plain room and SAME camera. One simple empty chair stands alone in the middle of the room. Nobody is present. Nothing is happening.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude hand-drawn cartoon in the style of a comedic explainer channel. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys. At most ONE flat red element as the accent, never on a person. Legible at a glance.\n\nCRITICAL CONSTRAINT ONE: this is an EMPTY ROOM. There are no people in this picture. No characters, no figures, no faces, no bodies, no hands, no silhouettes. Architecture, furniture and objects only.\n\nCRITICAL CONSTRAINT TWO: absolutely NO letters, words, numbers, labels, captions, signage or sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m51",
+   "act": 7,
+   "group": "evidence",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de36/3s1tepwOtcTh2YHOFFhgc_GdtPK1uI.png",
+   "jobId": "019fa118-38cd-7d52-8b07-30cd82b2cfc8",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de33/Szw5wiJ-b-0i53Fw_9LRS_Tl4WYDNV.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The SAME plain room. Seven plain stick-figure people stand in a single evenly spaced row facing the viewer, each holding one blank sheet of paper down at their side. All calm, all neutral.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m52",
+   "act": 7,
+   "group": "evidence",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de49/pzeC6_ftBkg4KEnj5gQb4_PquKoZnX.png",
+   "jobId": "019fa118-c0c4-7c93-b73f-098e1099d05c",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de36/3s1tepwOtcTh2YHOFFhgc_GdtPK1uI.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The SAME row of seven plain people in the SAME positions. Every one of them now holds their blank sheet up at chest height, facing the viewer. Every sheet is completely empty. No reaction on any face.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m53",
+   "act": 7,
+   "group": "evidence",
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de3f/DKerqUj6C5CNbWBB2wrct_Q8b0ECw1.png",
+   "jobId": "019fa119-87d0-7953-a38a-02e124f08dbe",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de49/pzeC6_ftBkg4KEnj5gQb4_PquKoZnX.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The SAME plain room. Two plain stick-figure people sit facing each other across a simple table, both mid-speech with one open hand raised, both calm and reasonable. Neither is angry.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m54",
+   "act": 7,
+   "group": null,
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de42/IojwvQM75QuGx6Rw-g1xB_tnqyz6yc.png",
+   "jobId": "019fa11a-0fbd-7af3-8c69-bae3dd33badf",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. The protagonist stands holding a single small blank cream card, looking at it, genuinely uncertain. Two identical plain cardboard boxes sit on the floor on either side of them. Not comic — simply unsure which box it came from.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m55",
+   "act": 8,
+   "group": null,
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de47/koFwTIgOSYv2YOCw-ciq8_m45Jg74j.png",
+   "jobId": "019fa11a-c4dc-79b2-b53b-434e2bc81eb7",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. The protagonist stands in an ordinary bare room facing the viewer, arms relaxed at their sides, calm and untroubled. Not distressed, not comic. Just standing.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m56",
+   "act": 8,
+   "group": null,
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de4a/kR_6CHTDN-r0qY9a3D_Lv_T7MQZcQL.png",
+   "jobId": "019fa11b-387c-7830-9de7-4e3a417ed633",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "The protagonist stands facing the viewer, entirely confident and pleasant. The room behind them is split down the middle without comment: the left half is a solid, real beige wall with a skirting board; the right half is a propped-up theatrical flat braced from behind with timber. Neither half is emphasised.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m57",
+   "act": 8,
+   "group": null,
+   "env": "plain",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de4d/pL0GWZU04bhh2FNGgZi68_CpfG4xsM.png",
+   "jobId": "019fa11b-bfc1-7ce0-8632-73562f8aa065",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png"
+   ],
+   "refOrder": [
+    "1:character-sheet"
+   ],
+   "clauses": [
+    "HANDS",
+    "STYLE"
+   ],
+   "prompt": "A plain sparse room with warm beige walls and a beige floor, seen straight on, wide. Completely empty of furniture except where stated. Flat even lighting. Two stick-figure people stand a little apart, each turned toward the viewer and each gesturing back over their own shoulder at a different version of the same simple room behind them — the two versions differ in one small detail. Both people look relaxed and sincere. Neither is angry.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m58",
+   "act": 8,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de53/JxH03puDpi6DepggX6De9_Dsy80h73.png",
+   "jobId": "019fa11c-855d-79a3-88a2-faf27022de90",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de2a/2ofKER2M8zB8T027EhNBg_rHdd4y4n.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. The protagonist stands close to the camera in the foreground, calm and unbothered, looking slightly off to one side. Behind them, deeper in the room, two archivists carry on working on the set exactly as normal, paying no attention.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m59",
+   "act": 9,
+   "group": "kitchen",
+   "env": "kitchen",
+   "people": false,
+   "url": "https://v3b.fal.media/files/b/0aa3de65/GjPW6cgqFP8A_ul5YkHKR_GSLi0vl7.png",
+   "jobId": "019fa11d-0f32-76b0-9099-92173b9da2ea",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de1c/kkpQf9sFvK9ohKthwmp4P_SvIOOdHW.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group"
+   ],
+   "clauses": [
+    "LOCKED_CAMERA",
+    "STYLE_ENV"
+   ],
+   "prompt": "A warm beige kitchen with pale yellow walls, a sink under a window on the back wall, a plain counter, and a red mug standing beside the sink. The SAME kitchen and SAME camera as the reference image, completely empty of people. The window has no curtains, only the bare rail. The red mug stands beside the sink. Still and quiet.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude hand-drawn cartoon in the style of a comedic explainer channel. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys. At most ONE flat red element as the accent, never on a person. Legible at a glance.\n\nCRITICAL CONSTRAINT ONE: this is an EMPTY ROOM. There are no people in this picture. No characters, no figures, no faces, no bodies, no hands, no silhouettes. Architecture, furniture and objects only.\n\nCRITICAL CONSTRAINT TWO: absolutely NO letters, words, numbers, labels, captions, signage or sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m60",
+   "act": 9,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de59/NX300Cids12oQHIi8Inka_aWgVQKKY.png",
+   "jobId": "019fa11d-8a11-7543-a675-df0ee8afb2f0",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de53/JxH03puDpi6DepggX6De9_Dsy80h73.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. Close on the workbench. A cream folder lies flat. An archivist's hand is peeling a small BLANK rectangular label strip off the folder's edge, and the other hand holds a fresh BLANK label strip ready to press on in its place. Both strips are completely blank with no marks of any kind.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  },
+  {
+   "id": "m61",
+   "act": 9,
+   "group": "workshop",
+   "env": "workshop",
+   "people": true,
+   "url": "https://v3b.fal.media/files/b/0aa3de5d/rBvCyMjOemsRHfqllii1f_9znGfYDJ.png",
+   "jobId": "019fa11e-2780-7413-81f4-dcffd126e675",
+   "usd": 0.15,
+   "refs": [
+    "https://v3b.fal.media/files/b/0aa3de59/NX300Cids12oQHIi8Inka_aWgVQKKY.png",
+    "https://v3b.fal.media/files/b/0aa3db9d/U3r7UQmtGuB_4TO6vWphS_3036eLDG.png",
+    "https://v3b.fal.media/files/b/0aa3dbea/wPtgltibbZy-ymCj2sev9_Zdje7YjN.png"
+   ],
+   "refOrder": [
+    "1:prev-in-group",
+    "2:character-sheet",
+    "3:style-plate"
+   ],
+   "clauses": [
+    "HANDS",
+    "LOCKED_CAMERA",
+    "STYLE"
+   ],
+   "prompt": "The cluttered charcoal-grey restoration workshop from the reference image — same shelving of cream folders and boxes, same workbench, same warm pool of beige light on the floor, same half-built theatrical set of a domestic room braced with visible timber. The protagonist stands mid-objection, one index finger raised and mouth open to speak. Beside them an archivist, not looking up, calmly drops a single small blank cream card into a separate open folder and closes it.\n\nHands are relaxed and naturally shaped. When a hand is open and visible, draw exactly five clearly separated fingers. Never draw a hand as a dangling hook, a curl, a stump or an unresolved squiggle; if a hand would be small or awkward in frame, rest it flat against the body, in a pocket, or out of view instead.\n\nLOCKED CAMERA: this frame uses the exact same camera position, height, distance and lens as the reference image. The room geometry, wall corners, floor line, furniture positions and the size and eyeline of any returning figure are all IDENTICAL to the reference. Nothing is re-staged, re-scaled or re-framed. Only the specific change described above differs.\n\nCrude, funny hand-drawn cartoon in the style of a comedic explainer channel. Thin stick-figure character with a round head and a BIG exaggerated expression. Cartoon reaction conventions welcome: motion lines, squiggles, wobble lines, exaggerated posture. Confident black outlines. Muted flat colour: warm beige rooms, charcoal interiors, cream paper, soft greys, restrained grey clothing. At most ONE flat red element per image. Comic, absurd situation played completely straight. Legible at a glance.\n\nRED DISCIPLINE: red means EVIDENCE, CORRECTION or CONTAMINATION. It may only ever appear on a small object that someone is handling, filing or repairing. Red must NEVER appear on a person: not on skin, hands, faces, hair or clothing. If no object in the scene qualifies, use no red at all — an image with zero red is correct and preferred over a red body part.\n\nCRITICAL CONSTRAINT: there must be absolutely NO letters, words, numbers, labels, captions, signage, or comic sound-effect text anywhere in the image. No writing of any kind."
+  }
+ ],
+ "spentUsd": 9.3
+}

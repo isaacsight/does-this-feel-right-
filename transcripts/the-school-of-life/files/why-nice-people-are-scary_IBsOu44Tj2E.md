@@ -1,0 +1,10 @@
+# Why Nice People Are Scary
+**Video ID:** IBsOu44Tj2E | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=IBsOu44Tj2E) | **Channel:** The School of Life
+
+---
+
+**[00:00]** We all say we want to be with someone nice; it sounds so plausible. -Did I tell you about this date last night? -What happened? It was, I mean, the worst! You think they're not going to get any worse, but then they do! Just doesn't make sense, I mean, you're clever, you're pretty, you're funny; why can't you find the right man? -Thank you! -Yeah Well, all I'm looking for, I don't think it's too much to ask, is someone who's, you know kind, funny, nice, and normal But in practice it's pretty hard to deal with niceness when it does come along. So I didn't run; it's so embarrassing! Would you like to go out for a drink sometime? -Yeah, okay! -Yeah, like, I could call you about 9 o'clock after work? -Yeah! Cool! -Brilliant! A tiny part of us might think "If they're any good, why are they interested in us?" I had the most amazing time last night. Thank you
+
+**[01:00]** I love the color of your hair. If we aren't totally convinced of our own lovability, another person's affections could be a bit unnerving. "Wouldn't they rather be with someone else? Is something wrong with them?" Their niceness can be so unsettling you might even try a trick or two. Oh, hi! It's, it's me. It's Hannah? People who treat us like shit can seem like they understand something profound about life and about us. Yeah, no, I'm, uh, I'm just at the office at the moment, yeah. Thought I'd call, see what you were doing, if you wanted to hang out. Uh, next week, sort of, time is good. I'll call you. Uh, or yeah, no, uh, you-you call me, an-or we'll figure it out.
+
+**[02:00]** Their assessment of us is more align with our assessment of ourselves. We shouldn't hold it against nice people if they like us. Maybe they see something in us we've overlooked. But you, the nice ones, shouldn't be naive either. It's very frightening to have to deal with niceness. It can be unfamiliar. It can freak some of us out. So be ready for us to panic and hang on in there.

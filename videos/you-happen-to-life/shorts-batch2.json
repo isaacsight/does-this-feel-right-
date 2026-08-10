@@ -1,0 +1,25 @@
+{
+  "master": "renders/you-happen-to-life_2026-07-31_16-33-39.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "shorts": [
+    {
+      "name": "04-i-happen-to-life",
+      "from": 318,
+      "to": 2065,
+      "kicker": "I HAPPEN TO LIFE"
+    },
+    {
+      "name": "05-rotter-1966",
+      "from": 1634,
+      "to": 3327,
+      "kicker": "ONE LINE, TWO ENDS"
+    },
+    {
+      "name": "06-said-to-somebody",
+      "from": 9783,
+      "to": 11494,
+      "kicker": "MOST OF US HAVE SAID IT"
+    }
+  ]
+}

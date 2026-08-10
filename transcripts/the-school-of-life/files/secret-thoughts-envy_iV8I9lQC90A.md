@@ -1,0 +1,8 @@
+# Secret Thoughts: Envy
+**Video ID:** iV8I9lQC90A | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=iV8I9lQC90A) | **Channel:** The School of Life
+
+---
+
+**[00:00]** I mean darling I just would never ever have predicted this I mean I knew I was down to the last 10 10 and there was some serious competition but I just never for a moment thought oh sorry that must be James Hello darling olives well they're next to the AR joke CS where they always are the package is absolutely fabulous I mean it's almost double what I'm on now but you know me darling it's not about that it's more to do with the fact that I've always wanted to work in a place where it goes beyond the surface you know it's not just about me being an attractive young woman it's not just about the double first from Oxford it's not just about the famous judge father it's about me about what I'm really truly capable of what can Venicia bring to this company the headquarters are in Mayfair which is fine but they have got branches in New York and also Soul it's not the West Coast darling I know but sometimes you just got to take the rough of the smooth I mean it did not go down well
+
+**[01:00]** with dermit and Co and to be honest it was quite embarrassing cuz they were just chucking all these offers at me being like do you want us to double the package do you want a new office do you want to travel more and I'm like no guys I love you and I'm sorry but sometimes you's just got to move on in life and for me that time's now okay gorgeous so nice to see you promise me you'll come and see us and suffer we've just had the tennis courts resurfaced they are Fab and I know James would love a rematch right nice to see you bye

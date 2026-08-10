@@ -25,11 +25,21 @@ import { join } from 'node:path'
 
 const DIR = 'output/publish'
 const PUBLISH = process.argv.includes('--publish')
+// --only <slug> limits the run to manifest-<slug>.json. Without it the drip
+// walks EVERY manifest, which once meant a "publish the new film's shorts"
+// request was about to drain two older films' queues as well.
+const onlyIdx = process.argv.indexOf('--only')
+const ONLY = onlyIdx > -1 ? process.argv[onlyIdx + 1] : null
 
 const manifests = readdirSync(DIR)
   .filter(f => /^manifest-.*\.json$/.test(f))
+  .filter(f => !ONLY || f === `manifest-${ONLY}.json`)
   .map(f => join(DIR, f))
   .sort()   // stable order; oldest naming first is fine — cadence caps the day anyway
+if (ONLY && manifests.length === 0) {
+  console.error(`--only ${ONLY}: no manifest-${ONLY}.json in ${DIR}`)
+  process.exit(1)
+}
 
 let visited = 0
 for (const path of manifests) {

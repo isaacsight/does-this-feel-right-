@@ -1,0 +1,10 @@
+# How to Be More Grateful
+**Video ID:** MU0do-agdHE | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=MU0do-agdHE) | **Channel:** The School of Life
+
+---
+
+**[00:00]** it is maddening to be reminded to appreciate what we have for someone to tell us we shouldn't forget to be [Music] grateful it's in conflict with our times and their emphasis on constant ambition and striving the idea of pausing to take stock of what has gone well to be content with many things as they are this feels strange and dangerous like some kind of losers Council or the consolation prize but in truth there is so much that if we learned we might be dead by Nightfall we would promptly remember to Value the summer night sky the taste of cold milk old brick walls deserted Railway stations the presence of our partners beside us in the Stillness of dawn [Music]
+
+**[01:00]** we are ungrateful partly out of a fear a fear of accepting what we have as if to pause to appreciate things as they are might make us soft complacent without the willpower to take on new challenges anxiety feels so much more natural it's been with us from the [Music] start but ultimately it's not heroic or sensible always to be dissatisfied relentlessly to focus on everything that's gone wrong and to obsess about our humiliations and rejections there is in truth far more courage and skill in being able to identify a hopeful perspective in knowing how to train and keep our eyes on what's been more or less okay what can best help us in this oddly is the thought of Our Own Death how soon and how unexpectedly it may come and how
+
+**[02:00]** much we'll miss about life when it does we are constantly undermined by our failure to retain the Purity and drama of this helpfully morbid Insight which should strike us once every day at least and to put it to powerful use in the ordinary course of Life gratitude is the dividend due to us when for a few moments we begin to assess our lives with a truer sense of all our small but significant advantages and with a Frank humble recognition of all we have to lose and one day will [Music]

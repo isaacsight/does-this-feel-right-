@@ -1,0 +1,32 @@
+{
+  "master": "build/somebody-has-to-die-now-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    {
+      "name": "01-rule-five",
+      "from": 3110,
+      "to": 5301,
+      "kicker": "SORRY WAS AGAINST THE RULES"
+    },
+    {
+      "name": "02-credit-score",
+      "from": 5318,
+      "to": 7517,
+      "kicker": "HONOUR WAS A CREDIT SCORE"
+    },
+    {
+      "name": "03-nil-for-three",
+      "from": 8992,
+      "to": 11118,
+      "kicker": "WHAT FINALLY KILLED IT"
+    },
+    {
+      "name": "04-wear-the-wet-hat",
+      "from": 13035,
+      "to": 15021,
+      "kicker": "WEAR THE WET HAT"
+    }
+  ]
+}

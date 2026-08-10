@@ -1,0 +1,10 @@
+# The Impact of Anger on Young Children
+**Video ID:** CX36tONlEFM | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=CX36tONlEFM) | **Channel:** The School of Life
+
+---
+
+**[00:00]** it would be nice to believe that nothing much happens to young children who grow up around violent or angry parents and caregivers it would be so nice to believe that they could simply brush off their experiences and keep an unblemished faith in life and in themselves but the more psychologists have studied children the more they've realized something extremely daunting that we are all in fact act hugely susceptible to the moods of the people around us expose people to Violent tempers early on and the scars can last a lifetime at the University of Washington's Institute for Learning and brain Sciences psychologists Professor Betty repacholi and her team have carried out a riveting experiment to show what can happen to a sensitive child that is to every child who comes in the vicinity of a raised angry voice watch how this 15-month-old boy responds
+
+**[01:00]** he what's inside the Box can take the lid off is there something in [Music] there there's a green cone to put it back inside the Box in a safe environment a child is free to explore joyfully but when there is some kind of danger represented here by so-called emoor curiosity quickly gives way to fear yeah hi Teresa I'm going to sit here and read a magazine okay that's Kelly K's going safe and read a [Music] magazine KY look at [Music] this that's aggravating that's so annoying Oh I thought it was really interesting well that's just your opinion it's
+
+**[02:00]** grating this 15-month-old was lucky he was sitting on the lap of a loving mother and was quickly comforted but many of us are less fortunate and it's life itself rather than just a pink set of beads that we have as a consequence grown too frightened to explore we should show ourselves immense compassion and strive with all our intelligence to create a world in which there might henceforth be a lot less rage and fewer cowed traumatized children

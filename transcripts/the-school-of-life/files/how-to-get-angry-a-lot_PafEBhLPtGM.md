@@ -1,0 +1,8 @@
+# How to Get Angry a Lot
+**Video ID:** PafEBhLPtGM | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=PafEBhLPtGM) | **Channel:** The School of Life
+
+---
+
+**[00:00]** How to Get Angry a Lot Forget that you might ever had done anything wrong yourself. Take things personally: that computer broke down to be mean. Constantly compare your existence with that of the happiest, most fortunate people you know. Expect that there cannot ever be traffic, and that household keys simply can't go missing. Build up isolated frustrations into giant interconnected narratives of persecution. Become very sensitive to noise, then move to a city where a lot of people are taking advantage of rising property prices to redo their homes. Start to notice fingerprints on walls, chipped plates, and towels on bathroom floors; see these as personal insults. Be sure not to get enough sleep, but never attribute your moods to tiredness. Expect children to be grateful.
+
+**[01:00]** Compare your relationship to the happiest couple that the media is choosing to tell us about at the moment. Attribute most issues in your life to the mendacity and shortsightedness of your partner, and their family. Avoid perspective. Never look at NASA images of distant galaxies. Find a YouTube channel or news outlet that you are almost certain to dislike. Watch some videos and read articles, and feel very irritated by the presentation of views you strongly disagree with. Never watch others getting angry; fail to see how absurd they can seem. Develop a faith that fury is in some ways quite impressive, macho, and makes stuff happen. Take yourself seriously, and yet, deep down, hate who you are. Think of laughter as a luxury you can't afford.

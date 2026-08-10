@@ -1,0 +1,10 @@
+# How to change your Script
+**Video ID:** 2r9lLY0h9Ew | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=2r9lLY0h9Ew) | **Channel:** The School of Life
+
+---
+
+**[00:00]** unfortunately for everyone we seem to go around the world with scripts in our minds a script is a collection of expectations about how events will unfold and how we should best respond to them built up out of the worst moments of our childhoods and our most immature and frightened deductions they're from here are some representative Scripts when I make a mistake I will get shouted at uncontrollably therefore I must never admit I'm at fault or will I trust someone they betray me therefore I must never open up or if I get too emotional there will be chaos therefore I must be very Stern and detached or if a partner is out of contact for a while this means they've abandoned me therefore I need to flare up at any threat of absence
+
+**[01:00]** these scripts tell us a lot about our pasts but the tragedy is that unaware they exist we let them determine our futures we insistently layer them onto situations in the here and now that could have had far more benevolent endings a boss very gently points out a mistake and out of a fear that this is a Prelude to Relentless humiliation we snap back or our partner lets us down in a minor way sure that this means they're about to destroy us we start to insult them the solution is to recognize that there can be different endings yes I made a mistake but the result doesn't have to be cruel reprimand yes the partner let me down but they can and do still love me very much I could get annoyed but the emotion doesn't have to escalate
+
+**[02:00]** uncontrollably in other words what happened originally doesn't have to keep happening but only if we can first understand what actually happened and to help us with this we should explore the past by completing the following sentences when I make a mistake when I trust someone if I get too emotional if a partner has to be out of touch for a while the end goal of maturity might be defined as the ability to approach as much of life as possible without a script

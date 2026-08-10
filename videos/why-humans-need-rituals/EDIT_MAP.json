@@ -1,0 +1,348 @@
+{
+  "version": 1,
+  "duration": 417.311,
+  "narration": "audio/narration.mp3",
+  "captions": false,
+  "music": false,
+  "soundEffects": false,
+  "motion": false,
+  "cutCount": 96,
+  "scenes": [
+    {
+      "frame": 1,
+      "id": "rituals-01",
+      "src": "compositions/final/01-before-the-door.html",
+      "start": 0,
+      "duration": 15.372,
+      "end": 15.372,
+      "images": [
+        "public/images/final/01a-before-the-door.png",
+        "public/images/final/01b-before-the-door.png",
+        "public/images/final/01c-before-the-door.png",
+        "public/images/final/01d-before-the-door.png"
+      ]
+    },
+    {
+      "frame": 2,
+      "id": "rituals-02",
+      "src": "compositions/final/02-the-private-ceremony.html",
+      "start": 15.372,
+      "duration": 13.096,
+      "end": 28.468,
+      "images": [
+        "public/images/final/02a-the-futures-paperwork.png",
+        "public/images/final/02b-the-futures-paperwork.png",
+        "public/images/final/02c-the-futures-paperwork.png",
+        "public/images/final/02d-the-futures-paperwork.png"
+      ]
+    },
+    {
+      "frame": 3,
+      "id": "rituals-03",
+      "src": "compositions/final/03-what-a-ritual-is.html",
+      "start": 28.468,
+      "duration": 16.115,
+      "end": 44.583,
+      "images": [
+        "public/images/final/03a-a-sequence-that-exceeds-its-task.png",
+        "public/images/final/03b-a-sequence-that-exceeds-its-task.png",
+        "public/images/final/03c-a-sequence-that-exceeds-its-task.png",
+        "public/images/final/03d-a-sequence-that-exceeds-its-task.png"
+      ]
+    },
+    {
+      "frame": 4,
+      "id": "rituals-04",
+      "src": "compositions/final/04-not-quite-a-routine.html",
+      "start": 44.583,
+      "duration": 17.926,
+      "end": 62.509,
+      "images": [
+        "public/images/final/04a-routine-and-ritual.png",
+        "public/images/final/04b-routine-and-ritual.png",
+        "public/images/final/04c-routine-and-ritual.png",
+        "public/images/final/04d-routine-and-ritual.png"
+      ]
+    },
+    {
+      "frame": 5,
+      "id": "rituals-05",
+      "src": "compositions/final/05-when-uncertainty-arrives.html",
+      "start": 62.509,
+      "duration": 16.393,
+      "end": 78.902,
+      "images": [
+        "public/images/final/05a-when-control-is-incomplete.png",
+        "public/images/final/05b-when-control-is-incomplete.png",
+        "public/images/final/05c-when-control-is-incomplete.png",
+        "public/images/final/05d-when-control-is-incomplete.png"
+      ]
+    },
+    {
+      "frame": 6,
+      "id": "rituals-06",
+      "src": "compositions/final/06-a-predictable-island.html",
+      "start": 78.902,
+      "duration": 18.762,
+      "end": 97.664,
+      "images": [
+        "public/images/final/06a-a-predictable-island.png",
+        "public/images/final/06b-a-predictable-island.png",
+        "public/images/final/06c-a-predictable-island.png",
+        "public/images/final/06d-a-predictable-island.png"
+      ]
+    },
+    {
+      "frame": 7,
+      "id": "rituals-07",
+      "src": "compositions/final/07-performance.html",
+      "start": 97.664,
+      "duration": 16.208,
+      "end": 113.872,
+      "images": [
+        "public/images/final/07a-official-absurdity.png",
+        "public/images/final/07b-official-absurdity.png",
+        "public/images/final/07c-official-absurdity.png",
+        "public/images/final/07d-official-absurdity.png"
+      ]
+    },
+    {
+      "frame": 8,
+      "id": "rituals-08",
+      "src": "compositions/final/08-control-without-control.html",
+      "start": 113.872,
+      "duration": 19.691,
+      "end": 133.563,
+      "images": [
+        "public/images/final/08a-somewhere-for-sorrow-to-stand.png",
+        "public/images/final/08b-somewhere-for-sorrow-to-stand.png",
+        "public/images/final/08c-somewhere-for-sorrow-to-stand.png",
+        "public/images/final/08d-somewhere-for-sorrow-to-stand.png"
+      ]
+    },
+    {
+      "frame": 9,
+      "id": "rituals-09",
+      "src": "compositions/final/09-the-anthropology-of-thresholds.html",
+      "start": 133.563,
+      "duration": 19.04,
+      "end": 152.60299999999998,
+      "images": [
+        "public/images/final/09a-three-parts-of-passage.png",
+        "public/images/final/09b-three-parts-of-passage.png",
+        "public/images/final/09c-three-parts-of-passage.png",
+        "public/images/final/09d-three-parts-of-passage.png"
+      ]
+    },
+    {
+      "frame": 10,
+      "id": "rituals-10",
+      "src": "compositions/final/10-the-difficult-middle.html",
+      "start": 152.603,
+      "duration": 16.068,
+      "end": 168.67100000000002,
+      "images": [
+        "public/images/final/10a-the-difficult-middle.png",
+        "public/images/final/10b-the-difficult-middle.png",
+        "public/images/final/10c-the-difficult-middle.png",
+        "public/images/final/10d-the-difficult-middle.png"
+      ]
+    },
+    {
+      "frame": 11,
+      "id": "rituals-11",
+      "src": "compositions/final/11-society-sees-the-change.html",
+      "start": 168.671,
+      "duration": 16.765,
+      "end": 185.43599999999998,
+      "images": [
+        "public/images/final/11a-society-sees-it.png",
+        "public/images/final/11b-society-sees-it.png",
+        "public/images/final/11c-society-sees-it.png",
+        "public/images/final/11d-society-sees-it.png"
+      ]
+    },
+    {
+      "frame": 12,
+      "id": "rituals-12",
+      "src": "compositions/final/12-moving-together.html",
+      "start": 185.436,
+      "duration": 22.895,
+      "end": 208.33100000000002,
+      "images": [
+        "public/images/final/12a-one-shared-piece-of-time.png",
+        "public/images/final/12b-one-shared-piece-of-time.png",
+        "public/images/final/12c-one-shared-piece-of-time.png",
+        "public/images/final/12d-one-shared-piece-of-time.png"
+      ]
+    },
+    {
+      "frame": 13,
+      "id": "rituals-13",
+      "src": "compositions/final/13-a-crowd-becomes-a-group.html",
+      "start": 208.331,
+      "duration": 19.505,
+      "end": 227.83599999999998,
+      "images": [
+        "public/images/final/13a-a-crowd-becomes-a-we.png",
+        "public/images/final/13b-a-crowd-becomes-a-we.png",
+        "public/images/final/13c-a-crowd-becomes-a-we.png",
+        "public/images/final/13d-a-crowd-becomes-a-we.png"
+      ]
+    },
+    {
+      "frame": 14,
+      "id": "rituals-14",
+      "src": "compositions/final/14-the-price-of-belonging.html",
+      "start": 227.836,
+      "duration": 21.455,
+      "end": 249.291,
+      "images": [
+        "public/images/final/14a-the-price-of-unity.png",
+        "public/images/final/14b-the-price-of-unity.png",
+        "public/images/final/14c-the-price-of-unity.png",
+        "public/images/final/14d-the-price-of-unity.png"
+      ]
+    },
+    {
+      "frame": 15,
+      "id": "rituals-15",
+      "src": "compositions/final/15-meaning-does-not-require-magic.html",
+      "start": 249.291,
+      "duration": 16.765,
+      "end": 266.056,
+      "images": [
+        "public/images/final/15a-meaning-without-magic.png",
+        "public/images/final/15b-meaning-without-magic.png",
+        "public/images/final/15c-meaning-without-magic.png",
+        "public/images/final/15d-meaning-without-magic.png"
+      ]
+    },
+    {
+      "frame": 16,
+      "id": "rituals-16",
+      "src": "compositions/final/16-the-rituals-we-fail-to-notice.html",
+      "start": 266.056,
+      "duration": 17.647,
+      "end": 283.703,
+      "images": [
+        "public/images/final/16a-ceremonies-in-disguise.png",
+        "public/images/final/16b-ceremonies-in-disguise.png",
+        "public/images/final/16c-ceremonies-in-disguise.png",
+        "public/images/final/16d-ceremonies-in-disguise.png"
+      ]
+    },
+    {
+      "frame": 17,
+      "id": "rituals-17",
+      "src": "compositions/final/17-when-ritual-becomes-a-trap.html",
+      "start": 283.703,
+      "duration": 18.576,
+      "end": 302.279,
+      "images": [
+        "public/images/final/17a-when-repetition-governs.png",
+        "public/images/final/17b-when-repetition-governs.png",
+        "public/images/final/17c-when-repetition-governs.png",
+        "public/images/final/17d-when-repetition-governs.png"
+      ]
+    },
+    {
+      "frame": 18,
+      "id": "rituals-18",
+      "src": "compositions/final/18-build-one-deliberately.html",
+      "start": 302.279,
+      "duration": 23.684,
+      "end": 325.963,
+      "images": [
+        "public/images/final/18a-build-a-modest-ritual.png",
+        "public/images/final/18b-build-a-modest-ritual.png",
+        "public/images/final/18c-build-a-modest-ritual.png",
+        "public/images/final/18d-build-a-modest-ritual.png"
+      ]
+    },
+    {
+      "frame": 19,
+      "id": "rituals-19",
+      "src": "compositions/final/19-beginning-work.html",
+      "start": 325.963,
+      "duration": 14.211,
+      "end": 340.17400000000004,
+      "images": [
+        "public/images/final/19a-beginning-work.png",
+        "public/images/final/19b-beginning-work.png",
+        "public/images/final/19c-beginning-work.png",
+        "public/images/final/19d-beginning-work.png"
+      ]
+    },
+    {
+      "frame": 20,
+      "id": "rituals-20",
+      "src": "compositions/final/20-ending-work.html",
+      "start": 340.174,
+      "duration": 14.536,
+      "end": 354.71,
+      "images": [
+        "public/images/final/20a-ending-work.png",
+        "public/images/final/20b-ending-work.png",
+        "public/images/final/20c-ending-work.png",
+        "public/images/final/20d-ending-work.png"
+      ]
+    },
+    {
+      "frame": 21,
+      "id": "rituals-21",
+      "src": "compositions/final/21-remembering.html",
+      "start": 354.71,
+      "duration": 15.186,
+      "end": 369.89599999999996,
+      "images": [
+        "public/images/final/21a-remembering.png",
+        "public/images/final/21b-remembering.png",
+        "public/images/final/21c-remembering.png",
+        "public/images/final/21d-remembering.png"
+      ]
+    },
+    {
+      "frame": 22,
+      "id": "rituals-22",
+      "src": "compositions/final/22-a-ritual-is-a-bridge.html",
+      "start": 369.896,
+      "duration": 19.83,
+      "end": 389.726,
+      "images": [
+        "public/images/final/22a-identity-arrives-late.png",
+        "public/images/final/22b-identity-arrives-late.png",
+        "public/images/final/22c-identity-arrives-late.png",
+        "public/images/final/22d-identity-arrives-late.png"
+      ]
+    },
+    {
+      "frame": 23,
+      "id": "rituals-23",
+      "src": "compositions/final/23-return-to-the-door.html",
+      "start": 389.726,
+      "duration": 12.26,
+      "end": 401.986,
+      "images": [
+        "public/images/final/23a-arranging-ourselves.png",
+        "public/images/final/23b-arranging-ourselves.png",
+        "public/images/final/23c-arranging-ourselves.png",
+        "public/images/final/23d-arranging-ourselves.png"
+      ]
+    },
+    {
+      "frame": 24,
+      "id": "rituals-24",
+      "src": "compositions/final/24-crossing.html",
+      "start": 401.986,
+      "duration": 15.325,
+      "end": 417.311,
+      "images": [
+        "public/images/final/24a-crossing.png",
+        "public/images/final/24b-crossing.png",
+        "public/images/final/24c-crossing.png",
+        "public/images/final/24d-crossing.png"
+      ]
+    }
+  ]
+}

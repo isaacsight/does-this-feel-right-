@@ -1,0 +1,1089 @@
+{
+  "version": 2,
+  "source": "ElevenLabs forced alignment",
+  "duration": 417.309025,
+  "cutCount": 96,
+  "exactClauseTiming": true,
+  "frames": [
+    {
+      "frame": 1,
+      "label": "Before the door",
+      "start": 0,
+      "end": 15.37161,
+      "duration": 15.37161,
+      "shots": [
+        {
+          "id": "01a-literal",
+          "start": 0,
+          "end": 4.65,
+          "duration": 4.65,
+          "cue": "There are moments when a reasonable person becomes unavailable for reasonable behavior.",
+          "shot": "Outside one curved stone interview auditorium, the lead stops walking and stares at the open door with a composed face that is becoming unreasonably solemn; one cyan cube receptionist waits inside.",
+          "image": "public/images/literal/01a-literal.png"
+        },
+        {
+          "id": "01b-literal",
+          "start": 4.65,
+          "end": 7.655,
+          "duration": 3.005,
+          "cue": "Before an interview, we may tap the table twice,",
+          "shot": "Beside the same door, the lead taps one plain side table exactly twice with one occupied index finger and looks grave about the act.",
+          "image": "public/images/literal/01b-literal.png"
+        },
+        {
+          "id": "01c-literal",
+          "start": 7.655,
+          "end": 9.96,
+          "duration": 2.305,
+          "cue": "straighten an object that was already straight,",
+          "shot": "At the same table, the lead nudges one already straight cream pencil until it is perfectly parallel with the table edge and looks embarrassed by the precision.",
+          "image": "public/images/literal/01c-literal.png"
+        },
+        {
+          "id": "01d-literal",
+          "start": 9.96,
+          "end": 15.372,
+          "duration": 5.412,
+          "cue": "and refuse to enter until the left shoe has been tied with appropriate moral seriousness.",
+          "shot": "At the same unopened threshold, the lead crouches to retie only the left cream sneaker while the receptionist holds the door and the lead looks humiliated but determined not to enter yet.",
+          "image": "public/images/literal/01d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "label": "The private ceremony",
+      "start": 15.37161,
+      "end": 28.467664,
+      "duration": 13.096054,
+      "shots": [
+        {
+          "id": "02a-literal",
+          "start": 15.372,
+          "end": 17.71,
+          "duration": 2.338,
+          "cue": "We know the shoe does not control the interview.",
+          "shot": "Beside the same auditorium door, the lead points at the finished left shoe knot and then at the interview room, wearing a skeptical face because the knot plainly controls nothing.",
+          "image": "public/images/literal/02a-literal.png"
+        },
+        {
+          "id": "02b-literal",
+          "start": 17.71,
+          "end": 22.46,
+          "duration": 4.75,
+          "cue": "The interviewer cannot sense that the knot has been executed according to ancient law.",
+          "shot": "From outside the same doorway, the lead studies the knot while the cyan interviewer inside faces away and cannot see it; the lead looks knowingly foolish.",
+          "image": "public/images/literal/02b-literal.png"
+        },
+        {
+          "id": "02c-literal",
+          "start": 22.46,
+          "end": 24.6,
+          "duration": 2.14,
+          "cue": "Yet an interruption can leave us strangely",
+          "shot": "A small moss-green bird lands on the side table before the second tap, freezing the lead halfway through the sequence with one finger occupied and an exposed, alarmed face.",
+          "image": "public/images/literal/02c-literal.png"
+        },
+        {
+          "id": "02d-literal",
+          "start": 24.6,
+          "end": 28.468,
+          "duration": 3.868,
+          "cue": "exposed—as if the future has caught us without its paperwork.",
+          "shot": "After the bird leaves, one cyan clerk creature presents a completely blank cream folder while the lead searches the satchel with both hands and looks panicked, as though missing the future's paperwork.",
+          "image": "public/images/literal/02d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "label": "What a ritual is",
+      "start": 28.467664,
+      "end": 44.582313,
+      "duration": 16.114649,
+      "shots": [
+        {
+          "id": "03a-literal",
+          "start": 28.468,
+          "end": 30.54,
+          "duration": 2.072,
+          "cue": "This is the territory of ritual:",
+          "shot": "On the path beside the auditorium, the lead lays one smooth cream stone on one moss-green cloth and looks intent, beginning a ritual in full view.",
+          "image": "public/images/literal/03a-literal.png"
+        },
+        {
+          "id": "03b-literal",
+          "start": 30.54,
+          "end": 38.025,
+          "duration": 7.485,
+          "cue": "a sequence of actions whose importance exceeds their immediate practical result. We perform it in a particular order,",
+          "shot": "At the same cloth, the lead places one cyan cup beside the stone, rotates the stone once, and crosses the objects in a fixed order while a cube robot observes.",
+          "image": "public/images/literal/03b-literal.png"
+        },
+        {
+          "id": "03c-literal",
+          "start": 38.025,
+          "end": 40.7,
+          "duration": 2.675,
+          "cue": "repeat it, and attach meaning to it.",
+          "shot": "At the same cloth, the lead repeats the rotation and rests one occupied finger on the stone with a personally attached expression.",
+          "image": "public/images/literal/03c-literal.png"
+        },
+        {
+          "id": "03d-literal",
+          "start": 40.7,
+          "end": 44.582,
+          "duration": 3.882,
+          "cue": "From outside, it often appears to be doing almost nothing.",
+          "shot": "From the observing robot's angle, the lead completes the solemn sequence while the stone and cup remain practically unchanged; the robot looks deadpan.",
+          "image": "public/images/literal/03d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "label": "Not quite a routine",
+      "start": 44.582313,
+      "end": 62.508117999999996,
+      "duration": 17.925805,
+      "shots": [
+        {
+          "id": "04a-literal",
+          "start": 44.582,
+          "end": 46.65,
+          "duration": 2.068,
+          "cue": "A routine gets the teeth brushed.",
+          "shot": "At one open-air washstand near the auditorium garden, the lead brushes the teeth briskly while looking bored, completing an ordinary task.",
+          "image": "public/images/literal/04a-literal.png"
+        },
+        {
+          "id": "04b-literal",
+          "start": 46.65,
+          "end": 52.544,
+          "duration": 5.895,
+          "cue": "A ritual can make brushing them the border between public day and private night.",
+          "shot": "At the same washstand at sunset, the lead brushes once more before stepping toward a low curved threshold stone and looks relieved that the public day is ending.",
+          "image": "public/images/literal/04b-literal.png"
+        },
+        {
+          "id": "04c-literal",
+          "start": 52.544,
+          "end": 57.44,
+          "duration": 4.895,
+          "cue": "The movements may look similar. The psychological job differs:",
+          "shot": "The lead holds the same toothbrush in the same position while looking from the daytime workbench behind to the sleeping mat ahead, noticing that the movement is identical.",
+          "image": "public/images/literal/04c-literal.png"
+        },
+        {
+          "id": "04d-literal",
+          "start": 57.44,
+          "end": 62.508,
+          "duration": 5.068,
+          "cue": "one completes a task; the other announces that something has changed.",
+          "shot": "The lead sets the toothbrush in one cup and steps across the low threshold toward the sleeping mat, looking wistful because the action announces that the day has changed.",
+          "image": "public/images/literal/04d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "label": "When uncertainty arrives",
+      "start": 62.508117999999996,
+      "end": 78.901406,
+      "duration": 16.393288,
+      "shots": [
+        {
+          "id": "05a-literal",
+          "start": 62.508,
+          "end": 66.745,
+          "duration": 4.237,
+          "cue": "Rituals become attractive when the result matters and our control is incomplete:",
+          "shot": "Backstage at the same garden auditorium, the lead grips one blank speech card with both hands and looks tense because the performance matters but the audience cannot be controlled.",
+          "image": "public/images/literal/05a-literal.png"
+        },
+        {
+          "id": "05b-literal",
+          "start": 66.745,
+          "end": 70.39,
+          "duration": 3.645,
+          "cue": "before a performance, after a loss, during illness,",
+          "shot": "On the same garden path, the lead pauses beside one empty memorial chair and then beside one cyan clinic bench, looking apprehensive as loss and illness remain outside personal control.",
+          "image": "public/images/literal/05b-literal.png"
+        },
+        {
+          "id": "05c-literal",
+          "start": 70.39,
+          "end": 75.005,
+          "duration": 4.615,
+          "cue": "or while waiting for news that has declined to arrive on a civilized schedule.",
+          "shot": "At one blank cyan message terminal beside the path, the lead waits with both hands gripping the satchel strap and looks increasingly offended by news that has not arrived.",
+          "image": "public/images/literal/05c-literal.png"
+        },
+        {
+          "id": "05d-literal",
+          "start": 75.005,
+          "end": 78.901,
+          "duration": 3.896,
+          "cue": "The world becomes uncertain, so we make one small part exact.",
+          "shot": "While wind bends the garden plants around the terminal, the lead aligns one cream cup exactly with one table edge and looks fragile but focused on the single controllable act.",
+          "image": "public/images/literal/05d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "label": "A predictable island",
+      "start": 78.901406,
+      "end": 97.663129,
+      "duration": 18.761723,
+      "shots": [
+        {
+          "id": "06a-literal",
+          "start": 78.901,
+          "end": 83.13,
+          "duration": 4.229,
+          "cue": "Researchers have asked anxious people to follow rigid, repeating patterns.",
+          "shot": "At an outdoor research table, one cyan researcher robot asks the anxious lead to move one stone between three plain circles in a rigid repeating order; both of the lead's hands stay occupied.",
+          "image": "public/images/literal/06a-literal.png"
+        },
+        {
+          "id": "06b-literal",
+          "start": 83.13,
+          "end": 91.675,
+          "duration": 8.545,
+          "cue": "The evidence is not uniform, but predictable action can sometimes reduce reported anxiety or change the brain’s response to mistakes.",
+          "shot": "At the same table after several repetitions, the lead makes the next move without hesitation and the clenched eyebrows loosen slightly while the researcher watches.",
+          "image": "public/images/literal/06b-literal.png"
+        },
+        {
+          "id": "06c-literal",
+          "start": 91.675,
+          "end": 94.62,
+          "duration": 2.945,
+          "cue": "The ritual does not remove uncertainty.",
+          "shot": "Beyond the table the windy garden remains disorderly, and the lead looks at the unchanged weather with an unconvinced face while holding the stone.",
+          "image": "public/images/literal/06c-literal.png"
+        },
+        {
+          "id": "06d-literal",
+          "start": 94.62,
+          "end": 97.663,
+          "duration": 3.043,
+          "cue": "It creates a small island where the next movement is known.",
+          "shot": "Inside one small cream circle painted on the ground, the lead places the stone on the next known mark and looks relieved because only this next movement is certain.",
+          "image": "public/images/literal/06d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "label": "Performance",
+      "start": 97.663129,
+      "end": 113.870657,
+      "duration": 16.207528,
+      "shots": [
+        {
+          "id": "07a-literal",
+          "start": 97.663,
+          "end": 101.015,
+          "duration": 3.352,
+          "cue": "Other studies found that a pre-performance sequence can lower anxiety",
+          "shot": "Before walking onstage, the lead repeats one short sequence—cup down, stone turned, card lifted—and the anxious shoulders lower while one researcher robot observes.",
+          "image": "public/images/literal/07a-literal.png"
+        },
+        {
+          "id": "07b-literal",
+          "start": 101.015,
+          "end": 108.67,
+          "duration": 7.655,
+          "cue": "and, sometimes, improve what happens next—especially when it is understood as a ritual rather than random gestures.",
+          "shot": "On the same stage moments later, the lead delivers the blank card steadily to three simplified audience silhouettes and looks surprised by the improved performance.",
+          "image": "public/images/literal/07b-literal.png"
+        },
+        {
+          "id": "07c-literal",
+          "start": 108.67,
+          "end": 111.27,
+          "duration": 2.6,
+          "cue": "Apparently the mind becomes more cooperative",
+          "shot": "Backstage after the ordered sequence, the lead's shoulders settle and both hands hold the blank speech card steadily; the lead looks surprised that the mind has become more cooperative.",
+          "image": "public/images/literal/07c-literal.png"
+        },
+        {
+          "id": "07d-literal",
+          "start": 111.27,
+          "end": 113.871,
+          "duration": 2.601,
+          "cue": "when absurdity receives an official title.",
+          "shot": "The cyan researcher pins one plain tomato-red ribbon onto the ordered sequence card, and the lead repeats it with a cooperative, self-mocking face as absurdity receives official status.",
+          "image": "public/images/literal/07d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 8,
+      "label": "Control without control",
+      "start": 113.870657,
+      "end": 133.56117899999998,
+      "duration": 19.690522,
+      "shots": [
+        {
+          "id": "08a-literal",
+          "start": 113.871,
+          "end": 118.62,
+          "duration": 4.749,
+          "cue": "This may help explain rituals after loss. In several experiments,",
+          "shot": "In one memorial garden adjoining the auditorium, the lead sits beside one empty cream chair and remembers the absent person while holding one familiar cup with both hands, face wrecked.",
+          "image": "public/images/literal/08a-literal.png"
+        },
+        {
+          "id": "08b-literal",
+          "start": 118.62,
+          "end": 124.63,
+          "duration": 6.01,
+          "cue": "people who remembered or performed rituals reported less grief and more control.",
+          "shot": "At the same chair, the lead places the cup beside one flower and breathes with less tension while one cream round-faced friend watches from a respectful distance.",
+          "image": "public/images/literal/08b-literal.png"
+        },
+        {
+          "id": "08c-literal",
+          "start": 124.63,
+          "end": 128.409,
+          "duration": 3.779,
+          "cue": "Grief cannot be folded neatly and stored in a drawer.",
+          "shot": "The lead tries to fold one large black mourning cloth into a tiny cyan drawer, but the cloth spills back out and the lead looks sorrowful at the impossible storage task.",
+          "image": "public/images/literal/08c-literal.png"
+        },
+        {
+          "id": "08d-literal",
+          "start": 128.409,
+          "end": 133.561,
+          "duration": 5.152,
+          "cue": "But when nothing can be undone, an action may give sorrow somewhere to stand.",
+          "shot": "The lead sets one smooth stone beneath the empty chair and rests one occupied hand on it, giving the grief a physical place while the friend touches the lead's shoulder.",
+          "image": "public/images/literal/08d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 9,
+      "label": "The anthropology of thresholds",
+      "start": 133.56117899999998,
+      "end": 152.601542,
+      "duration": 19.040363,
+      "shots": [
+        {
+          "id": "09a-literal",
+          "start": 133.561,
+          "end": 138.47,
+          "duration": 4.909,
+          "cue": "The anthropologist Arnold van Gennep noticed a common structure in rites of passage.",
+          "shot": "On one long garden path with three separated curved arches, a cyan field researcher observes the lead approaching the first arch and records the common passage with three blank geometric tokens.",
+          "image": "public/images/literal/09a-literal.png"
+        },
+        {
+          "id": "09b-literal",
+          "start": 138.47,
+          "end": 142.185,
+          "duration": 3.715,
+          "cue": "First, a person separates from an old role.",
+          "shot": "At the first arch, the lead removes one old cream school sash and leaves it on a stone, looking resigned while separating from the old role.",
+          "image": "public/images/literal/09b-literal.png"
+        },
+        {
+          "id": "09c-literal",
+          "start": 142.185,
+          "end": 148.55,
+          "duration": 6.365,
+          "cue": "Then comes a period in between, when the old identity has ended but the new one feels insecure.",
+          "shot": "Between the first and second arches, the lead stands alone holding the satchel with both hands and looks insecure because the old sash is behind and no new role has arrived.",
+          "image": "public/images/literal/09c-literal.png"
+        },
+        {
+          "id": "09d-literal",
+          "start": 148.55,
+          "end": 152.602,
+          "duration": 4.052,
+          "cue": "Finally, the group receives the person in a new position.",
+          "shot": "At the final arch, exactly two round-faced community members tie one plain tomato-red ribbon to the lead's sleeve and welcome the lead with proud faces.",
+          "image": "public/images/literal/09d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 10,
+      "label": "The difficult middle",
+      "start": 152.601542,
+      "end": 168.669751,
+      "duration": 16.068209,
+      "shots": [
+        {
+          "id": "10a-literal",
+          "start": 152.602,
+          "end": 155.725,
+          "duration": 3.123,
+          "cue": "The middle is awkward. We have left but not arrived:",
+          "shot": "Between two distant curved arches on the same path, the lead stops halfway with neither arch close enough to touch and looks stranded.",
+          "image": "public/images/literal/10a-literal.png"
+        },
+        {
+          "id": "10b-literal",
+          "start": 155.725,
+          "end": 158.91,
+          "duration": 3.185,
+          "cue": "no longer a student, not yet confident at work;",
+          "shot": "The lead carries one rolled cream diploma away from the school arch toward one cyan workbench and looks uncertain rather than confident at work.",
+          "image": "public/images/literal/10b-literal.png"
+        },
+        {
+          "id": "10c-literal",
+          "start": 158.91,
+          "end": 164.79,
+          "duration": 5.88,
+          "cue": "no longer in a relationship, not yet at home alone; no longer who we were before the funeral.",
+          "shot": "Farther along the same path, the lead passes one empty home chair marked by one flower and looks alone after a relationship and a funeral.",
+          "image": "public/images/literal/10c-literal.png"
+        },
+        {
+          "id": "10d-literal",
+          "start": 164.79,
+          "end": 168.67,
+          "duration": 3.88,
+          "cue": "Ritual gives this in-between condition a beginning and an end.",
+          "shot": "The lead places one smooth stone at the midpoint and then steps beyond it toward the second arch, looking brave because the in-between now has a visible beginning and end.",
+          "image": "public/images/literal/10d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 11,
+      "label": "Society sees the change",
+      "start": 168.669751,
+      "end": 185.43455799999998,
+      "duration": 16.764807,
+      "shots": [
+        {
+          "id": "11a-literal",
+          "start": 168.67,
+          "end": 172.8,
+          "duration": 4.13,
+          "cue": "Ritual also provides witnesses. Graduation does not create knowledge.",
+          "shot": "At an outdoor graduation, one round-faced graduate already holds three learned tools before a cyan ceremony robot ties on a plain red ribbon; the lead witnesses with an accomplished face.",
+          "image": "public/images/literal/11a-literal.png"
+        },
+        {
+          "id": "11b-literal",
+          "start": 172.8,
+          "end": 175.58,
+          "duration": 2.78,
+          "cue": "A wedding does not manufacture affection.",
+          "shot": "At the same gathering place, two round-faced partners already hold hands before one cream arch while the lead watches, making clear that the ceremony did not manufacture their affection.",
+          "image": "public/images/literal/11b-literal.png"
+        },
+        {
+          "id": "11c-literal",
+          "start": 175.58,
+          "end": 177.875,
+          "duration": 2.295,
+          "cue": "A funeral does not create loss.",
+          "shot": "At the memorial chair, the absence already exists before three witnesses place flowers around it; the lead looks grieving while the event acknowledges rather than creates the loss.",
+          "image": "public/images/literal/11c-literal.png"
+        },
+        {
+          "id": "11d-literal",
+          "start": 177.875,
+          "end": 185.435,
+          "duration": 7.56,
+          "cue": "The event tells a community: this change has happened; treat this person, and this absence, differently now.",
+          "shot": "The three witnesses rearrange one place at the shared table for the newly recognized person and leave one place open for the absence, treating both changes differently now.",
+          "image": "public/images/literal/11d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 12,
+      "label": "Moving together",
+      "start": 185.43455799999998,
+      "end": 208.329433,
+      "duration": 22.894875,
+      "shots": [
+        {
+          "id": "12a-literal",
+          "start": 185.435,
+          "end": 191.87,
+          "duration": 6.435,
+          "cue": "Collective rituals add another ingredient: people sing, march, bow, dance,",
+          "shot": "On one open garden path, the lead, one moss-green goat, and one cyan cube robot march in the same direction while each face watches the others to find the rhythm.",
+          "image": "public/images/literal/12a-literal.png"
+        },
+        {
+          "id": "12b-literal",
+          "start": 191.87,
+          "end": 195.635,
+          "duration": 3.765,
+          "cue": "drum, eat, or remain silent together.",
+          "shot": "At the same gathering, the same three figures strike one drum, share one bowl, and then hold the same still posture in sequence, all hands occupied by one object at a time.",
+          "image": "public/images/literal/12b-literal.png"
+        },
+        {
+          "id": "12c-literal",
+          "start": 195.635,
+          "end": 203.43,
+          "duration": 7.795,
+          "cue": "Research on interpersonal synchrony generally finds that moving together can increase connection and, under some conditions,",
+          "shot": "The three figures now step at the same moment and move physically closer, exchanging startled connected expressions.",
+          "image": "public/images/literal/12c-literal.png"
+        },
+        {
+          "id": "12d-literal",
+          "start": 203.43,
+          "end": 208.329,
+          "duration": 4.899,
+          "cue": "cooperation. Separate bodies keep one shared piece of time.",
+          "shot": "Seen wide, the three separate bodies place one foot down on the same beat while long shadows touch one shared line across the path.",
+          "image": "public/images/literal/12d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 13,
+      "label": "A crowd becomes a group",
+      "start": 208.329433,
+      "end": 227.834195,
+      "duration": 19.504762,
+      "shots": [
+        {
+          "id": "13a-literal",
+          "start": 208.329,
+          "end": 213.35,
+          "duration": 5.021,
+          "cue": "This is not only poetic. Studies have measured closer grouping, stronger cooperation,",
+          "shot": "After the shared march, the lead, goat, and cube robot stand closer together and pass one heavy basket between them with stronger cooperation.",
+          "image": "public/images/literal/13a-literal.png"
+        },
+        {
+          "id": "13b-literal",
+          "start": 213.35,
+          "end": 217.74,
+          "duration": 4.39,
+          "cue": "and aligned arousal after shared movement or intense gatherings.",
+          "shot": "At the same garden plot, the three figures lift and breathe together while carrying the basket, their shoulders rising at the same moment.",
+          "image": "public/images/literal/13b-literal.png"
+        },
+        {
+          "id": "13c-literal",
+          "start": 217.74,
+          "end": 222.72,
+          "duration": 4.98,
+          "cue": "A collection of individuals becomes a “we,” useful when a village must harvest,",
+          "shot": "The three harvest one row of moss-green plants as a coordinated group, with the lead centered and surprised by the new sense of 'we.'",
+          "image": "public/images/literal/13c-literal.png"
+        },
+        {
+          "id": "13d-literal",
+          "start": 222.72,
+          "end": 227.834,
+          "duration": 5.114,
+          "cue": "a team must coordinate, or everyone must carry one extremely uncooperative table.",
+          "shot": "The same three struggle together to carry one crooked cream table that tilts against them, each gripping one edge and wearing exhausted comic determination.",
+          "image": "public/images/literal/13d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 14,
+      "label": "The price of belonging",
+      "start": 227.834195,
+      "end": 249.289433,
+      "duration": 21.455238,
+      "shots": [
+        {
+          "id": "14a-literal",
+          "start": 227.834,
+          "end": 235.255,
+          "duration": 7.421,
+          "cue": "Synchrony is not automatically good. The forces that strengthen cooperation can also strengthen conformity.",
+          "shot": "On the same path, exactly three synchronized figures carry one heavy basket efficiently while one smaller moss puff creature is pressured to match their stride; the lead looks concerned as cooperation and conformity occur together.",
+          "image": "public/images/literal/14a-literal.png"
+        },
+        {
+          "id": "14b-literal",
+          "start": 235.255,
+          "end": 237.665,
+          "duration": 2.41,
+          "cue": "Moving as one may encourage care;",
+          "shot": "Moments later, the trio marches in identical posture behind one cyan leader robot and the lead looks obedient but uneasy.",
+          "image": "public/images/literal/14b-literal.png"
+        },
+        {
+          "id": "14c-literal",
+          "start": 237.665,
+          "end": 246.13,
+          "duration": 8.465,
+          "cue": "it may make dissent feel like betrayal. Ritual can produce generosity, exclusion, courage, obedience, or groupthink.",
+          "shot": "One moss puff creature steps out of the line while the others turn toward it; the lead looks ashamed as dissent is treated like betrayal.",
+          "image": "public/images/literal/14c-literal.png"
+        },
+        {
+          "id": "14d-literal",
+          "start": 246.13,
+          "end": 249.289,
+          "duration": 3.159,
+          "cue": "The direction depends on what unity is asked to serve.",
+          "shot": "The leader robot directs the synchronized group to close one curved gate against the dissenter, and the lead stops pulling the shared rope with a defiant face, questioning what unity serves.",
+          "image": "public/images/literal/14d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 15,
+      "label": "Meaning does not require magic",
+      "start": 249.289433,
+      "end": 266.05424,
+      "duration": 16.764807,
+      "shots": [
+        {
+          "id": "15a-literal",
+          "start": 249.289,
+          "end": 252.385,
+          "duration": 3.095,
+          "cue": "None of this requires believing that a candle controls weather,",
+          "shot": "During rain in the same garden, the lead shields one candle with both hands while the rain continues unchanged, looking hopeful but knowingly unable to control weather.",
+          "image": "public/images/literal/15a-literal.png"
+        },
+        {
+          "id": "15b-literal",
+          "start": 252.385,
+          "end": 256.885,
+          "duration": 4.5,
+          "cue": "a song negotiates with probability, or the universe monitors our socks.",
+          "shot": "The lead sings toward one coin tossed by a cyan robot while wearing mismatched socks; the coin falls normally and the lead looks embarrassed by the attempted negotiation.",
+          "image": "public/images/literal/15b-literal.png"
+        },
+        {
+          "id": "15c-literal",
+          "start": 256.885,
+          "end": 259.575,
+          "duration": 2.69,
+          "cue": "Meaning is not supernatural power.",
+          "shot": "The lead watches the unchanged rain and coin, then places the candle beside a friend's empty chair with a realistic, self-mocking face rather than expecting supernatural power.",
+          "image": "public/images/literal/15c-literal.png"
+        },
+        {
+          "id": "15d-literal",
+          "start": 259.575,
+          "end": 266.054,
+          "duration": 6.479,
+          "cue": "An action can fail to change the world while changing attention, memory, expectation, and relationship.",
+          "shot": "After the candle ritual, the lead notices one waiting friend, remembers the empty chair, and offers the friend an umbrella; the relationship changes although the weather does not.",
+          "image": "public/images/literal/15d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 16,
+      "label": "The rituals we fail to notice",
+      "start": 266.05424,
+      "end": 283.701406,
+      "duration": 17.647166,
+      "shots": [
+        {
+          "id": "16a-literal",
+          "start": 266.054,
+          "end": 269.435,
+          "duration": 3.381,
+          "cue": "Modern life is full of rituals that avoid the name.",
+          "shot": "At one ordinary outdoor breakfast table, the lead repeats the same placement of cup, bowl, and spoon and looks affectionately familiar with the unnamed ritual.",
+          "image": "public/images/literal/16a-literal.png"
+        },
+        {
+          "id": "16b-literal",
+          "start": 269.435,
+          "end": 274.46,
+          "duration": 5.025,
+          "cue": "We raise glasses, blow out candles, shake hands, make the same breakfast,",
+          "shot": "At the same table, exactly three figures raise cups, then one figure blows out one candle while the lead reaches across for one handshake, each action plainly ordinary.",
+          "image": "public/images/literal/16b-literal.png"
+        },
+        {
+          "id": "16c-literal",
+          "start": 274.46,
+          "end": 279.85,
+          "duration": 5.39,
+          "cue": "play one song before a difficult task, and place flowers where someone is missing.",
+          "shot": "Before returning to the auditorium, the lead presses one cyan music button with an occupied finger and then places one flower beside the empty memorial chair, face turning from nervous to sorrowful.",
+          "image": "public/images/literal/16c-literal.png"
+        },
+        {
+          "id": "16d-literal",
+          "start": 279.85,
+          "end": 283.701,
+          "duration": 3.851,
+          "cue": "Small ceremonies wear the disguise of ordinary life.",
+          "shot": "Walking away from the table and chair, the lead carries the familiar cup and looks amused that these small ceremonies wear ordinary clothing.",
+          "image": "public/images/literal/16d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 17,
+      "label": "When ritual becomes a trap",
+      "start": 283.701406,
+      "end": 302.27737,
+      "duration": 18.575964,
+      "shots": [
+        {
+          "id": "17a-literal",
+          "start": 283.701,
+          "end": 288.005,
+          "duration": 4.304,
+          "cue": "There is an important boundary. A useful ritual is chosen and bounded.",
+          "shot": "At one bounded cream mat, the lead completes one chosen three-object sequence and then steps away with a satisfied face.",
+          "image": "public/images/literal/17a-literal.png"
+        },
+        {
+          "id": "17b-literal",
+          "start": 288.005,
+          "end": 293.97,
+          "duration": 5.965,
+          "cue": "A compulsion feels compulsory, expands, and creates distress when it cannot be completed.",
+          "shot": "The next day, the lead has expanded the sequence across six scattered objects and cannot leave the mat, gripping one bowl with distress.",
+          "image": "public/images/literal/17b-literal.png"
+        },
+        {
+          "id": "17c-literal",
+          "start": 293.97,
+          "end": 298.135,
+          "duration": 4.165,
+          "cue": "Repetition is not healthy merely because it has acquired a special bowl.",
+          "shot": "The lead polishes one special bowl again while untouched food waits nearby, looking trapped rather than helped by the repetition.",
+          "image": "public/images/literal/17c-literal.png"
+        },
+        {
+          "id": "17d-literal",
+          "start": 298.135,
+          "end": 302.277,
+          "duration": 4.142,
+          "cue": "If an act governs life rather than preparing us for it, it needs help.",
+          "shot": "One cream round-faced helper kneels beside the lead and removes the expanding objects together with them; the lead looks relieved as the act stops governing the path forward.",
+          "image": "public/images/literal/17d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 18,
+      "label": "Build one deliberately",
+      "start": 302.27737,
+      "end": 325.961724,
+      "duration": 23.684354,
+      "shots": [
+        {
+          "id": "18a-literal",
+          "start": 302.277,
+          "end": 306.79,
+          "duration": 4.513,
+          "cue": "We can build modest rituals on purpose. Choose a real threshold:",
+          "shot": "At a fork in the garden path, the lead deliberately chooses one real threshold marked by a low curved stone and looks decisive.",
+          "image": "public/images/literal/18a-literal.png"
+        },
+        {
+          "id": "18b-literal",
+          "start": 306.79,
+          "end": 313.73,
+          "duration": 6.94,
+          "cue": "starting work, ending work, returning home, entering a difficult conversation,",
+          "shot": "Along the same path, four distant stations are visible—workbench, home gate, conversation bench, memorial chair—while the lead chooses only the workbench station.",
+          "image": "public/images/literal/18b-literal.png"
+        },
+        {
+          "id": "18c-literal",
+          "start": 313.73,
+          "end": 318.98,
+          "duration": 5.25,
+          "cue": "or remembering a day. Give it a short, repeatable sequence.",
+          "shot": "At the workbench threshold, the lead repeats a short sequence of setting down one cup, one stone, and one closed phone terminal, both hands occupied.",
+          "image": "public/images/literal/18c-literal.png"
+        },
+        {
+          "id": "18d-literal",
+          "start": 318.98,
+          "end": 325.962,
+          "duration": 6.982,
+          "cue": "Let one object, movement, place, or witness mark what is changing.",
+          "shot": "One cream round-faced friend waits beside the workbench as witness while the lead moves the stone across the threshold and looks ready for the change.",
+          "image": "public/images/literal/18d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 19,
+      "label": "Beginning work",
+      "start": 325.961724,
+      "end": 340.17233600000003,
+      "duration": 14.210612,
+      "shots": [
+        {
+          "id": "19a-literal",
+          "start": 325.962,
+          "end": 330.805,
+          "duration": 4.843,
+          "cue": "Before work, clear one surface, pour one drink, place the phone elsewhere,",
+          "shot": "At the outdoor workbench, the lead clears the single surface, pours one drink, and places one closed cyan phone terminal on a distant stone shelf, looking resolved.",
+          "image": "public/images/literal/19a-literal.png"
+        },
+        {
+          "id": "19b-literal",
+          "start": 330.805,
+          "end": 332.975,
+          "duration": 2.17,
+          "cue": "and write the first small action.",
+          "shot": "The lead writes one small black line on one otherwise blank cream sheet and looks careful, beginning the first action.",
+          "image": "public/images/literal/19b-literal.png"
+        },
+        {
+          "id": "19c-literal",
+          "start": 332.975,
+          "end": 336.81,
+          "duration": 3.835,
+          "cue": "None of this completes the work. It tells the mind that waiting has ended:",
+          "shot": "The unfinished sheet remains mostly blank while the lead sits upright with a committed face, showing that the ritual did not complete the work but ended the waiting.",
+          "image": "public/images/literal/19c-literal.png"
+        },
+        {
+          "id": "19d-literal",
+          "start": 336.81,
+          "end": 340.172,
+          "duration": 3.362,
+          "cue": "we have crossed from considering the task to entering it.",
+          "shot": "The lead bends over the same sheet and continues the first line with absorbed attention, having crossed from considering the task to entering it.",
+          "image": "public/images/literal/19d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 20,
+      "label": "Ending work",
+      "start": 340.17233600000003,
+      "end": 354.708028,
+      "duration": 14.535692,
+      "shots": [
+        {
+          "id": "20a-literal",
+          "start": 340.172,
+          "end": 344.12,
+          "duration": 3.948,
+          "cue": "The ending matters too. Close the book. Put away the tool.",
+          "shot": "At sunset at the same workbench, the lead closes one book and puts one tool into the satchel with both hands, looking finished.",
+          "image": "public/images/literal/20a-literal.png"
+        },
+        {
+          "id": "20b-literal",
+          "start": 344.12,
+          "end": 348.42,
+          "duration": 4.3,
+          "cue": "Walk around the block. Change the light. Without an ending,",
+          "shot": "The lead switches off one cyan work lamp and begins one walk around the garden block, looking satisfied that the ending has started.",
+          "image": "public/images/literal/20b-literal.png"
+        },
+        {
+          "id": "20c-literal",
+          "start": 348.42,
+          "end": 350.64,
+          "duration": 2.22,
+          "cue": "work leaks into dinner and sleep,",
+          "shot": "At an outdoor dinner table later, a long loose work sheet snakes from the abandoned workbench toward the lead's plate and bedroll, and the lead looks tempted back toward it.",
+          "image": "public/images/literal/20c-literal.png"
+        },
+        {
+          "id": "20d-literal",
+          "start": 350.64,
+          "end": 354.708,
+          "duration": 4.068,
+          "cue": "while the mind remains employed by an office that has technically ceased to exist.",
+          "shot": "The lead folds the loose sheet at the workbench boundary and steps toward dinner, looking firm while the now-closed office remains behind.",
+          "image": "public/images/literal/20d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 21,
+      "label": "Remembering",
+      "start": 354.708028,
+      "end": 369.89387800000003,
+      "duration": 15.18585,
+      "shots": [
+        {
+          "id": "21a-literal",
+          "start": 354.708,
+          "end": 358.84,
+          "duration": 4.132,
+          "cue": "After a loss, the ritual may be smaller: cook one familiar meal,",
+          "shot": "At the memorial garden table, the lead cooks one familiar meal in one cream pot and looks dutifully sad beside the empty chair.",
+          "image": "public/images/literal/21a-literal.png"
+        },
+        {
+          "id": "21b-literal",
+          "start": 358.84,
+          "end": 362.68,
+          "duration": 3.84,
+          "cue": "visit one place, tell one story, keep one date.",
+          "shot": "The lead visits the same chair, tells one story to one friend using one held photograph with its surface turned away, and places one stone on a recurring date marker without writing.",
+          "image": "public/images/literal/21b-literal.png"
+        },
+        {
+          "id": "21c-literal",
+          "start": 362.68,
+          "end": 367.775,
+          "duration": 5.095,
+          "cue": "It does not make pain efficient. It gives loss a form that can be approached,",
+          "shot": "The lead and friend approach the empty chair together while carrying the meal, giving pain a form that can be approached rather than made efficient.",
+          "image": "public/images/literal/21c-literal.png"
+        },
+        {
+          "id": "21d-literal",
+          "start": 367.775,
+          "end": 369.894,
+          "duration": 2.119,
+          "cue": "shared, and left for the day.",
+          "shot": "After sharing the meal, both figures leave the memorial garden side by side while the stone and flower remain for the day; the lead looks spent but steadier.",
+          "image": "public/images/literal/21d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 22,
+      "label": "A ritual is a bridge",
+      "start": 369.89387800000003,
+      "end": 389.723719,
+      "duration": 19.829841,
+      "shots": [
+        {
+          "id": "22a-literal",
+          "start": 369.894,
+          "end": 374.755,
+          "duration": 4.861,
+          "cue": "This may be ritual’s central usefulness. Life changes continuously,",
+          "shot": "On the long path beyond the memorial garden, the seasons change across four separated trees while the lead keeps walking and looks urgent to catch up with life.",
+          "image": "public/images/literal/22a-literal.png"
+        },
+        {
+          "id": "22b-literal",
+          "start": 374.755,
+          "end": 380.365,
+          "duration": 5.61,
+          "cue": "but the mind updates at another speed. Facts can change in one afternoon.",
+          "shot": "The lead stops beneath the full-leaf tree while one afternoon shadow has already crossed the path, yet the lead's posture still belongs to the earlier bare tree.",
+          "image": "public/images/literal/22b-literal.png"
+        },
+        {
+          "id": "22c-literal",
+          "start": 380.365,
+          "end": 384.6,
+          "duration": 4.235,
+          "cue": "Identity may arrive months late, carrying the wrong bags.",
+          "shot": "Months later, the lead drags exactly three mismatched blank luggage shapes down the path and looks burdened because identity has arrived late with the wrong bags.",
+          "image": "public/images/literal/22c-literal.png"
+        },
+        {
+          "id": "22d-literal",
+          "start": 384.6,
+          "end": 389.724,
+          "duration": 5.124,
+          "cue": "Ritual builds a bridge between what happened and what we are ready to understand.",
+          "shot": "The lead lays one narrow cream plank across a small stream between the old garden and the auditorium door, then carries one bag over it with a ready face.",
+          "image": "public/images/literal/22d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 23,
+      "label": "Return to the door",
+      "start": 389.723719,
+      "end": 401.983855,
+      "duration": 12.260136,
+      "shots": [
+        {
+          "id": "23a-literal",
+          "start": 389.724,
+          "end": 392.61,
+          "duration": 2.886,
+          "cue": "Before the interview, we may still tap the table twice.",
+          "shot": "Back outside the original curved auditorium door, the lead taps the same plain side table exactly twice while the cyan receptionist waits; the lead looks wary but deliberate.",
+          "image": "public/images/literal/23a-literal.png"
+        },
+        {
+          "id": "23b-literal",
+          "start": 392.61,
+          "end": 395.8,
+          "duration": 3.19,
+          "cue": "We should not confuse this with control over the interviewer,",
+          "shot": "The lead looks through the doorway at the interviewer robot and then down at the tapping finger, wearing a skeptical face because the taps control neither person.",
+          "image": "public/images/literal/23b-literal.png"
+        },
+        {
+          "id": "23c-literal",
+          "start": 395.8,
+          "end": 399.2,
+          "duration": 3.4,
+          "cue": "the economy, or the alarming condition of our left shoe.",
+          "shot": "The lead checks the left cream sneaker while wind scatters one blank paper from a distant market stall, showing that the economy and the shoe remain alarming but uncontrolled.",
+          "image": "public/images/literal/23c-literal.png"
+        },
+        {
+          "id": "23d-literal",
+          "start": 399.2,
+          "end": 401.984,
+          "duration": 2.784,
+          "cue": "We are arranging ourselves, not the universe.",
+          "shot": "The lead straightens the jacket, grips the satchel strap, and faces the door with a prepared expression, arranging the body rather than the surrounding world.",
+          "image": "public/images/literal/23d-literal.png"
+        }
+      ]
+    },
+    {
+      "frame": 24,
+      "label": "Crossing",
+      "start": 401.983855,
+      "end": 417.309025,
+      "duration": 15.32517,
+      "shots": [
+        {
+          "id": "24a-literal",
+          "start": 401.984,
+          "end": 404.71,
+          "duration": 2.726,
+          "cue": "The ritual cannot guarantee what waits beyond the door.",
+          "shot": "At the original doorway, the lead looks into the dark interview room while the receptionist holds the door, face tense because nothing beyond it is guaranteed.",
+          "image": "public/images/literal/24a-literal.png"
+        },
+        {
+          "id": "24b-literal",
+          "start": 404.71,
+          "end": 407.15,
+          "duration": 2.44,
+          "cue": "It can tell us that waiting is over.",
+          "shot": "The lead leaves the side table behind and places one cream sneaker on the threshold, looking afraid but willing because the waiting has ended.",
+          "image": "public/images/literal/24b-literal.png"
+        },
+        {
+          "id": "24c-literal",
+          "start": 407.15,
+          "end": 412.135,
+          "duration": 4.985,
+          "cue": "We have separated from the person who was preparing, survived the peculiar middle,",
+          "shot": "Seen in profile, the lead steps from the preparation path through the peculiar shadowed middle of the stone arch while the old shoe-tying place remains behind.",
+          "image": "public/images/literal/24c-literal.png"
+        },
+        {
+          "id": "24d-literal",
+          "start": 412.135,
+          "end": 417.309,
+          "duration": 5.174,
+          "cue": "and now—with no promise except that the next action is ours—we enter.",
+          "shot": "Inside the garden auditorium, seen past exactly three plain audience silhouettes, the lead rests both hands on one plain lectern and begins speaking with an engaged face because the next action is now theirs.",
+          "image": "public/images/literal/24d-literal.png"
+        }
+      ]
+    }
+  ]
+}

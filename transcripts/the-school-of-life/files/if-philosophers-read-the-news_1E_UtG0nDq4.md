@@ -1,0 +1,8 @@
+# If Philosophers Read the News
+**Video ID:** 1E_UtG0nDq4 | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=1E_UtG0nDq4) | **Channel:** The School of Life
+
+---
+
+**[00:00]** Today, once again, fundamentally, nothing new has happened. All human affairs are rehearsals, with the same themes, played out against a mildly changing background, but merely articulating the essential futility of existence and the damned nature of humankind, trapped like a fly in the bottle of life. We bring you a tree, which today, moved lightly in the breeze. There is so much to be grateful for. We should note that in some cases wisdom did prevail.   ('It is bad today, it will be worse tomorrow, until the worst of all happens' - Arthur Schoppenhauer) Certain pontential murderes did not, today, pick up a knife. Certain sorts of rage were defused, for now. Some would be adulterers had second thoughts. Certain would-be suicide bombers saw into the eyes of a child and could not do it.
+
+**[01:00]** We are no better than the beasts and the earthworms, the lugs and the arthropods.   ('From the crooked timber of humanity, no straight thing can ever be made' - Immanuel Kant) This individual here, puts us to shame. In any case, the most important things have happened today, have not occurred out there, in the plains of Anatolia, or the straits of Singapore, or the corridors of the Pentagon, but in your own soul, that vast, unexplored region, itself no more studied than the dark side of a far-off planet in some distant galaxy. (Concentrate less on what is new: Dwell more on what is important) (If you like our films, take a look at our shop, theschooloflife.com/shop you'll find lots of thoughtful books, games, stationery and more.)

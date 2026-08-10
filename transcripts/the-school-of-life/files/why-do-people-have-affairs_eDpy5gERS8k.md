@@ -1,0 +1,16 @@
+# Why Do People Have Affairs?
+**Video ID:** eDpy5gERS8k | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=eDpy5gERS8k) | **Channel:** The School of Life
+
+---
+
+**[00:00]** I think the pressures got to her and then she forgot about the people that cared most me the kids family she got horny and she acted like because it felt good in the moment who wouldn't find that exciting especially when the alternative is cooking supper night after night for your kids and then maybe watching a movie with your husband let's be honest I was faithful I stuck to our marriage vows yeah I've been tempted by always resistant where she trampled on our marriage and everything that we built for a shag in a car park and we've got two kids under the age of six so you want to about black and white that's pretty much how I saw it
+
+**[01:00]** I felt like I done the worst thing in the world and he didn't waste any chance to tell me sometimes shouted sometimes hid muttered under his breath he called me a slag in front of mine sister he broke her vase had given him trauma trip to Venice early in our relationship and the thing is I took it off I believed it I'd been this awful person I had sex with someone else that enjoyed it might only have been twice but he had and I was a piece of [Music] here's the irony I didn't have an affair because I wanted sex it wasn't about the sex people always say is how about sex she always said
+
+**[02:00]** that but I couldn't really accept that because if you take off all your clothes with someone and it's about sex [Music] the irony is I cared so much for Dave that became bearable it felt like he was there but not there I'll read for his hand and nothing he must have touched me off his own accord maybe once in the last year I tried so hard i nagged Kraus tried to be sweet and understanding but nothing worked [Music] you the thing is I got proud I bottle it up
+
+**[03:00]** I never said I'm hurting help me and that's what led to the affair I didn't love Dave as much as I did I wouldn't have felt so rejected and I wouldn't have reacted so desperately this wasn't about my lover this was about me and my husband I was seeing notice me I exist I've needs other people could want me I was asking Dave to love me because I couldn't take much more I didn't hear that I heard I hate you I want to destroy humiliate you he's got a bigger dick new he me better than you do I was reacting out of pride I've been asked so I really believe myself or is not so much the affair but not communicating why I got drawn to it not telling Dave how I felt how bad it had got for me the real life weren't about sex but the fact
+
+**[04:00]** that I loved my husband and I was scared he didn't love me that's what I couldn't be honest about it's not easy but I realized now that I had a role to play in the affair and he didn't just suddenly mysteriously get horny it was that she gotten hurt and lonely and that stuff that we can look at [Music] it's so easy to play the injured party the good guy I had every reason to paint her as the and me as this Saint but hopefully I'm past that now in fact that goes I'd actually go as far as to say that I would take at least 30 percent of the thing 50 50 50 it's okay
+
+**[05:00]** our relationship reboot cards inspire conversations that can help to rekindle love between you and your partner you

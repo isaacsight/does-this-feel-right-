@@ -9,6 +9,7 @@
 # means /assets/* and other real static paths never touch a
 # _redirects rule at all and fall straight through to normal static
 # serving. Keep this list in sync with src/router.tsx.
+/channel-studio   / 200
 /palmier-suite    / 200
 /motion-sheet     / 200
 /canvas-creative  / 200

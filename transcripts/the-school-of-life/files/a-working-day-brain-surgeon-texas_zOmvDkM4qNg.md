@@ -1,0 +1,12 @@
+# A Working Day – Brain Surgeon, Texas
+**Video ID:** zOmvDkM4qNg | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=zOmvDkM4qNg) | **Channel:** The School of Life
+
+---
+
+**[00:00]** when I was a really young kid I wanted to be a clown circus clown but then when I was in about third grade I had a blood clot under the toenail that was unbelievably painful and the local general practitioner numbed up my foot took off the toenail I got instant relief and I instantly decided that that was the sort of profession I wanted to do I wanted to help people in that medical scientific way most people are not reminded on a weekly or monthly basis that our lives are so fragile and light and can disappear so easily even as difficult it is I actually enjoy that aspect of neurosurgery being reminded that how each of us is going to have a final day on this planet and nobody wants to to
+
+**[01:00]** feel like they wasted any more of it than they have to always interesting to meet new people to hear about their medical history and their problem and try to figure it out in a way that no one else has so it's nice to see patients that come back that are doing well and are grateful it's a challenge to see the patients that come back and their result isn't what what either of us had hoped for and to try to figure out a way to change that I went to Columbia knowing that I wanted to go into medicine I said I'm not going to be chemistry major I'm going to be a philosophy major these days so much of my life is consumed by Science and Technology math to have had that time of study humanities was really enriching I think the hardest thing is delivering bad news telling people's families that their young loved one has died from a brain hemorrhage from an aneurysm all of
+
+**[02:00]** those kind of things there we don't really have a science a technology and neurosurgery to fix and to be able to draw strength and solace both for myself and and for those families from seeing patients back in clinic and hearing about how their lives are going how much better they are how grateful they are you know share it a lot of hugs and and and they don't feeling like my my life really has a purpose you know usually when I'm driving away from the hospital I think about how fortunate I and my family are compared to so many of my patients in the hospital at that moment I know that no one's no one's health lasts forever it's it's always a time-limited commodity it's a very useful kind of
+
+**[03:00]** viewpoint to to make sure I try to get the most out of my life you

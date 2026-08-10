@@ -1,0 +1,10 @@
+{
+  "name": "kernel-chat-intro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.7.83 preview",
+    "check": "npx --yes hyperframes@0.7.83 check",
+    "render": "npx --yes hyperframes@0.7.83 render"
+  }
+}

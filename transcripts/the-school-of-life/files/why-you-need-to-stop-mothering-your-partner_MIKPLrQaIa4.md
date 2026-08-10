@@ -1,0 +1,10 @@
+# Why You Need to Stop "Mothering" Your Partner...
+**Video ID:** MIKPLrQaIa4 | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=MIKPLrQaIa4) | **Channel:** The School of Life
+
+---
+
+**[00:00]** me yeah you ready yeah great h no you can't wear that what's wrong with this you can't go out in that why not these are my outside close where's the shirt I bought you that nice shirt where is it I don't know well can you just get changed please and turn that off please it is found it this is the one I'm not wearing that this is what you're wearing okay so can you just turn that off please I'm wearing don't roll your eyes at me I have warned you right just get changed what you didn't I'm not wearing this yes no yes you are it looks like a bar mitzvah shirt look hey remember you wore that two weeks ago and everyone was saying oh you look so nice and handsome do you remember it's cuz I was the onlyone wearing a suit this is what you're wearing okay so just put it on just pop that one off pop that one on
+
+**[01:00]** easy I'm not wearing it yeah I'm not going to wear it this is what you're wearing there's no way I'm going to wear it all right guys what you fancy drinking I've got red white I'll have a glass of white please cool and here what you fancy he'll probably have red yeah red good for your digestion isn't it something we're working on um how's a new job going mate oh very good isn't it I'd say brilliant actually you're so much happier aren't you and even better he's earning loads more money than before so we can finally go on that Mediterranean Cruise didn't think you into cruises mate yes can't get enough of them aren you live for them hang on a minute Whoops a Daisy what's that just make you just made it you've just got a bit just let me stop it what you doing just let me just let me so much less painful if you just let me ah grumpy everything all right guys
+
+**[02:00]** yeah yeah just gets a bit cranky when he's tired and he thinks I'm fussing but that's normal really don't always like me but you do love me don't you babe don't you don't you babe don't you yeah for

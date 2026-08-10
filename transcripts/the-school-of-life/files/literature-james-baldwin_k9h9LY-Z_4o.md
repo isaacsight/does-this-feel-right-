@@ -1,0 +1,10 @@
+# LITERATURE - James Baldwin
+**Video ID:** k9h9LY-Z_4o | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=k9h9LY-Z_4o) | **Channel:** The School of Life
+
+---
+
+**[00:00]** the American writer James Baldwin first went to Paris in 1948 as a 24 year old and was to stay in the city for much of the next nine years and in France intermittently until his death in 1987. Baldwin had felt asphyxiated in America his family had expectations of him that he hated his friends were judgmental he felt observed and intruded upon Society was moralistic and prurient as a result he couldn't be creative or free and had the sense of being watched and commented upon all the time it was like being always at school or in prison so Baldwin undertook that most inwardly liberating of moves he went into Exile from Paris it no longer mattered what they were saying public opinion could appear as it always should have done parochial and absurd no one knew him in
+
+**[01:00]** the French Capital they'd never heard of his family it was as if he had in a good way died and been granted a chance of a second unsigned life in France he could create take risks dress differently make unusual friends and become himself crucially Baldwin had no interest whatsoever in assimilating into French society he wasn't looking to swap one narrow Village for another it was Exile he was after that very particular state in which one is free not to belong anywhere in particular to escape all tribes in order to be unobserved anonymous and detached it may not always be possible for us to become actual Exiles but we should at the very least strive to become internal Exiles that is people who can behave like visitors in their own lands no longer bound by local idioces able to
+
+**[02:00]** cut themselves off from the mean and restricted views of so-called friends or disloyal families and to grow indifferent to provincial competition and grandstanding James Baldwin and his fellow Exiles are there to remind us just how much we long to be free

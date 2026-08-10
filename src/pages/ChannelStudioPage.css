@@ -1,0 +1,203 @@
+.cs-shell {
+  --cs-accent: var(--pop-tomato);
+  min-height: 100vh;
+  color: var(--pop-ink);
+  background: var(--pop-ledger);
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+.cs-shell *, .cs-access-sheet * { box-sizing: border-box; }
+.cs-shell button, .cs-shell input, .cs-shell textarea, .cs-shell select { font: inherit; }
+.cs-shell button, .cs-shell a { -webkit-tap-highlight-color: transparent; }
+
+.cs-running-head {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  padding: 0 var(--space-2xl);
+  border-bottom: 1px solid var(--pop-hairline);
+  background: var(--pop-ivory);
+  font-family: 'Courier Prime', ui-monospace, monospace;
+}
+
+.cs-masthead { min-height: 44px; display: inline-flex; align-items: center; color: inherit; font-weight: 700; text-decoration: none; letter-spacing: -.04em; }
+.cs-running-head p { display: flex; gap: var(--space-xl); margin: 0; font-size: 11px; letter-spacing: .08em; }
+.cs-running-head p span + span { padding-left: var(--space-xl); border-left: 1px solid var(--pop-hairline-soft); }
+
+.cs-threshold {
+  min-height: 430px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 230px;
+  align-items: end;
+  gap: clamp(40px, 8vw, 140px);
+  padding: clamp(54px, 9vw, 120px) var(--space-2xl) var(--space-3xl);
+  border-bottom: 2px solid var(--pop-hairline);
+  background: var(--pop-cream);
+}
+
+.cs-kicker, .cs-section-no, .cs-job-ticket span, .cs-source-slip span, .cs-media-register label > span,
+.cs-orientation label > span, .cs-proof-sheet label > span, .cs-proof-meta p, .cs-proof-binding label > span {
+  font-family: 'Courier Prime', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.cs-kicker, .cs-section-no { color: var(--cs-accent); font-weight: 700; }
+.cs-title-lockup h1 { max-width: 1050px; margin: var(--space-xl) 0 0; font-size: clamp(62px, 9vw, 142px); line-height: .78; letter-spacing: -.065em; font-weight: 500; }
+.cs-title-lockup h1 em { display: inline-block; margin-left: 9vw; color: var(--pop-coffee); font-weight: 400; }
+
+.cs-job-ticket { align-self: center; padding: var(--space-lg); border: 1px solid var(--pop-hairline); background: var(--pop-ivory); transform: rotate(1deg); }
+.cs-job-ticket strong { display: block; margin: var(--space-2xl) 0 0; font: 700 64px/.8 'Courier Prime', ui-monospace, monospace; }
+.cs-job-ticket p { margin: var(--space-sm) 0 var(--space-xl); font-style: italic; }
+.cs-progress-rule { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+.cs-progress-rule i { height: 7px; border: 1px solid var(--pop-hairline); }
+.cs-progress-rule i.is-clear { background: var(--cs-accent); border-color: var(--cs-accent); }
+
+.cs-orientation {
+  display: grid;
+  grid-template-columns: minmax(240px, .75fr) minmax(360px, 1.25fr) 260px;
+  gap: var(--space-3xl);
+  padding: var(--space-3xl) var(--space-2xl);
+  border-bottom: 1px solid var(--pop-hairline);
+  background: var(--pop-ivory);
+}
+
+.cs-orientation label, .cs-media-register label, .cs-proof-fields label, .cs-proof-binding label { display: grid; gap: var(--space-sm); }
+.cs-orientation input, .cs-orientation textarea, .cs-media-register input, .cs-proof-sheet input, .cs-proof-sheet textarea, .cs-proof-sheet select {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--pop-hairline);
+  border-radius: 0;
+  padding: var(--space-sm) 0;
+  color: inherit;
+  background: transparent;
+  outline: none;
+}
+.cs-orientation textarea { min-height: 108px; resize: vertical; font-size: 24px; line-height: 1.2; }
+.cs-orientation input:not([type='checkbox']), .cs-media-register input:not([type='checkbox']), .cs-proof-sheet input:not([type='checkbox']) { min-height: 44px; }
+.cs-orientation input { font-size: 22px; }
+.cs-source-slip { align-self: center; padding: var(--space-lg); border-left: 5px solid var(--pop-pool); background: var(--pop-ledger); }
+.cs-source-slip p { margin: var(--space-md) 0 0; line-height: 1.35; }
+
+.cs-media-register {
+  display: grid;
+  grid-template-columns: minmax(260px, .8fr) minmax(360px, 1.2fr);
+  gap: var(--space-4xl);
+  padding: var(--space-3xl) var(--space-2xl);
+  background: var(--pop-butter);
+  border-bottom: 1px solid var(--pop-hairline);
+}
+.cs-media-register h2, .cs-edition-heading h2, .cs-approval-register h2, .cs-press-gate h2 { margin: var(--space-md) 0; font-size: clamp(38px, 5vw, 68px); line-height: .9; font-weight: 500; letter-spacing: -.035em; }
+.cs-media-register > div > p:last-child { max-width: 560px; font-size: 18px; line-height: 1.35; }
+.cs-media-register label:not(.cs-check-line) { align-self: center; }
+.cs-media-register input[type='url'] { font-family: 'Courier Prime', ui-monospace, monospace; font-size: 14px; }
+.cs-check-line, .cs-toggle-line { min-height: 44px; display: flex !important; grid-column: 2; align-items: center; gap: var(--space-md) !important; }
+.cs-check-line input, .cs-toggle-line input, .cs-approval-lines input { width: 18px; height: 18px; accent-color: var(--cs-accent); }
+
+.cs-edition-register { background: var(--pop-ivory); border-bottom: 1px solid var(--pop-hairline); }
+.cs-edition-heading { display: grid; grid-template-columns: 1fr minmax(280px, .55fr); gap: var(--space-4xl); align-items: end; padding: var(--space-4xl) var(--space-2xl) var(--space-3xl); }
+.cs-connection-copy { justify-self: end; max-width: 420px; font-family: 'Courier Prime', ui-monospace, monospace; font-size: 12px; line-height: 1.4; }
+.cs-connection-copy button { min-height: 44px; padding: 0 var(--space-lg); border: 1px solid var(--pop-hairline); color: inherit; background: transparent; cursor: pointer; }
+.cs-connection-copy button:hover:not(:disabled), .cs-connection-copy button:focus-visible { color: var(--pop-ivory); background: var(--pop-ink); }
+
+.cs-edition-table { border-top: 1px solid var(--pop-hairline); }
+.cs-edition-table > button {
+  width: 100%;
+  min-height: 84px;
+  display: grid;
+  grid-template-columns: 48px 64px minmax(0, 1fr) auto;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: var(--space-md) var(--space-2xl);
+  border: 0;
+  border-bottom: 1px solid var(--pop-hairline-soft);
+  color: inherit;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.cs-edition-table > button:hover, .cs-edition-table > button.is-selected { background: var(--pop-ledger); }
+.cs-edition-table > button.is-selected { box-shadow: inset 6px 0 0 var(--cs-accent); }
+.cs-edition-index { font: 12px 'Courier Prime', ui-monospace, monospace; }
+.cs-edition-table button > strong { font: 700 24px 'Courier Prime', ui-monospace, monospace; }
+.cs-edition-name { font-size: 22px; }
+.cs-edition-name small { display: block; margin-top: 3px; color: var(--pop-coffee); font: 11px/1.3 'Courier Prime', ui-monospace, monospace; }
+.cs-edition-state { padding: 5px 8px; border: 1px solid currentColor; font: 10px 'Courier Prime', ui-monospace, monospace; text-transform: uppercase; }
+.cs-edition-state.is-drafted { color: var(--pop-ivy); }
+.cs-edition-state.is-failed { color: var(--pop-tomato-deep); }
+
+.cs-proof-sheet { display: grid; grid-template-columns: 220px minmax(360px, 1fr) 300px; border-top: 1px solid var(--pop-hairline); background: var(--pop-cream); }
+.cs-proof-sheet > div { padding: var(--space-2xl); }
+.cs-proof-sheet > div + div { border-left: 1px solid var(--pop-hairline); }
+.cs-proof-meta p { margin: 0 0 var(--space-3xl); color: var(--cs-accent); font-weight: 700; }
+.cs-proof-fields { display: grid; gap: var(--space-xl); }
+.cs-proof-fields textarea { min-height: 150px; resize: vertical; font-size: 20px; line-height: 1.35; }
+.cs-proof-fields input { font-size: 22px; }
+.cs-proof-binding p { line-height: 1.4; }
+.cs-proof-binding select { min-height: 44px; font-family: 'Courier Prime', ui-monospace, monospace; }
+.cs-receipt { padding-top: var(--space-lg); border-top: 1px solid var(--pop-hairline-soft); font: 11px/1.4 'Courier Prime', ui-monospace, monospace; word-break: break-all; }
+
+.cs-approval-register { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(420px, 1.2fr); gap: var(--space-4xl); padding: var(--space-4xl) var(--space-2xl); background: var(--pop-kraft); border-bottom: 1px solid var(--pop-hairline); }
+.cs-approval-lines { border-top: 1px solid var(--pop-hairline); }
+.cs-approval-lines label { min-height: 68px; display: grid; grid-template-columns: 42px 24px 1fr; gap: var(--space-md); align-items: center; border-bottom: 1px solid var(--pop-hairline); cursor: pointer; }
+.cs-approval-lines label > span { font: 11px 'Courier Prime', ui-monospace, monospace; }
+.cs-approval-lines strong { font-size: 17px; font-weight: 500; }
+
+.cs-press-gate { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: var(--space-4xl); align-items: center; padding: var(--space-4xl) var(--space-2xl); color: var(--pop-ivory); background: var(--pop-ink); }
+.cs-press-gate ol { columns: 2; max-width: 900px; padding-left: var(--space-xl); font-family: 'Courier Prime', ui-monospace, monospace; font-size: 12px; line-height: 1.5; }
+.cs-press-gate button { min-height: 96px; padding: var(--space-lg); border: 1px solid var(--pop-ivory); color: var(--pop-ink); background: var(--pop-butter); cursor: pointer; font: 700 15px 'Courier Prime', ui-monospace, monospace; }
+.cs-press-gate button:hover:not(:disabled), .cs-press-gate button:focus-visible { background: var(--cs-accent); color: var(--pop-ivory); }
+.cs-press-gate button:disabled { opacity: .38; cursor: not-allowed; }
+.cs-receipt-ledger { grid-column: 1 / -1; border-top: 1px solid rgba(250, 249, 246, .35); font-family: 'Courier Prime', ui-monospace, monospace; font-size: 11px; }
+.cs-receipt-ledger p { margin: var(--space-sm) 0; }.cs-receipt-ledger .is-ok { color: var(--pop-pool); }.cs-receipt-ledger .is-error { color: var(--pop-butter); }
+
+.cs-colophon { min-height: 58px; display: flex; justify-content: space-between; align-items: center; gap: var(--space-xl); padding: 0 var(--space-2xl); border-top: 1px solid var(--pop-ivory); color: var(--pop-ivory); background: var(--pop-ink); font: 10px 'Courier Prime', ui-monospace, monospace; letter-spacing: .06em; }
+.cs-colophon a { min-height: 44px; display: inline-flex; align-items: center; color: inherit; }
+
+.cs-shell :focus-visible { outline: 3px solid var(--cs-accent); outline-offset: 3px; }
+.cs-access-sheet { min-height: 100vh; display: grid; place-content: center; padding: var(--space-2xl); color: var(--pop-ink); background: var(--pop-cream); font-family: 'EB Garamond', Georgia, serif; text-align: center; }
+.cs-access-sheet p { font: 11px 'Courier Prime', ui-monospace, monospace; letter-spacing: .1em; color: var(--pop-tomato-deep); }
+.cs-access-sheet h1 { max-width: 720px; font-size: clamp(48px, 8vw, 96px); line-height: .9; font-weight: 500; }
+.cs-access-sheet a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; color: inherit; }
+
+@media (max-width: 960px) {
+  .cs-orientation { grid-template-columns: 1fr 1fr; }
+  .cs-source-slip { grid-column: 1 / -1; }
+  .cs-proof-sheet { grid-template-columns: 180px 1fr; }
+  .cs-proof-binding { grid-column: 1 / -1; border-left: 0 !important; border-top: 1px solid var(--pop-hairline); }
+  .cs-approval-register { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+  .cs-running-head { padding: 0 var(--space-lg); }
+  .cs-running-head p span:not(:last-child) { display: none; }
+  .cs-threshold { min-height: 500px; grid-template-columns: 1fr; gap: var(--space-3xl); padding: var(--space-4xl) var(--space-lg) var(--space-2xl); }
+  .cs-title-lockup h1 { font-size: clamp(58px, 20vw, 88px); }
+  .cs-title-lockup h1 em { margin: var(--space-md) 0 0; }
+  .cs-job-ticket { max-width: 240px; justify-self: end; }
+  .cs-orientation, .cs-media-register, .cs-edition-heading, .cs-approval-register, .cs-press-gate { grid-template-columns: 1fr; gap: var(--space-2xl); padding: var(--space-3xl) var(--space-lg); }
+  .cs-check-line { grid-column: 1; }
+  .cs-connection-copy { justify-self: start; }
+  .cs-edition-table > button { grid-template-columns: 30px 48px 1fr; padding: var(--space-md) var(--space-lg); }
+  .cs-edition-state { grid-column: 3; justify-self: start; }
+  .cs-proof-sheet { display: block; }
+  .cs-proof-sheet > div + div { border-left: 0; border-top: 1px solid var(--pop-hairline); }
+  .cs-proof-sheet > div { padding: var(--space-xl) var(--space-lg); }
+  .cs-press-gate ol { columns: 1; }
+  .cs-colophon { align-items: flex-start; flex-direction: column; padding: var(--space-lg); }
+}
+
+@media print {
+  .cs-shell { background: white !important; color: black !important; }
+  .cs-running-head, .cs-threshold, .cs-orientation, .cs-media-register, .cs-edition-register, .cs-proof-sheet, .cs-approval-register, .cs-press-gate, .cs-colophon { color: black !important; background: white !important; }
+  .cs-connection-copy button, .cs-press-gate button { display: none !important; }
+  .cs-edition-table > button { display: grid !important; }
+  .cs-proof-sheet { break-inside: avoid; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-job-ticket { transform: none; }
+}

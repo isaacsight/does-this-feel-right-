@@ -1,0 +1,12 @@
+# Open Road Meditation
+**Video ID:** HrZJxRoh_zU | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=HrZJxRoh_zU) | **Channel:** The School of Life
+
+---
+
+**[00:00]** It took ages to pull away from the dragnet of suburban houses, industrial parks and warehouses.. Now, at last, the open road, 120 more miles of it. They'll be asleep when we finally pull up, and fumble in the darkness for the key below the old earthenware jar. It takes only a miniscule pressure for the machine to surge forward. The hidden world of technicians that made it possible: the cylinders fashioned somewhere in industrial Japan, the oil in the tank from the Arabian deserts. Every mile took two weeks to build. The base layer, the limestone, the precast slabs, the jet black asphalt, the perfect white and yellow lines. And the band of men from from Lublin or Madjanek who put it together so well that you’d never have to give them or their work
+
+**[01:00]** a moment’s thought. Alongside in other lanes, trucks carry massed parts of the nation's needs: scissors, lampshades, biscuits, things that will be part of someone's bedroom, accompaniments to a meal. As children we could be curious and wave. Now we must stare ahead, pretending not to care. Neglected parts of one’s inner life emerge on the road. Ideas, associations, feelings. Driving is an unexpected tool for thinking. Out here it becomes less frightening to look inside us. One can always draw away, to the
+
+**[02:00]** clouds and the vast horizon. Out here we're readier to forgive, to feel love and to dare to hope again. With the stereo, we can put on extraordinary sound-and-image shows: symphonies, requiems, and love songs choreographed to the beauty of the fugitive landscape. In the service station in the gathering darkness, it feels easier to love humanity. Everyone is a stranger here. We can guess at the sorrows that brought them to this place. - perhaps a father who sees them only once a month. - a disappointed participant in a meeting hastily arranged online. The sadness is not necessarily depressing. Everybody is a little dislocated.
+
+**[03:00]** The loneliness we carry about inside us meets with the loneliness of others - and is redeemed. Then back out to the car, hours still to go. The instruments will glow in the darkness, stars will appear over head while peculiar, valuable ideas emerge in the cocoon of the cabin and we are surreptitiously returned a little to ourselves.

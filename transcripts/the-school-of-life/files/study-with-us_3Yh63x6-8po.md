@@ -1,0 +1,6 @@
+# Study with us
+**Video ID:** 3Yh63x6-8po | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=3Yh63x6-8po) | **Channel:** The School of Life
+
+---
+
+**[00:00]** We call this bit of our channel the curriculum. It's where we invite you to come and see what the greatest minds in the world have thought and why their ideas matter right now. It's like the ideal university education compressed into a range a beautiful, useful, little films. Our curriculum is divided into 8 parts: philosophy, political theory, eastern philosophy, sociology, psychotherapy, literature, art/architecture, history. In each category we look at the most important things. The big question we've been asking all of them is: what are the urgent things you want to say to us today? What part of life could you help us with? What's the main advice you'd like to give the modern world? Each individual film in the curriculum is conceived as part of a sequence, which will take you around the really vital ideas in a given field. Take your time to travel around them. It will all add up to an introduction to the most useful and interesting concepts in the world. Welcome to the curriculum at The School Of Life. Please press the subscribe button, keep up to date with the latest films in the curriculum.

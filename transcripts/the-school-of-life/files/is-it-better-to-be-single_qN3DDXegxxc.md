@@ -1,0 +1,14 @@
+# Is It Better to Be Single?
+**Video ID:** qN3DDXegxxc | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=qN3DDXegxxc) | **Channel:** The School of Life
+
+---
+
+**[00:00]** [Music] she's back on the market what she's broken up with really yeah yeah i met her for a coffee today and last week she just told dave it was all over just like out of the blue yeah wow i know did that come from [Music] so what is it you do exactly it's brain surgery technically but more specifically pre-cortal imaging analysis basically repairs the neural pathways that are damaged when someone has a stroke that's incredible
+
+**[01:00]** it's very absorbing but i never let it fully distract me from my true hobbies cooking sicilian food especially seafood and also advocating for human rights in sub-saharan africa oh god oh my god that was that was really good amazing i'm sorry about making you come three times i don't think it looks exhausting you should apologize for that um do you want to maybe do it again you have it in you i think so it's only been five times oh my god okay how much time a charm sure why not [Music] basically i just feel like you know through adolescence there was no one who like particularly got me you know especially after dad got sick it's so moving because it was the same when mum fell ill i should be there to look after you i feel the same way about you [Music]
+
+**[02:00]** hmm [Music] so what is it that you enjoy enjoy i don't enjoy much but uh i'm quite compelled by certain things [Music] so what what compels you i'm fascinated by life on the planet after nuclear catalysm life there wouldn't be much of it of course but uh slow disintegration of the larger mammals mass human extinction pollution of all
+
+**[03:00]** major water sources fatal gamma doses eventual disappearance of everything but small reptiles and insects because of the buildup of radioisotopes [Music] shall we that's it for me what do you mean i mean like for now we're gonna maybe later well certainly for now okay um right okay thank you you're welcome so you and jason are going to go away yes he's booked tickets to greece um because yeah a couple of his friends from the
+
+**[04:00]** rock climbing club um so we're going to go hiking and oh my god that's going to be amazing yeah it'll be really nice um anyway how about you are you going to go on that big trip i'm really thought about it's just amazing like you could just i don't know just start from scratch and make an amazing itinerary because i don't know were you thinking about you could go all the way down the east coast i could do oh my god and you're gonna meet so many people do you think you might go with joey i don't think so you're going to hook up i tapped it no you are i don't think so our know yourself cards can help us to better understand the deepest most elusive aspects of ourselves follow the link now to learn more

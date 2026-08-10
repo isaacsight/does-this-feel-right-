@@ -1,0 +1,25 @@
+{
+  "master": "renders/you-watched-it-happen_2026-07-31_21-49-22.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "shorts": [
+    {
+      "name": "01-you-watched-it",
+      "from": 0,
+      "to": 1745,
+      "kicker": "YOU WATCHED IT"
+    },
+    {
+      "name": "02-nobody-tested-the-parent",
+      "from": 6125,
+      "to": 7881,
+      "kicker": "NOBODY TESTED THE PARENT"
+    },
+    {
+      "name": "03-a-mistake-about-seeing",
+      "from": 10589,
+      "to": 12325,
+      "kicker": "A MISTAKE ABOUT SEEING"
+    }
+  ]
+}

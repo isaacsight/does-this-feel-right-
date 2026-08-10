@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type { IssueRecord } from '../content/issues'
 import './IssueArchiveNav.css'
 
@@ -47,33 +48,33 @@ export function IssueArchiveNav({ issue, prev, next, isCurrent = false }: IssueA
         <div className="pop-archive-nav-row">
           <div className="pop-archive-nav-cell">
             {prev ? (
-              <a href={`#/issues/${prev.number}`} className="pop-archive-nav-link">
+              <Link to={`/issues/${prev.number}`} className="pop-archive-nav-link">
                 <span className="pop-folio">← PREVIOUS</span>
                 <span className="pop-archive-nav-issue">
                   ISSUE {prev.number} · {prev.month} {prev.year}
                 </span>
                 <span className="pop-archive-nav-feature">{prev.feature}</span>
-              </a>
+              </Link>
             ) : (
               <span className="pop-folio pop-archive-nav-empty">— FIRST ISSUE —</span>
             )}
           </div>
 
           <div className="pop-archive-nav-cell pop-archive-nav-cell--center">
-            <a href="/issues" className="pop-folio pop-archive-nav-back">
+            <Link to="/issues" className="pop-folio pop-archive-nav-back">
               ALL BACK ISSUES
-            </a>
+            </Link>
           </div>
 
           <div className="pop-archive-nav-cell pop-archive-nav-cell--right">
             {next ? (
-              <a href={`#/issues/${next.number}`} className="pop-archive-nav-link pop-archive-nav-link--right">
+              <Link to={`/issues/${next.number}`} className="pop-archive-nav-link pop-archive-nav-link--right">
                 <span className="pop-folio">NEXT →</span>
                 <span className="pop-archive-nav-issue">
                   ISSUE {next.number} · {next.month} {next.year}
                 </span>
                 <span className="pop-archive-nav-feature">{next.feature}</span>
-              </a>
+              </Link>
             ) : (
               <span className="pop-folio pop-archive-nav-empty">— CURRENT ISSUE —</span>
             )}

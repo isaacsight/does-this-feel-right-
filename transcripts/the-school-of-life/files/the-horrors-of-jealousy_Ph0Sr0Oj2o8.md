@@ -1,0 +1,12 @@
+# The Horrors of Jealousy
+**Video ID:** Ph0Sr0Oj2o8 | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=Ph0Sr0Oj2o8) | **Channel:** The School of Life
+
+---
+
+**[00:00]** [Music] no no what's the matter nothing are you sure you didn't get off what's wrong no I was thinking about the party yesterday yeah it was good wasn't it yeah it was fine right what's wrong well you took a shine to the architect guy didn't you what Steven that guy in the leather jacket well I don't know his name do I because I wasn't introduced to him oh sorry I didn't know I was your personal party sherone well interesting was he yeah he fine good convers like it was flowing
+
+**[01:00]** full of adjectives and verbs and all that kind of stuff why is he got a Lea jacket on anyway boiling in the house maybe he came on a bike but are you jealous because I had a conversation with someone is that what this is about oh my God it is isn't it well seriously well it's different like if it was the other way around and I'm talking to some fit sultry girl in the corner and clearly having a better time than I've had with you for the past month like I've been asked to him off to Disneyland or something that is not how I looked and then every time you look over I'm looking back at you just like like no no don't don't interrupt oh my God that is not what I was doing it was exactly how you were looking that is not I'm sorry but you don't own every single second of my life if I go swimming with Kate you don't get like this if I get pissed with Gina you don't turn into a Nutter so I'm sorry what is the difference it's obviously different no I I had a conversation with a man at a party it's not like I've leapt on the back of this guy bike and I'm fled
+
+**[02:00]** definitely got a bike now it's not about the bike I'm here with you because it's where I want to be sometimes I'm not really sure why we just not wearing a Lea jacket oh for God's [Music] sake what's up what you mean what's up what what Melanie yes Melanie no no way you were staring at her tits for like the whole night what how could you tell if I was staring at a tits the other side of the room I could have told if I was on the other side of the [ __ ] planet it was so obvious no it wasn't I was talking to her for like a bit I you talk to her literally the whole night you didn't even look at me once you didn't even talk to me once I was I was talking to everyone I was you were talking to her what you talking
+
+**[03:00]** specifically you were talking to her tis talking to Steve

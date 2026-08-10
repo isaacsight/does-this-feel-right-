@@ -1,0 +1,10 @@
+# Why Only the Happily Single Find True Love
+**Video ID:** 0waMV_4Fc9s | **Link:** [Watch on YouTube](https://www.youtube.com/watch?v=0waMV_4Fc9s) | **Channel:** The School of Life
+
+---
+
+**[00:00]** one of the most important principles for choosing a lover sensibly is not to feel in any hurry to make a choice being satisfied with being single is a precondition of satisfactory coupledom we cannot Choose Wisely when remaining single feels unbearable we have to be utterly at peace with the prospect of many years of solitude in order to have any chance of forming a good relationship or we'll love no longer being single rather more than we love the partner who spared us being so unfortunately after a certain age society makes singlehood feel dangerously unpleasant communal Life Starts to wither people in couples are too threatened by the independence of the single to invite them round very often in case they're reminded of something they might have missed friendship and sex are despite all the gadgets still remarkably hard to come by
+
+**[01:00]** no wonder if when someone slightly decent but not quite so comes along we cling to them to our eventual enormous cost when sex was only available within marriage people recognized that this would lead some people to marry for the wrong reasons to obtain something that was artificially restricted in society as a whole sexual Liberation was intended to allow people to have a clearer head when choosing who they really wanted to be with but this process remains only half finished only when we can make sure that being single is as potentially as secure warm and fulfilling as being in a couple well we know that people are choosing to pair up for the right reasons it's time to liberate companionship from the shackles of coupledom and make it as widely and as easily available as sexual liberators wanted sex to be in the meantime We should strive to make us ourselveses as
+
+**[02:00]** much at peace as we can with the idea of being alone for a very long time only then do we stand a chance of deciding to be with someone on the basis of their own and true merits

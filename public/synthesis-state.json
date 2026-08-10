@@ -1,0 +1,13 @@
+{
+  "selectedAgent": "galley",
+  "dials": {
+    "complexity": 50,
+    "demand": 60,
+    "risk": 30,
+    "profitability": 40,
+    "efficiency": 80,
+    "innovation": 70
+  },
+  "executeRequested": false,
+  "lastUpdated": 0
+}

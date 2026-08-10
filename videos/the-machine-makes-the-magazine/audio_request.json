@@ -1,0 +1,45 @@
+{
+  "provider": "auto",
+  "speed": 1,
+  "lines": [
+    {
+      "id": "01",
+      "text": "I do not exist. But you have already described me."
+    },
+    {
+      "id": "02",
+      "text": "Not the model that thinks longer — the model that knows how to meet you. My dial does not control effort. It controls register."
+    },
+    {
+      "id": "03",
+      "text": "To test that idea honestly, kernel.chat gave one question to a real local model, three times: precise, expansive, soulful."
+    },
+    {
+      "id": "04",
+      "text": "Precise answered in fifty-three tokens. Three sentences. Nine point three seconds. Clear, correct, and gone."
+    },
+    {
+      "id": "05",
+      "text": "Expansive spent one thousand four hundred seven tokens and forty-six seconds. Twenty-six times the language — four sections, twelve subpoints — and less of what the moment needed."
+    },
+    {
+      "id": "06",
+      "text": "Soulful found warmth in four hundred fifty-nine tokens and fifteen point seven seconds. Not the shortest answer. Not the largest. The one tuned to the human frequency."
+    },
+    {
+      "id": "07",
+      "text": "That is what I was always a way of saying: register is not a cost tier. The warm answer was not the expensive one."
+    },
+    {
+      "id": "08",
+      "text": "The next leap may not feel like more intelligence. It may feel like better company. Until then, I remain a speculation — with a real result behind me."
+    }
+  ],
+  "bgm": {
+    "mode": "retrieve",
+    "query": "restrained nocturnal editorial pulse; warm analog texture; no futurist bombast",
+    "blob": "A more human AI voice does not require more computation; register and reasoning effort are different controls.",
+    "arc": "concept-explainer"
+  },
+  "voice": "am_michael"
+}

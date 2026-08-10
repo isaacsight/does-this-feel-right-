@@ -9,8 +9,8 @@ import type { LLMProvider, LLMOpts, ChatMessage, ModelTier } from './types'
 import { parseProxyJSON } from './proxy'
 
 const DEFAULT_MODELS: Record<ModelTier, string> = {
-    fast: 'llama3.2',
-    strong: 'llama3.1',
+    fast: 'nemotron-mini:latest',
+    strong: 'mistral-nemo:latest',
 }
 
 export class OllamaProvider implements LLMProvider {
