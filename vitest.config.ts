@@ -14,6 +14,7 @@ export default defineConfig({
     // kbot-ableton-extension is deliberately absent: it owns no runner, so
     // its tests only execute as part of this root suite.
     exclude: [
+      '.claude/worktrees/**',
       'e2e/**',
       'node_modules/**',
       '**/node_modules/**',
