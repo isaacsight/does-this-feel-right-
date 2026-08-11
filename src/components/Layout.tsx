@@ -1,22 +1,30 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { findIssue } from '../content/issues'
+import type { IssueRecord } from '../content/issues'
 
 const BASE_TITLE = 'kernel.chat — Magazine for City Coders'
+
+// The catalog is ~230KB gzip — it must never enter the entry chunk
+// (bundle budget: 300KB total JS). Loaded once, lazily; the title
+// upgrades from "Issue N" to "Issue N — Feature" when it arrives,
+// which on any repeat visit is the same tick (chunk is cached).
+let findIssueFn: ((n: string) => IssueRecord | undefined) | undefined
+const catalogReady = import('../content/issues').then(m => {
+  findIssueFn = m.findIssue
+})
 
 /**
  * Per-route browser title, in the magazine's own vocabulary
  * (issue / feature / archive / pressroom / colophon — never
  * dashboard/panel). Issue routes resolve the feature name from
- * the synchronously-imported content index via findIssue(), so the
- * title is rich even before the lazy page chunk loads.
+ * the lazily-loaded content index via findIssue().
  */
 function titleForPath(pathname: string): string {
   const [head, param, sub] = pathname.split('/').filter(Boolean)
   if (!head) return BASE_TITLE
 
   const issueLabel = (n?: string) => {
-    const issue = n ? findIssue(n) : undefined
+    const issue = n ? findIssueFn?.(n) : undefined
     return issue ? `Issue ${issue.number} — ${issue.feature}` : `Issue ${n ?? ''}`.trim()
   }
 
@@ -44,6 +52,12 @@ export function Layout() {
 
   useEffect(() => {
     document.title = titleForPath(location.pathname)
+    // Upgrade to the rich title once the catalog chunk lands.
+    let stale = false
+    catalogReady.then(() => {
+      if (!stale) document.title = titleForPath(location.pathname)
+    })
+    return () => { stale = true }
   }, [location.pathname])
 
   return (
