@@ -82,6 +82,35 @@ code, what working with AI looks like at this level — the agent as a
 governed instrument inside a system of budgets, provenance, and
 verification, not a chat window beside the work.
 
+## Where this matters most: work where the numbers have to be right
+
+The hardest place to deploy an AI agent is anywhere the output is a
+number someone will act on — an invoice, a ledger entry, a
+reconciliation, a farm's season of financials, a trade. Every business
+now has the same models; what stops them putting an agent on the books
+is that a plausible answer is not the same as a correct, attributable,
+auditable one. An agent that quietly rounds, drops a line, or reports
+"done" without writing the row is worse than no agent at all.
+
+That gap is the whole reason the provenance and verification layers in
+this repository exist. [`packages/kbot-finance/`](packages/kbot-finance/)
+is the reference implementation aimed straight at it: **content-addressed
+envelopes so every input is fingerprinted, a hash-chained audit log so
+the record cannot be altered after the fact, and a regulatory verifier
+so an output can be checked against the rule it claims to satisfy** — the
+substrate a back-office automation, an accounting or bookkeeping tool, or
+any capital-markets workflow needs before it can let a model touch real
+money.
+
+And the discipline is not only in that package — it is enforced
+everywhere. The "verify before reporting" rule below is exactly why a
+tool in this repo that printed "installed" without writing a file was
+treated as a bug and fixed: in a financial context, a tool that reports
+success it did not perform is the failure mode that matters most. The
+method and the substrate are the same one: **make the AI's output
+provable, attributable, and bounded — then it is safe to run on numbers
+that have to be right.**
+
 ## The discipline
 
 The same rules hold on every surface:
