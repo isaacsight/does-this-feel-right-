@@ -1,0 +1,15 @@
+{
+  "master": "build/quitting-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    { "name": "01-the-wall",     "from": 0,     "to": 2057,  "kicker": "THE RULE NOBODY SIGNED" },
+    { "name": "02-three-times",  "from": 3002,  "to": 5039,  "kicker": "HE QUIT THREE TIMES" },
+    { "name": "03-the-scale",    "from": 5563,  "to": 7659,  "kicker": "YOUR BRAIN BILLS LOSSES AT DOUBLE" },
+    { "name": "04-already-paid", "from": 7529,  "to": 9569,  "kicker": "THE ONLY GHOST STORY MONEY TELLS" },
+    { "name": "05-the-donkey",   "from": 9389,  "to": 11398, "kicker": "THE DONKEY REMAINS DEAD" },
+    { "name": "06-tunnels",      "from": 11392, "to": 13409, "kicker": "HOLES WEARING A TUNNEL'S UNIFORM" },
+    { "name": "07-open-hands",   "from": 15813, "to": 18016, "kicker": "OPEN HANDS AREN'T EMPTY HANDS" }
+  ]
+}

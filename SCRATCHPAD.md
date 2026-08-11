@@ -4106,3 +4106,30 @@ Isaac shared) — Buridan's ass, sunk cost, Langer & Rodin 1976, Jordan quit
 twice. Channel thesis filed in memory: the commentator on the game of being
 alive; the interviews are already done (claims book = transcript reduced to
 what survives).
+
+## 2026-08-11 — Episode 7 "The 'Never Quit' Guy Quit Three Times" SHIPPED (the Carr experiment)
+
+Film: https://youtu.be/sFieMU1s2CI (10:26, public, 11 chapters, SRT, sources
+comment UgwRC5FkpoomYjEWEgR4AaABAg NEEDS PINNING + auto-captions unpublish).
+Substack live: /p/the-never-quit-guy-quit-three-times (verified). 7 shorts x 4
+platforms same day (YT: Yk2B8hzmB6s _fCtqz4d6SM Xfzj3RXWbF0 a0qpwOJrp2k
+KAEp6USzaZw UAeMRhH2W7w v1Wgaeq86hA, API-verified; TikTok/IG/X 21/21).
+
+THE EXPERIMENT WORKED: Jimmy Carr REGISTER as primary seat (craft only —
+never persona/name/likeness) + DEADPAN direction (stillness-mid-absurdity) +
+CLUB accent (the donkey act = catalog's best-looking act) + rationed TWIST.
+Register survived the gates (3 passes; snap ration held; "say that again
+slowly" = the new straight-act transition device). Narration: snap rhythm
+reads FAST (164 @ 0.98 -> 159.5 @ 0.95 — script rhythm changes the wpm/speed
+mapping per film; MEASURE EVERY FILM stands).
+
+ISAAC'S SECOND VIEWING NOTE -> two more laws (playbook at 14):
+(12) flat-run v2: symbol runs across DIFFERENT settings also lose viewers;
+(13) SURROGATE-ACTOR law: narration about a likeness-barred person needs one
+recurring surrogate (the bronze statue act = the fix and now a house device);
+(14) gate-then-generate in ONE guarded chain (two stale-prompt regens paid
+for it again). Also: children's-book prior (empty snowy porch summons
+woodland creatures — 6 rolls on b106); hands-only staging summons bodies —
+give frames the REAL cast; "schedule" letters itself even with BLANK.
+Spend ~$7.60 fal. Cast additions that recur: THE WALL-KEEPER; the bronze
+statue surrogate.
