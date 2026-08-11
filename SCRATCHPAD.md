@@ -4133,3 +4133,13 @@ woodland creatures — 6 rolls on b106); hands-only staging summons bodies —
 give frames the REAL cast; "schedule" letters itself even with BLANK.
 Spend ~$7.60 fal. Cast additions that recur: THE WALL-KEEPER; the bronze
 statue surrogate.
+
+## 2026-08-11 — LAW 15: the humanity gate (slop-lint.py)
+Isaac: "the writing needs to feel more human — already great, slight
+improvement." Built tools/video/slop-lint.py; calibration across the 4
+shipped scripts shows the tics WORSEN monotonically (tipping clean ->
+quitting: 7 snap-templates, 7/7 triplet lists, 10/11 epigram closes, zero
+friction) — the room regresses to its own mean. Gate order for ep 8+:
+register-profile --gate, THEN slop-lint --gate, THEN board. Room briefs now
+require: one non-load-bearing particular per act, one controlled
+imperfection per film, varied list lengths, >=3 cold act-closes.
