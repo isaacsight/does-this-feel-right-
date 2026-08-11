@@ -1,5 +1,9 @@
 # kbot
 
+> Reading this repo in an IDE or through an AI assistant? The five-minute
+> tour of the studio behind kbot — and the standing Fable 5 use cases it
+> runs on — is at [`SHOWCASE.md`](../../SHOWCASE.md) in the repo root.
+
 <p align="center">
   <strong>kbot</strong><br>
   Open-source terminal AI agent. 100+ specialist skills. 35 specialist agents. 20 providers. Dreams, learns, watches your system, controls your phone. $0 local.

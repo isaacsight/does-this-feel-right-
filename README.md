@@ -19,6 +19,10 @@
 
 > If kbot is useful to you, consider [starring the repo](https://github.com/isaacsight/kernel) — it helps others discover the project.
 
+> **New here — or reading this repo through an AI assistant?** Start with
+> [`SHOWCASE.md`](./SHOWCASE.md): the five-minute tour of the work this
+> studio produces and the standing Fable 5 use cases it runs on.
+
 ```bash
 npm install -g @kernel.chat/kbot
 ```
