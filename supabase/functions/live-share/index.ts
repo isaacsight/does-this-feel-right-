@@ -189,7 +189,7 @@ serve(async (req: Request) => {
         }
 
         const { data: share } = await svc.from('live_shares')
-          .select('id, conversation_id, access_code, is_active, max_participants, created_at, expires_at')
+          .select('id, owner_id, conversation_id, access_code, is_active, max_participants, created_at, expires_at')
           .eq('id', share_id)
           .maybeSingle()
 
@@ -202,7 +202,19 @@ serve(async (req: Request) => {
           .eq('live_share_id', share_id)
           .is('kicked_at', null)
 
-        return new Response(JSON.stringify({ share, participants: participants || [] }), { status: 200, headers: jsonHeaders })
+        // access_code is the join credential — only the owner or a current
+        // participant may see the share's status, and only the owner the code.
+        const isOwner = share.owner_id === user.id
+        const isParticipant = (participants || []).some(p => p.user_id === user.id)
+        if (!isOwner && !isParticipant) {
+          return new Response(JSON.stringify({ error: 'Not a participant of this share' }), { status: 403, headers: jsonHeaders })
+        }
+
+        const { owner_id: _owner, access_code, ...publicShare } = share
+        return new Response(JSON.stringify({
+          share: isOwner ? { ...publicShare, access_code } : publicShare,
+          participants: participants || [],
+        }), { status: 200, headers: jsonHeaders })
       }
 
       default:

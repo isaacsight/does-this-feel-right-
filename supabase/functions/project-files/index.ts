@@ -99,6 +99,15 @@ async function handleSave(
     return new Response(JSON.stringify({ error: 'Missing required fields: conversation_id, filename, content' }), { status: 400, headers })
   }
 
+  // Both values become storage path segments under the caller's prefix.
+  // The service-role client bypasses storage RLS, so a traversal here
+  // ("../<victim>/...") would read or overwrite another user's files.
+  const SAFE_SEGMENT = /^[A-Za-z0-9][A-Za-z0-9._ -]{0,127}$/
+  if (!SAFE_SEGMENT.test(conversation_id) || !SAFE_SEGMENT.test(filename) ||
+      conversation_id.includes('..') || filename.includes('..')) {
+    return new Response(JSON.stringify({ error: 'Invalid conversation_id or filename' }), { status: 400, headers })
+  }
+
   // Check file size
   const sizeBytes = new TextEncoder().encode(content).length
   if (sizeBytes > MAX_FILE_SIZE) {

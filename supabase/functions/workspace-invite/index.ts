@@ -168,6 +168,18 @@ serve(async (req: Request) => {
           return new Response(JSON.stringify({ error: 'Missing workspace_id' }), { status: 400, headers: jsonHeaders })
         }
 
+        // Invitations carry emails and raw invite codes — only admins may read them.
+        const { data: membership } = await svc.from('workspace_members')
+          .select('role')
+          .eq('workspace_id', workspace_id)
+          .eq('user_id', user.id)
+          .is('removed_at', null)
+          .maybeSingle()
+
+        if (!membership || !['owner', 'admin'].includes(membership.role)) {
+          return new Response(JSON.stringify({ error: 'Only admins can list invitations' }), { status: 403, headers: jsonHeaders })
+        }
+
         const { data: invitations } = await svc.from('workspace_invitations')
           .select('id, email, role, invite_code, expires_at, accepted_at')
           .eq('workspace_id', workspace_id)

@@ -21,8 +21,14 @@ serve(async (req: Request) => {
 
   try {
     // --- Validate Svix webhook signature ---
+    // Fail CLOSED: this handler is deployed --no-verify-jwt and its inserts
+    // run service-role, so an unset secret must reject, not wave through.
     const webhookSecret = Deno.env.get('RESEND_WEBHOOK_SECRET')
-    if (webhookSecret) {
+    if (!webhookSecret) {
+      console.error('BLOCKED: RESEND_WEBHOOK_SECRET not set — refusing unsigned webhook')
+      return new Response(JSON.stringify({ error: 'Webhook verification unavailable' }), { status: 503, headers: HEADERS })
+    }
+    {
       const svixId = req.headers.get('svix-id')
       const svixTimestamp = req.headers.get('svix-timestamp')
       const svixSignature = req.headers.get('svix-signature')
@@ -58,8 +64,6 @@ serve(async (req: Request) => {
       }
 
       console.log('Webhook signature verified ✓')
-    } else {
-      console.warn('RESEND_WEBHOOK_SECRET not set — webhook signature verification disabled')
     }
 
     // --- Parse inbound email payload ---
