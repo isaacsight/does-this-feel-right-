@@ -4143,3 +4143,26 @@ friction) — the room regresses to its own mean. Gate order for ep 8+:
 register-profile --gate, THEN slop-lint --gate, THEN board. Room briefs now
 require: one non-load-bearing particular per act, one controlled
 imperfection per film, varied list lengths, >=3 cold act-closes.
+
+### 2026-08-11 addendum — humanity research complete
+Corpus study (81 School of Life transcripts vs our 4 scripts) + stylometric
+literature synthesized into docs/video/HUMAN-VOICE.md. slop-lint.py upgraded
+with corpus floors (long_sentences_pct >=10, question_pct >=2, snaps_per_1k
+<=1.5); even tipping now fails 2 checks — intentional. Episode 8 room brief
+must cite HUMAN-VOICE.md's five techniques. Commit 7f1ad9cf6, NOT PUSHED
+(git split pending).
+
+### 2026-08-10 late — Episode 8 CUT DELIVERED (not yet published)
+The Stop-and-Chat: first episode under the humanity gate (register 7/7 +
+slop-lint 11/11; 18.5% long sentences, 4.3% questions, 0.68 snaps/1k).
+Topic = Larry David x Carr x Rogan/Williamson intersection; direction =
+DEADPAN GEOMETRY (the gap is the subject). 118 shots / 9:22 / 159.5wpm
+(speed 0.93 — this script needed 0.93 not 0.95; measured 166.5@0.95,
+149.3@0.90). Spend $6.55 of Isaac's $9.73 ceiling. New lessons: model-sheet
+castplate invites grid-of-panels outputs (~4% rate, re-roll clears); "seen
+from a moving carriage" drew a horse buggy; light bands land on faces unless
+aimed at objects; 6-figure ending rows pull the pair apart — the final frame
+wants ONLY its two subjects; the monument gate needs an ending exemption
+(the ending IS the monument breaking); ImageMagick can patch flat-field
+plate faults (2-hair fix) that generative editors can't. AWAITING Isaac's
+watch → then publish flow (YouTube + 7 shorts x 4 platforms + Substack).

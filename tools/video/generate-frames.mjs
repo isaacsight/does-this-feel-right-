@@ -118,7 +118,7 @@ let spent = existsSync(LEDGER)
   ? readFileSync(LEDGER, 'utf8').trim().split('\n').filter(Boolean).length * USD_PER_IMAGE
   : 0
 
-const ids = only ? [only] : Object.keys(prompts)
+const ids = only ? only.split(',').map(s => s.trim()).filter(Boolean) : Object.keys(prompts)
 const todo = ids.filter(id => !existsSync(join(OUT_DIR, `${id}-final.png`)))
 const cost = todo.length * USD_PER_IMAGE
 console.log(`${todo.length} to generate x $${USD_PER_IMAGE} = $${cost.toFixed(2)} | ` +
