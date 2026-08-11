@@ -36,6 +36,7 @@ const VERSION = (__require('../package.json') as { version: string }).version
 
 interface ServeOptions {
   port: number
+  host?: string
   token?: string
   computerUse?: boolean
   https?: boolean
@@ -43,14 +44,44 @@ interface ServeOptions {
   key?: string
 }
 
-function cors(res: ServerResponse): void {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+const DEFAULT_HOST = '127.0.0.1'
+
+// This server exposes every tool — including bash and file access — so a
+// browser must never be able to reach it cross-origin. We reflect an
+// Access-Control-Allow-Origin header ONLY for an explicit allow-list, so a
+// preflighted POST /execute from an arbitrary site (evil.com) fails at the
+// OPTIONS gate and the request is never sent. Non-browser clients (CLI, node,
+// kbot-local) send no Origin header and are unaffected — CORS binds browsers
+// only. Wildcard '*' is gone.
+export function isAllowedOrigin(origin: string | undefined): boolean {
+  if (!origin) return false
+  try {
+    const { hostname, protocol } = new URL(origin)
+    if (protocol !== 'http:' && protocol !== 'https:') return false
+    if (hostname === 'kernel.chat' || hostname === 'www.kernel.chat') return true
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') return true
+    return false
+  } catch {
+    return false
+  }
+}
+
+function applyCors(req: IncomingMessage, res: ServerResponse): void {
+  const origin = req.headers.origin
+  if (isAllowedOrigin(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin as string)
+    res.setHeader('Vary', 'Origin')
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+  }
+}
+
+export function isLoopbackHost(host: string): boolean {
+  const h = host.toLowerCase()
+  return h === '127.0.0.1' || h === '::1' || h === 'localhost' || h.startsWith('127.')
 }
 
 function json(res: ServerResponse, status: number, data: unknown): void {
-  cors(res)
   res.writeHead(status, { 'Content-Type': 'application/json' })
   res.end(JSON.stringify(data))
 }
@@ -88,6 +119,16 @@ function ensureSelfSignedCert(): { cert: string; key: string } {
 }
 
 export async function startServe(options: ServeOptions): Promise<void> {
+  // Bind loopback by default. Exposing the tool server (bash, file access,
+  // etc.) on a routable interface without a token is remote code execution
+  // for anyone on the network — so refuse that combination outright.
+  const host = options.host || DEFAULT_HOST
+  if (!isLoopbackHost(host) && !options.token) {
+    printError(`Refusing to bind ${host} without --token: this exposes every tool to the network.`)
+    printInfo('  Add --token <secret>, or drop --host to bind localhost only.')
+    return
+  }
+
   // Register all tools before starting
   printInfo('Registering tools...')
   await registerAllTools({ computerUse: options.computerUse })
@@ -108,20 +149,22 @@ export async function startServe(options: ServeOptions): Promise<void> {
   const protocol = useTls ? 'https' : 'http'
 
   const handler = async (req: IncomingMessage, res: ServerResponse) => {
+    // Set allow-listed CORS headers on every response (incl. errors/preflight).
+    applyCors(req, res)
+
     // CORS preflight
     if (req.method === 'OPTIONS') {
-      cors(res)
       res.writeHead(204)
       res.end()
       return
     }
 
-    // Auth check
+    // Auth check. Token is accepted from the Authorization header only — never
+    // the query string, which leaks into shell history, proxy logs, and Referer.
     if (options.token) {
       const auth = req.headers.authorization
       const bearerToken = auth?.startsWith('Bearer ') ? auth.slice(7) : null
-      const queryToken = new URL(req.url || '/', `http://localhost`).searchParams.get('token')
-      if (bearerToken !== options.token && queryToken !== options.token) {
+      if (bearerToken !== options.token) {
         json(res, 401, { error: 'Unauthorized' })
         return
       }
@@ -168,7 +211,6 @@ export async function startServe(options: ServeOptions): Promise<void> {
           return
         }
 
-        cors(res)
         res.writeHead(200, {
           'Content-Type': 'text/event-stream',
           'Cache-Control': 'no-cache',
@@ -304,15 +346,19 @@ export async function startServe(options: ServeOptions): Promise<void> {
 
   // Mount A2A protocol routes (Agent Card + task endpoints)
   // Cast needed: https.Server and http.Server share the same request event API
+  const displayHost = isLoopbackHost(host) ? 'localhost' : host
   mountA2ARoutes(server as import('node:http').Server, {
     port: options.port,
-    endpointUrl: `${protocol}://localhost:${options.port}`,
+    endpointUrl: `${protocol}://${displayHost}:${options.port}`,
     token: options.token,
   })
 
-  const baseUrl = `${protocol}://localhost:${options.port}`
-  server.listen(options.port, () => {
+  const baseUrl = `${protocol}://${displayHost}:${options.port}`
+  server.listen(options.port, host, () => {
     printSuccess(`kbot serve running on ${baseUrl}`)
+    if (isLoopbackHost(host)) {
+      printInfo('  Bound to localhost — pass --host 0.0.0.0 --token <secret> to expose on the network')
+    }
     if (useTls) {
       printInfo('  TLS: self-signed cert (browsers will warn — safe for local connectors)')
     }

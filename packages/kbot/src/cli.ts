@@ -2379,15 +2379,17 @@ async function main(): Promise<void> {
     .command('serve')
     .description('Start HTTP/HTTPS server — expose all tools for kernel.chat, Claude Cowork, or any client')
     .option('-p, --port <port>', 'Port to listen on', '7437')
+    .option('--host <host>', 'Interface to bind (default localhost; non-loopback requires --token)', '127.0.0.1')
     .option('--token <token>', 'Require auth token for all requests')
     .option('--computer-use', 'Enable computer use tools')
     .option('--https', 'Enable HTTPS with auto-generated self-signed cert (~/.kbot/certs/)')
     .option('--cert <path>', 'Path to TLS certificate file (implies HTTPS)')
     .option('--key <path>', 'Path to TLS private key file (implies HTTPS)')
-    .action(async (opts: { port: string; token?: string; computerUse?: boolean; https?: boolean; cert?: string; key?: string }) => {
+    .action(async (opts: { port: string; host?: string; token?: string; computerUse?: boolean; https?: boolean; cert?: string; key?: string }) => {
       const { startServe } = await import('./serve.js')
       await startServe({
         port: parseInt(opts.port, 10),
+        host: opts.host,
         token: opts.token,
         computerUse: opts.computerUse,
         ...(opts.https ? { https: true, cert: opts.cert, key: opts.key } : {}),
