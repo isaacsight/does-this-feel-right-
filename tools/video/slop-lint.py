@@ -77,6 +77,23 @@ lens = [len(re.findall(r"[A-Za-z']+", a)) for a in acts]
 cv = statistics.pstdev(lens) / statistics.mean(lens)
 checks.append(('act_length_cv', round(cv, 3), 0.18, '>=', f'act words {min(lens)}-{max(lens)}'))
 
+
+# 8-10. CORPUS-CALIBRATED (measured vs 81 School of Life transcripts, 2026-08-11):
+# the masters run 16% long sentences (we ran 6-8%), 3.7% questions (we hit
+# zero), and 0.4 snaps/1k (we hit 4.2). The floors sit under the masters but
+# above our failures.
+sents_all = [s for s in re.split(r'(?<=[.!?])\s+', text) if s.split()]
+lens_all = [len(s.split()) for s in sents_all]
+long_share = sum(1 for l in lens_all if l >= 30) / len(lens_all) * 100
+checks.append(('long_sentences_pct', round(long_share, 1), 10.0, '>=',
+               'masters run 16%; the unspooling sentence is the human organ'))
+quest_share = len(re.findall(r'\?', text)) / len(sents_all) * 100
+checks.append(('question_pct', round(quest_share, 1), 2.0, '>=',
+               'masters run 3.7%; questions make narration company'))
+snaps_per_1k = len(snaps) / n * 1000
+checks.append(('snaps_per_1k', round(snaps_per_1k, 2), 1.5, '<=',
+               'masters run 0.4/1k'))
+
 # 7. FRICTION (warn only) — controlled imperfection present.
 friction = len(re.findall(r'\bWell\s+—|—\s*(?:no|or rather|call it|sorry)\b|\bactually,\b', text, re.I))
 has_friction = friction >= 1
