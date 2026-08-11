@@ -13,6 +13,7 @@ import {
   type PublisherChannel,
 } from '../channel-studio/model'
 import { createPublisherDrafts, discoverPublisher, type DraftReceipt } from '../channel-studio/publisher'
+import { writeStorage } from '../utils/safeStorage'
 import './ChannelStudioPage.css'
 
 const STORAGE_KEY = 'kernel-channel-studio-v1'
@@ -72,7 +73,7 @@ export function ChannelStudioFolio() {
   }, [])
 
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(channelPackage))
+    writeStorage(STORAGE_KEY, channelPackage)
   }, [channelPackage])
 
   const updateEdition = (platform: ChannelEdition['platform'], patch: Partial<ChannelEdition>) => {

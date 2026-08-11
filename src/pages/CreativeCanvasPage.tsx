@@ -8,6 +8,7 @@ import { registerTool, removeTool } from '../engine/tools'
 import { useAuthContext } from '../providers/AuthProvider'
 import { KernelLoading } from '../components/KernelLoading'
 import { lazyRetry } from '../utils/lazyRetry'
+import { writeStorage } from '../utils/safeStorage'
 import './CreativeCanvasPage.css'
 
 const LoginGate = lazyRetry(() => import('../components/LoginGate').then(m => ({ default: m.LoginGate })))
@@ -614,8 +615,8 @@ function CreativeCanvasStudio() {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       const payload: SavedStudio = { nodes, edges, view, projectName }
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload))
-      setSavedAt('Saved just now')
+      const ok = writeStorage(STORAGE_KEY, payload)
+      setSavedAt(ok ? 'Saved just now' : 'Not saved — storage unavailable')
     }, 450)
     return () => window.clearTimeout(timer)
   }, [nodes, edges, view, projectName])
