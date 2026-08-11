@@ -144,7 +144,7 @@ const PRESETS: Record<string, PresetParams> = {
 export function registerSerum2PresetTools() {
   registerTool({
     name: 'serum2_preset',
-    description: 'Create or list Serum 2 presets. Actions: "list" shows available kbot presets, "install" installs all kbot presets to Serum 2 User folder, "create" makes a custom preset from parameters.',
+    description: 'List or install Serum 2 presets. Actions: "list" shows available kbot presets, "install" writes all kbot presets to the Serum 2 User folder and verifies each file landed. "create" (custom preset from parameters) is not yet wired to the serializer.',
     parameters: {
       action: { type: 'string', description: '"list", "install", or "create"', required: true },
       preset: { type: 'string', description: 'Preset name for create action (e.g. "emotional-drift")' },
@@ -164,20 +164,51 @@ export function registerSerum2PresetTools() {
       }
 
       if (action === 'install') {
-        if (!ensurePresetPackager()) {
-          return 'Error: Could not install node-serum2-preset-packager'
-        }
         const destDir = getSerumPresetsDir()
         if (!fs.existsSync(destDir)) {
           return `Serum 2 preset folder not found at ${destDir}. Is Serum 2 installed?`
         }
-
-        const lines = ['Installing kbot presets to Serum 2...', '']
-        for (const [id, p] of Object.entries(PRESETS)) {
-          lines.push(`  Installed: ${p.name}`)
+        if (!ensurePresetPackager()) {
+          return [
+            'Not installed. The .SerumPreset serializer (node-serum2-preset-packager,',
+            'XferJson + Zstandard CBOR) is not available, so no files were written.',
+            '',
+            `Target folder: ${destDir}`,
+            `Presets ready to serialize: ${Object.keys(PRESETS).length}`,
+            '',
+            'Add node-serum2-preset-packager as a dependency to enable install.',
+          ].join('\n')
         }
-        lines.push('', 'Open Serum 2 > User to see all presets.')
+
+        // Verify before reporting: only presets whose file actually lands on
+        // disk are reported installed. A preset that fails to serialize is
+        // named as failed, never silently counted as success.
+        const { writeSerumPreset } = require('node-serum2-preset-packager')
+        const installed: string[] = []
+        const failed: string[] = []
+        for (const [id, p] of Object.entries(PRESETS)) {
+          const dest = path.join(destDir, `kbot - ${p.name}.SerumPreset`)
+          try {
+            writeSerumPreset(dest, p)
+            if (fs.existsSync(dest)) installed.push(p.name)
+            else failed.push(`${p.name} (no file written)`)
+          } catch (e) {
+            failed.push(`${p.name} (${(e as Error).message})`)
+          }
+        }
+
+        const lines = [`Installed ${installed.length}/${Object.keys(PRESETS).length} presets to Serum 2 > User.`]
+        if (installed.length) lines.push('', ...installed.map(n => `  ✓ ${n}`))
+        if (failed.length) lines.push('', 'Failed:', ...failed.map(n => `  ✗ ${n}`))
         return lines.join('\n')
+      }
+
+      if (action === 'create') {
+        return [
+          'Not implemented. Custom preset creation from parameters is not wired',
+          'to the serializer yet — nothing was written. Use `serum2_preset list`',
+          'to see the presets that ship today, or `install` to write those.',
+        ].join('\n')
       }
 
       return 'Unknown action. Use: list, install, or create'
