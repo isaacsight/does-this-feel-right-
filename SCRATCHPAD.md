@@ -4166,3 +4166,19 @@ wants ONLY its two subjects; the monument gate needs an ending exemption
 (the ending IS the monument breaking); ImageMagick can patch flat-field
 plate faults (2-hair fix) that generative editors can't. AWAITING Isaac's
 watch → then publish flow (YouTube + 7 shorts x 4 platforms + Substack).
+
+### 2026-08-10 night — Episode 8 PUBLISHED everywhere, owner-verified
+Film: youtu.be/g_PHAsjTwPE public + SRT + thumbnail + playlist PLck9Xx5O7sBY
++ sources comment UgyzPnfdmYBw6rlyUDt4AaABAg (Isaac to pin + unpublish
+auto-captions + end screen). Shorts: 7 cut sentence-snapped, all 7 YouTube
+(AlIZjgd3dBY WoXpbIiLLP4 yn7-8hfCJUE fazwt1lx_50 C8BsY8paCUM KC0IGygUVsw
+PC0Kgb7xIVo, all API-verified public) + TikTok (all 7 in Studio 9:16-9:26PM)
++ IG (top of reels grid) + X (profile). Substack live:
+kernelchat.substack.com/p/dont-talk-to-strangers-is-the-worst (WebFetch
+verified). LESSONS: drip's post-run verify.mjs still false-alarms on old
+films and my tail -25 truncated the posting log (law 11 applies to publish
+runs too — never pipe drip through tail); drip leaves YouTube pending
+(cadence guard) — direct youtube-upload.py per short is the all-7 path;
+Substack composer: clicking fields before the editor hydrates dumps
+everything into TITLE — wait for first click to register, verify each field
+by screenshot before typing the next. Total episode spend $6.55.

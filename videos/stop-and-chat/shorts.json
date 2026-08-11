@@ -1,0 +1,50 @@
+{
+  "master": "build/stop-and-chat-master.mp4",
+  "segments": "segments.json",
+  "out": "deliver/shorts",
+  "karaoke": true,
+  "shorts": [
+    {
+      "name": "01-the-arc",
+      "from": 0,
+      "to": 1949,
+      "kicker": "THE ARC AT FORTY FEET"
+    },
+    {
+      "name": "02-the-gift",
+      "from": 1366,
+      "to": 3577,
+      "kicker": "THE POLITEST RULE NOBODY WROTE"
+    },
+    {
+      "name": "03-nine-tests",
+      "from": 3004,
+      "to": 5041,
+      "kicker": "NINE EXPERIMENTS SAY TALK"
+    },
+    {
+      "name": "04-same-coffee",
+      "from": 5408,
+      "to": 7385,
+      "kicker": "SAME COFFEE. SAME QUEUE."
+    },
+    {
+      "name": "05-the-exit",
+      "from": 8179,
+      "to": 10380,
+      "kicker": "NOBODY CAN FIND THE EXIT"
+    },
+    {
+      "name": "06-four-faces",
+      "from": 10705,
+      "to": 12702,
+      "kicker": "FOUR FACES. ZERO HELLOS."
+    },
+    {
+      "name": "07-careful",
+      "from": 13638,
+      "to": 15796,
+      "kicker": "CAREFUL IN THE WRONG DIRECTION"
+    }
+  ]
+}
