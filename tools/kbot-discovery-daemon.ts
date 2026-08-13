@@ -1960,7 +1960,11 @@ main().catch(err => {
 // === NOTIFICATION HOOK (added by Claude session 2026-03-25) ===
 // When synthesis finds actionable insights, notify Isaac via Discord webhook
 async function notifyFinding(finding: string): Promise<void> {
-  const webhook = process.env.DISCORD_WEBHOOK_URL || 'https://discord.com/api/webhooks/1482971938333655090/J6wozdd9BP19iWve3lak3kI8xxWhO073-WG48McaT1yq541tl9awSL4xvyykvY1eGV9m'
+  const webhook = process.env.DISCORD_WEBHOOK_URL
+  if (!webhook) {
+    log('DISCORD_WEBHOOK_URL not set; skipping notification.')
+    return
+  }
   try {
     await fetch(webhook, {
       method: 'POST',
