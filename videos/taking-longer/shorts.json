@@ -1,0 +1,32 @@
+{
+ "master": "build/taking-longer-master.mp4",
+ "segments": "segments.json",
+ "out": "deliver/shorts",
+ "karaoke": true,
+ "shorts": [
+  {
+   "name": "01-due-sunday",
+   "from": 0,
+   "to": 1994,
+   "kicker": "THE SHELVES WERE DUE SUNDAY"
+  },
+  {
+   "name": "02-said-honestly",
+   "from": 2498,
+   "to": 4625,
+   "kicker": "SCIENCE TIMED YOUR HONESTY"
+  },
+  {
+   "name": "03-same-building",
+   "from": 8585,
+   "to": 10742,
+   "kicker": "DUE 1963. OPENED 1973."
+  },
+  {
+   "name": "04-the-law",
+   "from": 14316,
+   "to": 16429,
+   "kicker": "THE LAW THAT EATS ITS FIX"
+  }
+ ]
+}
