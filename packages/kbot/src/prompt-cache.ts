@@ -105,6 +105,7 @@ export function createPromptSections(opts: {
   toolInstructions?: string
   conversationRules?: string
   matrixPrompt?: string
+  stableContext?: string
   contextSnippet?: string
   memorySnippet?: string
   learningContext?: string
@@ -123,6 +124,13 @@ export function createPromptSections(opts: {
   }
   if (opts.toolInstructions) {
     sections.push({ id: 'tools', text: opts.toolInstructions, stable: true })
+  }
+  // Project/machine/repo context: invariant for a given cwd, so it belongs in
+  // the cacheable prefix. Keeping it here (rather than lumped into
+  // contextSnippet) is what lets local runtimes reuse the KV cache — see
+  // formatMachineVolatile() in context.ts for the measured impact.
+  if (opts.stableContext) {
+    sections.push({ id: 'stable-context', text: opts.stableContext, stable: true })
   }
 
   // Dynamic sections (change per message)

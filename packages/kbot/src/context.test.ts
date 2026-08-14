@@ -18,7 +18,7 @@ vi.mock('node:fs', () => ({
 
 import { execSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
-import { gatherContext, formatContextForPrompt, type ProjectContext } from './context.js'
+import { gatherContext, formatContextForPrompt, formatMachineVolatile, type ProjectContext } from './context.js'
 
 const mockExecSync = vi.mocked(execSync)
 const mockExistsSync = vi.mocked(existsSync)
@@ -549,33 +549,49 @@ describe('formatContextForPrompt', () => {
     expect(output).toContain('12P + 4E')
     expect(output).toContain('arm64')
     expect(output).toContain('128 GB')
-    expect(output).toContain('64 GB free')
-    expect(output).toContain('low pressure')
-    expect(output).toContain('500 GB available')
     expect(output).toContain('macOS 26.3')
     expect(output).toContain('Darwin 25.3.0')
     expect(output).toContain('3456x2234')
     expect(output).toContain('Liquid Retina XDR')
-    expect(output).toContain('85%')
-    expect(output).toContain('discharging')
     expect(output).toContain('metal')
     expect(output).toContain('70B')
     expect(output).toContain('node 22.0.0')
     expect(output).toContain('git 2.44.0')
   })
 
-  it('shows charging state when battery is charging', () => {
-    const machine = makeMachineProfile({ battery: { present: true, percent: 50, charging: true } })
+  // The static prompt prefix must stay byte-identical across invocations so
+  // local runtimes can reuse the KV cache. These fields change between runs,
+  // so they must NOT appear in formatContextForPrompt.
+  it('keeps volatile machine state out of the cacheable context', () => {
+    const machine = makeMachineProfile()
     const ctx: ProjectContext = { isGitRepo: false, fileTree: '', machine }
     const output = formatContextForPrompt(ctx)
-    expect(output).toContain('50% charging')
+    expect(output).not.toContain('Memory free')
+    expect(output).not.toContain('pressure')
+    expect(output).not.toContain('Disk available')
+    expect(output).not.toContain('Battery')
+    expect(output).not.toContain('85%')
+  })
+
+  it('reports volatile machine state via formatMachineVolatile', () => {
+    const machine = makeMachineProfile()
+    const output = formatMachineVolatile(machine)
+    expect(output).toContain('[Machine State — current]')
+    expect(output).toContain('Memory free: 64 GB')
+    expect(output).toContain('low pressure')
+    expect(output).toContain('Disk available: 500 GB')
+    expect(output).toContain('85%')
+    expect(output).toContain('discharging')
+  })
+
+  it('shows charging state when battery is charging', () => {
+    const machine = makeMachineProfile({ battery: { present: true, percent: 50, charging: true } })
+    expect(formatMachineVolatile(machine)).toContain('50% charging')
   })
 
   it('omits battery line when no battery present', () => {
     const machine = makeMachineProfile({ battery: { present: false } })
-    const ctx: ProjectContext = { isGitRepo: false, fileTree: '', machine }
-    const output = formatContextForPrompt(ctx)
-    expect(output).not.toContain('Battery:')
+    expect(formatMachineVolatile(machine)).not.toContain('Battery:')
   })
 
   it('omits display line when no displays', () => {
