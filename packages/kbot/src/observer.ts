@@ -73,9 +73,66 @@ function ensureDir(): void {
  * Append a tool call observation to the log.
  * Called by the Claude Code PostToolUse hook.
  */
+// ── Secret Redaction ──
+
+/**
+ * Credential shapes stripped before anything reaches disk.
+ *
+ * The observer records tool calls VERBATIM, including full Bash command
+ * strings. That is exactly how a live Anthropic key ended up sitting in
+ * session.jsonl for 113 days: a session ran `NEW_KEY="sk-ant-..."` to verify
+ * a rotated credential, and the whole command line was logged.
+ *
+ * Ordering matters — more specific patterns run first so a generic rule
+ * cannot half-match a token another rule would have caught cleanly.
+ */
+const SECRET_PATTERNS: Array<[RegExp, string]> = [
+  // Private key blocks first: they span lines and would otherwise be chewed up.
+  [/-----BEGIN [A-Z ]*PRIVATE KEY-----[\s\S]*?-----END [A-Z ]*PRIVATE KEY-----/g, '<<REDACTED:private-key>>'],
+  [/https:\/\/(?:discord|discordapp)\.com\/api\/webhooks\/\d+\/[A-Za-z0-9_-]+/g, '<<REDACTED:discord-webhook>>'],
+  [/sk-ant-api\d{2}-[A-Za-z0-9_-]{20,}/g, '<<REDACTED:anthropic-key>>'],
+  [/sk-proj-[A-Za-z0-9_-]{20,}/g, '<<REDACTED:openai-key>>'],
+  [/github_pat_[A-Za-z0-9_]{22,}/g, '<<REDACTED:github-pat>>'],
+  [/gh[pousr]_[A-Za-z0-9]{36,}/g, '<<REDACTED:github-token>>'],
+  [/xox[baprs]-[A-Za-z0-9-]{10,}/g, '<<REDACTED:slack-token>>'],
+  [/AKIA[A-Z0-9]{16}/g, '<<REDACTED:aws-key-id>>'],
+  [/AIza[A-Za-z0-9_-]{35}/g, '<<REDACTED:google-key>>'],
+  [/sk-[A-Za-z0-9]{32,}/g, '<<REDACTED:api-key>>'],
+  // Shell assignment to a secret-shaped variable name — catches the exact
+  // `NEW_KEY="..."` / `export TOKEN=...` shape that leaked, including keys
+  // whose vendor prefix we do not recognise.
+  [/\b([A-Z0-9_]*(?:KEY|TOKEN|SECRET|PASSWORD|PASSWD|CREDENTIAL|WEBHOOK)[A-Z0-9_]*)(\s*=\s*)(["']?)[^\s"';|&]{8,}\3/g,
+    '$1$2$3<<REDACTED:assigned-secret>>$3'],
+]
+
+/** Strip credentials from a single string. Exported for testing. */
+export function redactSecrets(text: string): string {
+  let out = text
+  for (const [pattern, replacement] of SECRET_PATTERNS) {
+    out = out.replace(pattern, replacement)
+  }
+  return out
+}
+
+/** Recursively redact every string in an observation before it is persisted. */
+function redactDeep<T>(value: T): T {
+  if (typeof value === 'string') return redactSecrets(value) as unknown as T
+  if (Array.isArray(value)) return value.map(redactDeep) as unknown as T
+  if (value && typeof value === 'object') {
+    const out: Record<string, unknown> = {}
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) {
+      out[k] = redactDeep(v)
+    }
+    return out as unknown as T
+  }
+  return value
+}
+
 export function recordObservation(entry: ObservedToolCall): void {
   ensureDir()
-  appendFileSync(LOG_FILE, JSON.stringify(entry) + '\n')
+  // Redact BEFORE serialising — this is the single choke point through which
+  // every observation reaches disk, so a leak cannot route around it.
+  appendFileSync(LOG_FILE, JSON.stringify(redactDeep(entry)) + '\n', { mode: 0o600 })
 }
 
 // ── Log Reading ──
