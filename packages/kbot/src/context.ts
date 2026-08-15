@@ -211,16 +211,15 @@ function formatMachineContext(m: MachineProfile): string {
   const gpuSummary = m.gpu.map(g => `${g.model}${g.cores ? ` (${g.cores} cores)` : ''}`).join(', ')
   lines.push(`GPU: ${gpuSummary}`)
 
-  lines.push(`Memory: ${m.memory.total} (${m.memory.free} free, ${m.memory.pressure} pressure)`)
-  lines.push(`Disk: ${m.disk.available} available of ${m.disk.total}`)
+  // NOTE: only invariant hardware facts belong here. Anything that changes
+  // between invocations (free memory, disk available, battery) lives in
+  // formatMachineVolatile() instead — see the comment on that function.
+  lines.push(`Memory: ${m.memory.total}`)
+  lines.push(`Disk: ${m.disk.total} total`)
   lines.push(`OS: ${m.os} (${m.kernel})`)
 
   if (m.displays.length > 0) {
     lines.push(`Display: ${m.displays.map(d => `${d.resolution}${d.type ? ` ${d.type}` : ''}`).join(', ')}`)
-  }
-
-  if (m.battery.present) {
-    lines.push(`Battery: ${m.battery.percent}% ${m.battery.charging ? 'charging' : 'discharging'}`)
   }
 
   lines.push(`GPU accel: ${m.gpuAcceleration} — local models up to ${m.recommendedModelSize}`)
@@ -228,5 +227,25 @@ function formatMachineContext(m: MachineProfile): string {
   const toolNames = m.devTools.map(t => `${t.name} ${t.version}`).join(', ')
   if (toolNames) lines.push(`Tools: ${toolNames}`)
 
+  return lines.join('\n')
+}
+
+/**
+ * Live machine state — the fields that change between invocations.
+ *
+ * Kept OUT of formatMachineContext so the static prompt prefix stays
+ * byte-identical across turns. A prefix that changes defeats KV-cache reuse
+ * in local runtimes (Ollama/llama.cpp cache the longest common prefix), which
+ * measured a 35x difference on this machine: 82.9s cold vs 2.4s cached for the
+ * same 8k-token prompt. This block is appended to the DYNAMIC section instead,
+ * so the agent still sees current memory/battery without costing a cache miss.
+ */
+export function formatMachineVolatile(m: MachineProfile): string {
+  const lines: string[] = ['[Machine State — current]']
+  lines.push(`Memory free: ${m.memory.free} (${m.memory.pressure} pressure)`)
+  lines.push(`Disk available: ${m.disk.available}`)
+  if (m.battery.present) {
+    lines.push(`Battery: ${m.battery.percent}% ${m.battery.charging ? 'charging' : 'discharging'}`)
+  }
   return lines.join('\n')
 }

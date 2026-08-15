@@ -1,225 +1,204 @@
 # Brief for Antigravity — generate a GALLEY film's frames with your built-in image generator
 
-> ## VERDICT, tested 2026-08-02: cannot produce film frames. Use it for previz and plates.
+> ## VERDICT, retested 2026-08-13: this works. It is now the primary free frame lane.
 >
-> Antigravity's built-in `generate_image` is **hard-locked to 1024×1024 square**.
-> Its tool schema accepts exactly three parameters — `Prompt`, `ImageName`,
-> `ImagePaths` — and has no `width`, `height`, `aspect_ratio`, `resolution` or
-> `model`. Prompts ending "16:9 landscape" are ignored; there is no config field
-> or alternative model behind it. Verified on disk, not from the preview.
+> The 2026-08-02 verdict ("hard-locked to 1024×1024 square, cannot produce film
+> frames") is **stale and wrong**. Antigravity's generator now takes an aspect
+> ratio and returns **1376×768 true 16:9**.
 >
-> Our films assemble at 1920×1080. A 1024 square cropped to 16:9 is 1024×576,
-> which is below the delivery format before any upscale, and cropping destroys
-> compositions built for a wide frame. **Final frames stay on fal.**
+> Measured on episode 9 (`taking-longer`), frame b001: correct house style,
+> blank signage, no lettering, character on-model — and it **passed
+> `frame-gate.py` on the first roll** (1/1 pass, exit 0).
 >
-> **What it IS good for, and this was better than expected:** conditioned on the
-> film's reference plate it locked house style and character *immediately* —
-> flat solid fills, even black outlines, cream ground, no gradients, and the
-> character's exactly-two hairs correct on the first try. Content adherence to
-> the boarded prompt was accurate too.
+> It beats every other free lane because it is *filesystem-native*: it writes
+> straight into the film tree, so there is no download-and-ingest dance, it can
+> read `production/prompts.json` itself, and it batches 5–8 frames per turn.
 >
-> So use it, free, for:
-> - **previz** — does this boarded frame read at all, before spending on fal;
-> - **square deliverables** — thumbnails, square social cards;
-> - **motif and character plates**, where square is fine and the plate is then
->   used to condition the real 16:9 run.
->
-> Everything below still applies to those uses. Only the "generate the film's
-> frames" framing is dead.
+> Paid fal (`tools/video/generate-frames.mjs`, $0.039/frame) remains the
+> fallback for unattended runs that need automatic retries and a spend ledger.
 
 You are producing the **frame set** for a kernel.chat film in the repo
 `~/blog design`. Everything else in the pipeline already exists and works. Your
-job replaces exactly one step: the frames, which are normally generated against
-fal.ai by `videos/<film>/production/generate-frames.mjs`, are instead generated
-by **your own built-in image generator**.
+job replaces exactly one step: the frames.
 
-Do not run `generate-frames.mjs`. Do not call fal, WaveSpeed, or any paid API.
-Do not touch narration, assembly, rendering, or publishing — those chairs are
-downstream of you and are not yours.
+Do not touch narration, assembly, or publishing — those are downstream chairs
+and are not yours. Do not call fal, WaveSpeed, or ElevenLabs.
 
 ---
 
 ## The pipeline, so you know where you sit
 
 ```
-script.txt
-  → build-beats.py          syllable-timed beat map
-  → STORYBOARD.md           one image per beat, tagged to its narration line
-  → build-prompts.py        storyboard → production/prompts.json     ← YOU START HERE
-  → [frames]                                                        ← YOUR JOB
-  → colour-field.py         per-act tint
-  → narrate.mjs             ElevenLabs, writes audio/words.json
-  → conform-beats.py        beats conformed to measured audio
-  → build-composition.mjs   HyperFrames composition
-  → render → shorts → publish
+CLAIMS.md → script.txt (writers' room)
+  → register-profile.py --gate    address bands: you/we, contractions, sentence weight
+  → slop-lint.py --gate           the humanity gate (law 15)
+  → board.py                      → production/prompts.json    ← YOU START HERE
+  → [frames]                                                   ← YOUR JOB
+  → frame-gate.py                 per-frame acceptance          ← YOU RUN THIS
+  → make-datacards.py             deterministic number cards (never generated)
+  → narrate-acts.mjs              ElevenLabs → audio/words.json
+  → map-shots.py                  → build/shots.json
+  → assemble-stills.mjs           → build/<film>-master.mp4
+  → cut-verticals.py → publish
 ```
 
-You read `production/prompts.json` and you write PNGs into
-`videos/<film>/public/images/frames/<id>.png`. One file per key in prompts.json,
-named exactly by its key. That is the whole contract.
+**The contract:** you read `production/prompts.json` and write one PNG per key
+into `videos/<film>/public/images/frames/<id>-final.png`.
+
+Note the **`-final` suffix**. It is not optional — every downstream tool globs
+for `*-final.png`. A file named `b001.png` is invisible to the pipeline.
 
 ---
 
 ## What prompts.json gives you
 
-A flat object: `{ "<frame-id>": "<full prompt string>", ... }`. Each value is
-already a complete prompt — scene description first, then the house style block.
-**Use it verbatim.** It was built by `tools/video/build-prompts.py` and encodes
-fixes that cost real money to learn. Do not paraphrase, shorten, or "improve" it.
+A flat object: `{ "<frame-id>": "<full prompt string>" }`. Each value is already
+a complete prompt — scene description first, then the house style block.
 
-If you believe a prompt is wrong, fix it in `build-prompts.py` and regenerate
-prompts.json. Never hand-edit a single prompt in isolation — the next run will
-silently revert it.
+**Use it verbatim.** It was written by `videos/<film>/board.py`, which enforces
+roughly twenty gates (counts at point of use, flat-run detection, label
+invitation, self-reference, camera quota, likeness law). Every clause encodes a
+fix that cost real money.
+
+If you believe a prompt is wrong, fix it in `board.py` and re-run that script —
+it regenerates prompts.json and re-checks every gate. **Never hand-edit a single
+prompt**; the next board run silently reverts it.
+
+Data cards are deliberately **absent** from prompts.json. Numbers are drawn
+deterministically by `make-datacards.py`. A model never draws data.
 
 ---
 
 ## Reference conditioning — read this before your first image
 
-**Find the plates before you assume a path.** They are in a different place in
-every film, and the first run of this brief looked in `production/refs/`, found
-it empty for that film, and generated with no conditioning at all:
+**Find the plate before you assume a path**; it moves between films:
 
 ```
-find videos/<film>/ -iname '*ref*' -o -iname '*plate*' | grep -i png
+find "videos/<film>/" -iname '*ref*' -o -iname '*plate*' | grep -i png
 ```
 
-- `you-watched-it-happen` → `production/refs/castplate.png`
-- `you-happen-to-life`   → `production/refs/layout-plate.png`, `dial-plate.png`
-- `you-are-not-finished` → `public/images/REFERENCE-notext.png`
+Some films reuse an earlier film's plate (episode 9 uses
+`videos/stop-and-chat/production/refs/castplate.png`, per its `CAST.md`).
+If the search returns nothing and CAST.md names no plate, **stop and say so.**
+Generating 100+ frames unconditioned is a different job, not a degraded one.
 
-**If the search returns nothing, stop and say so.** Generating 100+ frames with
-no reference is not a degraded version of this job, it is a different one.
+**Attach the plate on EVERY frame, and re-attach it every turn.** Do not assume
+a reference carried over from a previous message — long agent runs drift, and
+the character will not hold across 116 frames on description alone.
 
-**If your image generator accepts reference/input images, use both plates:**
+**ONE reference image is the proven configuration.** (Two pasted plates
+reliably crashed a sibling lane with "an internal error has occurred." If you
+try two and get an error, that is the known failure mode — drop back to one.)
 
-- **the character sheet** — teaches construction and palette.
-- **a layout plate** — teaches geometry only.
+**A reference image is a prior on EVERYTHING it contains.** The most expensive
+lesson in this project, relearned three times:
 
-**A reference image is a prior on EVERYTHING it contains.** This is the single
-most expensive lesson in this project and it has been relearned three times:
-
-1. A previous film's frame showing a corridor of framed portraits was used as a
-   "neutral" layout reference. It put its corridor into an unrelated frame.
+1. A corridor of framed portraits used as a "neutral" layout reference put its
+   corridor into an unrelated frame.
 2. A frame that *looked* plain was actually a dial, a stepladder and a cyan
-   robot. Conditioning on it dropped gratuitous dials and ladders into a quarter
-   of the film — including beats that never mention either. **37 frames, $1.44,
-   regenerated.**
-3. Conditioning on the character sheet alone made the model draw boxed panels on
+   robot. Conditioning on it dropped dials and ladders into a quarter of the
+   film — beats that never mention either. **37 frames, $1.44, regenerated.**
+3. Conditioning on a character sheet alone made the model draw boxed panels on
    a cream field, because that is what a character sheet looks like.
 
-So the layout plate must be **scenically empty**, not merely plain: flat cream to
-all four edges, one horizon line, one small figure, nothing else. If the film has
-no such plate, **build one first** and generate nothing until it exists.
-
-**If your generator does NOT accept reference images**, say so before you start.
-Text-only conditioning drifts much harder — the character will not hold across
-120 frames on description alone. In that case the canonical description at point
-of use (below) is doing all the work, and the contact-sheet check at the end is
-mandatory rather than advisory.
+If a film's plate carries a character who is **not** in this film, the prompts
+say so explicitly. Honour that — never stage a figure the prompt doesn't name.
 
 ---
 
 ## The five rules that produce usable frames
 
-**1. Describe the character at the point of use, and state counts.**
-A reference sheet is not sufficient. Wherever the board names the character, the
-full canonical description must be expanded inline, and every countable feature
-must carry its number. From `build-prompts.py`:
+**1. Describe the character at the point of use, and state counts.** The board
+already expands the canonical description inline wherever it names the
+character, with every countable feature numbered ("a single lonely PAIR of
+hairs: one kinking left, one leaning right"). "A few hairs" gives a different
+head every frame. *Known residual fault:* the model still often draws three or
+four crown hairs. It is invisible at video scale — **do not burn re-rolls on
+it.**
 
-> the person in the red jacket — a short round-headed adult, completely bald
-> except for **EXACTLY TWO** short thin hairs sticking straight up from the crown
-> of the head, small dot eyes with simple straight eyebrows, wearing a red zip
-> jacket over a cream shirt, black trousers and cream shoes
+**2. The style block may only contain what is true of EVERY frame.** A previous
+run put the protagonist's red jacket in the style block and all 133 frames came
+back with every bystander dressed as the protagonist.
 
-"A few hairs" gives you a different head every frame. "Exactly two" holds.
+**3. No text, ever, anywhere.** All lettering in a GALLEY film is set by the
+Editor. If lettering appears in output, it is a bug to fix upstream in board.py,
+not to paint over.
 
-**2. The style block may only contain what is true of EVERY frame.**
-A previous run put the red jacket in the style block, and all 133 frames came
-back with every researcher, parent and bystander dressed as the protagonist. If
-it is not true of every frame, it belongs in the scene description.
-
-**3. No text, ever, anywhere.** The style block says so at length. Image models
-garble type; all lettering in a GALLEY film is set by the Editor. Watch for
-ALL-CAPS motif names leaking through from the storyboard — the model reads them
-as labels to draw. `build-prompts.py` already down-cases them; if you see
-lettering in output, that is a bug to fix upstream, not to paint over.
-
-**4. Every recurring object needs its own canonical plate.** A motif described
-only in words drifts across frames — one film's dial was drawn eight different
-ways. If the board names an object that appears in more than about three frames,
-generate one canonical version of it first, approve it, and condition the rest on
-it.
+**4. Every recurring object needs its own canonical treatment.** A motif
+described only in words drifts — one film's dial was drawn eight different ways.
+The board handles this by wording recurrences identically; preserve that.
 
 **5. You cannot patch a generated frame.** Generative editors redraw the whole
-image and hand back a different one, often at lower resolution. There is no
-"fix the hand, keep everything else". If a frame is wrong, regenerate it whole,
-from the same prompt, with the same references.
+image and hand back a different one, often smaller. There is no "fix the hand,
+keep everything else." Regenerate whole, same prompt, same reference.
 
 ---
 
-## Resolution — measure the artifact, not the preview
+## Output handling — two mechanical steps that matter
 
-Gemini-class generators show a downscaled image in-page (~1024px) while the
-actual downloadable file is much larger (2752px was measured). A previous session
-measured the preview, concluded the film had to drop to 720p, and was wrong.
+**Normalize the file.** Output arrives as JPEG data wearing a `.png` extension.
+Convert before anything downstream reads it:
 
-**Measure the file on disk**, e.g. `magick identify -format '%wx%h' <file>`.
+```
+magick "<file>" -strip PNG24:"<file>"
+```
 
-Also audit the frame edge: generated 16:9 images often contain a smaller painted
-panel inside a larger canvas, with dead margin around it. Check with
-`magick <file> -format '%@' info:` (the trim bounding box) before assembly, and
-normalise toward the painted panel rather than the full canvas.
+**Measure the artifact, not the preview.** Previews are downscaled; measure on
+disk:
+
+```
+magick identify -format '%wx%h\n' "<file>"
+```
+
+Expect **1376×768**. Also audit the frame edge — generated 16:9 images sometimes
+contain a smaller painted panel inside a larger canvas. Check the trim box with
+`magick <file> -format '%@' info:` and normalise toward the painted panel.
 
 ---
 
 ## How to work
 
-1. **Read** `videos/<film>/STORYBOARD.md` and `production/prompts.json`.
-   Report the frame count back before generating anything.
-2. **Confirm the plates exist** and are correct. Build the empty layout plate if
-   it does not exist.
-3. **Generate ONE frame, then check the file before anything else:**
+1. **Read** `production/prompts.json`. Report the frame count before generating.
+2. **Confirm the plate** exists (see above).
+3. **Generate ONE frame**, normalize it, measure it, and **run the gate**:
    ```
-   magick identify -format '%wx%h\n' videos/<film>/public/images/frames/<id>.png
+   /usr/bin/python3 tools/video/frame-gate.py videos/<film> --frame <id>
    ```
-   It must be **16:9 landscape** and at least 1920 wide. The first run of this
-   brief produced three 1024×1024 squares — every prompt ends "16:9 landscape"
-   and the model ignored it. Square frames are unusable at any quality, and
-   nothing downstream can fix an aspect ratio. If your generator cannot emit
-   16:9 at that size, **stop and say so** — that ends this approach, and the
-   film goes back to fal.
-4. **Then generate two more** — one wide, one detail. Stop. Show all three.
-   Do not proceed on your own judgement.
-5. **Then generate in batches**, writing each PNG as you go so a crash loses
-   nothing. Re-running must skip files that already exist.
-6. **Contact-sheet the whole film before declaring done:**
+   Show the result. Do not proceed on your own judgement.
+4. **Then batches of 5–8**, in key order, writing each file as you go so a crash
+   loses nothing. Re-running must skip ids whose file already exists.
+5. **Gate each batch.** If a frame fails the gate, report the id and move on —
+   do not attempt to fix it yourself. Failures are re-rolled deliberately, and
+   the failing attempt is kept as evidence in `production/quarantine/`.
+6. **Contact-sheet before declaring done:**
    ```
-   magick montage 'videos/<film>/public/images/frames/*.png' \
+   magick montage 'videos/<film>/public/images/frames/*-final.png' \
      -tile 8x -geometry 200x113+2+2 /tmp/contact.png
    ```
-   Look at it. Character drift, stray lettering, donated props and boxed panels
-   are all obvious on a contact sheet and all invisible frame by frame.
-7. **Report**: frames generated, frames skipped, anything you could not do, and
-   your honest read of the contact sheet.
+   Character drift, stray lettering, donated props and boxed panels are obvious
+   on a contact sheet and invisible frame by frame.
+7. **Report**: frames generated, frames skipped, gate failures by id, anything
+   you could not do, and your honest read of the contact sheet.
 
 ---
 
 ## Hard limits
 
-- **No paid API calls.** Not fal, not WaveSpeed, not ElevenLabs. If you think you
-  need one, stop and say so.
-- **Do not publish anything.** Publishing is gated behind Isaac's approval and a
-  cadence guard (`tools/publish/cadence.mjs`); it is not part of this job.
-- **No emoji, in code or in any user-visible copy.**
-- **Magazine vocabulary** in filenames and copy — issue, feature, spread, folio,
-  colophon. Never dashboard, panel, card, widget, modal.
-- If a rule here conflicts with something you find in the repo, the repo's
-  `docs/video/PRODUCTION-PLAYBOOK.md` wins — it is the long-form record and this
-  brief is a summary of it.
+- **No paid API calls.** Not fal, not WaveSpeed, not ElevenLabs.
+- **Do not publish anything.** Publishing is gated behind Isaac's explicit
+  approval and a cadence guard (`tools/publish/cadence.mjs`).
+- **Do not edit** `script.txt`, `board.py` gates, or anything under
+  `docs/video/` without being asked. The script is locked once it clears the
+  register and humanity gates.
+- **No emoji**, in code or user-visible copy.
+- **Magazine vocabulary** in copy — issue, feature, spread, folio, colophon.
+  Never dashboard, panel, card, widget, modal.
+- If a rule here conflicts with the repo, `docs/video/PRODUCTION-PLAYBOOK.md`
+  wins — it is the long-form record and this brief summarises it.
 
 ## Where the full reasoning lives
 
-- `docs/video/PRODUCTION-PLAYBOOK.md` — sections 10.x are the hard-won rules,
-  each written up with what it cost.
+- `docs/video/PRODUCTION-PLAYBOOK.md` — the hard-won rules, each with its cost.
+- `docs/video/HUMAN-VOICE.md` — the humanity gate and the corpus study.
 - `docs/design-language.md` — house palette and type.
-- `.claude/agents/galley/` — the chairs and what each one owns.
+- `videos/<film>/WORLD.md` and `CAST.md` — this film's laws and counts.

@@ -1,6 +1,6 @@
 {
   "name": "@kernel.chat/kbot-finance",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Audit-grade AI infrastructure for capital markets. Deterministic engine adapters + content-addressed envelopes + hash-chained audit log + regulatory verifier + MCP server. The AI Intelligence Layer never produces the number.",
   "type": "module",
   "license": "Apache-2.0",
@@ -41,6 +41,10 @@
     "./adapters/edgar": {
       "import": "./dist/adapters/edgar/index.js",
       "types": "./dist/adapters/edgar/index.d.ts"
+    },
+    "./ledger": {
+      "import": "./dist/ledger/index.js",
+      "types": "./dist/ledger/index.d.ts"
     },
     "./exporters/annex-iv": {
       "import": "./dist/exporters/annex-iv.js",

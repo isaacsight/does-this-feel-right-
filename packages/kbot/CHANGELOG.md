@@ -1,5 +1,27 @@
 # Changelog
 
+## 4.5.1 (2026-08-14) — Observer credential redaction + prompt-prefix cacheability
+
+Two fixes found while wiring kbot to a fully local model. Both are measured, not estimated.
+
+### Fixed — the observer wrote credentials to disk (`src/observer.ts`)
+- The observer records tool calls **verbatim**, including full Bash command strings, with no filtering. A live Anthropic API key sat in `~/.kbot/observer/session.jsonl` for **113 days** because a session ran `NEW_KEY="sk-ant-..."` to verify a rotated credential — the whole command line was logged. The file was mode **644** and 12 MB.
+- Redaction now runs in `recordObservation()` — the single choke point every observation passes through — recursively, before serialisation. Log files are created `0600` instead of inheriting umask.
+- Covers Anthropic, OpenAI, GitHub (classic + `github_pat_`), Slack, AWS key ids, Google, Discord webhook URLs, PEM private-key blocks, and a generic `NAME=value` rule for secret-shaped variable names. **The generic rule is the one that catches unknown vendors** — and the one that would have caught this leak.
+- Over-redaction would destroy the traces that feed the learning engine, so tests pin the negative cases: `git commit -m "..."`, `npm run build`, and a grep for the literal string `API_KEY` pass through byte-identical.
+
+### Fixed — volatile state broke local KV-cache reuse (`src/context.ts`, `src/prompt-cache.ts`, `src/agent.ts`)
+- Local runtimes (Ollama/llama.cpp) reuse the longest common prompt **prefix**. kbot emitted a live free-memory reading 23.9% into a ~24k-char system prompt, so **76% was re-encoded every turn**.
+- `formatMachineContext()` now emits only invariant hardware facts; new `formatMachineVolatile()` carries free memory / disk / battery into the dynamic section, so the agent still sees them.
+- New `stableContext` section in `createPromptSections()`; the dynamic block is ordered least- to most-volatile.
+- Cacheable prefix **23.9% → 84.9%**, verified by proxying kbot→Ollama and diffing prompts across invocations.
+- Honest caveat: on a memory-constrained machine this produced no wall-time gain by itself — memory pressure dominated. Kept because the waste is real and it pays off once memory is not the binding constraint.
+
+### Added
+- `src/observer-redaction.test.ts` — 14 tests covering positive and negative redaction cases.
+
+Tests: **1309 passing** (72 files).
+
 ## 4.3.0 (2026-05-09) — Local security audit + Agent SDK adapter: response to the May 2026 news cycle
 
 Two additive surfaces land in 4.3.0, each a deliberate response to AI-news events from the first week of May 2026.

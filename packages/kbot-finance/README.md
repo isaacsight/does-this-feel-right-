@@ -153,6 +153,58 @@ import {
 - **Approval tokens.** HMAC-signed (Ed25519 in v0.2), bound to the exact
   request_hash + materiality + summary the approver saw.
 
+## Ledger substrate (v0.3): the AI proposes, arithmetic disposes, a human signs
+
+The same doctrine applied to bookkeeping — the first *write-side* engine
+in the package, and vendor-neutral by construction. Any general ledger
+that can present a bank feed and accept an entry implements `LedgerEngine`;
+the audit chain, the reconciliation engine, the rules and the material gate
+sit above that line and never change. The package ships its own reference
+engine, `ContentAddressedLedger`: an append-only JSONL ledger in which every
+entry's id **is** the SHA-256 of its canonical bytes — no entry can exist
+without a replay key.
+
+The prevailing pattern in AI bookkeeping is: model reads the document,
+model drafts the entry, human eyeballs it, vendor's cloud holds the trust.
+This substrate replaces every link in that chain with something replayable:
+
+| Step | What happens | Audit action |
+|---|---|---|
+| 0 | Source document bytes are SHA-256 sealed. Only the hash travels. | — |
+| 1 | A model (any model — cloud or a local run) reads the document and returns an **extraction claim**. It is recorded with model lineage. It is *not* a number. | `extraction_claim` |
+| 2 | The **deterministic reconciliation engine** checks the document against itself (line arithmetic, subtotal + tax = total) and against the bank feed (direction, amount, date window). Pure function; `byte_identical_replayable: true`. Exactly one bank line = `matched`; several = `ambiguous` and a human picks, never the model. | `reconciliation` |
+| 3 | **Ledger rules-as-code**: period lock, account code exists in the live chart, duplicate source document by content hash, reconciled status, confidence floor. Reason codes an accountant can read. | `verifier_check` |
+| 4 | Posting is **material**. A signed approval token from a trusted human must bind to *this* request hash. Missing, forged, or from an unknown approver — stop. | `approval_granted` / `approval_denied` |
+| 5 | Only now does the ledger engine post. The amount that lands is the **bank feed's**, not the model's. The entry carries the document hash. Idempotent on identical entries. | `engine_request` / `engine_response` |
+
+```ts
+import {
+  sealSourceDocument, ledgerPost, approvalSummary, reconcile, makeLedgerRules,
+  ContentAddressedLedger, Approver, AppendOnlyAuditLog, LEDGER_POST_MATERIALITY,
+} from "@kernel.chat/kbot-finance";
+
+const engine = new ContentAddressedLedger("./ledger.jsonl", bankFeedFromYourBank);
+const doc = sealSourceDocument(bytes, { mime: "application/pdf", label: "ticket-4471.pdf" });
+const claim = await yourModel.extract(bytes, doc.doc_hash);   // any model; lineage required
+const bank_lines = (await engine.bankLines()).value;
+
+// First call: no approval → returns the request_hash the accountant signs.
+const first = await ledgerPost({ claim, bank_lines, bank_account_code: "090", data_as_of }, deps);
+// Accountant signs the exact envelope, offline if they like:
+const token = approver.approve({ request_hash: first.request_hash!, summary: approvalSummary(claim, reconcile(claim, bank_lines)), session_id, materiality: LEDGER_POST_MATERIALITY });
+// Second call posts. AppendOnlyAuditLog.verify() proves the audit chain;
+// ContentAddressedLedger.read() proves every entry still matches its own hash.
+const posted = await ledgerPost({ ...inputs, approval: token }, deps);
+```
+
+Bringing your own ledger: implement `LedgerEngine` (`engine_version`,
+`bankLines()`, `post()`) and pass it as `deps.engine`. Nothing else changes.
+
+What this deliberately does not do yet: invoices/bills (bank movements
+only), tax-jurisdiction rules (the ruleset is GLOBAL bookkeeping
+discipline; jurisdiction layers compose the same way EU RTS 6 does for
+trading), multi-currency revaluation.
+
 ## What v0.1 deliberately does NOT do
 
 - No trading / signing / order placement on Polymarket. Read-only. Write
@@ -181,8 +233,15 @@ src/
       client.ts                  # HTTPS client; never throws across boundary
       commands.ts                # listMarkets / getMarket / listEvents
       index.ts
+    ledger-rules.ts              # Period lock, account code, duplicate doc, reconciled, confidence floor
+  ledger/
+    source-document.ts           # SHA-256 seal + verify of source bytes
+    extraction-claim.ts          # ExtractionClaim type, shape validation, audit recording
+    reconcile.ts                 # Deterministic arithmetic + bank-feed reconciliation engine
+    engine.ts                    # LedgerEngine interface + ContentAddressedLedger reference engine
   tools/
     polymarket-query.ts          # The kbot-shaped tool wiring all layers
+    ledger-post.ts               # claim → reconcile → verify → signed approval → engine post
   demo.ts                        # End-to-end script (npm run demo)
   index.ts                       # Public surface
 test/

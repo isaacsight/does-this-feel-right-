@@ -32,7 +32,7 @@ import {
   DEFAULT_FALLBACK_RULES,
   type ToolContext,
 } from './tool-pipeline.js'
-import { formatContextForPrompt, type ProjectContext } from './context.js'
+import { formatContextForPrompt, formatMachineVolatile, type ProjectContext } from './context.js'
 import { getMatrixSystemPrompt, listAgents, createAgent, type MatrixAgent } from './matrix.js'
 import { getPreferredProvider } from './agents/specialists.js'
 import {
@@ -1226,6 +1226,8 @@ export async function runAgent(
   // Step 2: Build context (cached — only rebuilt when inputs change)
   const matrixPrompt = options.agent ? getMatrixSystemPrompt(options.agent) : null
   const contextSnippet = options.context ? formatContextForPrompt(options.context) : ''
+  // Live machine state is deliberately kept out of the cacheable prefix.
+  const machineVolatileSnippet = options.context?.machine ? formatMachineVolatile(options.context.machine) : ''
   const skillsSnippet = loadSkills(process.cwd(), message)
   const selfAwarenessSnippet = getSelfAwarenessPrompt()
   const mathGuardSnippet = buildMathGuardBlock(message)
@@ -1351,7 +1353,17 @@ Always quote file paths that contain spaces. Never reference internal system nam
   const promptSections = createPromptSections({
     persona: PERSONA,
     matrixPrompt: matrixPrompt || undefined,
-    contextSnippet: (contextSnippet || '') + repoMapSnippet + graphSnippet + skillsSnippet + skillLibrarySnippet + '\n\n' + selfAwarenessSnippet + (mathGuardSnippet ? '\n\n' + mathGuardSnippet : '') + (identityGuardSnippet ? '\n\n' + identityGuardSnippet : '') || undefined,
+    // Split by VOLATILITY, not by topic. Everything invariant for a given cwd
+    // goes in the cacheable prefix; anything that varies per-message or
+    // per-invocation goes after it. Ollama/llama.cpp reuse the longest common
+    // prefix, so a single changing byte early in the prompt forces a full
+    // re-encode of everything downstream.
+    stableContext: (contextSnippet || '') + repoMapSnippet + '\n\n' + selfAwarenessSnippet || undefined,
+    // Ordered least-volatile -> most-volatile. Skills and guards are derived
+    // from the user's message (identical on a repeated turn), whereas graph
+    // memory and live machine state change on EVERY invocation, so they must
+    // come last or they push the message-stable content out of the prefix.
+    contextSnippet: skillsSnippet + skillLibrarySnippet + (mathGuardSnippet ? '\n\n' + mathGuardSnippet : '') + (identityGuardSnippet ? '\n\n' + identityGuardSnippet : '') + graphSnippet + (machineVolatileSnippet ? '\n\n' + machineVolatileSnippet : '') || undefined,
     memorySnippet: (memorySnippet || '') + getDreamPrompt(8) + reflectionSnippet || undefined,
     learningContext: ((learningContext || '') + (synthesisSnippet ? '\n\n' + synthesisSnippet : '') + (correctionsSnippet ? '\n\n' + correctionsSnippet : '')) || undefined,
   })

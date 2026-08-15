@@ -1,6 +1,6 @@
 {
   "name": "@kernel.chat/kbot",
-  "version": "4.5.0",
+  "version": "4.5.1",
   "description": "Open-source terminal AI agent. 100+ specialist skills + audit-grade finance infra via @kernel.chat/kbot-finance. Content-addressed envelopes, hash-chained audit log, jurisdiction-aware regulatory verifier. The AI Intelligence Layer never produces the number. Fully local, fully sovereign. MIT.",
   "type": "module",
   "repository": {
