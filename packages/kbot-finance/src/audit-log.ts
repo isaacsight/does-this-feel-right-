@@ -22,7 +22,11 @@ export type AuditAction =
   | "incident"
   | "replay_request"
   | "replay_verified"
-  | "replay_mismatch";
+  | "replay_mismatch"
+  /** A model's reading of a source document. A claim, never a number. */
+  | "extraction_claim"
+  /** Deterministic reconciliation of a claim against the bank feed. */
+  | "reconciliation";
 
 export interface AuditEntryInput {
   readonly action: AuditAction;
