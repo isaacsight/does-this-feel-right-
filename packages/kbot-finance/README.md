@@ -200,6 +200,19 @@ const posted = await ledgerPost({ ...inputs, approval: token }, deps);
 Bringing your own ledger: implement `LedgerEngine` (`engine_version`,
 `bankLines()`, `post()`) and pass it as `deps.engine`. Nothing else changes.
 
+**Conformance vectors.** The substrate is specified by test vectors, not
+prose: [`conformance/`](./conformance/README.md) ships 143 JSON vectors across
+13 kinds (canonicalization, source-document hashing, claim shape, arithmetic,
+reconcile, the reconcile replay-key envelope, ledger rules, approval summary,
+HMAC token, approval binding, ledger entry ids, audit chain, and end-to-end
+`ledger_post` with its exact audit-action sequence). They are generated from
+the reference by `npm run conformance:generate`, pinned by a manifest with a
+`suite_hash`, and re-derived byte-for-byte by `npm run conformance:check`.
+A port in any language runs `runConformance(dir, impl)` from
+`@kernel.chat/kbot-finance/conformance` and quotes the suite hash. Two
+negative controls ship: auto-picking an ambiguous match fails exactly the
+ambiguity vectors; forgetting to sort keys fails every hash-bearing kind.
+
 What this deliberately does not do yet: invoices/bills (bank movements
 only), tax-jurisdiction rules (the ruleset is GLOBAL bookkeeping
 discipline; jurisdiction layers compose the same way EU RTS 6 does for
@@ -239,6 +252,13 @@ src/
     extraction-claim.ts          # ExtractionClaim type, shape validation, audit recording
     reconcile.ts                 # Deterministic arithmetic + bank-feed reconciliation engine
     engine.ts                    # LedgerEngine interface + ContentAddressedLedger reference engine
+  conformance/
+    types.ts                     # Vector format v1 (13 kinds) + manifest
+    cases.ts                     # Fixed case catalogue (inputs only)
+    generate.ts                  # Vectors from the reference; --check re-derives and diffs
+    run.ts                       # runConformance(dir, impl) for any port
+    implementation.ts            # The surface a port exposes + MemoryLedger
+    reference.ts                 # The reference adapted to that surface
   tools/
     polymarket-query.ts          # The kbot-shaped tool wiring all layers
     ledger-post.ts               # claim → reconcile → verify → signed approval → engine post

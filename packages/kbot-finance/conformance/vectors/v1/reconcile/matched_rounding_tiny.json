@@ -1,0 +1,84 @@
+{
+  "format_version": 1,
+  "kind": "reconcile",
+  "id": "matched_rounding_tiny",
+  "description": "reconcile(three_lines_rounding, tiny, {\"amount_tolerance\":0.01,\"date_window_days\":5})",
+  "input": {
+    "claim": {
+      "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+      "direction": "out",
+      "vendor": "Ag Supply Co",
+      "date": "2026-08-12",
+      "currency": "USD",
+      "subtotal": 0.3,
+      "tax": 0,
+      "total": 0.3,
+      "line_items": [
+        {
+          "description": "a",
+          "quantity": 1,
+          "unit_amount": 0.1,
+          "line_amount": 0.1,
+          "account_code": "400"
+        },
+        {
+          "description": "b",
+          "quantity": 1,
+          "unit_amount": 0.1,
+          "line_amount": 0.1,
+          "account_code": "400"
+        },
+        {
+          "description": "c",
+          "quantity": 1,
+          "unit_amount": 0.1,
+          "line_amount": 0.1,
+          "account_code": "400"
+        }
+      ],
+      "reference": null,
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    },
+    "bank_lines": [
+      {
+        "id": "bt-15",
+        "date": "2026-08-12",
+        "direction": "out",
+        "amount": 0.3,
+        "currency": "USD",
+        "counterparty": null,
+        "reference": null,
+        "reconciled": false
+      }
+    ],
+    "policy": {
+      "amount_tolerance": 0.01,
+      "date_window_days": 5
+    }
+  },
+  "expected": {
+    "status": "matched",
+    "arithmetic": {
+      "ok": true,
+      "line_sum": 0.3,
+      "claimed_subtotal": 0.3,
+      "claimed_total": 0.3,
+      "computed_total": 0.3,
+      "bad_lines": []
+    },
+    "candidates": [
+      "bt-15"
+    ],
+    "matched_bank_line_id": "bt-15",
+    "policy": {
+      "amount_tolerance": 0.01,
+      "date_window_days": 5
+    }
+  }
+}

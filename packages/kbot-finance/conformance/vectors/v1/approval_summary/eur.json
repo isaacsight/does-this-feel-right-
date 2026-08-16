@@ -1,0 +1,57 @@
+{
+  "format_version": 1,
+  "kind": "approval_summary",
+  "id": "eur",
+  "description": "approval summary string for eur",
+  "input": {
+    "claim": {
+      "doc_hash": "b2278b18e60aac8b6174bec369310fb049295eee71563d7465a9ba47a4919590",
+      "direction": "out",
+      "vendor": "Café Fournisseur",
+      "date": "2026-08-12",
+      "currency": "EUR",
+      "subtotal": 1033.75,
+      "tax": 206.75,
+      "total": 1240.5,
+      "line_items": [
+        {
+          "description": "Café — 25 kg",
+          "quantity": 25,
+          "unit_amount": 41.35,
+          "line_amount": 1033.75,
+          "account_code": "400"
+        }
+      ],
+      "reference": "F-12",
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    },
+    "reconciliation": {
+      "status": "matched",
+      "arithmetic": {
+        "ok": true,
+        "line_sum": 1033.75,
+        "claimed_subtotal": 1033.75,
+        "claimed_total": 1240.5,
+        "computed_total": 1240.5,
+        "bad_lines": []
+      },
+      "candidates": [
+        "bt-7"
+      ],
+      "matched_bank_line_id": "bt-7",
+      "policy": {
+        "amount_tolerance": 0.01,
+        "date_window_days": 5
+      }
+    }
+  },
+  "expected": {
+    "summary": "SPEND EUR 1240.50 Café Fournisseur 2026-08-12 doc:b2278b18e60a bank:bt-7"
+  }
+}

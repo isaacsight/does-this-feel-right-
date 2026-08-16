@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "kind": "canonicalize",
+  "id": "strings",
+  "description": "canonical JSON + sha256 for strings",
+  "input": {
+    "value": {
+      "q": "he said \"hi\"",
+      "nl": "a\nb",
+      "uni": "café ☕",
+      "esc": "\\"
+    }
+  },
+  "expected": {
+    "canonical": "{\"esc\":\"\\\\\",\"nl\":\"a\\nb\",\"q\":\"he said \\\"hi\\\"\",\"uni\":\"café ☕\"}",
+    "sha256": "513cbb8fb718f92d4f88ddd7f78e20cd7d9684655c5036f4acc96b052392e11d"
+  }
+}

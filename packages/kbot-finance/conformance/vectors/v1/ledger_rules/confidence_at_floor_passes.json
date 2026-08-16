@@ -1,0 +1,96 @@
+{
+  "format_version": 1,
+  "kind": "ledger_rules",
+  "id": "confidence_at_floor_passes",
+  "description": "ledger rules: confidence_at_floor_passes",
+  "input": {
+    "confidence_floor": 0.71,
+    "claim": {
+      "doc_hash": "bb7d410ed0d19601da3a6d296a5ac3ca3b5d0d9cf087eb467a504ef2b0014e23",
+      "direction": "out",
+      "vendor": "Pump 3",
+      "date": "2026-08-13",
+      "currency": "USD",
+      "subtotal": 80,
+      "tax": 8,
+      "total": 88,
+      "line_items": [
+        {
+          "description": "Diesel",
+          "quantity": 40,
+          "unit_amount": 2,
+          "line_amount": 80,
+          "account_code": "430"
+        }
+      ],
+      "reference": null,
+      "confidence": 0.71,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    },
+    "reconciliation": {
+      "status": "matched",
+      "arithmetic": {
+        "ok": true,
+        "line_sum": 80,
+        "claimed_subtotal": 80,
+        "claimed_total": 88,
+        "computed_total": 88,
+        "bad_lines": []
+      },
+      "candidates": [
+        "bt-2"
+      ],
+      "matched_bank_line_id": "bt-2",
+      "policy": {
+        "amount_tolerance": 0.01,
+        "date_window_days": 5
+      }
+    },
+    "state": {
+      "valid_account_codes": [
+        "400",
+        "425",
+        "430",
+        "200"
+      ],
+      "closed_through": "2026-06-30",
+      "posted_doc_hashes": []
+    },
+    "jurisdiction": "US"
+  },
+  "expected": {
+    "ok": true,
+    "checks": [
+      {
+        "rule_id": "rule.ledger.period_lock",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.ledger.account_code",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.ledger.duplicate_document",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.ledger.reconciled",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.ledger.confidence_floor",
+        "pass": true,
+        "code": null
+      }
+    ]
+  }
+}

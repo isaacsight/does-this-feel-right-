@@ -49,6 +49,10 @@
     "./exporters/annex-iv": {
       "import": "./dist/exporters/annex-iv.js",
       "types": "./dist/exporters/annex-iv.d.ts"
+    },
+    "./conformance": {
+      "import": "./dist/conformance/index.js",
+      "types": "./dist/conformance/index.d.ts"
     }
   },
   "scripts": {
@@ -60,11 +64,14 @@
     "test:watch": "vitest",
     "test:live": "vitest run --reporter=verbose test/polymarket.live.test.ts",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build && npm test"
+    "prepublishOnly": "npm run build && npm test",
+    "conformance:generate": "tsx src/conformance/generate.ts",
+    "conformance:check": "tsx src/conformance/generate.ts --check"
   },
   "files": [
     "dist/",
     "README.md",
+    "conformance/",
     "LICENSE",
     "RFC-content-addressed-mcp.md"
   ],

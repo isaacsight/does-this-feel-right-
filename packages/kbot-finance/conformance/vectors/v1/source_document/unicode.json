@@ -1,0 +1,15 @@
+{
+  "format_version": 1,
+  "kind": "source_document",
+  "id": "unicode",
+  "description": "sha256 over utf8 bytes of facture-12.txt",
+  "input": {
+    "text_utf8": "Facture n° 12 — café ☕ — 1 240,50 €",
+    "mime": "text/plain",
+    "label": "facture-12.txt"
+  },
+  "expected": {
+    "doc_hash": "b2278b18e60aac8b6174bec369310fb049295eee71563d7465a9ba47a4919590",
+    "byte_length": 45
+  }
+}

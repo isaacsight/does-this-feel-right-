@@ -55,9 +55,47 @@ export interface AuditEntry extends AuditEntryInput {
 
 export const GENESIS_HASH = "0".repeat(64);
 
-/** Compute the hash of an entry excluding self_hash. */
-function entryHash(entry: Omit<AuditEntry, "self_hash">): string {
+/** Compute the hash of an entry excluding self_hash. Pure. */
+export function auditEntryHash(entry: Omit<AuditEntry, "self_hash">): string {
   return sha256(canonicalize(entry as unknown as JsonValue));
+}
+
+/**
+ * Build a hash chain over already-timestamped inputs. Pure — no clock, no
+ * disk. This is the function conformance vectors pin; AppendOnlyAuditLog
+ * is the stateful wrapper that supplies seq + timestamp and persists.
+ */
+export function chainAuditEntries(
+  inputs: ReadonlyArray<AuditEntryInput & { readonly timestamp: string }>,
+  genesis: string = GENESIS_HASH,
+): AuditEntry[] {
+  const out: AuditEntry[] = [];
+  let prev = genesis;
+  inputs.forEach((input, seq) => {
+    const skeleton: Omit<AuditEntry, "self_hash"> = { ...input, seq, prev_hash: prev };
+    const self_hash = auditEntryHash(skeleton);
+    out.push({ ...skeleton, self_hash });
+    prev = self_hash;
+  });
+  return out;
+}
+
+/** Verify a chain in memory. Pure. Returns the first broken seq, or ok. */
+export function verifyAuditChain(
+  entries: ReadonlyArray<AuditEntry>,
+  genesis: string = GENESIS_HASH,
+): { ok: true } | { ok: false; broken_at_seq: number } {
+  let expected_prev = genesis;
+  let expected_seq = 0;
+  for (const entry of entries) {
+    if (entry.seq !== expected_seq) return { ok: false, broken_at_seq: expected_seq };
+    if (entry.prev_hash !== expected_prev) return { ok: false, broken_at_seq: entry.seq };
+    const { self_hash, ...skeleton } = entry;
+    if (auditEntryHash(skeleton) !== self_hash) return { ok: false, broken_at_seq: entry.seq };
+    expected_prev = self_hash;
+    expected_seq += 1;
+  }
+  return { ok: true };
 }
 
 /**
@@ -114,7 +152,7 @@ export class AppendOnlyAuditLog {
         timestamp: new Date().toISOString(),
         prev_hash: this.last_hash,
       };
-      const self_hash = entryHash(skeleton);
+      const self_hash = auditEntryHash(skeleton);
       const entry: AuditEntry = { ...skeleton, self_hash };
       await appendFile(this.path, JSON.stringify(entry) + "\n", "utf8");
       this.last_hash = self_hash;
@@ -128,18 +166,10 @@ export class AppendOnlyAuditLog {
   /** Verify the integrity of the entire log on disk. Returns the failure index, or null if intact. */
   static async verify(path: string): Promise<{ ok: true } | { ok: false; broken_at_seq: number }> {
     const raw = await readFile(path, "utf8").catch(() => "");
-    const lines = raw.split("\n").filter((l) => l.length > 0);
-    let expected_prev = GENESIS_HASH;
-    let expected_seq = 0;
-    for (const line of lines) {
-      const entry = JSON.parse(line) as AuditEntry;
-      if (entry.seq !== expected_seq) return { ok: false, broken_at_seq: expected_seq };
-      if (entry.prev_hash !== expected_prev) return { ok: false, broken_at_seq: entry.seq };
-      const { self_hash, ...skeleton } = entry;
-      if (entryHash(skeleton) !== self_hash) return { ok: false, broken_at_seq: entry.seq };
-      expected_prev = self_hash;
-      expected_seq += 1;
-    }
-    return { ok: true };
+    const entries = raw
+      .split("\n")
+      .filter((l) => l.length > 0)
+      .map((line) => JSON.parse(line) as AuditEntry);
+    return verifyAuditChain(entries);
   }
 }

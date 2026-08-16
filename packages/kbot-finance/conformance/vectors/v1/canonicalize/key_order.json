@@ -1,0 +1,16 @@
+{
+  "format_version": 1,
+  "kind": "canonicalize",
+  "id": "key_order",
+  "description": "canonical JSON + sha256 for key_order",
+  "input": {
+    "value": {
+      "b": 1,
+      "a": 2
+    }
+  },
+  "expected": {
+    "canonical": "{\"a\":2,\"b\":1}",
+    "sha256": "d3626ac30a87e6f7a6428233b3c68299976865fa5508e4267c5415c76af7a772"
+  }
+}

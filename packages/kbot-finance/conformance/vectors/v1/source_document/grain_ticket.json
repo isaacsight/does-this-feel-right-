@@ -1,0 +1,15 @@
+{
+  "format_version": 1,
+  "kind": "source_document",
+  "id": "grain_ticket",
+  "description": "sha256 over utf8 bytes of ticket-4471.pdf",
+  "input": {
+    "text_utf8": "GRAIN DELIVERY TICKET #4471 — 32.5 t wheat — Ag Supply Co — 2026-08-12",
+    "mime": "application/pdf",
+    "label": "ticket-4471.pdf"
+  },
+  "expected": {
+    "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+    "byte_length": 76
+  }
+}

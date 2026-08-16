@@ -1,0 +1,57 @@
+{
+  "format_version": 1,
+  "kind": "approval_summary",
+  "id": "receive",
+  "description": "approval summary string for receive",
+  "input": {
+    "claim": {
+      "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+      "direction": "in",
+      "vendor": "Grain Buyer Ltd",
+      "date": "2026-08-12",
+      "currency": "USD",
+      "subtotal": 9750,
+      "tax": 0,
+      "total": 9750,
+      "line_items": [
+        {
+          "description": "Wheat 32.5t @ 300",
+          "quantity": 32.5,
+          "unit_amount": 300,
+          "line_amount": 9750,
+          "account_code": "200"
+        }
+      ],
+      "reference": "RCT-2201",
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    },
+    "reconciliation": {
+      "status": "matched",
+      "arithmetic": {
+        "ok": true,
+        "line_sum": 9750,
+        "claimed_subtotal": 9750,
+        "claimed_total": 9750,
+        "computed_total": 9750,
+        "bad_lines": []
+      },
+      "candidates": [
+        "bt-14"
+      ],
+      "matched_bank_line_id": "bt-14",
+      "policy": {
+        "amount_tolerance": 0.01,
+        "date_window_days": 5
+      }
+    }
+  },
+  "expected": {
+    "summary": "RECEIVE USD 9750.00 Grain Buyer Ltd 2026-08-12 doc:8e394c0ee918 bank:bt-14"
+  }
+}

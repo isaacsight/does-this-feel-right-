@@ -1,0 +1,99 @@
+{
+  "format_version": 1,
+  "kind": "ledger_post",
+  "id": "posts_total_from_bank_not_model",
+  "description": "ledger_post end to end: posts_total_from_bank_not_model",
+  "input": {
+    "engine_version": "content-addressed-ledger@0.1.0",
+    "bank_account_code": "090",
+    "data_as_of": "2026-08-15T00:00:00.000Z",
+    "policy": {
+      "amount_tolerance": 0.01,
+      "date_window_days": 5
+    },
+    "confidence_floor": 0.6,
+    "state": {
+      "valid_account_codes": [
+        "400",
+        "425",
+        "430",
+        "200"
+      ],
+      "closed_through": "2026-06-30",
+      "posted_doc_hashes": []
+    },
+    "jurisdiction": "US",
+    "session_id": "conformance-session",
+    "trusted": [
+      {
+        "approver_id": "cpa.jane",
+        "secret_utf8": "conformance-approver-secret-0001"
+      }
+    ],
+    "approved_at": "2026-08-15T12:00:00.000Z",
+    "engine_fails": false,
+    "claim": {
+      "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+      "direction": "out",
+      "vendor": "Ag Supply Co",
+      "date": "2026-08-12",
+      "currency": "USD",
+      "subtotal": 1200,
+      "tax": 40.5,
+      "total": 1240.5,
+      "line_items": [
+        {
+          "description": "Urea 46-0-0",
+          "quantity": 2,
+          "unit_amount": 450,
+          "line_amount": 900,
+          "account_code": "400"
+        },
+        {
+          "description": "Delivery",
+          "quantity": 1,
+          "unit_amount": 300,
+          "line_amount": 300,
+          "account_code": "425"
+        }
+      ],
+      "reference": "INV-88213",
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    },
+    "bank_lines": [
+      {
+        "id": "bt-8",
+        "date": "2026-08-13",
+        "direction": "out",
+        "amount": 1240.51,
+        "currency": "USD",
+        "counterparty": "AG SUPPLY",
+        "reference": null,
+        "reconciled": false
+      }
+    ],
+    "approval": "valid"
+  },
+  "expected": {
+    "ok": true,
+    "stage": null,
+    "request_hash": "265d5f3f0ba69ac3a6242ad3f98b1c8603b144dff538014b77d79235155f2106",
+    "reconcile_status": "matched",
+    "audit_actions": [
+      "extraction_claim",
+      "reconciliation",
+      "verifier_check",
+      "approval_granted",
+      "engine_request",
+      "engine_response"
+    ],
+    "posted_entry_id": "0fc1973f79f56928d45d3fb0b0617c83ff501300ebf88ff35d148d60f4f643a1",
+    "posted_total": 1240.51
+  }
+}

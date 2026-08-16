@@ -31,4 +31,5 @@ export * from "./ledger/index.js";
 export * from "./tools/polymarket-query.js";
 export * from "./tools/edgar-query.js";
 export * from "./tools/ledger-post.js";
+export * as conformance from "./conformance/index.js";
 export * from "./exporters/annex-iv.js";

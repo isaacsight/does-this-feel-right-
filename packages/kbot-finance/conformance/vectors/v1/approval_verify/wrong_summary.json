@@ -1,0 +1,33 @@
+{
+  "format_version": 1,
+  "kind": "approval_verify",
+  "id": "wrong_summary",
+  "description": "verifyApproval: wrong_summary",
+  "input": {
+    "token": {
+      "request_hash": "12933e51171b04dc4a3539ebaced7fbb64cdbc3bba9308c7a18e309d42488f8d",
+      "summary": "SPEND USD 1240.50 Ag Supply Co 2026-08-12 doc:8e394c0ee918 bank:bt-1",
+      "session_id": "conformance-session",
+      "materiality": "ledger.post",
+      "approver_id": "cpa.jane",
+      "approved_at": "2026-08-15T12:00:00.000Z",
+      "signature": "ca5b3ab1a0135eee5529b1e32783e076e1a7de870399e43abf1c547cca006caa"
+    },
+    "trusted": [
+      {
+        "approver_id": "cpa.jane",
+        "secret_utf8": "conformance-approver-secret-0001"
+      }
+    ],
+    "request": {
+      "request_hash": "12933e51171b04dc4a3539ebaced7fbb64cdbc3bba9308c7a18e309d42488f8d",
+      "summary": "SPEND USD 1240.50 Ag Supply Co 2026-08-12 doc:8e394c0ee918 bank:bt-1 ",
+      "session_id": "conformance-session",
+      "materiality": "ledger.post"
+    }
+  },
+  "expected": {
+    "ok": false,
+    "reason": "summary_mismatch"
+  }
+}

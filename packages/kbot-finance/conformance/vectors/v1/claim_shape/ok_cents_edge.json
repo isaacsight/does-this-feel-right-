@@ -1,0 +1,39 @@
+{
+  "format_version": 1,
+  "kind": "claim_shape",
+  "id": "ok_cents_edge",
+  "description": "well-formed claim cents_edge",
+  "input": {
+    "claim": {
+      "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+      "direction": "out",
+      "vendor": "Ag Supply Co",
+      "date": "2026-08-12",
+      "currency": "USD",
+      "subtotal": 100,
+      "tax": 0,
+      "total": 100,
+      "line_items": [
+        {
+          "description": "edge",
+          "quantity": 3,
+          "unit_amount": 33.33,
+          "line_amount": 100,
+          "account_code": "400"
+        }
+      ],
+      "reference": null,
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    }
+  },
+  "expected": {
+    "ok": true,
+    "errors": []
+  }
+}

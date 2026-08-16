@@ -1,0 +1,130 @@
+{
+  "format_version": 1,
+  "kind": "audit_chain",
+  "id": "five_entries_tamper_seq_2",
+  "description": "hash chain over 5 fixed entries; tampering seq 2 breaks at seq 2",
+  "input": {
+    "entries": [
+      {
+        "action": "extraction_claim",
+        "subject": "ledger.extract",
+        "session_id": "conformance-session",
+        "timestamp": "2026-08-15T00:00:01.000Z",
+        "model_lineage": [
+          {
+            "model": "local-27b",
+            "version": "conformance"
+          }
+        ],
+        "payload": {
+          "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+          "direction": "out",
+          "vendor": "Ag Supply Co",
+          "date": "2026-08-12",
+          "currency": "USD",
+          "subtotal": 1200,
+          "tax": 40.5,
+          "total": 1240.5,
+          "line_items": [
+            {
+              "description": "Urea 46-0-0",
+              "quantity": 2,
+              "unit_amount": 450,
+              "line_amount": 900,
+              "account_code": "400"
+            },
+            {
+              "description": "Delivery",
+              "quantity": 1,
+              "unit_amount": 300,
+              "line_amount": 300,
+              "account_code": "425"
+            }
+          ],
+          "reference": "INV-88213",
+          "confidence": 0.92,
+          "model_lineage": [
+            {
+              "model": "local-27b",
+              "version": "conformance"
+            }
+          ]
+        }
+      },
+      {
+        "action": "reconciliation",
+        "subject": "ledger.reconcile",
+        "session_id": "conformance-session",
+        "timestamp": "2026-08-15T00:00:02.000Z",
+        "payload": {
+          "status": "matched"
+        }
+      },
+      {
+        "action": "verifier_check",
+        "subject": "ledger.post",
+        "session_id": "conformance-session",
+        "timestamp": "2026-08-15T00:00:03.000Z",
+        "payload": {
+          "ok": true
+        }
+      },
+      {
+        "action": "approval_granted",
+        "subject": "ledger.post",
+        "session_id": "conformance-session",
+        "timestamp": "2026-08-15T00:00:04.000Z",
+        "approver": "cpa.jane",
+        "payload": {
+          "request_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      },
+      {
+        "action": "engine_response",
+        "subject": "ledger.post",
+        "session_id": "conformance-session",
+        "timestamp": "2026-08-15T00:00:05.000Z",
+        "payload": {
+          "entry_id": "abc"
+        }
+      }
+    ],
+    "tamper": {
+      "seq": 2,
+      "payload": {
+        "ok": false
+      }
+    }
+  },
+  "expected": {
+    "genesis": "0000000000000000000000000000000000000000000000000000000000000000",
+    "hashes": [
+      {
+        "seq": 0,
+        "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "self_hash": "a3d7d8da59a2c034099a04cf9b807f9b73d4a4dd8a36b20ab6d595e80d3491c6"
+      },
+      {
+        "seq": 1,
+        "prev_hash": "a3d7d8da59a2c034099a04cf9b807f9b73d4a4dd8a36b20ab6d595e80d3491c6",
+        "self_hash": "55c063f6c885cd3220b9ba2aba6ff1670b4ce5eef56b16e28a1d49523f221f36"
+      },
+      {
+        "seq": 2,
+        "prev_hash": "55c063f6c885cd3220b9ba2aba6ff1670b4ce5eef56b16e28a1d49523f221f36",
+        "self_hash": "be12c7aece0708c92e0ec4b84eb3c9b388be472a1cf893d78de83e9758980ada"
+      },
+      {
+        "seq": 3,
+        "prev_hash": "be12c7aece0708c92e0ec4b84eb3c9b388be472a1cf893d78de83e9758980ada",
+        "self_hash": "e5c045be237fcc01178f7e625dd6f4a82c123020db26c6a00289e9b9dc4d9ae6"
+      },
+      {
+        "seq": 4,
+        "prev_hash": "e5c045be237fcc01178f7e625dd6f4a82c123020db26c6a00289e9b9dc4d9ae6",
+        "self_hash": "0f83b20fe8739dcce7a3d332071a9f9528c96707db9530d259063c348ec5d466"
+      }
+    ],
+    "tampered_broken_at_seq": 2
+  }
+}
