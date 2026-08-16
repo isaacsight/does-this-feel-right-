@@ -4182,3 +4182,21 @@ runs too — never pipe drip through tail); drip leaves YouTube pending
 Substack composer: clicking fields before the editor hydrates dumps
 everything into TITLE — wait for first click to register, verify each field
 by screenshot before typing the next. Total episode spend $6.55.
+## Session 2026-08-15 — kbot-finance v0.3 ledger substrate (vendor-neutral write-side)
+
+Built the first write-side engine in `packages/kbot-finance`: the
+"AI proposes, arithmetic disposes, a human signs" doctrine applied to
+bookkeeping. New: `ledger/engine.ts` (LedgerEngine interface + ContentAddressedLedger:
+JSONL, entry_id = sha256(canonical entry), idempotent, tamper-detecting read),
+`ledger/` (source-document SHA-256 seal, ExtractionClaim + shape validation,
+deterministic reconcile engine: arithmetic identity + bank-feed match,
+`byte_identical_replayable: true`), `verifier/ledger-rules.ts` (period lock,
+account code, duplicate doc by hash, reconciled, confidence floor),
+`tools/ledger-post.ts` (claim → reconcile → verify → signed approval bound to
+request_hash → engine post; amount that lands is the bank feed's, not the
+model's). Audit actions added: `extraction_claim`, `reconciliation`.
+98/98 tests, tsc clean. NOT committed, NOT bumped (0.2.0 → 0.3.0 pending).
+Vendor-neutral by design (LedgerEngine interface + our own ContentAddressedLedger
+reference engine; no third-party ledger adapter). Prior art it extends: ROLE.md (provenance engineering),
+RFC-content-addressed-mcp.md, docs/mcp-sep-audit-trail.md,
+docs/c2pa-emission-design.md.
