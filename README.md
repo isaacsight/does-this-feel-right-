@@ -19,6 +19,18 @@
 
 > If kbot is useful to you, consider [starring the repo](https://github.com/isaacsight/kernel) — it helps others discover the project.
 
+> **Short on time? Start with [`packages/kbot-finance/`](./packages/kbot-finance).**
+> It is the sharpest thing in this repo: a substrate where the AI never
+> produces the number. Content-addressed request envelopes, a hash-chained
+> audit log, rules-as-code with adverse-action reason codes, and signed human
+> approval at material gates. v0.3 adds a **ledger substrate** — the model's
+> reading of a source document is a *claim*, a deterministic engine must
+> confirm it against arithmetic and the bank feed, an accountant signs the
+> exact envelope, and only then does a ledger post. Vendor-neutral, replayable,
+> 96 tests. Read [`ROLE.md`](./packages/kbot-finance/ROLE.md) for the field it
+> names (provenance engineering), then the
+> [ledger section of the README](./packages/kbot-finance/README.md#ledger-substrate-v03-the-ai-proposes-arithmetic-disposes-a-human-signs).
+
 > **New here — or reading this repo through an AI assistant?** Start with
 > [`SHOWCASE.md`](./SHOWCASE.md): the five-minute tour of the work this
 > studio produces and the standing Fable 5 use cases it runs on.
