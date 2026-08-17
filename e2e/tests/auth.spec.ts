@@ -4,12 +4,10 @@ import { APP_READY, LANDING } from '../fixtures/selectors'
 test.describe('Authentication', () => {
   test('shows login gate when not authenticated', async ({ page }) => {
     await page.goto('/')
-    // Wait for the page proper, not just the Layout shell (LandingPage is lazy-loaded).
-    await page.waitForSelector(`.ka-gate, ${LANDING}`, { timeout: 15000 })
-    // Should show either gate or landing page
-    const gate = await page.$('.ka-gate')
-    const landing = await page.$(LANDING)
-    expect(gate || landing).toBeTruthy()
+    // Either the login gate or the (lazy-loaded) landing page. A locator
+    // assertion auto-waits and survives the first-load navigation that
+    // destroyed a page.$ snapshot's execution context in CI.
+    await expect(page.locator(`.ka-gate, ${LANDING}`).first()).toBeVisible({ timeout: 15000 })
   })
 
   test('login form accepts email and password', async ({ page }) => {
