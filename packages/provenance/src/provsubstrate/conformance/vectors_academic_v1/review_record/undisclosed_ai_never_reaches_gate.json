@@ -1,0 +1,66 @@
+{
+  "format_version": 1,
+  "kind": "review_record",
+  "id": "undisclosed_ai_never_reaches_gate",
+  "description": "UNDISCLOSED_AI stops at disclosure",
+  "input": {
+    "manuscript": {
+      "title": "On the Provenance of Numbers in Machine-Assisted Science",
+      "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+      "venue": "KERNEL Workshop 2026",
+      "round": 1
+    },
+    "opened_by": "editor.grace",
+    "opened_at": "2026-08-01T09:00:00.000Z",
+    "submission": {
+      "manuscript": {
+        "title": "On the Provenance of Numbers in Machine-Assisted Science",
+        "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+        "venue": "KERNEL Workshop 2026",
+        "round": 1
+      },
+      "reviewer_id": "reviewer-2f9c",
+      "review_text": "The paper is careful and the substrate is well motivated. Section 4's tolerance argument needs a worked example; Table 2 should report variance. Minor: typos in the appendix.",
+      "recommendation": "minor",
+      "ai_contribution": {
+        "used": true,
+        "model_lineage": [
+          {
+            "model": "local-27b",
+            "version": "conformance"
+          }
+        ],
+        "prompt_hash": "bd661611ff5ca6cec9748b3af78c7f5be83bd0bfef8e58c0dd6a67873933b9c6",
+        "scope": "none",
+        "disclosed_text": ""
+      },
+      "timestamp": "2026-08-10T15:30:00.000Z"
+    },
+    "session_id": "academic-conformance-session",
+    "trusted": [
+      {
+        "approver_id": "pi.ada",
+        "secret_utf8": "academic-approver-secret-0001"
+      }
+    ],
+    "untrusted": {
+      "approver_id": "student.bob",
+      "secret_utf8": "not-in-the-trust-set"
+    },
+    "approved_at": "2026-08-17T12:00:00.000Z",
+    "data_as_of": "2026-08-17T00:00:00.000Z",
+    "approval": "valid",
+    "manuscript_hash": null
+  },
+  "expected": {
+    "ok": false,
+    "stage": "disclosure",
+    "request_hash": "90451c2c059238889cba350c21f92c3df795c4995d5118a1d1063786704355bb",
+    "audit_actions": [
+      "review_submitted",
+      "disclosure_check",
+      "verifier_check"
+    ],
+    "entry_id": null
+  }
+}

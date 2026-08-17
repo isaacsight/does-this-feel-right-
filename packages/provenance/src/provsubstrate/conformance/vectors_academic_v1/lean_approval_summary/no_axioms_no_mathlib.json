@@ -1,0 +1,34 @@
+{
+  "format_version": 1,
+  "kind": "lean_approval_summary",
+  "id": "no_axioms_no_mathlib",
+  "description": "axioms: none, mathlib (none)",
+  "input": {
+    "claim": {
+      "theorem_name": "Nat.add_zero'",
+      "statement": "∀ n : Nat, n + 0 = n",
+      "proof": "by\n  intro n\n  rfl",
+      "imports": [],
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "bcfac0c3089493a00944ec90a7d58cf4ff184568cd5e7db2230d85c06aac01b2",
+      "toolchain": "leanprover/lean4:v4.12.0",
+      "mathlib_rev": "",
+      "confidence": 0.91,
+      "doc_hash": "bdb47f9dc7199f64b3dcbfb6c8ea221346ded339b5edc51c86f2e81755cbc675"
+    },
+    "verdict": {
+      "ok": true,
+      "errors": [],
+      "sorries": 0,
+      "axioms": []
+    }
+  },
+  "expected": {
+    "summary": "Record proof of Nat.add_zero' (69 bytes, kernel ok, 0 sorries, axioms: none) toolchain leanprover/lean4:v4.12.0 mathlib (none) file 1b19cd09990d"
+  }
+}

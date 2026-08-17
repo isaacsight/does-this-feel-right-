@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "kind": "review_chain",
+  "id": "single_submitted",
+  "description": "a chain of one submitted entry; tamper it",
+  "input": {
+    "session_id": "academic-conformance-session",
+    "items": [
+      {
+        "kind": "submitted",
+        "actor": "editor.grace",
+        "payload": {
+          "title": "On the Provenance of Numbers in Machine-Assisted Science",
+          "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+          "venue": "KERNEL Workshop 2026",
+          "round": 1
+        },
+        "timestamp": "2026-08-01T09:00:00.000Z"
+      }
+    ],
+    "tamper": {
+      "seq": 0,
+      "payload": {
+        "title": "On the Provenance of Numbers in Machine-Assisted Science",
+        "doc_hash": "480f70dd8b078478f772eeb66a906e1666fb5e01b029619e94dc53539682ad0d",
+        "venue": "KERNEL Workshop 2026",
+        "round": 1
+      }
+    }
+  },
+  "expected": {
+    "hashes": [
+      {
+        "seq": 0,
+        "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "self_hash": "da93bd3dca1c2a464741dff941691c60f00f2978ec3379486845b568e0d881f0"
+      }
+    ],
+    "intact": {
+      "ok": true,
+      "broken_at_seq": null,
+      "reason": null
+    },
+    "tampered": {
+      "ok": false,
+      "broken_at_seq": 0,
+      "reason": "chain"
+    },
+    "head": "da93bd3dca1c2a464741dff941691c60f00f2978ec3379486845b568e0d881f0"
+  }
+}

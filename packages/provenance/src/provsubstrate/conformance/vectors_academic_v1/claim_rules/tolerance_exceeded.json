@@ -1,0 +1,83 @@
+{
+  "format_version": 1,
+  "kind": "claim_rules",
+  "id": "tolerance_exceeded",
+  "description": "mismatch: TOLERANCE_EXCEEDED (a number was observed, so not UNCONFIRMED)",
+  "input": {
+    "claim": {
+      "claim_id": "4712b64ae63b3dc73bc0d5e750c277e3693f21d7b475648655753db21074a4e6",
+      "value": 3.5,
+      "unit": "kg",
+      "tolerance": 0.01,
+      "location": {
+        "section": "4.2",
+        "sentence_hash": "ff338d51fbdcbd1a379d2103a6f9d2aa071e7276669a418efa391cb1c89daf54"
+      },
+      "source_doc_hash": "649e0cc96ad68e007eec6b85c05b1493039952eebd340c48a1b3d8235c5a1fb7",
+      "computation_ref": "f3ef341cb0f08f7f16140a3852afcfbc5a9a136888ca1382d385933e0e1dca71",
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "confidence": 0.9
+    },
+    "computation": {
+      "computation_id": "f3ef341cb0f08f7f16140a3852afcfbc5a9a136888ca1382d385933e0e1dca71",
+      "command": [
+        "python3",
+        "compute_mean.py",
+        "data.csv"
+      ],
+      "entrypoint": "compute_mean.py",
+      "entrypoint_hash": "5a9aff131e926993634134319f6814fe7f9d52542af986e0e6b5dde9aa2d1015",
+      "input_hashes": {
+        "data.csv": "7da8a49a4f9758e0f5011a8259e2347a7ce932b4a94fc43412e5c48e472a5066"
+      },
+      "environment": {
+        "python": "3.12.4",
+        "packages": {
+          "numpy": "2.0.1"
+        }
+      },
+      "output_selector": "/mean"
+    },
+    "verdict": {
+      "status": "mismatch",
+      "observed": 3.7,
+      "delta": 0.20000000000000018
+    },
+    "confidence_floor": 0.6
+  },
+  "expected": {
+    "ok": false,
+    "checks": [
+      {
+        "rule_id": "rule.claims.computation_linked",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.claims.confirmed",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.claims.tolerance",
+        "pass": false,
+        "code": "TOLERANCE_EXCEEDED"
+      },
+      {
+        "rule_id": "rule.claims.environment_pinned",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.claims.confidence_floor",
+        "pass": true,
+        "code": null
+      }
+    ]
+  }
+}

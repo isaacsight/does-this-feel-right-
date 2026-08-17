@@ -1,0 +1,80 @@
+{
+  "format_version": 1,
+  "kind": "review_chain",
+  "id": "not_opened",
+  "description": "a chain that does not start with submitted is intact as a hash chain but invalid as a review chain",
+  "input": {
+    "session_id": "academic-conformance-session",
+    "items": [
+      {
+        "kind": "reviewed",
+        "actor": "reviewer-2f9c",
+        "payload": {
+          "manuscript": {
+            "title": "On the Provenance of Numbers in Machine-Assisted Science",
+            "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+            "venue": "KERNEL Workshop 2026",
+            "round": 1
+          },
+          "reviewer_id": "reviewer-2f9c",
+          "review_hash": "7a99d256419eba71ae716a8de122e82e3e6bc7a3dcfe9ba374a34e051bfbdedf",
+          "recommendation": "minor",
+          "ai_contribution": {
+            "used": true,
+            "scope": "language"
+          }
+        },
+        "timestamp": "2026-08-10T15:30:00.000Z"
+      },
+      {
+        "kind": "reviewed",
+        "actor": "reviewer-7a01",
+        "payload": {
+          "manuscript": {
+            "title": "On the Provenance of Numbers in Machine-Assisted Science",
+            "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+            "venue": "KERNEL Workshop 2026",
+            "round": 1
+          },
+          "reviewer_id": "reviewer-7a01",
+          "review_hash": "79198bc8dd61a7c1b4a92dd39b99f05f0da9358a18d2a05ac63aedd31989fcc2",
+          "recommendation": "major",
+          "ai_contribution": {
+            "used": false,
+            "scope": "none"
+          }
+        },
+        "timestamp": "2026-08-11T10:00:00.000Z"
+      }
+    ],
+    "tamper": {
+      "seq": 1,
+      "payload": {}
+    }
+  },
+  "expected": {
+    "hashes": [
+      {
+        "seq": 0,
+        "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "self_hash": "2a235bd084bd8a56cbe13dc1b59385757731146532237259d65ed8eba8c60919"
+      },
+      {
+        "seq": 1,
+        "prev_hash": "2a235bd084bd8a56cbe13dc1b59385757731146532237259d65ed8eba8c60919",
+        "self_hash": "fd36653a480b0c8d0e94606463c55ef576682dd9ddc5b8ff88d115769a638519"
+      }
+    ],
+    "intact": {
+      "ok": false,
+      "broken_at_seq": 0,
+      "reason": "not_open"
+    },
+    "tampered": {
+      "ok": false,
+      "broken_at_seq": 1,
+      "reason": "chain"
+    },
+    "head": "fd36653a480b0c8d0e94606463c55ef576682dd9ddc5b8ff88d115769a638519"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "format_version": 1,
+  "kind": "review_shape",
+  "id": "bad_everything",
+  "description": "every structural error, sorted",
+  "input": {
+    "submission": {
+      "manuscript": {
+        "title": "",
+        "doc_hash": "zz",
+        "venue": "",
+        "round": 0
+      },
+      "reviewer_id": "",
+      "review_text": "",
+      "recommendation": "maybe",
+      "ai_contribution": {
+        "used": true,
+        "model_lineage": [
+          {
+            "model": "x",
+            "version": null
+          }
+        ],
+        "prompt_hash": "short",
+        "scope": "weird",
+        "disclosed_text": ""
+      },
+      "timestamp": ""
+    }
+  },
+  "expected": {
+    "errors": [
+      "ai_contribution.model_lineage[0]: needs model and version",
+      "ai_contribution.prompt_hash: not a sha256 hex",
+      "ai_contribution.scope: unknown 'weird'",
+      "manuscript.doc_hash: not a sha256 hex",
+      "manuscript.round: must be an integer >= 1",
+      "manuscript.title: empty",
+      "manuscript.venue: empty",
+      "recommendation: unknown 'maybe'",
+      "reviewer_id: empty",
+      "timestamp: empty"
+    ]
+  }
+}

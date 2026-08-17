@@ -1,0 +1,67 @@
+{
+  "format_version": 1,
+  "kind": "review_record",
+  "id": "stops_at_gate_without_approval",
+  "description": "verifier ok, no token -> approval_denied",
+  "input": {
+    "manuscript": {
+      "title": "On the Provenance of Numbers in Machine-Assisted Science",
+      "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+      "venue": "KERNEL Workshop 2026",
+      "round": 1
+    },
+    "opened_by": "editor.grace",
+    "opened_at": "2026-08-01T09:00:00.000Z",
+    "submission": {
+      "manuscript": {
+        "title": "On the Provenance of Numbers in Machine-Assisted Science",
+        "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+        "venue": "KERNEL Workshop 2026",
+        "round": 1
+      },
+      "reviewer_id": "reviewer-2f9c",
+      "review_text": "The paper is careful and the substrate is well motivated. Section 4's tolerance argument needs a worked example; Table 2 should report variance. Minor: typos in the appendix.",
+      "recommendation": "minor",
+      "ai_contribution": {
+        "used": true,
+        "model_lineage": [
+          {
+            "model": "local-27b",
+            "version": "conformance"
+          }
+        ],
+        "prompt_hash": "bd661611ff5ca6cec9748b3af78c7f5be83bd0bfef8e58c0dd6a67873933b9c6",
+        "scope": "language",
+        "disclosed_text": "Used a local model to polish grammar; all judgements are my own."
+      },
+      "timestamp": "2026-08-10T15:30:00.000Z"
+    },
+    "session_id": "academic-conformance-session",
+    "trusted": [
+      {
+        "approver_id": "pi.ada",
+        "secret_utf8": "academic-approver-secret-0001"
+      }
+    ],
+    "untrusted": {
+      "approver_id": "student.bob",
+      "secret_utf8": "not-in-the-trust-set"
+    },
+    "approved_at": "2026-08-17T12:00:00.000Z",
+    "data_as_of": "2026-08-17T00:00:00.000Z",
+    "approval": "none",
+    "manuscript_hash": null
+  },
+  "expected": {
+    "ok": false,
+    "stage": "approval",
+    "request_hash": "8cd45243e646887be77277ba7ad114ce7730e2d8a8d2b169595dda995289672e",
+    "audit_actions": [
+      "review_submitted",
+      "disclosure_check",
+      "verifier_check",
+      "approval_denied"
+    ],
+    "entry_id": null
+  }
+}

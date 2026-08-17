@@ -1,0 +1,66 @@
+{
+  "format_version": 1,
+  "kind": "lean_record",
+  "id": "unknown_approver",
+  "description": "a signer outside the trust set is refused",
+  "input": {
+    "claim": {
+      "theorem_name": "Nat.add_zero'",
+      "statement": "∀ n : Nat, n + 0 = n",
+      "proof": "by\n  intro n\n  rfl",
+      "imports": [
+        "Mathlib.Tactic"
+      ],
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "bcfac0c3089493a00944ec90a7d58cf4ff184568cd5e7db2230d85c06aac01b2",
+      "toolchain": "leanprover/lean4:v4.12.0",
+      "mathlib_rev": "3f2b9c1d8e7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c",
+      "confidence": 0.91,
+      "doc_hash": "bdb47f9dc7199f64b3dcbfb6c8ea221346ded339b5edc51c86f2e81755cbc675"
+    },
+    "kernel_table": {
+      "34d77a06ae182d014a05ffc4e16ba7e7bae0b949def095559ba3772b8438e1aa": {
+        "ok": true,
+        "errors": [],
+        "sorries": 0,
+        "axioms": [
+          "propext"
+        ]
+      }
+    },
+    "session_id": "academic-conformance-session",
+    "data_as_of": "2026-08-17T00:00:00.000Z",
+    "approved_at": "2026-08-17T12:00:00.000Z",
+    "trusted": [
+      {
+        "approver_id": "pi.ada",
+        "secret_utf8": "academic-approver-secret-0001"
+      }
+    ],
+    "confidence_floor": 0.6,
+    "axiom_allowlist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "approval": "unknown_approver"
+  },
+  "expected": {
+    "ok": false,
+    "stage": "approval",
+    "request_hash": "7ac2b0f9542b425d895e9faf151cbb530f79785f9bd3e89aff054fb2e80ec983",
+    "kernel_ok": true,
+    "audit_actions": [
+      "proof_claim",
+      "kernel_verdict",
+      "verifier_check",
+      "approval_denied"
+    ],
+    "entry_id": null
+  }
+}

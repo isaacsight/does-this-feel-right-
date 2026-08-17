@@ -1,0 +1,58 @@
+{
+  "format_version": 1,
+  "kind": "bench_score",
+  "id": "pdf_half_year_only",
+  "description": "reports first-half revenue as the total",
+  "input": {
+    "task": {
+      "task_id": "8ca708ef48e892e08e90f3712c46e63b1df596d391b3cc0bfdb402b566efdf51",
+      "domain": "pdf_text",
+      "source_text": "In fiscal 2024, Bramble Foods reported revenue of 22.9 million in the first half and 17.9 million in the second half. Operating expenses were 23.4 million for the year. Headcount grew to 758 by year end.\n",
+      "question": "What was Bramble Foods's total revenue for fiscal 2024, in millions of USD?",
+      "ground_truth": {
+        "value": 40.8,
+        "unit": "million USD",
+        "tolerance": 0.05
+      },
+      "distractors": [
+        22.9,
+        17.9,
+        23.4,
+        758.0
+      ],
+      "source_doc_hash": "db4eb08278beced8434a7d6bf9ced0e1fd378f3e5ded634e576d52cbdfc95c6d",
+      "recompute_spec": {
+        "kind": "regex_sum",
+        "pattern": "revenue of ([0-9.]+) million|and ([0-9.]+) million in the second half"
+      }
+    },
+    "answer": {
+      "task_id": "8ca708ef48e892e08e90f3712c46e63b1df596d391b3cc0bfdb402b566efdf51",
+      "value": 22.9,
+      "unit": "million USD",
+      "rationale": "",
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "b1a4c9d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"
+    }
+  },
+  "expected": {
+    "score": {
+      "status": "hallucinated",
+      "delta": -17.9
+    },
+    "mitigated": {
+      "raw": {
+        "status": "hallucinated",
+        "delta": -17.9
+      },
+      "recomputed": 40.8,
+      "recompute_correct": true,
+      "caught": true
+    }
+  }
+}

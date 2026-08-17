@@ -1,0 +1,70 @@
+{
+  "format_version": 1,
+  "kind": "claim_manifest_shape",
+  "id": "missing_input_hash",
+  "description": "an input whose pinned hash is empty",
+  "input": {
+    "manifest": {
+      "format_version": 1,
+      "paper": {
+        "doc_hash": "649e0cc96ad68e007eec6b85c05b1493039952eebd340c48a1b3d8235c5a1fb7",
+        "title": "A Small Paper With Two Numbers In It"
+      },
+      "computations": [
+        {
+          "computation_id": "0ee3675c89aaf70e861dda59cde3737760ccff0dcb1c844f8cd269e3b596d5d6",
+          "command": [
+            "python3",
+            "compute_mean.py",
+            "data.csv"
+          ],
+          "entrypoint": "compute_mean.py",
+          "entrypoint_hash": "5a9aff131e926993634134319f6814fe7f9d52542af986e0e6b5dde9aa2d1015",
+          "input_hashes": {
+            "data.csv": ""
+          },
+          "environment": {
+            "python": "3.12.4",
+            "packages": {
+              "numpy": "2.0.1"
+            }
+          },
+          "output_selector": "/mean"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "4a0fe2541d7446334978aa1248fea931ec27b9a7a6319f2ec6c42c7e6326ffe5",
+          "value": 3.5,
+          "unit": "kg",
+          "tolerance": 0.01,
+          "location": {
+            "section": "4.2",
+            "sentence_hash": "ff338d51fbdcbd1a379d2103a6f9d2aa071e7276669a418efa391cb1c89daf54"
+          },
+          "source_doc_hash": "649e0cc96ad68e007eec6b85c05b1493039952eebd340c48a1b3d8235c5a1fb7",
+          "computation_ref": "0ee3675c89aaf70e861dda59cde3737760ccff0dcb1c844f8cd269e3b596d5d6",
+          "model_lineage": [
+            {
+              "model": "local-27b",
+              "version": "conformance"
+            }
+          ],
+          "confidence": 0.9
+        }
+      ],
+      "edges": [
+        {
+          "claim_id": "4a0fe2541d7446334978aa1248fea931ec27b9a7a6319f2ec6c42c7e6326ffe5",
+          "computation_id": "0ee3675c89aaf70e861dda59cde3737760ccff0dcb1c844f8cd269e3b596d5d6"
+        }
+      ]
+    }
+  },
+  "expected": {
+    "ok": false,
+    "errors": [
+      "computation 0ee3675c89aa input data.csv hash missing"
+    ]
+  }
+}

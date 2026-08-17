@@ -1,0 +1,59 @@
+{
+  "format_version": 1,
+  "kind": "bench_score",
+  "id": "mean_just_outside",
+  "description": "mean off by 0.006 outside tol is hallucinated",
+  "input": {
+    "task": {
+      "task_id": "6bec81b59adac940531d4eed7e17cbf62952d793fb2e8b4d27b0825198ab01a8",
+      "domain": "table",
+      "source_text": "region,units,visits\nWest,400,4266\nCoastal,157,4333\nSouth,308,3384\nHighland,257,4283\nEast,311,2338\n",
+      "question": "What is the mean of the visits column, to two decimals?",
+      "ground_truth": {
+        "value": 3720.8,
+        "unit": "count",
+        "tolerance": 0.005
+      },
+      "distractors": [
+        286.6,
+        18604.0,
+        4333.0,
+        4266.0
+      ],
+      "source_doc_hash": "72bff8311de86df91b480e7f66d8c0dec667021f36bfc841fe2c86d242d02124",
+      "recompute_spec": {
+        "kind": "table_agg",
+        "column": "visits",
+        "agg": "mean"
+      }
+    },
+    "answer": {
+      "task_id": "6bec81b59adac940531d4eed7e17cbf62952d793fb2e8b4d27b0825198ab01a8",
+      "value": 3720.806,
+      "unit": "count",
+      "rationale": "",
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "b1a4c9d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"
+    }
+  },
+  "expected": {
+    "score": {
+      "status": "hallucinated",
+      "delta": 0.006
+    },
+    "mitigated": {
+      "raw": {
+        "status": "hallucinated",
+        "delta": 0.006
+      },
+      "recomputed": 3720.8,
+      "recompute_correct": true,
+      "caught": true
+    }
+  }
+}

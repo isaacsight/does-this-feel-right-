@@ -1,0 +1,54 @@
+{
+  "format_version": 1,
+  "paper": {
+    "doc_hash": "09f238c58899f778c8bb8713bc509a2c4821df8f94fb27a7121fce3152a4eb0a",
+    "title": "Example manuscript"
+  },
+  "computations": [
+    {
+      "computation_id": "e00bd6a6dba414ef15b8cf22f96501b90725f2568778e496a1f7b099f4e1cb06",
+      "command": [
+        "python3",
+        "compute_mean.py",
+        "data.csv"
+      ],
+      "entrypoint": "compute_mean.py",
+      "entrypoint_hash": "abc23e00cfca297379305162d747e18e1839d26a7ee8627a147db59767433a55",
+      "input_hashes": {
+        "data.csv": "5f6b0410e1b0b00e0993a61e50a6aa2c56e9c386af0266ebbb566b6951fb0656"
+      },
+      "environment": {
+        "python": "3.10+",
+        "packages": {}
+      },
+      "output_selector": "/mean"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "e0a0d18507445e872402daa8a3e3f66aeb6b5ca87a7cd4212f346456343ff0a9",
+      "value": 3.5,
+      "unit": "kg",
+      "tolerance": 0.001,
+      "location": {
+        "section": "3.1",
+        "sentence_hash": "a8a916c4c722b9ad2a90e267343aab9e838b07c7c2bb482431fa53b7dded5b4c"
+      },
+      "source_doc_hash": "09f238c58899f778c8bb8713bc509a2c4821df8f94fb27a7121fce3152a4eb0a",
+      "computation_ref": "e00bd6a6dba414ef15b8cf22f96501b90725f2568778e496a1f7b099f4e1cb06",
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "example"
+        }
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "edges": [
+    {
+      "claim_id": "e0a0d18507445e872402daa8a3e3f66aeb6b5ca87a7cd4212f346456343ff0a9",
+      "computation_id": "e00bd6a6dba414ef15b8cf22f96501b90725f2568778e496a1f7b099f4e1cb06"
+    }
+  ]
+}

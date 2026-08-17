@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "kind": "ledger_entry_id",
+  "id": "clean_keys_shuffled",
+  "description": "entry_id = sha256(canonical entry) for clean_keys_shuffled",
+  "input": {
+    "entry": {
+      "total": 1240.5,
+      "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+      "reference": "doc:8e394c0ee918bc02 INV-88213",
+      "bank_line_id": "bt-1",
+      "bank_account_code": "090",
+      "line_items": [
+        {
+          "description": "Urea 46-0-0",
+          "quantity": 2,
+          "unit_amount": 450,
+          "account_code": "400"
+        },
+        {
+          "description": "Delivery",
+          "quantity": 1,
+          "unit_amount": 300,
+          "account_code": "425"
+        }
+      ],
+      "currency": "USD",
+      "date": "2026-08-13",
+      "counterparty": "Ag Supply Co",
+      "direction": "out"
+    }
+  },
+  "expected": {
+    "entry_id": "8ae7ef8d36bb0f109698c560f27edc27bf01decd37c490b1c5820ff79834868c",
+    "canonical": "{\"bank_account_code\":\"090\",\"bank_line_id\":\"bt-1\",\"counterparty\":\"Ag Supply Co\",\"currency\":\"USD\",\"date\":\"2026-08-13\",\"direction\":\"out\",\"doc_hash\":\"8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d\",\"line_items\":[{\"account_code\":\"400\",\"description\":\"Urea 46-0-0\",\"quantity\":2,\"unit_amount\":450},{\"account_code\":\"425\",\"description\":\"Delivery\",\"quantity\":1,\"unit_amount\":300}],\"reference\":\"doc:8e394c0ee918bc02 INV-88213\",\"total\":1240.5}"
+  }
+}

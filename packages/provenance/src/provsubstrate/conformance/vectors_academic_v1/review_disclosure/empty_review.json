@@ -1,0 +1,40 @@
+{
+  "format_version": 1,
+  "kind": "review_disclosure",
+  "id": "empty_review",
+  "description": "EMPTY_REVIEW",
+  "input": {
+    "submission": {
+      "manuscript": {
+        "title": "On the Provenance of Numbers in Machine-Assisted Science",
+        "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+        "venue": "KERNEL Workshop 2026",
+        "round": 1
+      },
+      "reviewer_id": "reviewer-2f9c",
+      "review_text": "   \n",
+      "recommendation": "minor",
+      "ai_contribution": {
+        "used": true,
+        "model_lineage": [
+          {
+            "model": "local-27b",
+            "version": "conformance"
+          }
+        ],
+        "prompt_hash": "bd661611ff5ca6cec9748b3af78c7f5be83bd0bfef8e58c0dd6a67873933b9c6",
+        "scope": "language",
+        "disclosed_text": "Used a local model to polish grammar; all judgements are my own."
+      },
+      "timestamp": "2026-08-10T15:30:00.000Z"
+    },
+    "manuscript_hash": null
+  },
+  "expected": {
+    "ok": false,
+    "code": "EMPTY_REVIEW",
+    "codes": [
+      "EMPTY_REVIEW"
+    ]
+  }
+}

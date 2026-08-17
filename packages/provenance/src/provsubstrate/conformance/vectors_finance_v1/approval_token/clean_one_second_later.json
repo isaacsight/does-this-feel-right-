@@ -1,0 +1,28 @@
+{
+  "format_version": 1,
+  "kind": "approval_token",
+  "id": "clean_one_second_later",
+  "description": "different approved_at → different signature",
+  "input": {
+    "approver_id": "cpa.jane",
+    "secret_utf8": "conformance-approver-secret-0001",
+    "request": {
+      "request_hash": "12933e51171b04dc4a3539ebaced7fbb64cdbc3bba9308c7a18e309d42488f8d",
+      "summary": "SPEND USD 1240.50 Ag Supply Co 2026-08-12 doc:8e394c0ee918 bank:bt-1",
+      "session_id": "conformance-session",
+      "materiality": "ledger.post"
+    },
+    "approved_at": "2026-08-15T12:00:01.000Z"
+  },
+  "expected": {
+    "token": {
+      "request_hash": "12933e51171b04dc4a3539ebaced7fbb64cdbc3bba9308c7a18e309d42488f8d",
+      "summary": "SPEND USD 1240.50 Ag Supply Co 2026-08-12 doc:8e394c0ee918 bank:bt-1",
+      "session_id": "conformance-session",
+      "materiality": "ledger.post",
+      "approver_id": "cpa.jane",
+      "approved_at": "2026-08-15T12:00:01.000Z",
+      "signature": "0b7869a922b46faf3ac5e157a546424dc3b7b6b5f13422d1b962bbb71ae7015d"
+    }
+  }
+}

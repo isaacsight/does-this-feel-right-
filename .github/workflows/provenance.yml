@@ -1,0 +1,31 @@
+name: provenance-substrate
+
+on:
+  push:
+    paths: ["packages/provenance/**", ".github/workflows/provenance.yml"]
+  pull_request:
+    paths: ["packages/provenance/**", ".github/workflows/provenance.yml"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: packages/provenance
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev]"
+      - run: ruff check src tests
+      - run: pytest -q
+      - name: Conformance — finance v1 (vendored from @kernel.chat/kbot-finance)
+        run: provsub conformance finance-v1 --strict
+      - name: Conformance — academic v1 must not drift
+        run: provsub conformance --check
+      - name: Package builds
+        run: pip install build && python -m build

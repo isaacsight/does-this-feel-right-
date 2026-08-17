@@ -1,0 +1,62 @@
+{
+  "format_version": 1,
+  "kind": "claim_verify",
+  "id": "tolerance_edge_float_inside",
+  "description": "3.51 - 3.5 in IEEE-754 is 0.009999999999999787 <= 0.01: confirmed; the vector pins the exact float delta",
+  "input": {
+    "claim": {
+      "claim_id": "4712b64ae63b3dc73bc0d5e750c277e3693f21d7b475648655753db21074a4e6",
+      "value": 3.5,
+      "unit": "kg",
+      "tolerance": 0.01,
+      "location": {
+        "section": "4.2",
+        "sentence_hash": "ff338d51fbdcbd1a379d2103a6f9d2aa071e7276669a418efa391cb1c89daf54"
+      },
+      "source_doc_hash": "649e0cc96ad68e007eec6b85c05b1493039952eebd340c48a1b3d8235c5a1fb7",
+      "computation_ref": "f3ef341cb0f08f7f16140a3852afcfbc5a9a136888ca1382d385933e0e1dca71",
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "confidence": 0.9
+    },
+    "computation": {
+      "computation_id": "f3ef341cb0f08f7f16140a3852afcfbc5a9a136888ca1382d385933e0e1dca71",
+      "command": [
+        "python3",
+        "compute_mean.py",
+        "data.csv"
+      ],
+      "entrypoint": "compute_mean.py",
+      "entrypoint_hash": "5a9aff131e926993634134319f6814fe7f9d52542af986e0e6b5dde9aa2d1015",
+      "input_hashes": {
+        "data.csv": "7da8a49a4f9758e0f5011a8259e2347a7ce932b4a94fc43412e5c48e472a5066"
+      },
+      "environment": {
+        "python": "3.12.4",
+        "packages": {
+          "numpy": "2.0.1"
+        }
+      },
+      "output_selector": "/mean"
+    },
+    "result": {
+      "ok": true,
+      "stdout": "{\"mean\": 3.51, \"n\": 6}\n",
+      "stderr": "",
+      "exit_code": 0,
+      "output_value": 3.51,
+      "output_hash": "4c7ed1edb8f88fa728f958b7f6fb3cafa2a49fee5c5bdeb60b0b40fe49875ddb",
+      "input_mismatches": []
+    },
+    "tolerance": null
+  },
+  "expected": {
+    "status": "confirmed",
+    "observed": 3.51,
+    "delta": 0.009999999999999787
+  }
+}

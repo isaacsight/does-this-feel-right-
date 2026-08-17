@@ -1,0 +1,53 @@
+{
+  "format_version": 1,
+  "kind": "arithmetic",
+  "id": "bad_line",
+  "description": "checkArithmetic(bad_line, tol=0.01)",
+  "input": {
+    "claim": {
+      "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+      "direction": "out",
+      "vendor": "Ag Supply Co",
+      "date": "2026-08-12",
+      "currency": "USD",
+      "subtotal": 1200,
+      "tax": 40.5,
+      "total": 1240.5,
+      "line_items": [
+        {
+          "description": "Urea 46-0-0",
+          "quantity": 2,
+          "unit_amount": 450,
+          "line_amount": 950,
+          "account_code": "400"
+        },
+        {
+          "description": "Delivery",
+          "quantity": 1,
+          "unit_amount": 300,
+          "line_amount": 300,
+          "account_code": "425"
+        }
+      ],
+      "reference": "INV-88213",
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    },
+    "tolerance": 0.01
+  },
+  "expected": {
+    "ok": false,
+    "line_sum": 1250,
+    "claimed_subtotal": 1200,
+    "claimed_total": 1240.5,
+    "computed_total": 1240.5,
+    "bad_lines": [
+      0
+    ]
+  }
+}

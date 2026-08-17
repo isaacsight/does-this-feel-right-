@@ -1,0 +1,36 @@
+{
+  "format_version": 1,
+  "kind": "review_approval_summary",
+  "id": "long_title_round_2",
+  "description": "title cut at 40; round and recommendation carried",
+  "input": {
+    "submission": {
+      "manuscript": {
+        "title": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+        "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+        "venue": "KERNEL Workshop 2026",
+        "round": 2
+      },
+      "reviewer_id": "reviewer-2f9c",
+      "review_text": "The paper is careful and the substrate is well motivated. Section 4's tolerance argument needs a worked example; Table 2 should report variance. Minor: typos in the appendix.",
+      "recommendation": "reject",
+      "ai_contribution": {
+        "used": true,
+        "model_lineage": [
+          {
+            "model": "local-27b",
+            "version": "conformance"
+          }
+        ],
+        "prompt_hash": "bd661611ff5ca6cec9748b3af78c7f5be83bd0bfef8e58c0dd6a67873933b9c6",
+        "scope": "substantive",
+        "disclosed_text": "A local model drafted the summary of related work; I verified every citation."
+      },
+      "timestamp": "2026-08-10T15:30:00.000Z"
+    },
+    "request_hash": "280bff032ca6aa74cc2c8b1dfba190e2682e1ec638579615c29f889689d44cfb"
+  },
+  "expected": {
+    "summary": "Record review of BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB round 2 by reviewer-2f9c rec reject ai:substantive request 280bff032ca6"
+  }
+}

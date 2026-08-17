@@ -1,0 +1,141 @@
+{
+  "format_version": 1,
+  "kind": "repro_record",
+  "id": "partial_never_reaches_gate",
+  "description": "CLAIM_MISMATCH stops at verifier even with a valid token",
+  "input": {
+    "target": {
+      "paper": {
+        "title": "Attention Is Not All You Need: A Small Replication Study",
+        "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+        "doi": "10.5555/example.1234",
+        "arxiv_id": "2608.01234"
+      },
+      "repo": {
+        "url": "https://github.com/example/small-replication",
+        "commit": "3f2a9c1e5b7d4a6f8c0e2b4d6f8a0c2e4b6d8f0a"
+      },
+      "claims": [
+        {
+          "claim_id": "accuracy",
+          "description": "Test accuracy (Table 2)",
+          "value": 0.85,
+          "unit": "fraction",
+          "tolerance": 0.01
+        },
+        {
+          "claim_id": "f1",
+          "description": "Macro F1 (Table 2)",
+          "value": 0.8,
+          "unit": "fraction",
+          "tolerance": 0.01
+        },
+        {
+          "claim_id": "params",
+          "description": "Parameter count",
+          "value": 1250000,
+          "unit": "count",
+          "tolerance": 0
+        }
+      ],
+      "environment_spec": {
+        "python": "3.11.4",
+        "os": "ubuntu-22.04",
+        "cuda": "none"
+      },
+      "commands": [
+        [
+          "python3",
+          "run.py"
+        ],
+        [
+          "python3",
+          "evaluate.py"
+        ]
+      ]
+    },
+    "attempt": {
+      "target_hash": "b945e1cd018218e26ca0671c7c7cc539f5c4d1de1793b423787ba390cc9b4ee8",
+      "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+      "commands": [
+        [
+          "python3",
+          "run.py"
+        ],
+        [
+          "python3",
+          "evaluate.py"
+        ]
+      ],
+      "selectors": [
+        {
+          "claim_id": "accuracy",
+          "command_index": 1,
+          "pattern": "accuracy=([0-9.]+)",
+          "group": 1
+        },
+        {
+          "claim_id": "f1",
+          "command_index": 1,
+          "pattern": "f1=([0-9.]+)",
+          "group": 1
+        },
+        {
+          "claim_id": "params",
+          "command_index": 0,
+          "pattern": "params=([0-9]+)",
+          "group": 1
+        }
+      ],
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "ebce27239bef214daf122472a4f72737216c2fd6cdc327a092dbca5f51131b03",
+      "confidence": 0.9,
+      "notes": "Run training then evaluation; read metrics from evaluate.py stdout."
+    },
+    "stub": {
+      "table": {
+        "python3 run.py": {
+          "exit_code": 0,
+          "stdout": "training...\nparams=1250000\n"
+        },
+        "python3 evaluate.py": {
+          "exit_code": 0,
+          "stdout": "accuracy=0.86\nf1=0.71\n"
+        }
+      },
+      "wall_seconds": 12.5
+    },
+    "confidence_floor": 0.6,
+    "session_id": "academic-conformance-session",
+    "trusted": [
+      {
+        "approver_id": "pi.ada",
+        "secret_utf8": "academic-approver-secret-0001"
+      }
+    ],
+    "untrusted": {
+      "approver_id": "student.bob",
+      "secret_utf8": "not-in-the-trust-set"
+    },
+    "approved_at": "2026-08-17T12:00:00.000Z",
+    "data_as_of": "2026-08-17T00:00:00.000Z",
+    "approval": "valid"
+  },
+  "expected": {
+    "ok": false,
+    "stage": "verifier",
+    "request_hash": "0ef775bf447c89ac2d64b7c6c2f445b8c34c3f9c471ec7811da1c4fc630225d6",
+    "overall": "partially_reproduced",
+    "audit_actions": [
+      "repro_attempt",
+      "run_record",
+      "verifier_check"
+    ],
+    "report_id": null
+  }
+}

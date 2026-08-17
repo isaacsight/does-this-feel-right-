@@ -1,0 +1,38 @@
+{
+  "format_version": 1,
+  "kind": "review_disclosure",
+  "id": "substantive_with_lineage",
+  "description": "substantive with lineage and prompt hash -> ok",
+  "input": {
+    "submission": {
+      "manuscript": {
+        "title": "On the Provenance of Numbers in Machine-Assisted Science",
+        "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+        "venue": "KERNEL Workshop 2026",
+        "round": 1
+      },
+      "reviewer_id": "reviewer-2f9c",
+      "review_text": "The paper is careful and the substrate is well motivated. Section 4's tolerance argument needs a worked example; Table 2 should report variance. Minor: typos in the appendix.",
+      "recommendation": "minor",
+      "ai_contribution": {
+        "used": true,
+        "model_lineage": [
+          {
+            "model": "local-27b",
+            "version": "conformance"
+          }
+        ],
+        "prompt_hash": "bd661611ff5ca6cec9748b3af78c7f5be83bd0bfef8e58c0dd6a67873933b9c6",
+        "scope": "substantive",
+        "disclosed_text": "A local model drafted the summary of related work; I verified every citation."
+      },
+      "timestamp": "2026-08-10T15:30:00.000Z"
+    },
+    "manuscript_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c"
+  },
+  "expected": {
+    "ok": true,
+    "code": null,
+    "codes": []
+  }
+}

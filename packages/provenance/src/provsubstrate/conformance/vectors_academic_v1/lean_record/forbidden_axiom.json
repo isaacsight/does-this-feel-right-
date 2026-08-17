@@ -1,0 +1,66 @@
+{
+  "format_version": 1,
+  "kind": "lean_record",
+  "id": "forbidden_axiom",
+  "description": "stops at verifier: FORBIDDEN_AXIOM",
+  "input": {
+    "claim": {
+      "theorem_name": "small_prime",
+      "statement": "Nat.Prime 97",
+      "proof": "by native_decide",
+      "imports": [
+        "Mathlib.Tactic"
+      ],
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "bcfac0c3089493a00944ec90a7d58cf4ff184568cd5e7db2230d85c06aac01b2",
+      "toolchain": "leanprover/lean4:v4.12.0",
+      "mathlib_rev": "3f2b9c1d8e7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c",
+      "confidence": 0.91,
+      "doc_hash": "4ce4153fb99bff650cd5e6bba2a39a07bca40bc75b19e033d34d41acce0887c8"
+    },
+    "kernel_table": {
+      "393b6d5f7fe0e3b002a508208520e6b9453fdeaa3b9a1e3c334e6845114f970f": {
+        "ok": true,
+        "errors": [],
+        "sorries": 0,
+        "axioms": [
+          "propext",
+          "Lean.ofReduceBool"
+        ]
+      }
+    },
+    "session_id": "academic-conformance-session",
+    "data_as_of": "2026-08-17T00:00:00.000Z",
+    "approved_at": "2026-08-17T12:00:00.000Z",
+    "trusted": [
+      {
+        "approver_id": "pi.ada",
+        "secret_utf8": "academic-approver-secret-0001"
+      }
+    ],
+    "confidence_floor": 0.6,
+    "axiom_allowlist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "approval": "valid"
+  },
+  "expected": {
+    "ok": false,
+    "stage": "verifier",
+    "request_hash": "ce7ee04151f3348ba118dc6b700e91460edea6183cd11280c1a19a08cdd5885f",
+    "kernel_ok": true,
+    "audit_actions": [
+      "proof_claim",
+      "kernel_verdict",
+      "verifier_check"
+    ],
+    "entry_id": null
+  }
+}

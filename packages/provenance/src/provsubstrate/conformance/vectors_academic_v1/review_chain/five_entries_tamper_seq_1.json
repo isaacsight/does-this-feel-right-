@@ -1,0 +1,126 @@
+{
+  "format_version": 1,
+  "kind": "review_chain",
+  "id": "five_entries_tamper_seq_1",
+  "description": "tampering the first review breaks verification at 1",
+  "input": {
+    "session_id": "academic-conformance-session",
+    "items": [
+      {
+        "kind": "submitted",
+        "actor": "editor.grace",
+        "payload": {
+          "title": "On the Provenance of Numbers in Machine-Assisted Science",
+          "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+          "venue": "KERNEL Workshop 2026",
+          "round": 1
+        },
+        "timestamp": "2026-08-01T09:00:00.000Z"
+      },
+      {
+        "kind": "reviewed",
+        "actor": "reviewer-2f9c",
+        "payload": {
+          "manuscript": {
+            "title": "On the Provenance of Numbers in Machine-Assisted Science",
+            "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+            "venue": "KERNEL Workshop 2026",
+            "round": 1
+          },
+          "reviewer_id": "reviewer-2f9c",
+          "review_hash": "7a99d256419eba71ae716a8de122e82e3e6bc7a3dcfe9ba374a34e051bfbdedf",
+          "recommendation": "minor",
+          "ai_contribution": {
+            "used": true,
+            "scope": "language"
+          }
+        },
+        "timestamp": "2026-08-10T15:30:00.000Z"
+      },
+      {
+        "kind": "reviewed",
+        "actor": "reviewer-7a01",
+        "payload": {
+          "manuscript": {
+            "title": "On the Provenance of Numbers in Machine-Assisted Science",
+            "doc_hash": "41ba8063404fc20a2604774729f35fca7c625412b0818ae3fbd920034b870a5c",
+            "venue": "KERNEL Workshop 2026",
+            "round": 1
+          },
+          "reviewer_id": "reviewer-7a01",
+          "review_hash": "79198bc8dd61a7c1b4a92dd39b99f05f0da9358a18d2a05ac63aedd31989fcc2",
+          "recommendation": "major",
+          "ai_contribution": {
+            "used": false,
+            "scope": "none"
+          }
+        },
+        "timestamp": "2026-08-11T10:00:00.000Z"
+      },
+      {
+        "kind": "editor_decision",
+        "actor": "editor.grace",
+        "payload": {
+          "decision": "major",
+          "round": 1
+        },
+        "timestamp": "2026-08-12T08:00:00.000Z"
+      },
+      {
+        "kind": "author_response",
+        "actor": "author-11",
+        "payload": {
+          "response_hash": "943d75cd20219530ade2657cd5f2797db42ab5575e1dcaff07ea7ce21c599f4a",
+          "round": 2
+        },
+        "timestamp": "2026-08-20T08:00:00.000Z"
+      }
+    ],
+    "tamper": {
+      "seq": 1,
+      "payload": {
+        "recommendation": "accept"
+      }
+    }
+  },
+  "expected": {
+    "hashes": [
+      {
+        "seq": 0,
+        "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "self_hash": "da93bd3dca1c2a464741dff941691c60f00f2978ec3379486845b568e0d881f0"
+      },
+      {
+        "seq": 1,
+        "prev_hash": "da93bd3dca1c2a464741dff941691c60f00f2978ec3379486845b568e0d881f0",
+        "self_hash": "df050bc11290b6d8f63cd13e53304830d64ab3d878107d9a9d68af4ca5406a55"
+      },
+      {
+        "seq": 2,
+        "prev_hash": "df050bc11290b6d8f63cd13e53304830d64ab3d878107d9a9d68af4ca5406a55",
+        "self_hash": "145973705b5976d0c314d73e63acbca9f6c0435dcce920c574da160a3a926b97"
+      },
+      {
+        "seq": 3,
+        "prev_hash": "145973705b5976d0c314d73e63acbca9f6c0435dcce920c574da160a3a926b97",
+        "self_hash": "b4067c5520e59a344b6000a0b78643f5b0560e9ef204f87b87144c34c749cb50"
+      },
+      {
+        "seq": 4,
+        "prev_hash": "b4067c5520e59a344b6000a0b78643f5b0560e9ef204f87b87144c34c749cb50",
+        "self_hash": "1e357ec2624d11ff67772f98051f7680836424fb4fffe8b10fa2370e6cb5ad2e"
+      }
+    ],
+    "intact": {
+      "ok": true,
+      "broken_at_seq": null,
+      "reason": null
+    },
+    "tampered": {
+      "ok": false,
+      "broken_at_seq": 1,
+      "reason": "chain"
+    },
+    "head": "1e357ec2624d11ff67772f98051f7680836424fb4fffe8b10fa2370e6cb5ad2e"
+  }
+}

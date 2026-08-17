@@ -1,0 +1,29 @@
+{
+  "format_version": 1,
+  "kind": "lean_proof_file_hash",
+  "id": "no_imports",
+  "description": "no import block, no leading blank line",
+  "input": {
+    "claim": {
+      "theorem_name": "Nat.add_zero'",
+      "statement": "∀ n : Nat, n + 0 = n",
+      "proof": "by\n  intro n\n  rfl",
+      "imports": [],
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "bcfac0c3089493a00944ec90a7d58cf4ff184568cd5e7db2230d85c06aac01b2",
+      "toolchain": "leanprover/lean4:v4.12.0",
+      "mathlib_rev": "",
+      "confidence": 0.91,
+      "doc_hash": "bdb47f9dc7199f64b3dcbfb6c8ea221346ded339b5edc51c86f2e81755cbc675"
+    }
+  },
+  "expected": {
+    "source": "theorem Nat.add_zero' : ∀ n : Nat, n + 0 = n := by\n  intro n\n  rfl\n",
+    "proof_file_hash": "1b19cd09990d47d107aa4d375eb2ec8742469d02214fa278f1334d1f5c14a3c8"
+  }
+}

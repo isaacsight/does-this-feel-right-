@@ -1,0 +1,60 @@
+{
+  "format_version": 1,
+  "kind": "claim_rules",
+  "id": "dangling",
+  "description": "no computation: DANGLING_COMPUTATION, UNCONFIRMED_CLAIM, ENVIRONMENT_UNPINNED",
+  "input": {
+    "claim": {
+      "claim_id": "a8fffa0b0804a8cac0886881d86c6cfd08f93affe2d67012e8252d4b5277e1eb",
+      "value": 3.5,
+      "unit": "kg",
+      "tolerance": 0.01,
+      "location": {
+        "section": "7",
+        "sentence_hash": "88f6811ab5d8fc6d3177f9b7609ae0fcebfda187e5046b62d38bb539e88b74d7"
+      },
+      "source_doc_hash": "649e0cc96ad68e007eec6b85c05b1493039952eebd340c48a1b3d8235c5a1fb7",
+      "computation_ref": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "confidence": 0.9
+    },
+    "computation": null,
+    "verdict": null,
+    "confidence_floor": 0.6
+  },
+  "expected": {
+    "ok": false,
+    "checks": [
+      {
+        "rule_id": "rule.claims.computation_linked",
+        "pass": false,
+        "code": "DANGLING_COMPUTATION"
+      },
+      {
+        "rule_id": "rule.claims.confirmed",
+        "pass": false,
+        "code": "UNCONFIRMED_CLAIM"
+      },
+      {
+        "rule_id": "rule.claims.tolerance",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.claims.environment_pinned",
+        "pass": false,
+        "code": "ENVIRONMENT_UNPINNED"
+      },
+      {
+        "rule_id": "rule.claims.confidence_floor",
+        "pass": true,
+        "code": null
+      }
+    ]
+  }
+}
