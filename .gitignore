@@ -173,6 +173,6 @@ vendor/agent-reach/
 __pycache__/
 *.pyc
 
-# provenance-substrate is a Python package; un-ignore it (root *.py rule above is for stray scripts)
+# packages/provenance/ is a pointer to github.com/isaacsight/provenance-substrate (moved out 2026-08-17)
 !packages/provenance/
-!packages/provenance/**
+!packages/provenance/README.md

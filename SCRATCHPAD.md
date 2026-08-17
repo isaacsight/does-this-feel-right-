@@ -50,6 +50,8 @@ combination + language-neutral conformance suite: not found. Cited in paper.bib.
 **Numbers.** pytest 146+ passed / 1 skipped (real Lean absent). Both suites
 strict-pass. ruff clean.
 
+**Moved out (same day).** Canonical home is now github.com/isaacsight/provenance-substrate (subtree split, history kept; PR #74 merged first, then pointer left in packages/provenance/). Monorepo workflow removed; standalone has its own CI.
+
 **Not done / next.** (1) `provsub` wedge subcommands + `mcp_tools()` per wedge
 and docs/<wedge>.md were delegated at end of session — verify present.
 (2) Publish: `python -m build` + PyPI (needs Isaac's token), Zenodo DOI, JOSS
