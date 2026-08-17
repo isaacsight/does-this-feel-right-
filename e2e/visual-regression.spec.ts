@@ -98,7 +98,12 @@ test.describe('Visual Regression — Color Palette', () => {
     await page.evaluate(() => {
       document.documentElement.setAttribute('data-theme', 'dark')
     })
-    await page.waitForTimeout(300)
+    // body has a background-color transition; poll instead of a fixed sleep
+    // (a 300ms sleep lost the race on WebKit under CI).
+    await page.waitForFunction(
+      () => getComputedStyle(document.body).backgroundColor === 'rgb(28, 26, 24)',
+      undefined, { timeout: 10000 },
+    )
     const bg = await page.evaluate(() => {
       const body = document.querySelector('body')
       return body ? getComputedStyle(body).backgroundColor : ''
