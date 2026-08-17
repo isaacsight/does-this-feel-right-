@@ -27,6 +27,12 @@ jobs:
 
       - name: Build app
         run: npm run build
+        env:
+          # Same secrets ci.yml/deploy.yml use; without them the built app logs
+          # "[Kernel] VITE_SUPABASE_KEY is missing" and the zero-console-errors
+          # spec fails for a reason that has nothing to do with the page.
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
 
       - name: Run E2E tests
         run: npx playwright test

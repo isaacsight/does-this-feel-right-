@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test'
+import { LANDING } from '../fixtures/selectors'
 
 test.describe('Dark Mode', () => {
   test('theme toggle cycles through modes', async ({ page }) => {
     await page.goto('/')
-    await page.waitForSelector('.ka-gate, .engine-body, .ka-landing', { timeout: 15000 })
+    await page.waitForSelector(LANDING, { timeout: 15000 })
 
     // Find theme toggle button
     const themeBtn = await page.$('[data-testid="theme-toggle"], [aria-label*="theme" i], [aria-label*="Toggle" i]')
@@ -28,13 +29,17 @@ test.describe('Dark Mode', () => {
 
   test('dark mode applies correct background color', async ({ page }) => {
     await page.goto('/')
-    await page.waitForSelector('.ka-gate, .engine-body, .ka-landing', { timeout: 15000 })
+    await page.waitForSelector(LANDING, { timeout: 15000 })
 
-    // Force dark mode
+    // Force dark mode, then poll the computed style: body has a
+    // background-color transition, and a fixed sleep lost to it on WebKit.
     await page.evaluate(() => {
       document.documentElement.setAttribute('data-theme', 'dark')
     })
-    await page.waitForTimeout(300)
+    await page.waitForFunction(() => {
+      const m = getComputedStyle(document.body).backgroundColor.match(/rgb\((\d+), (\d+), (\d+)\)/)
+      return !!m && Number(m[1]) < 50 && Number(m[2]) < 50 && Number(m[3]) < 50
+    }, undefined, { timeout: 10000 })
 
     const bg = await page.evaluate(() => {
       return getComputedStyle(document.body).backgroundColor

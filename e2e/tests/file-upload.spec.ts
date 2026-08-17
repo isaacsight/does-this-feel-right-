@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { APP_READY } from '../fixtures/selectors'
 import { mockClaudeProxy, MOCK_TEXT_RESPONSE, mockUsageCheck } from '../fixtures/mock-responses'
 
 // ─── Helpers ─────────────────────────────────────────────────
@@ -6,7 +7,7 @@ import { mockClaudeProxy, MOCK_TEXT_RESPONSE, mockUsageCheck } from '../fixtures
 /** Wait for the main app UI to be ready (gate or engine body). */
 async function waitForApp(page: import('@playwright/test').Page) {
   await page.goto('/')
-  await page.waitForSelector('.ka-gate, .engine-body, .ka-landing', { timeout: 15000 })
+  await page.waitForSelector(APP_READY, { timeout: 15000 })
 }
 
 /** Check if the chat input bar is visible (user is authenticated). */

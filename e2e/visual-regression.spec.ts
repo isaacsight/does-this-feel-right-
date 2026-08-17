@@ -1,12 +1,13 @@
 import { test, expect } from '@playwright/test'
+import { APP_READY, LANDING } from './fixtures/selectors'
 
 /** Wait for the app to finish loading (splash → landing/gate or main UI) */
 async function waitForApp(page: import('@playwright/test').Page) {
   // Wait for any app state: landing page, auth gate, main chat, or loading splash
-  await page.waitForSelector('.ka-landing, .ka-gate, .engine-body, .ka-loading-splash', { timeout: 15000 })
+  await page.waitForSelector(`${APP_READY}, .ka-loading-splash`, { timeout: 15000 })
   // If loading splash is showing, wait for it to resolve
   try {
-    await page.waitForSelector('.ka-landing, .ka-gate, .engine-body', { timeout: 10000 })
+    await page.waitForSelector(LANDING, { timeout: 10000 })
   } catch {
     // App may still be on splash — that's OK for some tests
   }
@@ -97,7 +98,12 @@ test.describe('Visual Regression — Color Palette', () => {
     await page.evaluate(() => {
       document.documentElement.setAttribute('data-theme', 'dark')
     })
-    await page.waitForTimeout(300)
+    // body has a background-color transition; poll instead of a fixed sleep
+    // (a 300ms sleep lost the race on WebKit under CI).
+    await page.waitForFunction(
+      () => getComputedStyle(document.body).backgroundColor === 'rgb(28, 26, 24)',
+      undefined, { timeout: 10000 },
+    )
     const bg = await page.evaluate(() => {
       const body = document.querySelector('body')
       return body ? getComputedStyle(body).backgroundColor : ''
