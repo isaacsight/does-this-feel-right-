@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test'
+import { APP_READY } from '../fixtures/selectors'
 
 test.describe('Conversations', () => {
   test('new chat button exists', async ({ page }) => {
     await page.goto('/')
-    await page.waitForSelector('.ka-gate, .engine-body, .ka-landing', { timeout: 15000 })
+    await page.waitForSelector(APP_READY, { timeout: 15000 })
 
     // New chat button should be in header or drawer
     const newChatBtn = await page.$('[data-testid="new-chat-btn"], .ka-new-chat, .conv-new-btn')
@@ -15,7 +16,7 @@ test.describe('Conversations', () => {
 
   test('conversation drawer opens and closes', async ({ page }) => {
     await page.goto('/')
-    await page.waitForSelector('.ka-gate, .engine-body, .ka-landing', { timeout: 15000 })
+    await page.waitForSelector(APP_READY, { timeout: 15000 })
 
     // Find menu/drawer toggle button
     const menuBtn = await page.$('.ka-menu-btn, .ka-header button:first-child')
@@ -34,7 +35,7 @@ test.describe('Conversations', () => {
 
   test('conversation search input exists in drawer', async ({ page }) => {
     await page.goto('/')
-    await page.waitForSelector('.ka-gate, .engine-body, .ka-landing', { timeout: 15000 })
+    await page.waitForSelector(APP_READY, { timeout: 15000 })
 
     const menuBtn = await page.$('.ka-menu-btn, .ka-header button:first-child')
     if (menuBtn && await page.$('.engine-body')) {
