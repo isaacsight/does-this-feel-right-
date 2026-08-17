@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "kind": "canonicalize",
+  "id": "empty",
+  "description": "canonical JSON + sha256 for empty",
+  "input": {
+    "value": {
+      "arr": [],
+      "obj": {},
+      "str": ""
+    }
+  },
+  "expected": {
+    "canonical": "{\"arr\":[],\"obj\":{},\"str\":\"\"}",
+    "sha256": "3232586cd023c34b39feb5ba31617ccceb01f5b984c35034a83c4d5b7765f0ce"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "format_version": 1,
+  "kind": "claim_shape",
+  "id": "ok_eur",
+  "description": "well-formed claim eur",
+  "input": {
+    "claim": {
+      "doc_hash": "b2278b18e60aac8b6174bec369310fb049295eee71563d7465a9ba47a4919590",
+      "direction": "out",
+      "vendor": "Café Fournisseur",
+      "date": "2026-08-12",
+      "currency": "EUR",
+      "subtotal": 1033.75,
+      "tax": 206.75,
+      "total": 1240.5,
+      "line_items": [
+        {
+          "description": "Café — 25 kg",
+          "quantity": 25,
+          "unit_amount": 41.35,
+          "line_amount": 1033.75,
+          "account_code": "400"
+        }
+      ],
+      "reference": "F-12",
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    }
+  },
+  "expected": {
+    "ok": true,
+    "errors": []
+  }
+}

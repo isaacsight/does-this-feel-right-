@@ -1,0 +1,18 @@
+{
+  "title": "provenance-substrate: the model proposes, deterministic code disposes, a human signs",
+  "upload_type": "software",
+  "description": "A dependency-free Python library and language-neutral conformance suite for making AI-assisted work checkable. A model's output is a claim; a deterministic engine (the Lean kernel, a re-executed computation, an arithmetic reconciler) must confirm it; a human signs the exact bytes; every step is hash-chained. Wedges: ledgers, Lean proofs, manuscript claims, paper reproductions, a quantitative-hallucination benchmark, peer-review provenance. Byte-compatible with the @kernel.chat/kbot-finance TypeScript reference (finance v1 conformance suite vendored, 143 vectors).",
+  "creators": [
+    { "name": "Hernandez, Isaac", "affiliation": "kernel.chat" }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "provenance engineering", "reproducibility", "AI-assisted science", "formal verification", "Lean 4",
+    "peer review", "hash-chained audit log", "content-addressed envelopes", "conformance testing", "canonical JSON"
+  ],
+  "related_identifiers": [
+    { "identifier": "https://github.com/isaacsight/kernel", "relation": "isSupplementTo", "scheme": "url" },
+    { "identifier": "https://www.npmjs.com/package/@kernel.chat/kbot-finance", "relation": "isDerivedFrom", "scheme": "url" }
+  ],
+  "access_right": "open"
+}

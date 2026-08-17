@@ -1,0 +1,157 @@
+{
+  "format_version": 1,
+  "kind": "repro_rules",
+  "id": "short_commit",
+  "description": "abbreviated commit is not pinned",
+  "input": {
+    "target": {
+      "paper": {
+        "title": "Attention Is Not All You Need: A Small Replication Study",
+        "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+        "doi": "10.5555/example.1234",
+        "arxiv_id": "2608.01234"
+      },
+      "repo": {
+        "url": "https://github.com/example/small-replication",
+        "commit": "3f2a9c1"
+      },
+      "claims": [
+        {
+          "claim_id": "accuracy",
+          "description": "Test accuracy (Table 2)",
+          "value": 0.85,
+          "unit": "fraction",
+          "tolerance": 0.01
+        },
+        {
+          "claim_id": "f1",
+          "description": "Macro F1 (Table 2)",
+          "value": 0.8,
+          "unit": "fraction",
+          "tolerance": 0.01
+        },
+        {
+          "claim_id": "params",
+          "description": "Parameter count",
+          "value": 1250000,
+          "unit": "count",
+          "tolerance": 0
+        }
+      ],
+      "environment_spec": {
+        "python": "3.11.4",
+        "os": "ubuntu-22.04",
+        "cuda": "none"
+      },
+      "commands": [
+        [
+          "python3",
+          "run.py"
+        ],
+        [
+          "python3",
+          "evaluate.py"
+        ]
+      ]
+    },
+    "attempt": {
+      "target_hash": "0984665785761e36cfe1fd0335a5235efbcb9104c492db00d05ecd20e234a765",
+      "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+      "commands": [
+        [
+          "python3",
+          "run.py"
+        ],
+        [
+          "python3",
+          "evaluate.py"
+        ]
+      ],
+      "selectors": [
+        {
+          "claim_id": "accuracy",
+          "command_index": 1,
+          "pattern": "accuracy=([0-9.]+)",
+          "group": 1
+        },
+        {
+          "claim_id": "f1",
+          "command_index": 1,
+          "pattern": "f1=([0-9.]+)",
+          "group": 1
+        },
+        {
+          "claim_id": "params",
+          "command_index": 0,
+          "pattern": "params=([0-9]+)",
+          "group": 1
+        }
+      ],
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "ebce27239bef214daf122472a4f72737216c2fd6cdc327a092dbca5f51131b03",
+      "confidence": 0.9,
+      "notes": "Run training then evaluation; read metrics from evaluate.py stdout."
+    },
+    "verdict": {
+      "overall": "reproduced",
+      "per_claim": [
+        {
+          "claim_id": "accuracy",
+          "status": "confirmed",
+          "observed": 0.86,
+          "delta": 0.01
+        },
+        {
+          "claim_id": "f1",
+          "status": "confirmed",
+          "observed": 0.795,
+          "delta": -0.005
+        },
+        {
+          "claim_id": "params",
+          "status": "confirmed",
+          "observed": 1250000.0,
+          "delta": 0.0
+        }
+      ],
+      "confirmed": 3,
+      "total": 3
+    },
+    "confidence_floor": 0.6
+  },
+  "expected": {
+    "ok": false,
+    "checks": [
+      {
+        "rule_id": "rule.repro.commit_pinned",
+        "pass": false,
+        "code": "NO_COMMIT_PINNED"
+      },
+      {
+        "rule_id": "rule.repro.environment_pinned",
+        "pass": true
+      },
+      {
+        "rule_id": "rule.repro.claims_present",
+        "pass": true
+      },
+      {
+        "rule_id": "rule.repro.run_succeeded",
+        "pass": true
+      },
+      {
+        "rule_id": "rule.repro.claims_agree",
+        "pass": true
+      },
+      {
+        "rule_id": "rule.repro.confidence_floor",
+        "pass": true
+      }
+    ]
+  }
+}

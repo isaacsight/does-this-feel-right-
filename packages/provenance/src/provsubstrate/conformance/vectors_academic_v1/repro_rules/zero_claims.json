@@ -1,0 +1,97 @@
+{
+  "format_version": 1,
+  "kind": "repro_rules",
+  "id": "zero_claims",
+  "description": "ZERO_CLAIMS",
+  "input": {
+    "target": {
+      "paper": {
+        "title": "Attention Is Not All You Need: A Small Replication Study",
+        "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+        "doi": "10.5555/example.1234",
+        "arxiv_id": "2608.01234"
+      },
+      "repo": {
+        "url": "https://github.com/example/small-replication",
+        "commit": "3f2a9c1e5b7d4a6f8c0e2b4d6f8a0c2e4b6d8f0a"
+      },
+      "claims": [],
+      "environment_spec": {
+        "python": "3.11.4",
+        "os": "ubuntu-22.04",
+        "cuda": "none"
+      },
+      "commands": [
+        [
+          "python3",
+          "run.py"
+        ],
+        [
+          "python3",
+          "evaluate.py"
+        ]
+      ]
+    },
+    "attempt": {
+      "target_hash": "d771fd80313327a7e7a9e5eefadeaabc7896d2f1a59edf4a8261afd2a241f7c8",
+      "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+      "commands": [
+        [
+          "python3",
+          "run.py"
+        ],
+        [
+          "python3",
+          "evaluate.py"
+        ]
+      ],
+      "selectors": [],
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "ebce27239bef214daf122472a4f72737216c2fd6cdc327a092dbca5f51131b03",
+      "confidence": 0.9,
+      "notes": "Run training then evaluation; read metrics from evaluate.py stdout."
+    },
+    "verdict": {
+      "overall": "not_reproduced",
+      "per_claim": [],
+      "confirmed": 0,
+      "total": 0
+    },
+    "confidence_floor": 0.6
+  },
+  "expected": {
+    "ok": false,
+    "checks": [
+      {
+        "rule_id": "rule.repro.commit_pinned",
+        "pass": true
+      },
+      {
+        "rule_id": "rule.repro.environment_pinned",
+        "pass": true
+      },
+      {
+        "rule_id": "rule.repro.claims_present",
+        "pass": false,
+        "code": "ZERO_CLAIMS"
+      },
+      {
+        "rule_id": "rule.repro.run_succeeded",
+        "pass": true
+      },
+      {
+        "rule_id": "rule.repro.claims_agree",
+        "pass": true
+      },
+      {
+        "rule_id": "rule.repro.confidence_floor",
+        "pass": true
+      }
+    ]
+  }
+}

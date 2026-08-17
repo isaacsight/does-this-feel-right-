@@ -1,0 +1,23 @@
+{
+  "format_version": 1,
+  "kind": "bench_taskset_hash",
+  "id": "v1",
+  "description": "taskset_v1: 60 tasks, fixed hash",
+  "input": {
+    "taskset": "v1"
+  },
+  "expected": {
+    "name": "quant-hallucination",
+    "version": "1.0.0",
+    "count": 60,
+    "taskset_hash": "0c62ff6896a8ba8c6e4fb536becd155590080493f88a1a5a46568d53beb00255",
+    "by_domain": {
+      "finance": 20,
+      "math": 15,
+      "pdf_text": 10,
+      "table": 15
+    },
+    "first_task_id": "ff80e140e52b7a1512e80b3164f55b044aab96cd1870cdaf51731ea0d67a722f",
+    "last_task_id": "a21c41768f34c578daabf17fd6cd02386e2e7e3fbc038ea1efddb2cce02e8e8d"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "format_version": 1,
+  "kind": "approval_summary",
+  "id": "clean",
+  "description": "approval summary string for clean",
+  "input": {
+    "claim": {
+      "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+      "direction": "out",
+      "vendor": "Ag Supply Co",
+      "date": "2026-08-12",
+      "currency": "USD",
+      "subtotal": 1200,
+      "tax": 40.5,
+      "total": 1240.5,
+      "line_items": [
+        {
+          "description": "Urea 46-0-0",
+          "quantity": 2,
+          "unit_amount": 450,
+          "line_amount": 900,
+          "account_code": "400"
+        },
+        {
+          "description": "Delivery",
+          "quantity": 1,
+          "unit_amount": 300,
+          "line_amount": 300,
+          "account_code": "425"
+        }
+      ],
+      "reference": "INV-88213",
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    },
+    "reconciliation": {
+      "status": "matched",
+      "arithmetic": {
+        "ok": true,
+        "line_sum": 1200,
+        "claimed_subtotal": 1200,
+        "claimed_total": 1240.5,
+        "computed_total": 1240.5,
+        "bad_lines": []
+      },
+      "candidates": [
+        "bt-1"
+      ],
+      "matched_bank_line_id": "bt-1",
+      "policy": {
+        "amount_tolerance": 0.01,
+        "date_window_days": 5
+      }
+    }
+  },
+  "expected": {
+    "summary": "SPEND USD 1240.50 Ag Supply Co 2026-08-12 doc:8e394c0ee918 bank:bt-1"
+  }
+}

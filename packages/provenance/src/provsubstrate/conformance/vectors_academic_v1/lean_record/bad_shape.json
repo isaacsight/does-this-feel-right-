@@ -1,0 +1,36 @@
+{
+  "format_version": 1,
+  "kind": "lean_record",
+  "id": "bad_shape",
+  "description": "shape failure records nothing",
+  "input": {
+    "claim": {
+      "theorem_name": "x"
+    },
+    "kernel_table": {},
+    "session_id": "academic-conformance-session",
+    "data_as_of": "2026-08-17T00:00:00.000Z",
+    "approved_at": "2026-08-17T12:00:00.000Z",
+    "trusted": [
+      {
+        "approver_id": "pi.ada",
+        "secret_utf8": "academic-approver-secret-0001"
+      }
+    ],
+    "confidence_floor": 0.6,
+    "axiom_allowlist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "approval": "valid"
+  },
+  "expected": {
+    "ok": false,
+    "stage": "claim_shape",
+    "request_hash": null,
+    "kernel_ok": null,
+    "audit_actions": [],
+    "entry_id": null
+  }
+}

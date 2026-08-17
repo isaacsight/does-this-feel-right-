@@ -61,8 +61,11 @@ export class Approver {
     private readonly secret: Buffer,
   ) {}
 
-  approve(request: ApprovalRequest): ApprovalToken {
-    const approved_at = new Date().toISOString();
+  /**
+   * Issue a token. `approved_at` defaults to now; pass a fixed ISO timestamp
+   * to produce a deterministic token (conformance vectors, replays).
+   */
+  approve(request: ApprovalRequest, approved_at: string = new Date().toISOString()): ApprovalToken {
     const sig = createHmac("sha256", this.secret)
       .update(signingInput(request, this.approver_id, approved_at), "utf8")
       .digest("hex");

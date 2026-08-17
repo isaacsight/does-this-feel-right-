@@ -1,0 +1,26 @@
+{
+  "format_version": 1,
+  "kind": "canonicalize",
+  "id": "nested",
+  "description": "canonical JSON + sha256 for nested",
+  "input": {
+    "value": {
+      "z": {
+        "c": 1,
+        "a": [
+          3,
+          1,
+          {
+            "y": null,
+            "x": true
+          }
+        ]
+      },
+      "a": "s"
+    }
+  },
+  "expected": {
+    "canonical": "{\"a\":\"s\",\"z\":{\"a\":[3,1,{\"x\":true,\"y\":null}],\"c\":1}}",
+    "sha256": "63388740a944cc1d647776e1e25f48045bd0b080b7a1f204759ff400ccef253e"
+  }
+}

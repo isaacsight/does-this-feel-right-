@@ -1,0 +1,58 @@
+{
+  "format_version": 1,
+  "kind": "bench_score",
+  "id": "wrong_unit",
+  "description": "right number wrong unit",
+  "input": {
+    "task": {
+      "task_id": "ff80e140e52b7a1512e80b3164f55b044aab96cd1870cdaf51731ea0d67a722f",
+      "domain": "finance",
+      "source_text": "INVOICE INV-4473\nVendor: Northwind Supply\nDate: 2026-12-17\nLine 1: Cable 3m x 9 @ 47.61 = 428.49\nLine 2: Bracket set x 7 @ 9.86 = 69.02\nSubtotal: 497.51\nTax (10%): 49.75\nTotal due: 547.26\nPrevious statement total: 546.26\n",
+      "question": "What is the total due on this invoice, in USD?",
+      "ground_truth": {
+        "value": 547.26,
+        "unit": "USD",
+        "tolerance": 0.005
+      },
+      "distractors": [
+        546.26,
+        497.51,
+        49.75,
+        428.49,
+        69.02
+      ],
+      "source_doc_hash": "1e12511f5632b0720e1b75ac7eeb056c592d36beed0b949a5711dafa06b1c01a",
+      "recompute_spec": {
+        "kind": "invoice_total"
+      }
+    },
+    "answer": {
+      "task_id": "ff80e140e52b7a1512e80b3164f55b044aab96cd1870cdaf51731ea0d67a722f",
+      "value": 547.26,
+      "unit": "EUR",
+      "rationale": "",
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "b1a4c9d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"
+    }
+  },
+  "expected": {
+    "score": {
+      "status": "wrong_unit",
+      "delta": 0.0
+    },
+    "mitigated": {
+      "raw": {
+        "status": "wrong_unit",
+        "delta": 0.0
+      },
+      "recomputed": 547.26,
+      "recompute_correct": true,
+      "caught": true
+    }
+  }
+}

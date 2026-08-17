@@ -31,6 +31,8 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
+      - name: conformance vectors re-derive byte-for-byte
+        run: npm run conformance:check
 
   build:
     name: build

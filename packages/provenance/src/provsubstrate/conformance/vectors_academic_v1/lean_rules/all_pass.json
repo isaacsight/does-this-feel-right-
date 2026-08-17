@@ -1,0 +1,88 @@
+{
+  "format_version": 1,
+  "kind": "lean_rules",
+  "id": "all_pass",
+  "description": "kernel ok, no sorry, allowed axioms, pinned, hash matches",
+  "input": {
+    "claim": {
+      "theorem_name": "Nat.add_zero'",
+      "statement": "∀ n : Nat, n + 0 = n",
+      "proof": "by\n  intro n\n  rfl",
+      "imports": [
+        "Mathlib.Tactic"
+      ],
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "bcfac0c3089493a00944ec90a7d58cf4ff184568cd5e7db2230d85c06aac01b2",
+      "toolchain": "leanprover/lean4:v4.12.0",
+      "mathlib_rev": "3f2b9c1d8e7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c",
+      "confidence": 0.91,
+      "doc_hash": "bdb47f9dc7199f64b3dcbfb6c8ea221346ded339b5edc51c86f2e81755cbc675"
+    },
+    "kernel_table": {
+      "34d77a06ae182d014a05ffc4e16ba7e7bae0b949def095559ba3772b8438e1aa": {
+        "ok": true,
+        "errors": [],
+        "sorries": 0,
+        "axioms": [
+          "propext"
+        ]
+      }
+    },
+    "confidence_floor": 0.6,
+    "axiom_allowlist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "expected": {
+    "verdict": {
+      "ok": true,
+      "errors": [],
+      "sorries": 0,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "report": {
+      "ok": true,
+      "checks": [
+        {
+          "rule_id": "rule.lean.kernel",
+          "pass": true,
+          "code": null
+        },
+        {
+          "rule_id": "rule.lean.no_sorry",
+          "pass": true,
+          "code": null
+        },
+        {
+          "rule_id": "rule.lean.axiom_allowlist",
+          "pass": true,
+          "code": null
+        },
+        {
+          "rule_id": "rule.lean.confidence_floor",
+          "pass": true,
+          "code": null
+        },
+        {
+          "rule_id": "rule.lean.statement_hash",
+          "pass": true,
+          "code": null
+        },
+        {
+          "rule_id": "rule.lean.toolchain_pinned",
+          "pass": true,
+          "code": null
+        }
+      ]
+    }
+  }
+}

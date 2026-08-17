@@ -1,0 +1,311 @@
+{
+  "format_version": 1,
+  "kind": "repro_dataset_manifest",
+  "id": "two_reports_reversed",
+  "description": "input order must not change the manifest",
+  "input": {
+    "reports": [
+      {
+        "report_id": "f41b1b3d5ebecfc372bceaecf5fefb2954f595a81e8dc82167035abb3c4022b9",
+        "format_version": 1,
+        "operation": "repro.judge",
+        "engine_version": "repro-ledger@0.1.0",
+        "schema_hash": "56e436c22d84cdc045b529e1732924b36e87844bbec02ec023546a349eb2bee0",
+        "data_as_of": "2026-08-17T00:00:00.000Z",
+        "request_hash": "81fd847fc1a9cbdce7218252ff1485ad5945fe19a8b1729f619ed37d7cdfefed",
+        "session_id": "academic-conformance-session",
+        "target_hash": "9c523feb54f34ee942d4a55f899644992813c5076c9c233b6ea61553137e4624",
+        "target": {
+          "paper": {
+            "title": "Attention Is Not All You Need: A Small Replication Study",
+            "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+            "doi": "10.5555/example.1234",
+            "arxiv_id": "2608.01234"
+          },
+          "repo": {
+            "url": "https://github.com/example/small-replication",
+            "commit": "3f2a9c1e5b7d4a6f8c0e2b4d6f8a0c2e4b6d8f0a"
+          },
+          "claims": [
+            {
+              "claim_id": "accuracy",
+              "description": "edge",
+              "value": 0.85,
+              "unit": "fraction",
+              "tolerance": 0.01
+            }
+          ],
+          "environment_spec": {
+            "python": "3.11.4",
+            "os": "ubuntu-22.04",
+            "cuda": "none"
+          },
+          "commands": [
+            [
+              "python3",
+              "run.py"
+            ],
+            [
+              "python3",
+              "evaluate.py"
+            ]
+          ]
+        },
+        "attempt_hash": "89b5ff3a82712b4bfa70c5c4b5885052f251f40c90d0876a7aade2f5c3cf4b06",
+        "attempt": {
+          "target_hash": "9c523feb54f34ee942d4a55f899644992813c5076c9c233b6ea61553137e4624",
+          "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+          "commands": [
+            [
+              "python3",
+              "run.py"
+            ],
+            [
+              "python3",
+              "evaluate.py"
+            ]
+          ],
+          "selectors": [
+            {
+              "claim_id": "accuracy",
+              "command_index": 1,
+              "pattern": "accuracy=([0-9.]+)",
+              "group": 1
+            }
+          ],
+          "model_lineage": [
+            {
+              "model": "local-27b",
+              "version": "conformance"
+            }
+          ],
+          "prompt_hash": "ebce27239bef214daf122472a4f72737216c2fd6cdc327a092dbca5f51131b03",
+          "confidence": 0.9,
+          "notes": "Run training then evaluation; read metrics from evaluate.py stdout."
+        },
+        "run_record": {
+          "commands": [
+            {
+              "index": 0,
+              "exit_code": 0,
+              "stdout_sha256": "a647d1abe86a357e867413dfb62f27106c7aa33857c9f2348b90fe0f27f45e82",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "index": 1,
+              "exit_code": 0,
+              "stdout_sha256": "96f7038ac7c105215b57f2d42e7bec13aae627d047189f53ac6665b3ea7ebcfb",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "extracted": {
+            "accuracy": 0.86
+          },
+          "wall_seconds": 12.5,
+          "error": null
+        },
+        "verdict": {
+          "overall": "reproduced",
+          "per_claim": [
+            {
+              "claim_id": "accuracy",
+              "status": "confirmed",
+              "observed": 0.86,
+              "delta": 0.01
+            }
+          ],
+          "confirmed": 1,
+          "total": 1
+        },
+        "approval": {
+          "request_hash": "81fd847fc1a9cbdce7218252ff1485ad5945fe19a8b1729f619ed37d7cdfefed",
+          "summary": "Record reproduction of Attention Is Not All You Need: A Small R commit 3f2a9c1e5b7d verdict reproduced 1/1 claims doc:5de4cf692493",
+          "session_id": "academic-conformance-session",
+          "materiality": "repro.report",
+          "approver_id": "pi.ada",
+          "approved_at": "2026-08-17T12:00:00.000Z",
+          "signature": "ab1b5eedb29355f377b088a54e745f944197137b1aa6f0cd4c8c4430d3a45069"
+        }
+      },
+      {
+        "report_id": "a07800df49380e13f9ba1412caf44fe7e57a7bacf5c01189e4f539f5586761aa",
+        "format_version": 1,
+        "operation": "repro.judge",
+        "engine_version": "repro-ledger@0.1.0",
+        "schema_hash": "56e436c22d84cdc045b529e1732924b36e87844bbec02ec023546a349eb2bee0",
+        "data_as_of": "2026-08-17T00:00:00.000Z",
+        "request_hash": "1d39ecd969c0c87bbabf8e2c9049e7daa1d087acd42460473a83c2a633894192",
+        "session_id": "academic-conformance-session",
+        "target_hash": "b945e1cd018218e26ca0671c7c7cc539f5c4d1de1793b423787ba390cc9b4ee8",
+        "target": {
+          "paper": {
+            "title": "Attention Is Not All You Need: A Small Replication Study",
+            "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+            "doi": "10.5555/example.1234",
+            "arxiv_id": "2608.01234"
+          },
+          "repo": {
+            "url": "https://github.com/example/small-replication",
+            "commit": "3f2a9c1e5b7d4a6f8c0e2b4d6f8a0c2e4b6d8f0a"
+          },
+          "claims": [
+            {
+              "claim_id": "accuracy",
+              "description": "Test accuracy (Table 2)",
+              "value": 0.85,
+              "unit": "fraction",
+              "tolerance": 0.01
+            },
+            {
+              "claim_id": "f1",
+              "description": "Macro F1 (Table 2)",
+              "value": 0.8,
+              "unit": "fraction",
+              "tolerance": 0.01
+            },
+            {
+              "claim_id": "params",
+              "description": "Parameter count",
+              "value": 1250000,
+              "unit": "count",
+              "tolerance": 0
+            }
+          ],
+          "environment_spec": {
+            "python": "3.11.4",
+            "os": "ubuntu-22.04",
+            "cuda": "none"
+          },
+          "commands": [
+            [
+              "python3",
+              "run.py"
+            ],
+            [
+              "python3",
+              "evaluate.py"
+            ]
+          ]
+        },
+        "attempt_hash": "111529ab614053302d9d3c66ea9e1f5e16a23085973702bff79cd4af62ead85d",
+        "attempt": {
+          "target_hash": "b945e1cd018218e26ca0671c7c7cc539f5c4d1de1793b423787ba390cc9b4ee8",
+          "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+          "commands": [
+            [
+              "python3",
+              "run.py"
+            ],
+            [
+              "python3",
+              "evaluate.py"
+            ]
+          ],
+          "selectors": [
+            {
+              "claim_id": "accuracy",
+              "command_index": 1,
+              "pattern": "accuracy=([0-9.]+)",
+              "group": 1
+            },
+            {
+              "claim_id": "f1",
+              "command_index": 1,
+              "pattern": "f1=([0-9.]+)",
+              "group": 1
+            },
+            {
+              "claim_id": "params",
+              "command_index": 0,
+              "pattern": "params=([0-9]+)",
+              "group": 1
+            }
+          ],
+          "model_lineage": [
+            {
+              "model": "local-27b",
+              "version": "conformance"
+            }
+          ],
+          "prompt_hash": "ebce27239bef214daf122472a4f72737216c2fd6cdc327a092dbca5f51131b03",
+          "confidence": 0.9,
+          "notes": "Run training then evaluation; read metrics from evaluate.py stdout."
+        },
+        "run_record": {
+          "commands": [
+            {
+              "index": 0,
+              "exit_code": 0,
+              "stdout_sha256": "a647d1abe86a357e867413dfb62f27106c7aa33857c9f2348b90fe0f27f45e82",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "index": 1,
+              "exit_code": 0,
+              "stdout_sha256": "96f7038ac7c105215b57f2d42e7bec13aae627d047189f53ac6665b3ea7ebcfb",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          ],
+          "extracted": {
+            "accuracy": 0.86,
+            "f1": 0.795,
+            "params": 1250000.0
+          },
+          "wall_seconds": 12.5,
+          "error": null
+        },
+        "verdict": {
+          "overall": "reproduced",
+          "per_claim": [
+            {
+              "claim_id": "accuracy",
+              "status": "confirmed",
+              "observed": 0.86,
+              "delta": 0.01
+            },
+            {
+              "claim_id": "f1",
+              "status": "confirmed",
+              "observed": 0.795,
+              "delta": -0.005
+            },
+            {
+              "claim_id": "params",
+              "status": "confirmed",
+              "observed": 1250000.0,
+              "delta": 0.0
+            }
+          ],
+          "confirmed": 3,
+          "total": 3
+        },
+        "approval": {
+          "request_hash": "1d39ecd969c0c87bbabf8e2c9049e7daa1d087acd42460473a83c2a633894192",
+          "summary": "Record reproduction of Attention Is Not All You Need: A Small R commit 3f2a9c1e5b7d verdict reproduced 3/3 claims doc:5de4cf692493",
+          "session_id": "academic-conformance-session",
+          "materiality": "repro.report",
+          "approver_id": "pi.ada",
+          "approved_at": "2026-08-17T12:00:00.000Z",
+          "signature": "60c944b8f862cfd7752c257f102454b2fd9955c2dbaa1651cef6ef03b0e3e33d"
+        }
+      }
+    ],
+    "version": "1.0.0"
+  },
+  "expected": {
+    "row_count": 2,
+    "rows": [
+      {
+        "report_id": "a07800df49380e13f9ba1412caf44fe7e57a7bacf5c01189e4f539f5586761aa",
+        "sha256": "81a8d36bbb55ed35cce20d6e402a8f57727681a84ba2a5cf668143e3b590fb46"
+      },
+      {
+        "report_id": "f41b1b3d5ebecfc372bceaecf5fefb2954f595a81e8dc82167035abb3c4022b9",
+        "sha256": "dd348e3fca40f98045f55e976ef4e1d955a903a8268a08f2e2f0a4e44fb55072"
+      }
+    ],
+    "dataset_hash": "5a0094cb055c3b0c4e63ce3c216fa232fba2605b8a2d380ca77bcea69427ea09",
+    "jsonl_sha256": "a7bd7c4dee93ddd474d9fc9bb71945b59fb595c171978ac6e1ec01ef75524df5",
+    "filename": "reproducibility-ledger-reports-1.0.0.jsonl"
+  }
+}

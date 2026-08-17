@@ -1,0 +1,24 @@
+{
+  "format_version": 1,
+  "kind": "lean_claim_shape",
+  "id": "missing_fields",
+  "description": "missing statement, proof, lineage, hashes reported together, sorted",
+  "input": {
+    "claim": {
+      "theorem_name": "foo",
+      "toolchain": "leanprover/lean4:v4.12.0",
+      "mathlib_rev": "",
+      "confidence": 0.5
+    }
+  },
+  "expected": {
+    "ok": false,
+    "errors": [
+      "doc_hash must be sha256 hex",
+      "model_lineage required",
+      "prompt_hash must be sha256 hex",
+      "proof must be non-empty string",
+      "statement must be non-empty string"
+    ]
+  }
+}

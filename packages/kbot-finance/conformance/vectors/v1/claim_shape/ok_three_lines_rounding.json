@@ -1,0 +1,53 @@
+{
+  "format_version": 1,
+  "kind": "claim_shape",
+  "id": "ok_three_lines_rounding",
+  "description": "well-formed claim three_lines_rounding",
+  "input": {
+    "claim": {
+      "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+      "direction": "out",
+      "vendor": "Ag Supply Co",
+      "date": "2026-08-12",
+      "currency": "USD",
+      "subtotal": 0.3,
+      "tax": 0,
+      "total": 0.3,
+      "line_items": [
+        {
+          "description": "a",
+          "quantity": 1,
+          "unit_amount": 0.1,
+          "line_amount": 0.1,
+          "account_code": "400"
+        },
+        {
+          "description": "b",
+          "quantity": 1,
+          "unit_amount": 0.1,
+          "line_amount": 0.1,
+          "account_code": "400"
+        },
+        {
+          "description": "c",
+          "quantity": 1,
+          "unit_amount": 0.1,
+          "line_amount": 0.1,
+          "account_code": "400"
+        }
+      ],
+      "reference": null,
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    }
+  },
+  "expected": {
+    "ok": true,
+    "errors": []
+  }
+}

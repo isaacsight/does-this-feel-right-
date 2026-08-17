@@ -1,0 +1,80 @@
+{
+  "format_version": 1,
+  "kind": "reconcile",
+  "id": "matched_receive_direction",
+  "description": "reconcile(receive, receive, {\"amount_tolerance\":0.01,\"date_window_days\":5})",
+  "input": {
+    "claim": {
+      "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+      "direction": "in",
+      "vendor": "Grain Buyer Ltd",
+      "date": "2026-08-12",
+      "currency": "USD",
+      "subtotal": 9750,
+      "tax": 0,
+      "total": 9750,
+      "line_items": [
+        {
+          "description": "Wheat 32.5t @ 300",
+          "quantity": 32.5,
+          "unit_amount": 300,
+          "line_amount": 9750,
+          "account_code": "200"
+        }
+      ],
+      "reference": "RCT-2201",
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    },
+    "bank_lines": [
+      {
+        "id": "bt-14",
+        "date": "2026-08-12",
+        "direction": "in",
+        "amount": 9750,
+        "currency": "USD",
+        "counterparty": "GRAIN BUYER",
+        "reference": "RCT-2201",
+        "reconciled": false
+      },
+      {
+        "id": "bt-1",
+        "date": "2026-08-13",
+        "direction": "out",
+        "amount": 1240.5,
+        "currency": "USD",
+        "counterparty": "AG SUPPLY",
+        "reference": null,
+        "reconciled": false
+      }
+    ],
+    "policy": {
+      "amount_tolerance": 0.01,
+      "date_window_days": 5
+    }
+  },
+  "expected": {
+    "status": "matched",
+    "arithmetic": {
+      "ok": true,
+      "line_sum": 9750,
+      "claimed_subtotal": 9750,
+      "claimed_total": 9750,
+      "computed_total": 9750,
+      "bad_lines": []
+    },
+    "candidates": [
+      "bt-14"
+    ],
+    "matched_bank_line_id": "bt-14",
+    "policy": {
+      "amount_tolerance": 0.01,
+      "date_window_days": 5
+    }
+  }
+}

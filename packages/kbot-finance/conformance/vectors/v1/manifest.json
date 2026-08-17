@@ -1,0 +1,871 @@
+{
+  "format_version": 1,
+  "generated_by": "src/conformance/generate.ts",
+  "reference_versions": {
+    "package": "@kernel.chat/kbot-finance@0.3.0",
+    "reconcile_engine": "ledger-reconcile@0.1.0",
+    "ledger_engine": "content-addressed-ledger@0.1.0",
+    "ledger_schema_hash": "9dc8c733d908e0f4f80a7cea1e0ffa8211da5b73152ffe5826086e2f6295f643"
+  },
+  "vectors": [
+    {
+      "path": "approval_summary/ambiguous.json",
+      "kind": "approval_summary",
+      "id": "ambiguous",
+      "sha256": "7f63d437992ece87c561cddc4810077e0277521f70a4a487902ed55279a0d8df"
+    },
+    {
+      "path": "approval_summary/clean.json",
+      "kind": "approval_summary",
+      "id": "clean",
+      "sha256": "2559793afa13d28f7ec9ac72808347df96f083675f0a31d1c518485555db64be"
+    },
+    {
+      "path": "approval_summary/eur.json",
+      "kind": "approval_summary",
+      "id": "eur",
+      "sha256": "2662237d328d9a133ea7101c82c0ccd55c864ec4422f5be1be6a11095e9a4eee"
+    },
+    {
+      "path": "approval_summary/no_vendor_no_date.json",
+      "kind": "approval_summary",
+      "id": "no_vendor_no_date",
+      "sha256": "81bca2ac3d4ccee5012f09d2afea31f4c1890fd59122bb9b177a170f598a2519"
+    },
+    {
+      "path": "approval_summary/receive.json",
+      "kind": "approval_summary",
+      "id": "receive",
+      "sha256": "b96ff7a67c6054ee647984c4759f46a1e58fd036a5041770165cff5bbf8bd221"
+    },
+    {
+      "path": "approval_token/clean.json",
+      "kind": "approval_token",
+      "id": "clean",
+      "sha256": "a0450b6a453a3a6514e24f29ed337c9ddd6960e56a3569288e0b45085711e79c"
+    },
+    {
+      "path": "approval_token/clean_one_second_later.json",
+      "kind": "approval_token",
+      "id": "clean_one_second_later",
+      "sha256": "dc63ae38d8b6dba39d4cbcf1252a88479105516252e8982a5b58a502cd997333"
+    },
+    {
+      "path": "approval_verify/approved_at_altered.json",
+      "kind": "approval_verify",
+      "id": "approved_at_altered",
+      "sha256": "3e1986a089bdb2dfce878e9458c965b55db22f7194126b693132dbc484882923"
+    },
+    {
+      "path": "approval_verify/empty_trust_set.json",
+      "kind": "approval_verify",
+      "id": "empty_trust_set",
+      "sha256": "b30ddd3e0da40926bbc0a98e4d5e7ec38cbde73d68c9d744a98b07b8ab7e9c19"
+    },
+    {
+      "path": "approval_verify/forged_signature.json",
+      "kind": "approval_verify",
+      "id": "forged_signature",
+      "sha256": "2f60c24219cdc3ced61dbc4ea1e126959cd3d44033ffec1ece8fbf41587d34eb"
+    },
+    {
+      "path": "approval_verify/short_signature.json",
+      "kind": "approval_verify",
+      "id": "short_signature",
+      "sha256": "a968d62d7691026bc84643d2f13090f349fb7f8dce096f3ea3ff74086acc45f4"
+    },
+    {
+      "path": "approval_verify/stranger_signs_valid_request.json",
+      "kind": "approval_verify",
+      "id": "stranger_signs_valid_request",
+      "sha256": "c21ed473b33cf3d392fae768f18065d0bdeb3c364d330bf58d08295fb2aada4b"
+    },
+    {
+      "path": "approval_verify/unknown_approver.json",
+      "kind": "approval_verify",
+      "id": "unknown_approver",
+      "sha256": "4171a559a9a8e840141ee044069524513bd154e39969d0afd50169e1d3cc9889"
+    },
+    {
+      "path": "approval_verify/valid.json",
+      "kind": "approval_verify",
+      "id": "valid",
+      "sha256": "0dc6d44b6df6073a6680cc6624566e310d117daa5294b15d771ad8218bbfe866"
+    },
+    {
+      "path": "approval_verify/wrong_materiality.json",
+      "kind": "approval_verify",
+      "id": "wrong_materiality",
+      "sha256": "e16fde09275e1fd7df7b04ad828cec66f9197bdd72121d4dfeb8bdbe09e8462e"
+    },
+    {
+      "path": "approval_verify/wrong_request_hash.json",
+      "kind": "approval_verify",
+      "id": "wrong_request_hash",
+      "sha256": "8692fd5d8d95605e86c4b6280d6f7ec01084fa0aef0697b7082375f781fdc7ce"
+    },
+    {
+      "path": "approval_verify/wrong_secret.json",
+      "kind": "approval_verify",
+      "id": "wrong_secret",
+      "sha256": "17b80326a926f895052b7b26124d6b491062a7ae07d195148b34f3564a065389"
+    },
+    {
+      "path": "approval_verify/wrong_session.json",
+      "kind": "approval_verify",
+      "id": "wrong_session",
+      "sha256": "2e0d9043b4dd869d1a3dc28ab99f847b052046d7f6ebfc0f9c9c4c63110d6ffd"
+    },
+    {
+      "path": "approval_verify/wrong_summary.json",
+      "kind": "approval_verify",
+      "id": "wrong_summary",
+      "sha256": "05b40755e1d4e9fbb9039ee16a54c5bffe87bdc13eb2cf53919389c11db6f938"
+    },
+    {
+      "path": "arithmetic/bad_line.json",
+      "kind": "arithmetic",
+      "id": "bad_line",
+      "sha256": "6fc44bf3fedc8253bdc7c01536da34044dc117f8fe5f8f484796e197b2194fd8"
+    },
+    {
+      "path": "arithmetic/cents_edge_tol_0.json",
+      "kind": "arithmetic",
+      "id": "cents_edge_tol_0",
+      "sha256": "3c229ebf7e4102b86e46ee1a007adac1b5fa5181e222b3ccfce0fa32e83660f9"
+    },
+    {
+      "path": "arithmetic/cents_edge_tol_1c.json",
+      "kind": "arithmetic",
+      "id": "cents_edge_tol_1c",
+      "sha256": "8ce2686a3ab27c453b3a2e14e7b8607debf450132c8fe7dc8d1599698ac2820b"
+    },
+    {
+      "path": "arithmetic/clean.json",
+      "kind": "arithmetic",
+      "id": "clean",
+      "sha256": "478642a677d22e8ce14cb35e3689c1b94ddbb07adaf41480e49c62cd6988e845"
+    },
+    {
+      "path": "arithmetic/clean_zero_tol.json",
+      "kind": "arithmetic",
+      "id": "clean_zero_tol",
+      "sha256": "a7efc2343e5a4cb862a434ba546ab13eca653f7039e0b3f8a2758978b33f76ea"
+    },
+    {
+      "path": "arithmetic/eur.json",
+      "kind": "arithmetic",
+      "id": "eur",
+      "sha256": "99f6366e252d8945546768839db86741a4751080ce3c43207b41e9fce4d7c13e"
+    },
+    {
+      "path": "arithmetic/fuel.json",
+      "kind": "arithmetic",
+      "id": "fuel",
+      "sha256": "97d589405b0636751c5549902800988e421e2221ebf0de8b239a871388310e44"
+    },
+    {
+      "path": "arithmetic/misread_total.json",
+      "kind": "arithmetic",
+      "id": "misread_total",
+      "sha256": "2c9dd064c05e6df33bdbf1616cba5eb66f6127fe76d736f28a274dc0c60ff632"
+    },
+    {
+      "path": "arithmetic/receive.json",
+      "kind": "arithmetic",
+      "id": "receive",
+      "sha256": "ba370e4638e426804b357c38631026237caef7d5cd4b4d984708ec94715eaf10"
+    },
+    {
+      "path": "arithmetic/three_lines_rounding.json",
+      "kind": "arithmetic",
+      "id": "three_lines_rounding",
+      "sha256": "648b566805a343de6279f1b5bfc235ef8c4fd96f8a149de13cc9fbf54f722a52"
+    },
+    {
+      "path": "audit_chain/five_entries_tamper_seq_0.json",
+      "kind": "audit_chain",
+      "id": "five_entries_tamper_seq_0",
+      "sha256": "7687d677dacb16d2a5f40b17784d53cbd48fca26ea2f3932122cfdeb6bcedf5b"
+    },
+    {
+      "path": "audit_chain/five_entries_tamper_seq_2.json",
+      "kind": "audit_chain",
+      "id": "five_entries_tamper_seq_2",
+      "sha256": "eb59edb298d71552752bb104447b842aee10e65963533aedfb26dd5eda93a3f2"
+    },
+    {
+      "path": "audit_chain/five_entries_tamper_seq_4.json",
+      "kind": "audit_chain",
+      "id": "five_entries_tamper_seq_4",
+      "sha256": "c549d725ba814801a20cdc00e5d732645086b6c01e72357484b2f5437eb9d300"
+    },
+    {
+      "path": "audit_chain/single_entry.json",
+      "kind": "audit_chain",
+      "id": "single_entry",
+      "sha256": "df289c3022286afe2f40f0533dbba154cfad774472155b8f0c782371892b57c3"
+    },
+    {
+      "path": "canonicalize/claim.json",
+      "kind": "canonicalize",
+      "id": "claim",
+      "sha256": "299af0f58e62fa70b8e00ae6e2821eabb5945b264307b06b5c60501b864e8c8b"
+    },
+    {
+      "path": "canonicalize/empty.json",
+      "kind": "canonicalize",
+      "id": "empty",
+      "sha256": "e00c2879762f375609d13a9ad479c5e082c2594f312dfd05ee673e25497d1a5e"
+    },
+    {
+      "path": "canonicalize/key_order.json",
+      "kind": "canonicalize",
+      "id": "key_order",
+      "sha256": "05a7d46aecec587b72aefa0511e8db5bd3c80bc59e892918aab86cec7f59ea77"
+    },
+    {
+      "path": "canonicalize/nested.json",
+      "kind": "canonicalize",
+      "id": "nested",
+      "sha256": "a9f64c262584fe3d228bff3db13c16d77ed5fd24dca8bd4a277182e1649221ce"
+    },
+    {
+      "path": "canonicalize/numbers.json",
+      "kind": "canonicalize",
+      "id": "numbers",
+      "sha256": "76e27248741e857c8be76701fd905033403e29d7db3ef8de406f79658ba7ff51"
+    },
+    {
+      "path": "canonicalize/strings.json",
+      "kind": "canonicalize",
+      "id": "strings",
+      "sha256": "bc4c322df214743da4f54e967d5012083f3c473416a5477508b9fc18c9b1eaf7"
+    },
+    {
+      "path": "claim_shape/bad_bad_currency.json",
+      "kind": "claim_shape",
+      "id": "bad_bad_currency",
+      "sha256": "aa865f8cefa554d6cf286bacbca281743faa74c78d215b7646d4d25f41aec7d7"
+    },
+    {
+      "path": "claim_shape/bad_bad_date.json",
+      "kind": "claim_shape",
+      "id": "bad_bad_date",
+      "sha256": "57d1230b32caf6e6a6f1e90920d40e8ff7f8c9ad7ca125419f68dfe2a0fa6123"
+    },
+    {
+      "path": "claim_shape/bad_bad_direction.json",
+      "kind": "claim_shape",
+      "id": "bad_bad_direction",
+      "sha256": "f59bf868dc7a1fb58ffdbea54426f05765b9ab1d0029b05a5794f178a5b4af65"
+    },
+    {
+      "path": "claim_shape/bad_bad_hash.json",
+      "kind": "claim_shape",
+      "id": "bad_bad_hash",
+      "sha256": "218f794554031e6743013e6d87e2f6debcbf61dd02ac174dd251228777158da2"
+    },
+    {
+      "path": "claim_shape/bad_confidence_over.json",
+      "kind": "claim_shape",
+      "id": "bad_confidence_over",
+      "sha256": "4e5aad58b133a42a2fb6b25ea36cc5b49c70e1a1ec8d5572434b1967ecb3a343"
+    },
+    {
+      "path": "claim_shape/bad_empty_lines.json",
+      "kind": "claim_shape",
+      "id": "bad_empty_lines",
+      "sha256": "ba2165ed2ce16583d696561cdd80c42b685171943a6b450f46375c3a03ca9abb"
+    },
+    {
+      "path": "claim_shape/bad_everything_wrong.json",
+      "kind": "claim_shape",
+      "id": "bad_everything_wrong",
+      "sha256": "be49fea4ca257f2590f1ceb721947c1a67e2d51539b821a566279d16b4809e1c"
+    },
+    {
+      "path": "claim_shape/bad_line_missing_code.json",
+      "kind": "claim_shape",
+      "id": "bad_line_missing_code",
+      "sha256": "2cd91a9fca6030a13a732ddcf2e75959f6ef51dbd2e90ff26c19758db3ade92c"
+    },
+    {
+      "path": "claim_shape/bad_nan_total.json",
+      "kind": "claim_shape",
+      "id": "bad_nan_total",
+      "sha256": "1ab2d1a9166ed85cdbca452c4935d2a6e88aaa306f75d319e0151189d61bfde9"
+    },
+    {
+      "path": "claim_shape/bad_no_lineage.json",
+      "kind": "claim_shape",
+      "id": "bad_no_lineage",
+      "sha256": "9191875ad1abb82e438da7b9a5958053a1f775a25a0217155e570c8bb3c38a1d"
+    },
+    {
+      "path": "claim_shape/bad_not_object.json",
+      "kind": "claim_shape",
+      "id": "bad_not_object",
+      "sha256": "18ce4873b24475bcf786e6e21f3639448a8da90eb395c81b61793d895f40c0b0"
+    },
+    {
+      "path": "claim_shape/bad_null_claim.json",
+      "kind": "claim_shape",
+      "id": "bad_null_claim",
+      "sha256": "80fdfe7b5492eeef83cc995d123388f43b019d406fc6a2294ce7b81ded6af9f0"
+    },
+    {
+      "path": "claim_shape/ok_bad_line.json",
+      "kind": "claim_shape",
+      "id": "ok_bad_line",
+      "sha256": "514cbc78f329b27c8c856d9eef96e1a67860e0df582875acf383c065850e821e"
+    },
+    {
+      "path": "claim_shape/ok_cents_edge.json",
+      "kind": "claim_shape",
+      "id": "ok_cents_edge",
+      "sha256": "e03c2b7ee9d8ebdf49bd99a82f254e3480d73f0a450a072b71b4c6e06e7ed169"
+    },
+    {
+      "path": "claim_shape/ok_clean.json",
+      "kind": "claim_shape",
+      "id": "ok_clean",
+      "sha256": "2d8d51d42b90239ca7a5dfcf083161533e4dec4c104a8a3811b16c1644284151"
+    },
+    {
+      "path": "claim_shape/ok_eur.json",
+      "kind": "claim_shape",
+      "id": "ok_eur",
+      "sha256": "8ca4931d1194fb4297f739a7c24783418f24c5c2dab9a9347a8eb63002ddb36d"
+    },
+    {
+      "path": "claim_shape/ok_fuel.json",
+      "kind": "claim_shape",
+      "id": "ok_fuel",
+      "sha256": "906dcea68b4ad0a3d3bd7855f848278bce2df57b04c88b317c915a34f9560bcb"
+    },
+    {
+      "path": "claim_shape/ok_low_confidence.json",
+      "kind": "claim_shape",
+      "id": "ok_low_confidence",
+      "sha256": "6234ee375c16dfd2fc0426769c23e16e7c244dd549887f745227db3634aed60f"
+    },
+    {
+      "path": "claim_shape/ok_misread_total.json",
+      "kind": "claim_shape",
+      "id": "ok_misread_total",
+      "sha256": "710453532d5ebe5bde6fd0c2d6cf99acc3e5cb090532be78472cce21bb10e8d7"
+    },
+    {
+      "path": "claim_shape/ok_no_date.json",
+      "kind": "claim_shape",
+      "id": "ok_no_date",
+      "sha256": "261e4a39712187e912e1d1456448214d7f2f80647f67131316e9e1f1cc9b498c"
+    },
+    {
+      "path": "claim_shape/ok_no_vendor.json",
+      "kind": "claim_shape",
+      "id": "ok_no_vendor",
+      "sha256": "8095bb390d88ad7cc62b76a3fd2c8a9f5705dca11ed76f448e0292370d7a8d54"
+    },
+    {
+      "path": "claim_shape/ok_receive.json",
+      "kind": "claim_shape",
+      "id": "ok_receive",
+      "sha256": "9b494451b817f0c4843f29a58f3ae98d5f7082065ec9377f7aa24e236bf32017"
+    },
+    {
+      "path": "claim_shape/ok_tax_type.json",
+      "kind": "claim_shape",
+      "id": "ok_tax_type",
+      "sha256": "2777b4b8a0c83f1afcb31be77124c319d40af7f0954c53bc3f329be3275c3ac2"
+    },
+    {
+      "path": "claim_shape/ok_three_lines_rounding.json",
+      "kind": "claim_shape",
+      "id": "ok_three_lines_rounding",
+      "sha256": "144d5102424bd86cac4c63e29649675ef5b8a023e899ea6f9410a52aa66ea7db"
+    },
+    {
+      "path": "claim_shape/ok_unknown_code.json",
+      "kind": "claim_shape",
+      "id": "ok_unknown_code",
+      "sha256": "6fc55d5c15bde91cfdf4c5f5ba0fa4d27cb46e14845f3fad15fd49e9f7106008"
+    },
+    {
+      "path": "ledger_entry_id/clean.json",
+      "kind": "ledger_entry_id",
+      "id": "clean",
+      "sha256": "6069ee8909f7280593d5767fc3eb5420087dd33ec6efffa015004dfb8aab2ca3"
+    },
+    {
+      "path": "ledger_entry_id/clean_keys_shuffled.json",
+      "kind": "ledger_entry_id",
+      "id": "clean_keys_shuffled",
+      "sha256": "1ffcbf45975ff83a67da94e35e3af00e702d915e2acdcb0521ace1dec61dd4d7"
+    },
+    {
+      "path": "ledger_entry_id/clean_total_off.json",
+      "kind": "ledger_entry_id",
+      "id": "clean_total_off",
+      "sha256": "91a6273e4edef775666228a348acd583b0371b24286dd7fde015a579cc7f280b"
+    },
+    {
+      "path": "ledger_entry_id/clean_with_tax_type.json",
+      "kind": "ledger_entry_id",
+      "id": "clean_with_tax_type",
+      "sha256": "b000d0d0c03dabb6836447b3e8402de6685abdd6b5f9ddb06e0dc2e799400d33"
+    },
+    {
+      "path": "ledger_post/ambiguous_never_reaches_gate.json",
+      "kind": "ledger_post",
+      "id": "ambiguous_never_reaches_gate",
+      "sha256": "28ff9c4bddc5e9c045972bfa27b6bd3de22b6ccc2a9a138d30d1a1513879040c"
+    },
+    {
+      "path": "ledger_post/arithmetic_mismatch_never_reaches_gate.json",
+      "kind": "ledger_post",
+      "id": "arithmetic_mismatch_never_reaches_gate",
+      "sha256": "b1c070a529d02c265eee84d6cb1a99164556c3e8ec80880594694dc20cf33bb4"
+    },
+    {
+      "path": "ledger_post/different_engine_version_different_hash.json",
+      "kind": "ledger_post",
+      "id": "different_engine_version_different_hash",
+      "sha256": "49b62ae3fe7b6ff99ffb723b665459b046b2e181f0cb65aa1290a90780b16b38"
+    },
+    {
+      "path": "ledger_post/duplicate_document_refused.json",
+      "kind": "ledger_post",
+      "id": "duplicate_document_refused",
+      "sha256": "f42b5aa4862fff1312a6c27a604acd51377ba699578b9ac6c0d3030da56ac42e"
+    },
+    {
+      "path": "ledger_post/engine_failure_is_incident.json",
+      "kind": "ledger_post",
+      "id": "engine_failure_is_incident",
+      "sha256": "c6e5b6f3f662b3b996a5a0739e0c8ea0ac5450e9d668ec876debd08d951d4f2c"
+    },
+    {
+      "path": "ledger_post/low_confidence_refused.json",
+      "kind": "ledger_post",
+      "id": "low_confidence_refused",
+      "sha256": "e660a8f0b8dd4c01fff0402a587c33d7f05ab0f46321ffa6b30f8292be670374"
+    },
+    {
+      "path": "ledger_post/malformed_claim_logs_nothing.json",
+      "kind": "ledger_post",
+      "id": "malformed_claim_logs_nothing",
+      "sha256": "c90d4f68b645a05bdf94be9fce0721466889679b0a12d6c95318c77fad8b8260"
+    },
+    {
+      "path": "ledger_post/period_locked_refused.json",
+      "kind": "ledger_post",
+      "id": "period_locked_refused",
+      "sha256": "d6f6d5455f26521378a3d40eab6b159568c9eb38c10413e5c09dd100c613b219"
+    },
+    {
+      "path": "ledger_post/posts_eur.json",
+      "kind": "ledger_post",
+      "id": "posts_eur",
+      "sha256": "d97480e6cca4975a87aca6ec2fbed0543bf745d39560ba6f40a8d81922368a71"
+    },
+    {
+      "path": "ledger_post/posts_receive.json",
+      "kind": "ledger_post",
+      "id": "posts_receive",
+      "sha256": "87617de99ffc94bd79765664e8b45488898397232884252db6634d5b51f2ccf6"
+    },
+    {
+      "path": "ledger_post/posts_total_from_bank_not_model.json",
+      "kind": "ledger_post",
+      "id": "posts_total_from_bank_not_model",
+      "sha256": "07851e78103336531d21c1367b719610b76d8824c48b64da114f66a010d359b2"
+    },
+    {
+      "path": "ledger_post/posts_with_valid_approval.json",
+      "kind": "ledger_post",
+      "id": "posts_with_valid_approval",
+      "sha256": "d6043c4e1013269fd9d8b190a0bf8e61e0906bff7c7c2cfbae9dae0c14e540f1"
+    },
+    {
+      "path": "ledger_post/rejects_unknown_approver.json",
+      "kind": "ledger_post",
+      "id": "rejects_unknown_approver",
+      "sha256": "2bff878555735360fdc4afce5e8c88ba8c031d660d172a68c156d54508cdb493"
+    },
+    {
+      "path": "ledger_post/rejects_wrong_hash_approval.json",
+      "kind": "ledger_post",
+      "id": "rejects_wrong_hash_approval",
+      "sha256": "48cc520ac740bae19b4a8622abe2e9563d29b4bf375c4e57a1535e436a8881e9"
+    },
+    {
+      "path": "ledger_post/stops_at_gate_without_approval.json",
+      "kind": "ledger_post",
+      "id": "stops_at_gate_without_approval",
+      "sha256": "f5685ef643c6bde812ea1ca4a47a47060c180cb12fda14be2625f03e22cd5767"
+    },
+    {
+      "path": "ledger_post/unknown_account_code_refused.json",
+      "kind": "ledger_post",
+      "id": "unknown_account_code_refused",
+      "sha256": "93598a262c9db1f0b05495cd2ed9ad05dbe2f00612bfead220b887536dcc99ae"
+    },
+    {
+      "path": "ledger_post/unmatched_never_reaches_gate.json",
+      "kind": "ledger_post",
+      "id": "unmatched_never_reaches_gate",
+      "sha256": "bc5d4d437444fbf9d56c7279ba3e1c3775432428321e0dbbaf81207ebd42863e"
+    },
+    {
+      "path": "ledger_rules/all_pass.json",
+      "kind": "ledger_rules",
+      "id": "all_pass",
+      "sha256": "34d3663c3e7a00e4c2b40bb20726ff3e7b5de03db6fb8e18e1cbcbf986d68174"
+    },
+    {
+      "path": "ledger_rules/all_pass_eu.json",
+      "kind": "ledger_rules",
+      "id": "all_pass_eu",
+      "sha256": "7071f9ad2632023535afc6fe2056ecbca2abf250c65fc481e0ada3dbc9155f5a"
+    },
+    {
+      "path": "ledger_rules/all_pass_global.json",
+      "kind": "ledger_rules",
+      "id": "all_pass_global",
+      "sha256": "1bff9e9efac341baa2277fcd003a6c3ff24cc6d4bded67705526b898cb0ffdda"
+    },
+    {
+      "path": "ledger_rules/arithmetic_mismatch.json",
+      "kind": "ledger_rules",
+      "id": "arithmetic_mismatch",
+      "sha256": "b557236fe897b860dd64431cb505bde3648d6a4a65882bd4c04e714cf1e92b48"
+    },
+    {
+      "path": "ledger_rules/confidence_at_floor_passes.json",
+      "kind": "ledger_rules",
+      "id": "confidence_at_floor_passes",
+      "sha256": "ee2b6b6c5389b1ad218c8dcff89fe4fe604adc6e52ebe10dfb119b0641caf81c"
+    },
+    {
+      "path": "ledger_rules/confidence_below_floor.json",
+      "kind": "ledger_rules",
+      "id": "confidence_below_floor",
+      "sha256": "85163a8f970af75e33b66a76171a3d8a6f8879897a58fe32587a4d12c1d47ea9"
+    },
+    {
+      "path": "ledger_rules/confidence_floor_zero.json",
+      "kind": "ledger_rules",
+      "id": "confidence_floor_zero",
+      "sha256": "683bef0c7af3a1d89e75418c7639cbe60584cdd31e2a0902eedb19635c75acde"
+    },
+    {
+      "path": "ledger_rules/duplicate_document.json",
+      "kind": "ledger_rules",
+      "id": "duplicate_document",
+      "sha256": "5ef4503e98982c54561a110d0e6fff8e687c102f3b4b8435fe9b247633b7f1c4"
+    },
+    {
+      "path": "ledger_rules/multiple_failures.json",
+      "kind": "ledger_rules",
+      "id": "multiple_failures",
+      "sha256": "5a3be2bc3611d3b81d51dae1d9715da327ac065f65400c77ea63a0e9e181a225"
+    },
+    {
+      "path": "ledger_rules/no_chart_supplied_passes.json",
+      "kind": "ledger_rules",
+      "id": "no_chart_supplied_passes",
+      "sha256": "39b2e59130ec4ad4e1f0f3522fd1b4318488b939cb771d73ac9019f76bd37681"
+    },
+    {
+      "path": "ledger_rules/no_date_claim_period_lock_passes.json",
+      "kind": "ledger_rules",
+      "id": "no_date_claim_period_lock_passes",
+      "sha256": "4c0f069a2d73e0bc76dc42dfab812caed5b7861821954c5c26116c92e312abf1"
+    },
+    {
+      "path": "ledger_rules/not_reconciled_ambiguous.json",
+      "kind": "ledger_rules",
+      "id": "not_reconciled_ambiguous",
+      "sha256": "534f5188ac818395e87d75310db1df52c8976585baf8c7eba6362a5498ec2587"
+    },
+    {
+      "path": "ledger_rules/not_reconciled_empty.json",
+      "kind": "ledger_rules",
+      "id": "not_reconciled_empty",
+      "sha256": "9fbfa8b3dea16eb6057d89d6cbee9c56577a5c34ba9c30093fcd2d63be688230"
+    },
+    {
+      "path": "ledger_rules/period_locked.json",
+      "kind": "ledger_rules",
+      "id": "period_locked",
+      "sha256": "d656649efe7bf88ad2cff5f35a87552072124e99eec7be4a8cc4c6e3b9266b57"
+    },
+    {
+      "path": "ledger_rules/period_locked_same_day.json",
+      "kind": "ledger_rules",
+      "id": "period_locked_same_day",
+      "sha256": "d87f39eea099648279976275dc36fa1a790568cd30bafec92f393c4a53359a19"
+    },
+    {
+      "path": "ledger_rules/period_no_lock_configured.json",
+      "kind": "ledger_rules",
+      "id": "period_no_lock_configured",
+      "sha256": "6b9b340723a81d77bebcc986a5fc074f0f50cd1af5b09dc59c017bb16fba20c7"
+    },
+    {
+      "path": "ledger_rules/period_open_day_after.json",
+      "kind": "ledger_rules",
+      "id": "period_open_day_after",
+      "sha256": "b5acede648928e766d204e28c450badf30207862c0ca7502d00767f9486c5af8"
+    },
+    {
+      "path": "ledger_rules/unknown_account_code.json",
+      "kind": "ledger_rules",
+      "id": "unknown_account_code",
+      "sha256": "f3007bd967dcf7372f16a4702f6c1fd97192894b876da045517fcd140b0a59c8"
+    },
+    {
+      "path": "reconcile/ambiguous_three_sorted_ids.json",
+      "kind": "reconcile",
+      "id": "ambiguous_three_sorted_ids",
+      "sha256": "6f4025a6e3bf48d0495dc079cc81a1d5713a501c5875941eac756172e342d9f6"
+    },
+    {
+      "path": "reconcile/ambiguous_two.json",
+      "kind": "reconcile",
+      "id": "ambiguous_two",
+      "sha256": "8a0243067565c3cb53420aace38603e64ff661e3362c889cc6843e58571515bf"
+    },
+    {
+      "path": "reconcile/arith_bad_line_short_circuits.json",
+      "kind": "reconcile",
+      "id": "arith_bad_line_short_circuits",
+      "sha256": "95261b60919619696c957f8a45dde613a85c721cf65744dcc7451c2353481bdf"
+    },
+    {
+      "path": "reconcile/arith_mismatch_short_circuits.json",
+      "kind": "reconcile",
+      "id": "arith_mismatch_short_circuits",
+      "sha256": "08b02da64eeaad92c8ffd20ea097da81635024f7276f8edd9405fb7c4d6c51d0"
+    },
+    {
+      "path": "reconcile/matched_claim_without_date.json",
+      "kind": "reconcile",
+      "id": "matched_claim_without_date",
+      "sha256": "ac77dbd0842e20873b8a09011e8d8f5be92a155770fb1af64353ee6793ffdde0"
+    },
+    {
+      "path": "reconcile/matched_eur.json",
+      "kind": "reconcile",
+      "id": "matched_eur",
+      "sha256": "4473486831564f21db7281e2a889fa298298d658b0fc8864e157b79baa5fbb35"
+    },
+    {
+      "path": "reconcile/matched_far_wide_window.json",
+      "kind": "reconcile",
+      "id": "matched_far_wide_window",
+      "sha256": "552c3050fc50f0062e39481fa0f5e402d65551c4feb1f2ef28d88ede62b112c3"
+    },
+    {
+      "path": "reconcile/matched_fuel.json",
+      "kind": "reconcile",
+      "id": "matched_fuel",
+      "sha256": "eb34ee8d09aa0a62fc5efb7ce9a365b3212840985f1978bd132e1e2fd0a6bbe1"
+    },
+    {
+      "path": "reconcile/matched_line_without_currency.json",
+      "kind": "reconcile",
+      "id": "matched_line_without_currency",
+      "sha256": "e44693a0195a01a10fdee57229af3037ee29cb405a591542e119893b228faff8"
+    },
+    {
+      "path": "reconcile/matched_line_without_date.json",
+      "kind": "reconcile",
+      "id": "matched_line_without_date",
+      "sha256": "9ca6ce3f5b8d1cd737be2005042a7164ea5326ecf3fd2a7ca3711f0154c967b6"
+    },
+    {
+      "path": "reconcile/matched_mixed_bag_ignores_noise.json",
+      "kind": "reconcile",
+      "id": "matched_mixed_bag_ignores_noise",
+      "sha256": "36650ebf4595e0cebbf078e18bd3ec06fc520ce8d0984535322ddd1393ff98bb"
+    },
+    {
+      "path": "reconcile/matched_one_cent_within_tol.json",
+      "kind": "reconcile",
+      "id": "matched_one_cent_within_tol",
+      "sha256": "77968f3256f17e66404e2dd664799bd9ff004bd7172153a645d809465866ff57"
+    },
+    {
+      "path": "reconcile/matched_receive_direction.json",
+      "kind": "reconcile",
+      "id": "matched_receive_direction",
+      "sha256": "74e3655a8d5c9f019b2639ef96a1bfd2e496ae78d2b2a25d8777b3691970babb"
+    },
+    {
+      "path": "reconcile/matched_rounding_tiny.json",
+      "kind": "reconcile",
+      "id": "matched_rounding_tiny",
+      "sha256": "14345130afca5758dd4fbc1ac725599ab67acd55796fa48f199eb0152fca3ea9"
+    },
+    {
+      "path": "reconcile/matched_standard.json",
+      "kind": "reconcile",
+      "id": "matched_standard",
+      "sha256": "c2e1919b683e6474d4cea7d4d6af349a6c6aa51809ae31e92a7f502b5fbf2994"
+    },
+    {
+      "path": "reconcile/matched_tight_policy_exact.json",
+      "kind": "reconcile",
+      "id": "matched_tight_policy_exact",
+      "sha256": "f9f699c93c58259b1d31b32c45af1b707af5c0a673a0aee54854376ba01b76e6"
+    },
+    {
+      "path": "reconcile/matched_window_before_inclusive.json",
+      "kind": "reconcile",
+      "id": "matched_window_before_inclusive",
+      "sha256": "4356df509baccb65b85bc7f24b071b62b72abec6fd79b16146f1f9782154ffd8"
+    },
+    {
+      "path": "reconcile/matched_window_edge_inclusive.json",
+      "kind": "reconcile",
+      "id": "matched_window_edge_inclusive",
+      "sha256": "035323b798172b75da7565fd9b884aa1d2442034664039521a425cb2ce799290"
+    },
+    {
+      "path": "reconcile/unmatched_already_reconciled.json",
+      "kind": "reconcile",
+      "id": "unmatched_already_reconciled",
+      "sha256": "8d0f9c83c0ab5b8dcf1b41870c55b09cda7a8950f6b8707a982613f36c597938"
+    },
+    {
+      "path": "reconcile/unmatched_currency_mismatch.json",
+      "kind": "reconcile",
+      "id": "unmatched_currency_mismatch",
+      "sha256": "4abf342663171a80931112b2e2a2613b67847ac39b644adac27787f7e5ea85f0"
+    },
+    {
+      "path": "reconcile/unmatched_empty_feed.json",
+      "kind": "reconcile",
+      "id": "unmatched_empty_feed",
+      "sha256": "8365cdfd09bb93788650e650763506c681dd727e9dcf229eb99a88630fc8df14"
+    },
+    {
+      "path": "reconcile/unmatched_far_default_window.json",
+      "kind": "reconcile",
+      "id": "unmatched_far_default_window",
+      "sha256": "010d2b0ceee50392222689ba3a0402fbb155eb56a15f5a21d60ffc29e2c585b5"
+    },
+    {
+      "path": "reconcile/unmatched_fuel_only.json",
+      "kind": "reconcile",
+      "id": "unmatched_fuel_only",
+      "sha256": "14faa7255f4a9e86e8d5b88cac05ab18aabab491bc5638d01394210a43cc6f22"
+    },
+    {
+      "path": "reconcile/unmatched_one_cent_zero_tol.json",
+      "kind": "reconcile",
+      "id": "unmatched_one_cent_zero_tol",
+      "sha256": "71f4a1b3e0e97231887f636ab2daf71890933aa3dd7e2e26a9c01f9eeae65bf0"
+    },
+    {
+      "path": "reconcile/unmatched_two_cents.json",
+      "kind": "reconcile",
+      "id": "unmatched_two_cents",
+      "sha256": "a2a2e3bf4668622ddcdf6fca98b46cef7ecc2d460c5f2c61e13074021bd6fe42"
+    },
+    {
+      "path": "reconcile/unmatched_window_past.json",
+      "kind": "reconcile",
+      "id": "unmatched_window_past",
+      "sha256": "ff494bb8bae9e92c12ed4f86ec3d97ed7d1bc6e4aef2f7ec38aa8a531d27c5db"
+    },
+    {
+      "path": "reconcile/unmatched_wrong_direction.json",
+      "kind": "reconcile",
+      "id": "unmatched_wrong_direction",
+      "sha256": "fbcee4480de05e1eff62c1ac219e5198e48a0d57b1025d929c228242723a7abb"
+    },
+    {
+      "path": "reconcile_envelope/ambiguous_three_sorted_ids.json",
+      "kind": "reconcile_envelope",
+      "id": "ambiguous_three_sorted_ids",
+      "sha256": "a5f0768fbfc6e1ec2df661ccfb83144c86ae7f6a01e611371bb5fec9eeff8e51"
+    },
+    {
+      "path": "reconcile_envelope/ambiguous_two.json",
+      "kind": "reconcile_envelope",
+      "id": "ambiguous_two",
+      "sha256": "7aea0186370e83e32d0f77e80e87b12cba0490c55040043dca8d120a8cf4b3be"
+    },
+    {
+      "path": "reconcile_envelope/matched_standard.json",
+      "kind": "reconcile_envelope",
+      "id": "matched_standard",
+      "sha256": "eb4af734f762a55586856e684f0dadeba1bfb721306f08902745ee4e8fb87da2"
+    },
+    {
+      "path": "reconcile_envelope/matched_standard_keys_shuffled.json",
+      "kind": "reconcile_envelope",
+      "id": "matched_standard_keys_shuffled",
+      "sha256": "fe09f5b5ef9c90701805d9dc5b1d62f6493d0d77a7c49dada4a6e9a26cb50172"
+    },
+    {
+      "path": "reconcile_envelope/matched_standard_next_day_as_of.json",
+      "kind": "reconcile_envelope",
+      "id": "matched_standard_next_day_as_of",
+      "sha256": "9f131d2705369156618b0035127c50d54c3aa150bcd8d680ae91cd1dd4613e6f"
+    },
+    {
+      "path": "reconcile_envelope/unmatched_already_reconciled.json",
+      "kind": "reconcile_envelope",
+      "id": "unmatched_already_reconciled",
+      "sha256": "ae01adb10661671b5ad143bdbaa7faf14d3fbbc2e8f17bbe2e1a3ac71f220a5d"
+    },
+    {
+      "path": "reconcile_envelope/unmatched_empty_feed.json",
+      "kind": "reconcile_envelope",
+      "id": "unmatched_empty_feed",
+      "sha256": "3b9b7c403ca9df195b0084e00066b064957034ce91dcbda4a2eff6878ce4b251"
+    },
+    {
+      "path": "reconcile_envelope/unmatched_fuel_only.json",
+      "kind": "reconcile_envelope",
+      "id": "unmatched_fuel_only",
+      "sha256": "ac90f457f3b812fb7d8209397a3e18c5f355527359d84b265f1ba283bf830097"
+    },
+    {
+      "path": "source_document/empty.json",
+      "kind": "source_document",
+      "id": "empty",
+      "sha256": "b3aeb972a8d851d98f99a1b6efb21ce10e2fd30f0fd07294c8918fbcb6fd73f5"
+    },
+    {
+      "path": "source_document/fuel_receipt.json",
+      "kind": "source_document",
+      "id": "fuel_receipt",
+      "sha256": "9eb7398203ced59d807bf7aeb6015af47bd774123423ea187fc24957eca6d2dd"
+    },
+    {
+      "path": "source_document/grain_ticket.json",
+      "kind": "source_document",
+      "id": "grain_ticket",
+      "sha256": "81970e62436f1b7efba92f3425c25faeee50e330c32702b69b3d11432c59f274"
+    },
+    {
+      "path": "source_document/grain_ticket_tampered.json",
+      "kind": "source_document",
+      "id": "grain_ticket_tampered",
+      "sha256": "4f804ead40936d87e0ee5b32e29ff3d27047b637f52210a18552fd302c3c7f74"
+    },
+    {
+      "path": "source_document/unicode.json",
+      "kind": "source_document",
+      "id": "unicode",
+      "sha256": "9fb3f527e02a14f4ce1d34b48532ae4fd834353210c707b5fd4a000f13b71fdb"
+    }
+  ],
+  "suite_hash": "be4cdbe3e0a53bbd3bcd638e97a20588e9b89dd8a2ab88c0c11b60328ff1cf69"
+}

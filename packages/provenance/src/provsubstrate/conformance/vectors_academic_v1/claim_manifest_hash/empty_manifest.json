@@ -1,0 +1,21 @@
+{
+  "format_version": 1,
+  "kind": "claim_manifest_hash",
+  "id": "empty_manifest",
+  "description": "no claims, no computations",
+  "input": {
+    "manifest": {
+      "format_version": 1,
+      "paper": {
+        "doc_hash": "649e0cc96ad68e007eec6b85c05b1493039952eebd340c48a1b3d8235c5a1fb7",
+        "title": "A Small Paper With Two Numbers In It"
+      },
+      "computations": [],
+      "claims": [],
+      "edges": []
+    }
+  },
+  "expected": {
+    "manifest_hash": "9c83a5197081e459e89ea74155cb37cbf46bbbb934f4508d64b97de9f6a08842"
+  }
+}

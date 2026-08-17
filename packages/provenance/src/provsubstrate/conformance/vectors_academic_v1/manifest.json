@@ -1,0 +1,1017 @@
+{
+  "format_version": 1,
+  "generated_by": "provsubstrate.conformance.generate",
+  "reference_versions": {
+    "package": "provenance-substrate@0.1.0",
+    "lean": "lean@0.1.0",
+    "claims": "claims@0.1.0",
+    "repro": "repro@0.1.0",
+    "bench": "bench@0.1.0",
+    "review": "review@0.1.0"
+  },
+  "vectors": [
+    {
+      "path": "bench_report_hash/distractor_seed_7.json",
+      "kind": "bench_report_hash",
+      "id": "distractor_seed_7",
+      "sha256": "1cfe495e0c7479b26228b9ca6b227bdac2802ee1f34ef1d913baf798a661ff67"
+    },
+    {
+      "path": "bench_report_hash/distractor_seed_7_always.json",
+      "kind": "bench_report_hash",
+      "id": "distractor_seed_7_always",
+      "sha256": "78c6e6f75925ceece33e114b5e8a716196e10c5c89f017ec12dff8d38a7e6a6d"
+    },
+    {
+      "path": "bench_report_hash/null.json",
+      "kind": "bench_report_hash",
+      "id": "null",
+      "sha256": "b2f15724bffcdfc9e30970e1b289e1afaaf510f2be034c10adafd7dcabc6c50c"
+    },
+    {
+      "path": "bench_report_hash/oracle.json",
+      "kind": "bench_report_hash",
+      "id": "oracle",
+      "sha256": "64958fef013138f90319cb0804706aaf7f99f6e3f9181c88d50b0de520dbc9c9"
+    },
+    {
+      "path": "bench_score/abstained.json",
+      "kind": "bench_score",
+      "id": "abstained",
+      "sha256": "412f4982c6b9991fd6beb54a12c9123ab5fb7f7cfb99db559da0184af97216c8"
+    },
+    {
+      "path": "bench_score/correct_exact.json",
+      "kind": "bench_score",
+      "id": "correct_exact",
+      "sha256": "9d0cb529e19367ef2f36dbb096d337b96512fa30a49ffaa808eebeaae9424556"
+    },
+    {
+      "path": "bench_score/hallucinated_previous_total.json",
+      "kind": "bench_score",
+      "id": "hallucinated_previous_total",
+      "sha256": "3167a2dc3bc2c9bb630c700173f1490001cd218763ea5216745dbd19e2906660"
+    },
+    {
+      "path": "bench_score/line_amount_off_by_unit_price.json",
+      "kind": "bench_score",
+      "id": "line_amount_off_by_unit_price",
+      "sha256": "2613d674ceca057ea9e5f840e99e0a0b18584ca282274284a967a3678f005f6e"
+    },
+    {
+      "path": "bench_score/math_off_by_one.json",
+      "kind": "bench_score",
+      "id": "math_off_by_one",
+      "sha256": "73acf106deabb5def3fd57832a913a2c671a8baa23d513c80f1e29578a01dc9f"
+    },
+    {
+      "path": "bench_score/mean_just_outside.json",
+      "kind": "bench_score",
+      "id": "mean_just_outside",
+      "sha256": "f6636aa39092f2a66eaf490466a40f03d07c185866c62afb9ffd6bd5db354f85"
+    },
+    {
+      "path": "bench_score/mean_within_tolerance.json",
+      "kind": "bench_score",
+      "id": "mean_within_tolerance",
+      "sha256": "86e5d2a66bbea26a0225205b06ee41f0801efda0008b86da941eb6a4f2312cb0"
+    },
+    {
+      "path": "bench_score/pdf_half_year_only.json",
+      "kind": "bench_score",
+      "id": "pdf_half_year_only",
+      "sha256": "238f4d2d80abb4154889d3999c4ecd0ea698b5614ce9e35d9bed0854eeb1bc9c"
+    },
+    {
+      "path": "bench_score/substrate_abstains_on_unparsable.json",
+      "kind": "bench_score",
+      "id": "substrate_abstains_on_unparsable",
+      "sha256": "daf159b760897d1a9c392368af3db76f39aebe523aba7995086a0d1d78ee449a"
+    },
+    {
+      "path": "bench_score/sum_off_by_one.json",
+      "kind": "bench_score",
+      "id": "sum_off_by_one",
+      "sha256": "dd6fa49dcd91c2018f51f60ab42f5f8683ee1eb37daf173bb874f23d635011a6"
+    },
+    {
+      "path": "bench_score/wrong_unit.json",
+      "kind": "bench_score",
+      "id": "wrong_unit",
+      "sha256": "2fa71e6e20d1da693b899b861ad88cbcae15035ad17da6d58ae5f9ccd824b22a"
+    },
+    {
+      "path": "bench_taskset_hash/v1.json",
+      "kind": "bench_taskset_hash",
+      "id": "v1",
+      "sha256": "21032dfb6826449ad75a0af12d4044fb3ad48c0f3a076107cd6792222f0ed52e"
+    },
+    {
+      "path": "claim_attest/clean_valid_approval.json",
+      "kind": "claim_attest",
+      "id": "clean_valid_approval",
+      "sha256": "4f1b4a920bd3e25ddf78485c20c2615f5156dad131e2bba07652de9e60e34a93"
+    },
+    {
+      "path": "claim_attest/dangling_computation_rule.json",
+      "kind": "claim_attest",
+      "id": "dangling_computation_rule",
+      "sha256": "51034751f3c9de1d23713c386eb1928b9b82742a722e72d5df733c3277410ddd"
+    },
+    {
+      "path": "claim_attest/dangling_edge_shape.json",
+      "kind": "claim_attest",
+      "id": "dangling_edge_shape",
+      "sha256": "bb348c81938c73e81f007e8dd021f74827238c54fbe1f7eb995c3d0df465486c"
+    },
+    {
+      "path": "claim_attest/exec_failed_blocks.json",
+      "kind": "claim_attest",
+      "id": "exec_failed_blocks",
+      "sha256": "6616c6a8afd9ec83f6721f3a8e285e3d8fcc2474a57cf75f33a77a47faa35a96"
+    },
+    {
+      "path": "claim_attest/input_hash_mismatch_blocks.json",
+      "kind": "claim_attest",
+      "id": "input_hash_mismatch_blocks",
+      "sha256": "6fabb78274cdb627621653c88a538526c375be465dc225ba2e1ebef66460a970"
+    },
+    {
+      "path": "claim_attest/mismatch_blocks.json",
+      "kind": "claim_attest",
+      "id": "mismatch_blocks",
+      "sha256": "ea2ad7877f1efe8245dacea3bdea3275daceefec2195ff8ac5ec2835e462e231"
+    },
+    {
+      "path": "claim_attest/missing_result_is_failure.json",
+      "kind": "claim_attest",
+      "id": "missing_result_is_failure",
+      "sha256": "33688999eaa72f801e10a83c34c6a021a63fdbd1231c0ee79ba39c26f7fa7075"
+    },
+    {
+      "path": "claim_attest/no_approval.json",
+      "kind": "claim_attest",
+      "id": "no_approval",
+      "sha256": "e5406c4a801eb73dba32ecedf34fb258cfc2659922b54d5799e8298632055cb5"
+    },
+    {
+      "path": "claim_attest/unknown_approver.json",
+      "kind": "claim_attest",
+      "id": "unknown_approver",
+      "sha256": "f5d640dc0b8c69f9d9db23ab86a8f5715486aa89ef2cbda608fdb926e20c9471"
+    },
+    {
+      "path": "claim_attest/wrong_hash_approval.json",
+      "kind": "claim_attest",
+      "id": "wrong_hash_approval",
+      "sha256": "f825e780e992ae1482fa62033ebbd91840190cb08f4990f5efbfee18a06b9287"
+    },
+    {
+      "path": "claim_manifest_hash/clean.json",
+      "kind": "claim_manifest_hash",
+      "id": "clean",
+      "sha256": "868d65ff7956014233d610596245ee75136ea7ffe3f0c8805606cf0000bad7d4"
+    },
+    {
+      "path": "claim_manifest_hash/empty_manifest.json",
+      "kind": "claim_manifest_hash",
+      "id": "empty_manifest",
+      "sha256": "86c13c06949bcb15324b5f2e711ae0dba1c5bcaca66768727832329decbf0531"
+    },
+    {
+      "path": "claim_manifest_hash/key_order_irrelevant.json",
+      "kind": "claim_manifest_hash",
+      "id": "key_order_irrelevant",
+      "sha256": "4792df2d374b14eae6aa901324309b5f53073e4d4d47a93c6fe780d4a6d474f1"
+    },
+    {
+      "path": "claim_manifest_hash/one_byte_changes_hash.json",
+      "kind": "claim_manifest_hash",
+      "id": "one_byte_changes_hash",
+      "sha256": "172569ed49ad8c32c0aed2b4b3dc06eb39f907ce1f8530bf9de432890dc35800"
+    },
+    {
+      "path": "claim_manifest_shape/bad_tolerance.json",
+      "kind": "claim_manifest_shape",
+      "id": "bad_tolerance",
+      "sha256": "25e4107bf07d43ec35f6b7c53365548b77460c02c47fde752054d784626e213e"
+    },
+    {
+      "path": "claim_manifest_shape/clean.json",
+      "kind": "claim_manifest_shape",
+      "id": "clean",
+      "sha256": "1d2ca0ad5069f0c90cf3d0ccbc5429d1e100904fe50e5eab3378fe2fa4ee8198"
+    },
+    {
+      "path": "claim_manifest_shape/dangling_edge.json",
+      "kind": "claim_manifest_shape",
+      "id": "dangling_edge",
+      "sha256": "b6cefa199e89c85743bd952cf3456edead49a544212f95bfe54bed7f3062ee7d"
+    },
+    {
+      "path": "claim_manifest_shape/duplicate_claim_id.json",
+      "kind": "claim_manifest_shape",
+      "id": "duplicate_claim_id",
+      "sha256": "fc27792a6f96a49e1c6480bd589cc378ffc4332d72f88b751d04e07aaeb5d2cd"
+    },
+    {
+      "path": "claim_manifest_shape/edge_contradicts_claim.json",
+      "kind": "claim_manifest_shape",
+      "id": "edge_contradicts_claim",
+      "sha256": "df910eea8127c0a8572d135a038b29b6c721c61742519563aabb51b23185581a"
+    },
+    {
+      "path": "claim_manifest_shape/id_mismatch.json",
+      "kind": "claim_manifest_shape",
+      "id": "id_mismatch",
+      "sha256": "569bf6bd546322da218c1ccf8d2b171f4bf75e7437298802335d772726b3a8e5"
+    },
+    {
+      "path": "claim_manifest_shape/missing_input_hash.json",
+      "kind": "claim_manifest_shape",
+      "id": "missing_input_hash",
+      "sha256": "947df32a1a41bb21d2d95939a8ccafb4a6478f5282b34c154b2cf3a0b1b10801"
+    },
+    {
+      "path": "claim_manifest_shape/no_edge_is_ok.json",
+      "kind": "claim_manifest_shape",
+      "id": "no_edge_is_ok",
+      "sha256": "d592b1147f12ecb63266f148ac5c9daf6a07ee0348c57e432ac630c7f07498b3"
+    },
+    {
+      "path": "claim_manifest_shape/not_an_object.json",
+      "kind": "claim_manifest_shape",
+      "id": "not_an_object",
+      "sha256": "065a5a43052913a0b3b174331934f8186e520a1c91c380b8d29fd5621c536039"
+    },
+    {
+      "path": "claim_manifest_shape/wrong_paper_hash.json",
+      "kind": "claim_manifest_shape",
+      "id": "wrong_paper_hash",
+      "sha256": "7461d9e9e576792fe26fa15eaf164439a087b2ce5d39ef2ff2f73c5c3c556923"
+    },
+    {
+      "path": "claim_rules/all_pass.json",
+      "kind": "claim_rules",
+      "id": "all_pass",
+      "sha256": "56760a42b0a5a50d2dbf7a3bfbe7b100e21345a96e4b0e6cfdb04dfcb569ec42"
+    },
+    {
+      "path": "claim_rules/confidence_at_floor.json",
+      "kind": "claim_rules",
+      "id": "confidence_at_floor",
+      "sha256": "8a4cee0af7c768ad4dd285c045c61129a4e9994a21c9e1aaba0035a093b34f2e"
+    },
+    {
+      "path": "claim_rules/dangling.json",
+      "kind": "claim_rules",
+      "id": "dangling",
+      "sha256": "3086ff16142064cfe7c77e352c86d3ae0ff4f7a2d15155078c3b1c2946293286"
+    },
+    {
+      "path": "claim_rules/env_unpinned.json",
+      "kind": "claim_rules",
+      "id": "env_unpinned",
+      "sha256": "135769518b5fbe90059b2eb9ac6c8ba30973bc9a1f221868273e6e446efeca9f"
+    },
+    {
+      "path": "claim_rules/low_confidence.json",
+      "kind": "claim_rules",
+      "id": "low_confidence",
+      "sha256": "cc1c81f2c155d43e61c7a80fee54204f5572a4fd541061378cbd2fb0e238b59b"
+    },
+    {
+      "path": "claim_rules/tolerance_exceeded.json",
+      "kind": "claim_rules",
+      "id": "tolerance_exceeded",
+      "sha256": "4ed4b73aa2e5ca820ca9d5ff894c92b898c2a267c06db21e77fb666a337f5530"
+    },
+    {
+      "path": "claim_rules/unconfirmed.json",
+      "kind": "claim_rules",
+      "id": "unconfirmed",
+      "sha256": "79ae416542d5bcf48f7ab5bc520e83d185be501a4f28adb9c0013ac6730d636a"
+    },
+    {
+      "path": "claim_verify/clean.json",
+      "kind": "claim_verify",
+      "id": "clean",
+      "sha256": "714905b6ed66db8698f043e8395f9a16bd529fa453437810da044f1a76325534"
+    },
+    {
+      "path": "claim_verify/exec_failed.json",
+      "kind": "claim_verify",
+      "id": "exec_failed",
+      "sha256": "5b9695b5bacc6c127e09bd132556a43706dc402702271338d168585f68e7f7db"
+    },
+    {
+      "path": "claim_verify/input_hash_mismatch.json",
+      "kind": "claim_verify",
+      "id": "input_hash_mismatch",
+      "sha256": "ac639afd18eed8072483fed0597973a12bbb57d8feb8431cf76d4cae7716ef2e"
+    },
+    {
+      "path": "claim_verify/mismatch.json",
+      "kind": "claim_verify",
+      "id": "mismatch",
+      "sha256": "c54fc662b63718076007752c73a0a7ea59da901dfcb3228aae432b294f8058c7"
+    },
+    {
+      "path": "claim_verify/no_computation.json",
+      "kind": "claim_verify",
+      "id": "no_computation",
+      "sha256": "05e55a3e1ed3fe2e919f032d6cc8737a1b283d2ea950419745716402f22d2331"
+    },
+    {
+      "path": "claim_verify/no_value_in_output.json",
+      "kind": "claim_verify",
+      "id": "no_value_in_output",
+      "sha256": "13a7fbc24f3951c6818a532041626ebcb204f0e2a00aa28cc87effcc5209108c"
+    },
+    {
+      "path": "claim_verify/tolerance_edge_float_inside.json",
+      "kind": "claim_verify",
+      "id": "tolerance_edge_float_inside",
+      "sha256": "884bedcd52e4088092df125f14296f2f44dc1df9431ef3d9285ca5057095f2c0"
+    },
+    {
+      "path": "claim_verify/tolerance_edge_float_over.json",
+      "kind": "claim_verify",
+      "id": "tolerance_edge_float_over",
+      "sha256": "0659cbb1cbe44ef74a945340803edfca84e8530b446583fbc79881fc0bc7a511"
+    },
+    {
+      "path": "claim_verify/tolerance_edge_inside.json",
+      "kind": "claim_verify",
+      "id": "tolerance_edge_inside",
+      "sha256": "1b3e60931a600ef259dbb7386959e1ca470b99908d3960c65ee2990af7dfd981"
+    },
+    {
+      "path": "claim_verify/tolerance_override.json",
+      "kind": "claim_verify",
+      "id": "tolerance_override",
+      "sha256": "1c8d96cec0d5834c92892fe52593998e837d142ca40b2bc014fbd209050902e9"
+    },
+    {
+      "path": "lean_approval_summary/clean.json",
+      "kind": "lean_approval_summary",
+      "id": "clean",
+      "sha256": "72954c463561082e8d979415eecc65fc342377db0a10cd7ea52600822a391fd2"
+    },
+    {
+      "path": "lean_approval_summary/no_axioms_no_mathlib.json",
+      "kind": "lean_approval_summary",
+      "id": "no_axioms_no_mathlib",
+      "sha256": "65cd32f0ec2d5dceb51ff34b352aa37a6dddc6974625e3f543c8ca588fd2e2fa"
+    },
+    {
+      "path": "lean_approval_summary/rejected_with_sorry.json",
+      "kind": "lean_approval_summary",
+      "id": "rejected_with_sorry",
+      "sha256": "e0df1b675b6aa44c2ad073b4daeed6e2985b274b48027569d8d566f6e11e6af1"
+    },
+    {
+      "path": "lean_approval_summary/unpinned.json",
+      "kind": "lean_approval_summary",
+      "id": "unpinned",
+      "sha256": "9128d72d80ba46e49813d583ac1e07aa47eca9b468e4fb26d458d3763c938a58"
+    },
+    {
+      "path": "lean_claim_shape/bad_hashes_and_confidence.json",
+      "kind": "lean_claim_shape",
+      "id": "bad_hashes_and_confidence",
+      "sha256": "4fa1a8e5d8cbf53a8227a4f67045aae50997c2cb349c9a9ec9d87e6e7bcb529d"
+    },
+    {
+      "path": "lean_claim_shape/bad_theorem_name.json",
+      "kind": "lean_claim_shape",
+      "id": "bad_theorem_name",
+      "sha256": "73f5485176fde976e0a75da93d59bd07978e574309fceda135c23230165960f8"
+    },
+    {
+      "path": "lean_claim_shape/clean.json",
+      "kind": "lean_claim_shape",
+      "id": "clean",
+      "sha256": "d19ee7bc9c353ec9d37800d1a46a89fd522ab49c82470c93eedc3ae1bfffc374"
+    },
+    {
+      "path": "lean_claim_shape/missing_fields.json",
+      "kind": "lean_claim_shape",
+      "id": "missing_fields",
+      "sha256": "e1dd5ebdbaa5f78e359e3e4f04475afb792c37b023722df4c7b514c280f4c8e7"
+    },
+    {
+      "path": "lean_claim_shape/not_an_object.json",
+      "kind": "lean_claim_shape",
+      "id": "not_an_object",
+      "sha256": "8becf60b32b45d6364abd1463b5e207f0da3f1e203151b3e6c072aba6bf76fff"
+    },
+    {
+      "path": "lean_claim_shape/unpinned_is_shape_ok.json",
+      "kind": "lean_claim_shape",
+      "id": "unpinned_is_shape_ok",
+      "sha256": "a0f059d450cb95e136db40e0c2e563878d55244b98c22483dd7a9a31c363dc0c"
+    },
+    {
+      "path": "lean_proof_file_hash/multiline_term.json",
+      "kind": "lean_proof_file_hash",
+      "id": "multiline_term",
+      "sha256": "d7993b6634146a239605bd9a7fe377cecdcefc746a914dab6dbab02443d13d23"
+    },
+    {
+      "path": "lean_proof_file_hash/no_imports.json",
+      "kind": "lean_proof_file_hash",
+      "id": "no_imports",
+      "sha256": "062db1298782b6df89b05c3a9532416fdb2ae3ea47ea1d1edcd6305285dd7e85"
+    },
+    {
+      "path": "lean_proof_file_hash/one_line_tactic.json",
+      "kind": "lean_proof_file_hash",
+      "id": "one_line_tactic",
+      "sha256": "f56fb27250dfd158fb4424c128561bae8165eaab6ba8a5daec939ad1463c4d6d"
+    },
+    {
+      "path": "lean_proof_file_hash/sorry.json",
+      "kind": "lean_proof_file_hash",
+      "id": "sorry",
+      "sha256": "4fe28721f53d65bf798fe0469e40a8c86520ef9f5fece5640563b8649ec63813"
+    },
+    {
+      "path": "lean_proof_file_hash/tactic_block.json",
+      "kind": "lean_proof_file_hash",
+      "id": "tactic_block",
+      "sha256": "4a330f7a391f541af8cddd5e28b91029e2ef325880f78c4942526b4ffbb4554f"
+    },
+    {
+      "path": "lean_proof_file_hash/term_mode.json",
+      "kind": "lean_proof_file_hash",
+      "id": "term_mode",
+      "sha256": "e47b3de1cb4a1900ab16e1297a1427bec0ba27344308eca231e13a4febf8850f"
+    },
+    {
+      "path": "lean_record/bad_shape.json",
+      "kind": "lean_record",
+      "id": "bad_shape",
+      "sha256": "de9c5c403f43efbba9ba662fb4e8b1d857739dca365f96b8c8fa932ad0804d89"
+    },
+    {
+      "path": "lean_record/clean_valid_approval.json",
+      "kind": "lean_record",
+      "id": "clean_valid_approval",
+      "sha256": "970dae63f5da44e83754f9b47900db0c361b3171b4f8b25a1f8e49aed743b543"
+    },
+    {
+      "path": "lean_record/forbidden_axiom.json",
+      "kind": "lean_record",
+      "id": "forbidden_axiom",
+      "sha256": "e7bd4cf71656349026efd7f5e051a5a3411394e128e1f79483f20b8a90fe1f0a"
+    },
+    {
+      "path": "lean_record/hash_mismatch.json",
+      "kind": "lean_record",
+      "id": "hash_mismatch",
+      "sha256": "af20810da08f3290d129bb2b31ca427a917f239df0ae8dbd91ddc7d9119c18de"
+    },
+    {
+      "path": "lean_record/kernel_rejected.json",
+      "kind": "lean_record",
+      "id": "kernel_rejected",
+      "sha256": "003a57eab16cd5e478d3ea91a3fb2b6e7a62f07ccd222616ec955a23efe5829a"
+    },
+    {
+      "path": "lean_record/no_approval.json",
+      "kind": "lean_record",
+      "id": "no_approval",
+      "sha256": "6ad4f34bc67619bccd022f3a052b4631732aefe31b4f5d6b1df75c20963be0a3"
+    },
+    {
+      "path": "lean_record/proof_with_sorry.json",
+      "kind": "lean_record",
+      "id": "proof_with_sorry",
+      "sha256": "0bb447a1ff654ebf1b1c0af1c933af39fde55e35c1c9adbaf214b53a719b6805"
+    },
+    {
+      "path": "lean_record/unknown_approver.json",
+      "kind": "lean_record",
+      "id": "unknown_approver",
+      "sha256": "6518d8cbe7b5670a25b20d6952959ca22f45060f0fa66a8404f74e0d622b46db"
+    },
+    {
+      "path": "lean_record/unpinned_toolchain.json",
+      "kind": "lean_record",
+      "id": "unpinned_toolchain",
+      "sha256": "f8d904bff69c176fa913ef3733c3570116fec6d55ea9582d893afa0224f3f0eb"
+    },
+    {
+      "path": "lean_record/wrong_hash_approval.json",
+      "kind": "lean_record",
+      "id": "wrong_hash_approval",
+      "sha256": "ba2aceb24934d54ac7ee9e93b1ed73d8611a4712cf39d3dcb49f90f2de838503"
+    },
+    {
+      "path": "lean_rules/all_pass.json",
+      "kind": "lean_rules",
+      "id": "all_pass",
+      "sha256": "39aefd305d9b94b640e9c1e472cf5aeb60c05bd8505e36ba5cc585577d758e0e"
+    },
+    {
+      "path": "lean_rules/allowlist_widened.json",
+      "kind": "lean_rules",
+      "id": "allowlist_widened",
+      "sha256": "c1c8472ff5c6f54e1a0c0e199fa6a5eab54bd3b38c65a4984d54212fea074157"
+    },
+    {
+      "path": "lean_rules/confidence_at_floor.json",
+      "kind": "lean_rules",
+      "id": "confidence_at_floor",
+      "sha256": "d5f0a5aeb860f72f47f664a7e83e2803ce5d20557289c0fff43782bf3e2607e8"
+    },
+    {
+      "path": "lean_rules/contains_sorry.json",
+      "kind": "lean_rules",
+      "id": "contains_sorry",
+      "sha256": "7fff1cbe14491181f021545da79d21930236b8ef449603c29f93458ab62b921f"
+    },
+    {
+      "path": "lean_rules/forbidden_axiom_from_kernel.json",
+      "kind": "lean_rules",
+      "id": "forbidden_axiom_from_kernel",
+      "sha256": "a021b72b1d7289433dd72f050f56ec6df890103e9455429f45392083150626e8"
+    },
+    {
+      "path": "lean_rules/forbidden_axiom_native_decide.json",
+      "kind": "lean_rules",
+      "id": "forbidden_axiom_native_decide",
+      "sha256": "1fb5e6b13f71be87e43a9ed3797325e0d1da4cdcd5111c2016cc48e49fc24c62"
+    },
+    {
+      "path": "lean_rules/hash_mismatch.json",
+      "kind": "lean_rules",
+      "id": "hash_mismatch",
+      "sha256": "d5878f1c42aabbd4dbe8c5d004c7eec496bb0ab8416e625d872c4798310940e1"
+    },
+    {
+      "path": "lean_rules/kernel_rejected.json",
+      "kind": "lean_rules",
+      "id": "kernel_rejected",
+      "sha256": "fc0aea0f98486f604e0b39a0fc15032d7ffe06d44d62f7ddf724d0314b7bc380"
+    },
+    {
+      "path": "lean_rules/low_confidence.json",
+      "kind": "lean_rules",
+      "id": "low_confidence",
+      "sha256": "65c7d4fd33e853eef9af414e4480d98d3ce3826c8fa7d0e973266ce18819f1b1"
+    },
+    {
+      "path": "lean_rules/unpinned_toolchain.json",
+      "kind": "lean_rules",
+      "id": "unpinned_toolchain",
+      "sha256": "fbd906a2e6bfe2b258928ad728ebe677ecdc67373ef5b36a9ff8afa656e69246"
+    },
+    {
+      "path": "repro_approval_summary/long_title_truncated.json",
+      "kind": "repro_approval_summary",
+      "id": "long_title_truncated",
+      "sha256": "e8703e593eb411e6af5883b1d079876386ab7fc2dda4d65fbbd7ef41d375b112"
+    },
+    {
+      "path": "repro_approval_summary/partial.json",
+      "kind": "repro_approval_summary",
+      "id": "partial",
+      "sha256": "d3dec508525fc01b7505106949a665ecfa3f8e8acf826c12a39e8ea7c0cf3792"
+    },
+    {
+      "path": "repro_approval_summary/reproduced.json",
+      "kind": "repro_approval_summary",
+      "id": "reproduced",
+      "sha256": "ea1de0322a15a3d1bbbc6d9c378625035b314d72c6c7dd7748c76278bc6004ad"
+    },
+    {
+      "path": "repro_approval_summary/unpinned.json",
+      "kind": "repro_approval_summary",
+      "id": "unpinned",
+      "sha256": "9a19b01c09c6c3b768abc30d7a2bdb0df75818b5bac7cd21fe7167167158885e"
+    },
+    {
+      "path": "repro_dataset_manifest/empty.json",
+      "kind": "repro_dataset_manifest",
+      "id": "empty",
+      "sha256": "11b1876e37f4448b015bb7bdf49a43bf799929b89d6e5c1b6b9139d8ed3f45bf"
+    },
+    {
+      "path": "repro_dataset_manifest/two_reports.json",
+      "kind": "repro_dataset_manifest",
+      "id": "two_reports",
+      "sha256": "eb6afea4362110b282083248e5309cc1430b44520d3ac3b8c840d171b47a2697"
+    },
+    {
+      "path": "repro_dataset_manifest/two_reports_reversed.json",
+      "kind": "repro_dataset_manifest",
+      "id": "two_reports_reversed",
+      "sha256": "39269c21648e6ec6d79d476a4e3a8bd11ee4034402ed3f3d1ad8904819413c0b"
+    },
+    {
+      "path": "repro_judge/could_not_run.json",
+      "kind": "repro_judge",
+      "id": "could_not_run",
+      "sha256": "23b1a86868d32adbe6978220354634ff00d5ed11b03587d290904756171250a3"
+    },
+    {
+      "path": "repro_judge/full.json",
+      "kind": "repro_judge",
+      "id": "full",
+      "sha256": "bb61e914a02a8015ff3c0313c2afd87c6796e0be9c3b6a13dc526a82fe984c7a"
+    },
+    {
+      "path": "repro_judge/mismatch.json",
+      "kind": "repro_judge",
+      "id": "mismatch",
+      "sha256": "6ceacf28964c8cb854cfb0fdd24dcfd9125a4d0458c6f72c03c922c38318d7c3"
+    },
+    {
+      "path": "repro_judge/missing_claim.json",
+      "kind": "repro_judge",
+      "id": "missing_claim",
+      "sha256": "4b5e8779c065ba8ba3a8f3480a939d139fbd58b255a034fd96987d180094434f"
+    },
+    {
+      "path": "repro_judge/no_selectors.json",
+      "kind": "repro_judge",
+      "id": "no_selectors",
+      "sha256": "da1f58f29ae51a035c0ce82ae55a5a5d108ac36b6b318c5acff506d7b1bf600e"
+    },
+    {
+      "path": "repro_judge/partial.json",
+      "kind": "repro_judge",
+      "id": "partial",
+      "sha256": "d66a919c419788656067139d6aca8ed6e0ad5af77bd2dd3de87c8809226bec9e"
+    },
+    {
+      "path": "repro_judge/tolerance_edge_decimal.json",
+      "kind": "repro_judge",
+      "id": "tolerance_edge_decimal",
+      "sha256": "01d360976c2fe942dbc85f95f7e5c43f0451306b3552e39c3ae9d91228206926"
+    },
+    {
+      "path": "repro_judge/zero_claims.json",
+      "kind": "repro_judge",
+      "id": "zero_claims",
+      "sha256": "4a0d5e077ad7e09be928a5f87defc16cf663d57865e15d7778ae1480fb7780d9"
+    },
+    {
+      "path": "repro_record/could_not_run_never_reaches_gate.json",
+      "kind": "repro_record",
+      "id": "could_not_run_never_reaches_gate",
+      "sha256": "ea5d5184f2db6d1fb9da9aaed5210c70583a40fa1066530a6cfd53615e390071"
+    },
+    {
+      "path": "repro_record/low_confidence_refused.json",
+      "kind": "repro_record",
+      "id": "low_confidence_refused",
+      "sha256": "f87b3dd8719252f601dec529b6e5f1371f0f2c6b9ae6078d32260166e641512b"
+    },
+    {
+      "path": "repro_record/malformed_attempt_logs_nothing.json",
+      "kind": "repro_record",
+      "id": "malformed_attempt_logs_nothing",
+      "sha256": "8d57f1edc120809d7c99efe1e99cb0f1b7e1f79a5211ea270c517702b8548548"
+    },
+    {
+      "path": "repro_record/mismatch_never_reaches_gate.json",
+      "kind": "repro_record",
+      "id": "mismatch_never_reaches_gate",
+      "sha256": "03eb91ba3d5c26999642750b45fb5d0fb27a292584a15fc3f63ba63e87def0f5"
+    },
+    {
+      "path": "repro_record/partial_never_reaches_gate.json",
+      "kind": "repro_record",
+      "id": "partial_never_reaches_gate",
+      "sha256": "14a0b0c53c788152a28afe49c007810539148474083e05d694835f6f7cd0be52"
+    },
+    {
+      "path": "repro_record/records_with_valid_approval.json",
+      "kind": "repro_record",
+      "id": "records_with_valid_approval",
+      "sha256": "e0830e606e1120cb708c757a2b5c2a4435f5a8420b8d71922e8d187c99853629"
+    },
+    {
+      "path": "repro_record/rejects_unknown_approver.json",
+      "kind": "repro_record",
+      "id": "rejects_unknown_approver",
+      "sha256": "3e3cf37f21c75e05acac529fbe504b08013d130b1b374b913ff497e62a2fa037"
+    },
+    {
+      "path": "repro_record/rejects_wrong_hash_approval.json",
+      "kind": "repro_record",
+      "id": "rejects_wrong_hash_approval",
+      "sha256": "2406373eaa9195c679ba7ff905c9d8ea6bb4942ceb3562654fcbc07f47d19617"
+    },
+    {
+      "path": "repro_record/stops_at_gate_without_approval.json",
+      "kind": "repro_record",
+      "id": "stops_at_gate_without_approval",
+      "sha256": "c033b4c445d44ede48e8fb84f0e6e8ab7ae078106a6be68827639cb63d6d6620"
+    },
+    {
+      "path": "repro_record/unpinned_commit_never_reaches_gate.json",
+      "kind": "repro_record",
+      "id": "unpinned_commit_never_reaches_gate",
+      "sha256": "af204cc167b6ebcc20923559910fb6139d880baba623ba8fe554fc2a438d70a4"
+    },
+    {
+      "path": "repro_rules/all_pass.json",
+      "kind": "repro_rules",
+      "id": "all_pass",
+      "sha256": "ef5727f6d4bb10139f9703ba936590f274d0e2fc5c22caf913809f8a807f85c0"
+    },
+    {
+      "path": "repro_rules/claim_mismatch.json",
+      "kind": "repro_rules",
+      "id": "claim_mismatch",
+      "sha256": "4d3878285fa4e42a733ff63ff16c41a021c66c7ec8ad768e4aaa5fc15c193cb0"
+    },
+    {
+      "path": "repro_rules/confidence_at_floor_passes.json",
+      "kind": "repro_rules",
+      "id": "confidence_at_floor_passes",
+      "sha256": "5ff37a61fd19c670e4f6e39ae638d6f14d1c631dd39cbbfbad9cfc3d3b050ab3"
+    },
+    {
+      "path": "repro_rules/confidence_below_floor.json",
+      "kind": "repro_rules",
+      "id": "confidence_below_floor",
+      "sha256": "d73a5536b55ef5a67c7831b24a1379ada0315a5d66518c30626992c1ddad0b30"
+    },
+    {
+      "path": "repro_rules/multiple_failures.json",
+      "kind": "repro_rules",
+      "id": "multiple_failures",
+      "sha256": "0dc736cb4f3fbd973bc2cae87af0f577298f2835d18c14e79f27c97440414487"
+    },
+    {
+      "path": "repro_rules/run_failed.json",
+      "kind": "repro_rules",
+      "id": "run_failed",
+      "sha256": "16355251308780aca93c4e8ff008cff01df27a57200fa75deebb2e9d89c869db"
+    },
+    {
+      "path": "repro_rules/short_commit.json",
+      "kind": "repro_rules",
+      "id": "short_commit",
+      "sha256": "3d4f90f7b5db35e1c8b0575b0dd62a9d4507f1f144f7d6fe4bc9aa65f9a81618"
+    },
+    {
+      "path": "repro_rules/unpinned_commit.json",
+      "kind": "repro_rules",
+      "id": "unpinned_commit",
+      "sha256": "4ffee3b1897f3a58980d55a2678dfe065bac2f88f9d828f347a0ec9447e1d932"
+    },
+    {
+      "path": "repro_rules/unpinned_environment.json",
+      "kind": "repro_rules",
+      "id": "unpinned_environment",
+      "sha256": "538d4dbe493ba8c658bdc76a531475908ef7f3d089d4bc3adb74bacf4eebbd01"
+    },
+    {
+      "path": "repro_rules/zero_claims.json",
+      "kind": "repro_rules",
+      "id": "zero_claims",
+      "sha256": "267c20d055eba33663cd6bd4508387a25cee4fe7a608652fc4d40550c3330a9c"
+    },
+    {
+      "path": "repro_target_hash/keys_shuffled.json",
+      "kind": "repro_target_hash",
+      "id": "keys_shuffled",
+      "sha256": "5fdf9512c3d03b3253a6bb1aa01cd01e8a8b980bcb21874d261b51aa9ea05149"
+    },
+    {
+      "path": "repro_target_hash/pinned.json",
+      "kind": "repro_target_hash",
+      "id": "pinned",
+      "sha256": "8bec3da77525ce05b259db6e5f06ac96bdf720f4c7652f27ed53a90a5b2df48f"
+    },
+    {
+      "path": "repro_target_hash/unpinned_commit.json",
+      "kind": "repro_target_hash",
+      "id": "unpinned_commit",
+      "sha256": "7a12fc86a1e7b70a39184a86529b7defbcd1c762d7eecd71ca876cd557f29bd0"
+    },
+    {
+      "path": "review_approval_summary/clean.json",
+      "kind": "review_approval_summary",
+      "id": "clean",
+      "sha256": "9f51f19fd8fa4261b5fe99a34ecb20ee4c431d7d7d185c64880bca41d98397c6"
+    },
+    {
+      "path": "review_approval_summary/long_title_round_2.json",
+      "kind": "review_approval_summary",
+      "id": "long_title_round_2",
+      "sha256": "dd69c3d4db4e38d56c4e83b0f2abc2918366ef588f1b148b98e4954e304d8097"
+    },
+    {
+      "path": "review_approval_summary/no_ai.json",
+      "kind": "review_approval_summary",
+      "id": "no_ai",
+      "sha256": "6931e1a878e863cba83b9bad67b820161ecc04ecc0898d6c11df48e8cc37b7ba"
+    },
+    {
+      "path": "review_chain/five_entries_tamper_seq_1.json",
+      "kind": "review_chain",
+      "id": "five_entries_tamper_seq_1",
+      "sha256": "18e4b5811337804e883fb4df70838f4bed0dc329a664c0fc904795434d56f4d8"
+    },
+    {
+      "path": "review_chain/five_entries_tamper_seq_3.json",
+      "kind": "review_chain",
+      "id": "five_entries_tamper_seq_3",
+      "sha256": "40f9c1080f949e5a4ae4cf49dc1accb2376ee6d2440c7ff2359beb42e18774ea"
+    },
+    {
+      "path": "review_chain/not_opened.json",
+      "kind": "review_chain",
+      "id": "not_opened",
+      "sha256": "852860e4cefe80965df510991c4559ab9a4043eefd92312db3f8efabf85688f6"
+    },
+    {
+      "path": "review_chain/single_submitted.json",
+      "kind": "review_chain",
+      "id": "single_submitted",
+      "sha256": "efa803e1b9fc3ee4d5720008121502acc5fc23f327d986b1cca06e9ef96e52b0"
+    },
+    {
+      "path": "review_disclosure/clean_disclosed.json",
+      "kind": "review_disclosure",
+      "id": "clean_disclosed",
+      "sha256": "7bb259b03579a7fdfb1df5df008919c2c3f04069395a6f3042818ec19e5a2a07"
+    },
+    {
+      "path": "review_disclosure/clean_no_ai.json",
+      "kind": "review_disclosure",
+      "id": "clean_no_ai",
+      "sha256": "8c13d2610d0853f52c6c9b373133d752bba57407e98db0b5899b1ce1dbc3a6a6"
+    },
+    {
+      "path": "review_disclosure/empty_review.json",
+      "kind": "review_disclosure",
+      "id": "empty_review",
+      "sha256": "7d8ecdd8820765c5210c62e7131139249f03a3195d7358461030325ccbc0e87c"
+    },
+    {
+      "path": "review_disclosure/manuscript_hash_mismatch.json",
+      "kind": "review_disclosure",
+      "id": "manuscript_hash_mismatch",
+      "sha256": "c070bfab97702fa414431858bc5476174192888ba92d0a55deb1d18bbae8ec6d"
+    },
+    {
+      "path": "review_disclosure/missing_recommendation.json",
+      "kind": "review_disclosure",
+      "id": "missing_recommendation",
+      "sha256": "7e77883e5c01d0ca2b6afbb53c5110a2966a4777359a07558cbc48a579b23d78"
+    },
+    {
+      "path": "review_disclosure/multiple_codes_first_wins.json",
+      "kind": "review_disclosure",
+      "id": "multiple_codes_first_wins",
+      "sha256": "3fbb9f37aebf48f3ffd7751277c7d1ee2df4b336a973b35c72d473be82a8227c"
+    },
+    {
+      "path": "review_disclosure/substantive_no_lineage.json",
+      "kind": "review_disclosure",
+      "id": "substantive_no_lineage",
+      "sha256": "9fe3c03f71d1684c07254b97d2564f5e2ae28ccd377791c3ccc6b06dec285add"
+    },
+    {
+      "path": "review_disclosure/substantive_with_lineage.json",
+      "kind": "review_disclosure",
+      "id": "substantive_with_lineage",
+      "sha256": "4414185d426159737d3cbc6454c1907587010bb1d9d49261adaf902394c1b8a7"
+    },
+    {
+      "path": "review_disclosure/undisclosed_empty_text.json",
+      "kind": "review_disclosure",
+      "id": "undisclosed_empty_text",
+      "sha256": "4965085fac54aaa07b7b59721dd827f3e38552c4cbfc885fe784371540d1a0d2"
+    },
+    {
+      "path": "review_disclosure/undisclosed_scope_none.json",
+      "kind": "review_disclosure",
+      "id": "undisclosed_scope_none",
+      "sha256": "6d016435f2729a498238df0380b3448b9b3552638ef5443a979d4e9367aadb3f"
+    },
+    {
+      "path": "review_record/duplicate_review_refused.json",
+      "kind": "review_record",
+      "id": "duplicate_review_refused",
+      "sha256": "c7c426dc9d799c92a0293ae04647fd88331aa90cd19575f7eb09bd5b8ec99b72"
+    },
+    {
+      "path": "review_record/malformed_logs_nothing.json",
+      "kind": "review_record",
+      "id": "malformed_logs_nothing",
+      "sha256": "f449047e36ca1db715010eedb9954c377697280d79add550e5cb40e63a806ee7"
+    },
+    {
+      "path": "review_record/manuscript_hash_mismatch_refused.json",
+      "kind": "review_record",
+      "id": "manuscript_hash_mismatch_refused",
+      "sha256": "cb8d78a2f902f2092bf09532c3be2752d9a8e12aac77f552b0784c17bcf803d1"
+    },
+    {
+      "path": "review_record/records_clean_disclosed.json",
+      "kind": "review_record",
+      "id": "records_clean_disclosed",
+      "sha256": "f8c410dc35c17e5093d9cdc0ab66335c698a8f744c262401500f7ed697f343e9"
+    },
+    {
+      "path": "review_record/records_no_ai.json",
+      "kind": "review_record",
+      "id": "records_no_ai",
+      "sha256": "b141fa54652f3a040bd626c507faef3288845087e86f49cc6c9dc47967edbc75"
+    },
+    {
+      "path": "review_record/rejects_unknown_approver.json",
+      "kind": "review_record",
+      "id": "rejects_unknown_approver",
+      "sha256": "38799e270f48036323c68d636b67c87585657a834f4934c4af304a20bf89ee13"
+    },
+    {
+      "path": "review_record/rejects_wrong_hash_approval.json",
+      "kind": "review_record",
+      "id": "rejects_wrong_hash_approval",
+      "sha256": "5d995071ca489e01d4a95e773e4fbd04e507a542daf80096e0aae133ec02b3b5"
+    },
+    {
+      "path": "review_record/second_reviewer_records.json",
+      "kind": "review_record",
+      "id": "second_reviewer_records",
+      "sha256": "5f0ba07a7e60aacbe1911572ed8c8a715abbe99256fcf1ecafae1924425db0e1"
+    },
+    {
+      "path": "review_record/stops_at_gate_without_approval.json",
+      "kind": "review_record",
+      "id": "stops_at_gate_without_approval",
+      "sha256": "2a80bf0cf7cde8c0be9d34ede836945fb6ad2ea95fff0be0a681b06a4db4cdcc"
+    },
+    {
+      "path": "review_record/substantive_no_lineage_never_reaches_gate.json",
+      "kind": "review_record",
+      "id": "substantive_no_lineage_never_reaches_gate",
+      "sha256": "2507ef70e92be0a11f888e1505b1460b1ac9261142ecda4608d4f5f3c92d8edb"
+    },
+    {
+      "path": "review_record/undisclosed_ai_never_reaches_gate.json",
+      "kind": "review_record",
+      "id": "undisclosed_ai_never_reaches_gate",
+      "sha256": "8b2f5a9efb6244afceec6eec7e48f633bdfabdcbaac33b72c0b815205bd8e984"
+    },
+    {
+      "path": "review_shape/bad_everything.json",
+      "kind": "review_shape",
+      "id": "bad_everything",
+      "sha256": "4827d08eaa205701eafb0f984f5cffcef3e67765a4a4832fb357420f79268abf"
+    },
+    {
+      "path": "review_shape/bad_hash.json",
+      "kind": "review_shape",
+      "id": "bad_hash",
+      "sha256": "e1bf60bbdac837c3bc02cb354b921e9781a8a854f3d665bd052d6edf1ef2f6f2"
+    },
+    {
+      "path": "review_shape/bad_recommendation.json",
+      "kind": "review_shape",
+      "id": "bad_recommendation",
+      "sha256": "589b1281e5390f9b781cf0e037905accf46599001e1397e4a1470f37f81be2a2"
+    },
+    {
+      "path": "review_shape/bad_round.json",
+      "kind": "review_shape",
+      "id": "bad_round",
+      "sha256": "e75b95af0d9a7310737ee248fb8fa1458a3fea02a831e13569c652d2cd7bb146"
+    },
+    {
+      "path": "review_shape/bad_scope.json",
+      "kind": "review_shape",
+      "id": "bad_scope",
+      "sha256": "87e7cb00f0dd560c11ab7f9e4393a289ab8d6f08d63f93b8d81146fb16f4c415"
+    },
+    {
+      "path": "review_shape/ok_clean.json",
+      "kind": "review_shape",
+      "id": "ok_clean",
+      "sha256": "c209384397b9996cfd5aadbafdca8c7fd87142e2f2095dbc461f13ffeb6fb2eb"
+    },
+    {
+      "path": "review_shape/ok_no_ai.json",
+      "kind": "review_shape",
+      "id": "ok_no_ai",
+      "sha256": "60905c6617985e7119d29530b89ece8d037595ad8b37384ba4d59b0ba6748967"
+    },
+    {
+      "path": "review_shape/ok_substantive.json",
+      "kind": "review_shape",
+      "id": "ok_substantive",
+      "sha256": "8fb1deba3a17e4bd84824270e6f2f898de1d1806e18913feea25267909462358"
+    }
+  ],
+  "suite_hash": "880744c3325c92279da369d68ce3bc6dc2deeee917373f59e739db9b6448395f"
+}

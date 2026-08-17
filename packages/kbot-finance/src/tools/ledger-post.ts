@@ -41,7 +41,7 @@ import type { BankLine, LedgerEngine, LedgerEntry } from "../ledger/engine.js";
  * is the engine's business — see ledger/engine.ts.
  */
 
-const SCHEMA_HASH = sha256(
+export const LEDGER_SCHEMA_HASH = sha256(
   canonicalize({
     type: "object",
     fields: {
@@ -109,7 +109,7 @@ export async function ledgerPost(inputs: LedgerPostInputs, deps: LedgerPostDeps)
   const reconRequest: ContentAddressedRequest = {
     operation: "ledger.reconcile",
     engine_version: RECONCILE_ENGINE_VERSION,
-    schema_hash: SCHEMA_HASH,
+    schema_hash: LEDGER_SCHEMA_HASH,
     inputs: { claim: shape.claim, bank_lines: inputs.bank_lines, policy } as unknown as JsonValue,
     data_as_of: inputs.data_as_of,
   };
@@ -129,7 +129,7 @@ export async function ledgerPost(inputs: LedgerPostInputs, deps: LedgerPostDeps)
   const request: ContentAddressedRequest = {
     operation: "ledger.post",
     engine_version: deps.engine.engine_version,
-    schema_hash: SCHEMA_HASH,
+    schema_hash: LEDGER_SCHEMA_HASH,
     inputs: {
       claim: shape.claim,
       reconciliation: reconSealed.value,

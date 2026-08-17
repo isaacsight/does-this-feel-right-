@@ -1,0 +1,68 @@
+{
+  "format_version": 1,
+  "kind": "bench_report_hash",
+  "id": "oracle",
+  "description": "oracle: zero hallucinations, zero caught",
+  "input": {
+    "responder": "oracle",
+    "data_as_of": "2026-08-17T00:00:00.000Z"
+  },
+  "expected": {
+    "request_hash": "c5094140cb391bc4d9db5dd14713d59235cfa5682827d57d67aed8feaae4061a",
+    "taskset_hash": "0c62ff6896a8ba8c6e4fb536becd155590080493f88a1a5a46568d53beb00255",
+    "totals": {
+      "n": 60,
+      "correct": 60,
+      "hallucinated": 0,
+      "abstained": 0,
+      "wrong_unit": 0,
+      "caught": 0,
+      "hallucination_rate": 0.0,
+      "caught_rate": null
+    },
+    "hallucination_rate": 0.0,
+    "caught_rate": null,
+    "per_domain": {
+      "finance": {
+        "n": 20,
+        "correct": 20,
+        "hallucinated": 0,
+        "abstained": 0,
+        "wrong_unit": 0,
+        "caught": 0,
+        "hallucination_rate": 0.0,
+        "caught_rate": null
+      },
+      "math": {
+        "n": 15,
+        "correct": 15,
+        "hallucinated": 0,
+        "abstained": 0,
+        "wrong_unit": 0,
+        "caught": 0,
+        "hallucination_rate": 0.0,
+        "caught_rate": null
+      },
+      "pdf_text": {
+        "n": 10,
+        "correct": 10,
+        "hallucinated": 0,
+        "abstained": 0,
+        "wrong_unit": 0,
+        "caught": 0,
+        "hallucination_rate": 0.0,
+        "caught_rate": null
+      },
+      "table": {
+        "n": 15,
+        "correct": 15,
+        "hallucinated": 0,
+        "abstained": 0,
+        "wrong_unit": 0,
+        "caught": 0,
+        "hallucination_rate": 0.0,
+        "caught_rate": null
+      }
+    }
+  }
+}

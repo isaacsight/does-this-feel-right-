@@ -1,0 +1,88 @@
+{
+  "format_version": 1,
+  "kind": "lean_rules",
+  "id": "kernel_rejected",
+  "description": "KERNEL_REJECTED; every other rule still runs",
+  "input": {
+    "claim": {
+      "theorem_name": "Nat.add_zero'",
+      "statement": "∀ n : Nat, n + 0 = n",
+      "proof": "by\n  intro n\n  exact rfl'",
+      "imports": [
+        "Mathlib.Tactic"
+      ],
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "bcfac0c3089493a00944ec90a7d58cf4ff184568cd5e7db2230d85c06aac01b2",
+      "toolchain": "leanprover/lean4:v4.12.0",
+      "mathlib_rev": "3f2b9c1d8e7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c",
+      "confidence": 0.91,
+      "doc_hash": "bdb47f9dc7199f64b3dcbfb6c8ea221346ded339b5edc51c86f2e81755cbc675"
+    },
+    "kernel_table": {
+      "1cbac74ea63c74e0d48bd7c55fc375b03fb026afca4703f84dd122abd9a3965d": {
+        "ok": false,
+        "errors": [
+          "3:9: unknown identifier 'rfl''"
+        ],
+        "sorries": 0,
+        "axioms": []
+      }
+    },
+    "confidence_floor": 0.6,
+    "axiom_allowlist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "expected": {
+    "verdict": {
+      "ok": false,
+      "errors": [
+        "3:9: unknown identifier 'rfl''"
+      ],
+      "sorries": 0,
+      "axioms": []
+    },
+    "report": {
+      "ok": false,
+      "checks": [
+        {
+          "rule_id": "rule.lean.kernel",
+          "pass": false,
+          "code": "KERNEL_REJECTED"
+        },
+        {
+          "rule_id": "rule.lean.no_sorry",
+          "pass": true,
+          "code": null
+        },
+        {
+          "rule_id": "rule.lean.axiom_allowlist",
+          "pass": true,
+          "code": null
+        },
+        {
+          "rule_id": "rule.lean.confidence_floor",
+          "pass": true,
+          "code": null
+        },
+        {
+          "rule_id": "rule.lean.statement_hash",
+          "pass": true,
+          "code": null
+        },
+        {
+          "rule_id": "rule.lean.toolchain_pinned",
+          "pass": true,
+          "code": null
+        }
+      ]
+    }
+  }
+}

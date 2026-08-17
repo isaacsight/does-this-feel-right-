@@ -1,0 +1,35 @@
+{
+  "format_version": 1,
+  "kind": "claim_shape",
+  "id": "bad_everything_wrong",
+  "description": "malformed claim everything_wrong",
+  "input": {
+    "claim": {
+      "doc_hash": 1,
+      "direction": "x",
+      "currency": "",
+      "subtotal": "a",
+      "tax": null,
+      "total": null,
+      "line_items": "no",
+      "confidence": -1,
+      "model_lineage": "none",
+      "date": 20260812
+    }
+  },
+  "expected": {
+    "ok": false,
+    "errors": [
+      "confidence must be in [0,1]",
+      "currency must be ISO 4217",
+      "date must be YYYY-MM-DD or null",
+      "direction must be out|in",
+      "doc_hash must be sha256 hex",
+      "line_items must be non-empty",
+      "model_lineage required",
+      "subtotal must be finite number",
+      "tax must be finite number",
+      "total must be finite number"
+    ]
+  }
+}

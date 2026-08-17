@@ -1,0 +1,86 @@
+{
+  "format_version": 1,
+  "kind": "repro_approval_summary",
+  "id": "long_title_truncated",
+  "description": "title is cut at 40 characters",
+  "input": {
+    "target": {
+      "paper": {
+        "title": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "doc_hash": "5de4cf692493268eabaa8c2328daf729e35211870f08c9f4386cd21de6e4feb7",
+        "doi": null,
+        "arxiv_id": null
+      },
+      "repo": {
+        "url": "https://github.com/example/small-replication",
+        "commit": "3f2a9c1e5b7d4a6f8c0e2b4d6f8a0c2e4b6d8f0a"
+      },
+      "claims": [
+        {
+          "claim_id": "accuracy",
+          "description": "Test accuracy (Table 2)",
+          "value": 0.85,
+          "unit": "fraction",
+          "tolerance": 0.01
+        },
+        {
+          "claim_id": "f1",
+          "description": "Macro F1 (Table 2)",
+          "value": 0.8,
+          "unit": "fraction",
+          "tolerance": 0.01
+        },
+        {
+          "claim_id": "params",
+          "description": "Parameter count",
+          "value": 1250000,
+          "unit": "count",
+          "tolerance": 0
+        }
+      ],
+      "environment_spec": {
+        "python": "3.11.4",
+        "os": "ubuntu-22.04",
+        "cuda": "none"
+      },
+      "commands": [
+        [
+          "python3",
+          "run.py"
+        ],
+        [
+          "python3",
+          "evaluate.py"
+        ]
+      ]
+    },
+    "verdict": {
+      "overall": "reproduced",
+      "per_claim": [
+        {
+          "claim_id": "accuracy",
+          "status": "confirmed",
+          "observed": 0.86,
+          "delta": 0.01
+        },
+        {
+          "claim_id": "f1",
+          "status": "confirmed",
+          "observed": 0.795,
+          "delta": -0.005
+        },
+        {
+          "claim_id": "params",
+          "status": "confirmed",
+          "observed": 1250000.0,
+          "delta": 0.0
+        }
+      ],
+      "confirmed": 3,
+      "total": 3
+    }
+  },
+  "expected": {
+    "summary": "Record reproduction of AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA commit 3f2a9c1e5b7d verdict reproduced 3/3 claims doc:5de4cf692493"
+  }
+}

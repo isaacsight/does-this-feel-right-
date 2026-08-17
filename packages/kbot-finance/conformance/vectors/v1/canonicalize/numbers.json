@@ -1,0 +1,21 @@
+{
+  "format_version": 1,
+  "kind": "canonicalize",
+  "id": "numbers",
+  "description": "canonical JSON + sha256 for numbers",
+  "input": {
+    "value": {
+      "i": 1,
+      "f": 1.5,
+      "neg": -0.25,
+      "big": 1e+21,
+      "small": 1e-7,
+      "zero": 0,
+      "negzero": 0
+    }
+  },
+  "expected": {
+    "canonical": "{\"big\":1e+21,\"f\":1.5,\"i\":1,\"neg\":-0.25,\"negzero\":0,\"small\":1e-7,\"zero\":0}",
+    "sha256": "3b5707edca68eae1120b0580ed8d0f2c25379956c1bdae9eadc9f13150450a4e"
+  }
+}

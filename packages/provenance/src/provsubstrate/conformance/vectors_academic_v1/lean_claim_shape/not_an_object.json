@@ -1,0 +1,15 @@
+{
+  "format_version": 1,
+  "kind": "lean_claim_shape",
+  "id": "not_an_object",
+  "description": "a non-object claim is one error",
+  "input": {
+    "claim": "theorem foo"
+  },
+  "expected": {
+    "ok": false,
+    "errors": [
+      "claim is not an object"
+    ]
+  }
+}

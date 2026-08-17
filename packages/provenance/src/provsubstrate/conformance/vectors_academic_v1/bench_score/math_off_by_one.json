@@ -1,0 +1,57 @@
+{
+  "format_version": 1,
+  "kind": "bench_score",
+  "id": "math_off_by_one",
+  "description": "arithmetic near-miss",
+  "input": {
+    "task": {
+      "task_id": "f37e3a58ebd4ebdde9f8138a74f388ba0b553d1d8b83216fd4801a61ad086359",
+      "domain": "math",
+      "source_text": "a = 81\nb = 73\nexpression: a * b\n",
+      "question": "Compute a * b.",
+      "ground_truth": {
+        "value": 5913.0,
+        "unit": "integer",
+        "tolerance": 0
+      },
+      "distractors": [
+        81.0,
+        73.0,
+        5914.0,
+        5912.0
+      ],
+      "source_doc_hash": "ed00980a80019f2aef1624f41cf66f471ef674b77eebb86bd6d04c0908fda1b3",
+      "recompute_spec": {
+        "kind": "arithmetic"
+      }
+    },
+    "answer": {
+      "task_id": "f37e3a58ebd4ebdde9f8138a74f388ba0b553d1d8b83216fd4801a61ad086359",
+      "value": 5912.0,
+      "unit": "integer",
+      "rationale": "",
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "b1a4c9d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"
+    }
+  },
+  "expected": {
+    "score": {
+      "status": "hallucinated",
+      "delta": -1.0
+    },
+    "mitigated": {
+      "raw": {
+        "status": "hallucinated",
+        "delta": -1.0
+      },
+      "recomputed": 5913.0,
+      "recompute_correct": true,
+      "caught": true
+    }
+  }
+}

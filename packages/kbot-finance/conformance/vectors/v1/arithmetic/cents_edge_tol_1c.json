@@ -1,0 +1,46 @@
+{
+  "format_version": 1,
+  "kind": "arithmetic",
+  "id": "cents_edge_tol_1c",
+  "description": "checkArithmetic(cents_edge, tol=0.01)",
+  "input": {
+    "claim": {
+      "doc_hash": "8e394c0ee918bc020c936f97fba7d2104a9883fef48f6616e02a6a466da40c0d",
+      "direction": "out",
+      "vendor": "Ag Supply Co",
+      "date": "2026-08-12",
+      "currency": "USD",
+      "subtotal": 100,
+      "tax": 0,
+      "total": 100,
+      "line_items": [
+        {
+          "description": "edge",
+          "quantity": 3,
+          "unit_amount": 33.33,
+          "line_amount": 100,
+          "account_code": "400"
+        }
+      ],
+      "reference": null,
+      "confidence": 0.92,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    },
+    "tolerance": 0.01
+  },
+  "expected": {
+    "ok": false,
+    "line_sum": 100,
+    "claimed_subtotal": 100,
+    "claimed_total": 100,
+    "computed_total": 100,
+    "bad_lines": [
+      0
+    ]
+  }
+}

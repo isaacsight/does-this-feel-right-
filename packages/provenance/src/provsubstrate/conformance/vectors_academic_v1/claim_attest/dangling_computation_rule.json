@@ -1,0 +1,130 @@
+{
+  "format_version": 1,
+  "kind": "claim_attest",
+  "id": "dangling_computation_rule",
+  "description": "a claim with no edge reaches the verifier and fails DANGLING_COMPUTATION",
+  "input": {
+    "manifest": {
+      "format_version": 1,
+      "paper": {
+        "doc_hash": "649e0cc96ad68e007eec6b85c05b1493039952eebd340c48a1b3d8235c5a1fb7",
+        "title": "A Small Paper With Two Numbers In It"
+      },
+      "computations": [
+        {
+          "computation_id": "f3ef341cb0f08f7f16140a3852afcfbc5a9a136888ca1382d385933e0e1dca71",
+          "command": [
+            "python3",
+            "compute_mean.py",
+            "data.csv"
+          ],
+          "entrypoint": "compute_mean.py",
+          "entrypoint_hash": "5a9aff131e926993634134319f6814fe7f9d52542af986e0e6b5dde9aa2d1015",
+          "input_hashes": {
+            "data.csv": "7da8a49a4f9758e0f5011a8259e2347a7ce932b4a94fc43412e5c48e472a5066"
+          },
+          "environment": {
+            "python": "3.12.4",
+            "packages": {
+              "numpy": "2.0.1"
+            }
+          },
+          "output_selector": "/mean"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "4712b64ae63b3dc73bc0d5e750c277e3693f21d7b475648655753db21074a4e6",
+          "value": 3.5,
+          "unit": "kg",
+          "tolerance": 0.01,
+          "location": {
+            "section": "4.2",
+            "sentence_hash": "ff338d51fbdcbd1a379d2103a6f9d2aa071e7276669a418efa391cb1c89daf54"
+          },
+          "source_doc_hash": "649e0cc96ad68e007eec6b85c05b1493039952eebd340c48a1b3d8235c5a1fb7",
+          "computation_ref": "f3ef341cb0f08f7f16140a3852afcfbc5a9a136888ca1382d385933e0e1dca71",
+          "model_lineage": [
+            {
+              "model": "local-27b",
+              "version": "conformance"
+            }
+          ],
+          "confidence": 0.9
+        },
+        {
+          "claim_id": "a8fffa0b0804a8cac0886881d86c6cfd08f93affe2d67012e8252d4b5277e1eb",
+          "value": 3.5,
+          "unit": "kg",
+          "tolerance": 0.01,
+          "location": {
+            "section": "7",
+            "sentence_hash": "88f6811ab5d8fc6d3177f9b7609ae0fcebfda187e5046b62d38bb539e88b74d7"
+          },
+          "source_doc_hash": "649e0cc96ad68e007eec6b85c05b1493039952eebd340c48a1b3d8235c5a1fb7",
+          "computation_ref": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "model_lineage": [
+            {
+              "model": "local-27b",
+              "version": "conformance"
+            }
+          ],
+          "confidence": 0.9
+        }
+      ],
+      "edges": [
+        {
+          "claim_id": "4712b64ae63b3dc73bc0d5e750c277e3693f21d7b475648655753db21074a4e6",
+          "computation_id": "f3ef341cb0f08f7f16140a3852afcfbc5a9a136888ca1382d385933e0e1dca71"
+        }
+      ]
+    },
+    "results": {
+      "f3ef341cb0f08f7f16140a3852afcfbc5a9a136888ca1382d385933e0e1dca71": {
+        "ok": true,
+        "stdout": "{\"mean\": 3.5, \"n\": 6}\n",
+        "stderr": "",
+        "exit_code": 0,
+        "output_value": 3.5,
+        "output_hash": "daa796cfce742e00e4ded70af8693d6eb5ec7e9e6e0947743c3bc6d72c12f97f",
+        "input_mismatches": []
+      },
+      "20afa256238b229db677c5085b1442beb39e23e04df7ead63bc0e09ead73cf17": {
+        "ok": true,
+        "stdout": "{\"sd\": 1.8708, \"n\": 6}\n",
+        "stderr": "",
+        "exit_code": 0,
+        "output_value": 1.8708,
+        "output_hash": "a0eee40bb1dce1a7f4fb3b4bdbc0b50d0ee41fc142578bde06ee1351006f0e7d",
+        "input_mismatches": []
+      }
+    },
+    "session_id": "academic-conformance-session",
+    "data_as_of": "2026-08-17T00:00:00.000Z",
+    "approved_at": "2026-08-17T12:00:00.000Z",
+    "trusted": [
+      {
+        "approver_id": "pi.ada",
+        "secret_utf8": "academic-approver-secret-0001"
+      }
+    ],
+    "confidence_floor": 0.6,
+    "approval": "valid"
+  },
+  "expected": {
+    "ok": false,
+    "stage": "verifier",
+    "request_hash": "79e85bef10f8b341dd7ab60d2623d27ae9cfaf7cfabfb665bb849734d871b518",
+    "manifest_hash": "d3aec867b1d934c7bd612a94fa63924aaf0ed0728a695b9061ef62c76b5664ee",
+    "statuses": {
+      "4712b64ae63b3dc73bc0d5e750c277e3693f21d7b475648655753db21074a4e6": "confirmed",
+      "a8fffa0b0804a8cac0886881d86c6cfd08f93affe2d67012e8252d4b5277e1eb": "execution_failed"
+    },
+    "audit_actions": [
+      "claim_extraction",
+      "reexecution",
+      "verifier_check"
+    ],
+    "entry_id": null
+  }
+}

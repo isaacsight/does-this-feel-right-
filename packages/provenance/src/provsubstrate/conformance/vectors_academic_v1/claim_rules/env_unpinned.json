@@ -1,0 +1,83 @@
+{
+  "format_version": 1,
+  "kind": "claim_rules",
+  "id": "env_unpinned",
+  "description": "empty python version: ENVIRONMENT_UNPINNED",
+  "input": {
+    "claim": {
+      "claim_id": "fb1177ebb79239a4b0a4f858d5b6ce9ca0fd485413d46281c0af6b76e3854636",
+      "value": 3.5,
+      "unit": "kg",
+      "tolerance": 0.01,
+      "location": {
+        "section": "6",
+        "sentence_hash": "a838443ef6b7be750bb08ca61a3d6ef13a3a54833012b52accd312dd5947fd49"
+      },
+      "source_doc_hash": "649e0cc96ad68e007eec6b85c05b1493039952eebd340c48a1b3d8235c5a1fb7",
+      "computation_ref": "b6b0a4ca2b51c3e16d82b62743016411c649cf6f03ac864c87d912778d080ed7",
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "confidence": 0.9
+    },
+    "computation": {
+      "computation_id": "b6b0a4ca2b51c3e16d82b62743016411c649cf6f03ac864c87d912778d080ed7",
+      "command": [
+        "python3",
+        "compute_mean.py",
+        "data.csv"
+      ],
+      "entrypoint": "compute_mean.py",
+      "entrypoint_hash": "5a9aff131e926993634134319f6814fe7f9d52542af986e0e6b5dde9aa2d1015",
+      "input_hashes": {
+        "data.csv": "7da8a49a4f9758e0f5011a8259e2347a7ce932b4a94fc43412e5c48e472a5066"
+      },
+      "environment": {
+        "python": "",
+        "packages": {
+          "numpy": "2.0.1"
+        }
+      },
+      "output_selector": "/mean"
+    },
+    "verdict": {
+      "status": "confirmed",
+      "observed": 3.5,
+      "delta": 0
+    },
+    "confidence_floor": 0.6
+  },
+  "expected": {
+    "ok": false,
+    "checks": [
+      {
+        "rule_id": "rule.claims.computation_linked",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.claims.confirmed",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.claims.tolerance",
+        "pass": true,
+        "code": null
+      },
+      {
+        "rule_id": "rule.claims.environment_pinned",
+        "pass": false,
+        "code": "ENVIRONMENT_UNPINNED"
+      },
+      {
+        "rule_id": "rule.claims.confidence_floor",
+        "pass": true,
+        "code": null
+      }
+    ]
+  }
+}

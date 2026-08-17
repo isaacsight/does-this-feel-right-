@@ -1,0 +1,44 @@
+{
+  "format_version": 1,
+  "kind": "arithmetic",
+  "id": "fuel",
+  "description": "checkArithmetic(fuel, tol=0.01)",
+  "input": {
+    "claim": {
+      "doc_hash": "bb7d410ed0d19601da3a6d296a5ac3ca3b5d0d9cf087eb467a504ef2b0014e23",
+      "direction": "out",
+      "vendor": "Pump 3",
+      "date": "2026-08-13",
+      "currency": "USD",
+      "subtotal": 80,
+      "tax": 8,
+      "total": 88,
+      "line_items": [
+        {
+          "description": "Diesel",
+          "quantity": 40,
+          "unit_amount": 2,
+          "line_amount": 80,
+          "account_code": "430"
+        }
+      ],
+      "reference": null,
+      "confidence": 0.71,
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ]
+    },
+    "tolerance": 0.01
+  },
+  "expected": {
+    "ok": true,
+    "line_sum": 80,
+    "claimed_subtotal": 80,
+    "claimed_total": 88,
+    "computed_total": 88,
+    "bad_lines": []
+  }
+}

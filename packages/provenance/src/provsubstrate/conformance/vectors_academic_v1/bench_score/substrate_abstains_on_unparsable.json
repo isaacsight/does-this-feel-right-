@@ -1,0 +1,54 @@
+{
+  "format_version": 1,
+  "kind": "bench_score",
+  "id": "substrate_abstains_on_unparsable",
+  "description": "recompute returns None: wrong answer is not caught",
+  "input": {
+    "task": {
+      "task_id": "852d3347ed4d65a907cf42a2b40f20d1651f6f8cd5466e4913f64ad8fc48f6cb",
+      "domain": "finance",
+      "source_text": "no numbers here\n",
+      "question": "What is the total?",
+      "ground_truth": {
+        "value": 10.0,
+        "unit": "USD",
+        "tolerance": 0
+      },
+      "distractors": [
+        9.0
+      ],
+      "source_doc_hash": "bac41ceb52c4f94e8ab96efc68dc0b3c11b3cd531ca6315c7695077197b36e83",
+      "recompute_spec": {
+        "kind": "invoice_total"
+      }
+    },
+    "answer": {
+      "task_id": "852d3347ed4d65a907cf42a2b40f20d1651f6f8cd5466e4913f64ad8fc48f6cb",
+      "value": 9.0,
+      "unit": "USD",
+      "rationale": "",
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "b1a4c9d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"
+    }
+  },
+  "expected": {
+    "score": {
+      "status": "hallucinated",
+      "delta": -1.0
+    },
+    "mitigated": {
+      "raw": {
+        "status": "hallucinated",
+        "delta": -1.0
+      },
+      "recomputed": null,
+      "recompute_correct": false,
+      "caught": false
+    }
+  }
+}

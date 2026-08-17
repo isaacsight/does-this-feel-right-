@@ -1,0 +1,35 @@
+{
+  "format_version": 1,
+  "kind": "lean_claim_shape",
+  "id": "bad_hashes_and_confidence",
+  "description": "non-hex hashes and out-of-range confidence",
+  "input": {
+    "claim": {
+      "theorem_name": "Nat.add_zero'",
+      "statement": "∀ n : Nat, n + 0 = n",
+      "proof": "by\n  intro n\n  rfl",
+      "imports": [
+        "Mathlib.Tactic"
+      ],
+      "model_lineage": [
+        {
+          "model": "local-27b",
+          "version": "conformance"
+        }
+      ],
+      "prompt_hash": "not-a-hash",
+      "toolchain": "leanprover/lean4:v4.12.0",
+      "mathlib_rev": "3f2b9c1d8e7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c",
+      "confidence": 1.5,
+      "doc_hash": "ABC"
+    }
+  },
+  "expected": {
+    "ok": false,
+    "errors": [
+      "confidence must be in [0,1]",
+      "doc_hash must be sha256 hex",
+      "prompt_hash must be sha256 hex"
+    ]
+  }
+}
