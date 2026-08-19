@@ -133,3 +133,39 @@ Extensions gives you scripts").
 - https://help.ableton.com/hc/en-us/articles/27303428331420-Ableton-Extensions-FAQ
 - https://cdm.link/ableton-extensions-beta/ · https://github.com/federico-pepe/ableton-live-extensions
 - AbletonOSC: https://github.com/ideoforms/AbletonOSC
+
+---
+
+## Addendum 2026-08-18 — the OSC clip bug is gone; Plane 2 grew a generic LOM plane
+
+_Measured on Isaac's Mac, Live 12.4.5b5, AbletonOSC at upstream `0ca6821` + local edits. The
+history above is left as written; this note records what changed since 2026-06-23._
+
+- **The clip-layer bug described in Plane 2 no longer reproduces.** `/live/clip_slot/create_clip`
+  → `/live/clip/add/notes` → `/live/clip/get/notes` all reply, and the read-back matches what was
+  sent exactly. The autonomous OSC authoring path (`create_track` → generate → `add/notes` →
+  `fire` → `play`) is unblocked. The "verify by read-back" lesson stays: kbot's `ableton_clip create`
+  and `ableton_midi add` are now gated on a read-back before they report success.
+- **Plane 2 now has two layers.** Stock AbletonOSC addresses (`/live/song/*`, `/live/track/*`,
+  `/live/clip/*`, ...) as before, plus `kbot_ext.py`, one module registered as an AbletonOSC handler
+  that exposes the **whole Live Object Model generically** — `/live/kbot/lom/get|set|call|describe|children
+  <path> ...` with Max-LiveAPI-style 0-based paths — and typed ops (browser search/load/preview/presets,
+  track/device/rack/drum-pad structure, arrangement clips, note set/add/remove, clip automation,
+  undo groups, `Song.get_data/set_data`, dialog buttons). Every mutating handler returns a JSON
+  read-back. Hot-reloadable with `/live/api/reload`. kbot side: `ableton_lom`, `ableton_browser`
+  and the structure actions in `packages/kbot/src/tools/ableton-lom.ts`.
+- **What this changes in the rule of thumb.** "Write notes / transform the Set" no longer needs
+  the Extensions SDK when an agent is driving: Plane 2 does it with an undo group
+  (`Song.begin_undo_step` / `end_undo_step`, both present in the 12.4.5 LOM). The SDK remains the
+  right plane when a human is at the keyboard and wants a native command.
+- **A fourth plane is named: UI automation** (peekaboo / computer-use) for what the LOM cannot do —
+  freeze/flatten, export, save/open, preferences, plugin GUIs. Documented, not built.
+- **Still true / newly measured:** AbletonBridge (TCP 9001) is not running and is superseded;
+  the March `/live/kbot/*` handlers (`kbot_bridge.py`) were never installed in the loaded AbletonOSC;
+  `/live/master/*` does not exist; only one process can bind UDP 11001, so Live probing is serialized.
+- **Where to read next:** operator manual [`docs/ableton/CONTROL.md`](../../docs/ableton/CONTROL.md)
+  (planes, ports, install/reload, path grammar, read-back rule, `/live/exec` caveats, promote loop,
+  UI-only list) and the generated member-by-member matrix
+  [`docs/ableton/lom-coverage.md`](../../docs/ableton/lom-coverage.md) (from
+  `docs/ableton/lom-dump-12.4.5b5.json`, regenerate with `node tools/ableton/gen-coverage.mjs`).
+  Design contract: `docs/superpowers/specs/2026-08-18-ableton-full-control-design.md`.

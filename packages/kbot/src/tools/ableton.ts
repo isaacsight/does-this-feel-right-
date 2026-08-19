@@ -22,8 +22,10 @@
 
 import { registerTool } from './index.js'
 import { execSync } from 'node:child_process'
-import { ensureAbleton, formatAbletonError, type OscArg } from '../integrations/ableton-osc.js'
+import { existsSync } from 'node:fs'
+import { ensureAbleton, formatAbletonError, type AbletonOSC, type OscArg } from '../integrations/ableton-osc.js'
 import { tryKc } from '../integrations/ableton.js'
+import { kbotTry, type KbotReply } from './ableton-lom.js'
 import {
   parseProgression,
   parseChordSymbol,
@@ -56,6 +58,144 @@ function userTrack(track: unknown): number {
 
 function displayTrack(oscIndex: number): number {
   return oscIndex + 1
+}
+
+// ── Read-back helpers ───────────────────────────────────────────────────────
+// AbletonOSC replies to /live/clip/... and /live/clip_slot/... queries with
+// (track_index, clip_index, *values) — payload starts at index 2.
+
+export interface OscNote { pitch: number; start: number; duration: number; velocity: number; mute: number }
+
+/** Parse a /live/clip/get/notes reply: (track, clip, [pitch, start, duration, velocity, mute]*). */
+export function parseOscNotes(raw: (number | string)[]): OscNote[] {
+  const out: OscNote[] = []
+  for (let i = 2; i + 4 < raw.length; i += 5) {
+    out.push({
+      pitch: Number(raw[i]),
+      start: Number(raw[i + 1]),
+      duration: Number(raw[i + 2]),
+      velocity: Number(raw[i + 3]),
+      mute: Number(raw[i + 4]),
+    })
+  }
+  return out
+}
+
+/** Count how many of `wanted` notes are present in `actual` (pitch exact, start/duration within 1e-3). */
+export function countMatchedNotes(wanted: MidiNote[], actual: OscNote[]): number {
+  const pool = actual.slice()
+  let matched = 0
+  for (const w of wanted) {
+    const idx = pool.findIndex(a =>
+      a.pitch === w.pitch &&
+      Math.abs(a.start - w.start) < 1e-3 &&
+      Math.abs(a.duration - w.duration) < 1e-3,
+    )
+    if (idx !== -1) {
+      pool.splice(idx, 1)
+      matched++
+    }
+  }
+  return matched
+}
+
+export interface ClipSlotReadBack {
+  hasClip: boolean | null
+  name?: string
+  length?: number
+  error?: string
+  text: string
+}
+
+/** Read /live/clip_slot/get/has_clip (+ name/length when present) and render a one-line verdict. */
+export async function readBackClipSlot(osc: AbletonOSC, t: number, c: number): Promise<ClipSlotReadBack> {
+  try {
+    const hasClipReply = await osc.query('/live/clip_slot/get/has_clip', t, c)
+    const hasClip = Boolean(extractArgs(hasClipReply)[2])
+    if (!hasClip) {
+      return {
+        hasClip: false,
+        text: `NOT confirmed: Live reports slot ${c + 1} on track ${displayTrack(t)} has no clip (has_clip = false). Nothing was created — check the track type and that the slot was empty.`,
+      }
+    }
+    let name: string | undefined
+    let length: number | undefined
+    try {
+      const nameReply = await osc.query('/live/clip/get/name', t, c)
+      name = String(extractArgs(nameReply)[2] ?? '')
+      const lengthReply = await osc.query('/live/clip/get/length', t, c)
+      length = Number(extractArgs(lengthReply)[2])
+    } catch {
+      // has_clip is the gate; name/length are best-effort detail
+    }
+    const detail = [name !== undefined ? `name "${name}"` : null, length !== undefined && Number.isFinite(length) ? `length ${length} beats` : null].filter(Boolean).join(', ')
+    return {
+      hasClip: true,
+      name,
+      length,
+      text: `Read-back confirmed: slot ${c + 1} on track ${displayTrack(t)} has a clip${detail ? ` (${detail})` : ''}.`,
+    }
+  } catch (err) {
+    const msg = (err as Error).message
+    return { hasClip: null, error: msg, text: `Read-back FAILED (${msg}). Clip state unknown — verify in Live.` }
+  }
+}
+
+/** Same as readBackClipSlot but obtains the OSC client itself and never throws. */
+async function readBackClipSlotSafe(t: number, c: number): Promise<ClipSlotReadBack> {
+  try {
+    const osc = await ensureAbleton()
+    return await readBackClipSlot(osc, t, c)
+  } catch (err) {
+    const msg = (err as Error).message.split('\n')[0]
+    return { hasClip: null, error: msg, text: `Read-back unavailable (AbletonOSC not reachable: ${msg}). Clip state unknown.` }
+  }
+}
+
+/** Pull a numeric field out of a kbot reply by key (lom/get answers {ok, value}). Never guesses another field. */
+export function replyNumber(reply: KbotReply, keys: string[] = ['value', 'result']): number | null {
+  for (const k of keys) {
+    const v = reply[k]
+    if (typeof v === 'number' && Number.isFinite(v)) return v
+    if (typeof v === 'string' && v.trim() !== '' && Number.isFinite(Number(v))) return Number(v)
+  }
+  return null
+}
+
+/**
+ * Interpret the `index` of a /live/kbot/track/create reply: a number for regular tracks,
+ * "return:N" for return tracks. Returns null when the reply carries neither.
+ */
+export function parseCreatedTrackIndex(reply: KbotReply): { kind: 'track' | 'return'; index: number } | null {
+  const raw = reply.index
+  if (typeof raw === 'number' && Number.isFinite(raw)) return { kind: 'track', index: raw }
+  if (typeof raw === 'string') {
+    const m = /^return:(\d+)$/.exec(raw.trim())
+    if (m) return { kind: 'return', index: Number(m[1]) }
+    if (raw.trim() !== '' && Number.isFinite(Number(raw))) return { kind: 'track', index: Number(raw) }
+  }
+  return null
+}
+
+/**
+ * Load a sample onto a Drum Rack pad through the kbot handlers.
+ * - absolute file path that exists on disk -> /live/kbot/drum/build_pad "tracks T devices 0" note path
+ * - anything else (search term / browser URI)  -> /live/kbot/browser/load <term> pad:T:note
+ * Returns Live's reply; never throws.
+ */
+export async function loadSampleToPad(t: number, note: number, sample: string): Promise<{ ok: boolean; via: string; reply: KbotReply }> {
+  const isPath = sample.startsWith('/') && existsSync(sample)
+  if (isPath) {
+    // Track path: kbot_ext locates the Drum Rack wherever it sits in the chain (a MIDI
+    // effect in front of it must not break the build).
+    const reply = await kbotTry('drum/build_pad', `tracks ${t}`, note, sample)
+    return { ok: reply.ok, via: 'drum/build_pad', reply }
+  }
+  // Restrict the browser walk to sample roots: in "all" the instruments root wins
+  // ("Snare" -> the Drum Sampler preset "DS Snare", measured 2026-08-18), which is
+  // not a sample. User Library first so the user's own kits beat the Core Library.
+  const reply = await kbotTry('browser/load', sample, `pad:${t}:${note}`, 'user_library,user_folders,samples')
+  return { ok: reply.ok, via: 'browser/load', reply }
 }
 
 // ── Tool Registration ───────────────────────────────────────────────────────
@@ -368,7 +508,7 @@ export function registerAbletonTools(): void {
       value: { type: 'string', description: 'For "set" action: the value to assign.' },
     },
     tier: 'free',
-    timeout: 10_000,
+    timeout: 20_000, // create = send + 200 ms + up to three 3 s read-back queries
     async execute(args) {
       const action = String(args.action).toLowerCase()
       const t = userTrack(args.track)
@@ -390,7 +530,10 @@ export function registerAbletonTools(): void {
         const length = Number(args.length) || 16
         const name = String(args.name || `Clip ${c + 1}`)
         const kc = await tryKc<unknown>('clip.create', { track: t, slot: c, length, name })
-        if (kc !== undefined) return `Created clip **${name}** (${length} beats / ${length / 4} bars) on track ${args.track}, slot ${c + 1} (via kbot-control)`
+        if (kc !== undefined) {
+          const rb = await readBackClipSlotSafe(t, c)
+          return `Sent create clip **${name}** (${length} beats / ${length / 4} bars) on track ${args.track}, slot ${c + 1} (via kbot-control)\n${rb.text}`
+        }
       }
       if (action === 'info') {
         const kc = await tryKc<Record<string, unknown>>('clip.get_state', { track: t, slot: c })
@@ -433,7 +576,9 @@ export function registerAbletonTools(): void {
             // Small delay for clip creation
             await new Promise(r => setTimeout(r, 200))
             osc.send('/live/clip/set/name', t, c, name)
-            return `Created clip **${name}** (${length} beats / ${length / 4} bars) on track ${args.track}, slot ${(c + 1)}`
+            const rb = await readBackClipSlot(osc, t, c)
+            const verb = rb.hasClip === true ? 'Created' : 'Sent create for'
+            return `${verb} clip **${name}** (${length} beats / ${length / 4} bars) on track ${args.track}, slot ${(c + 1)}\n${rb.text}`
           }
 
           case 'delete':
@@ -584,16 +729,12 @@ export function registerAbletonTools(): void {
 
         if (action === 'read') {
           const notes = await osc.query('/live/clip/get/notes', t, c)
-          const rawArgs = extractArgs(notes)
-          if (rawArgs.length < 5) return 'No notes in this clip'
+          const parsedNotes = parseOscNotes(extractArgs(notes))
+          if (parsedNotes.length === 0) return 'No notes in this clip'
           const lines: string[] = ['## MIDI Notes', '', '| Pitch | Note | Start | Duration | Velocity |', '|-------|------|-------|----------|----------|']
-          // Notes come as: count, then groups of 5 (pitch, start, duration, velocity, mute)
-          for (let i = 1; i + 4 < rawArgs.length; i += 5) {
-            const pitch = Number(rawArgs[i])
-            const start = Number(rawArgs[i + 1])
-            const dur = Number(rawArgs[i + 2])
-            const vel = Number(rawArgs[i + 3])
-            lines.push(`| ${pitch} | ${midiToNoteName(pitch)} | ${start.toFixed(2)} | ${dur.toFixed(2)} | ${vel} |`)
+          // Reply is (track, clip, then groups of 5: pitch, start, duration, velocity, mute)
+          for (const n of parsedNotes) {
+            lines.push(`| ${n.pitch} | ${midiToNoteName(n.pitch)} | ${n.start.toFixed(2)} | ${n.duration.toFixed(2)} | ${n.velocity} |`)
           }
           return lines.join('\n')
         }
@@ -642,7 +783,25 @@ export function registerAbletonTools(): void {
 
         const noteList = midiNotes.slice(0, 10).map(n => `${midiToNoteName(n.pitch)} at beat ${n.start}`).join(', ')
         const extra = midiNotes.length > 10 ? ` + ${midiNotes.length - 10} more` : ''
-        return `Wrote **${midiNotes.length} notes** to track ${args.track}, clip ${c + 1}: ${noteList}${extra}`
+
+        // Read back: /live/clip/get/notes and check every note we sent is present.
+        let readback: string
+        let confirmed = false
+        try {
+          await new Promise(r => setTimeout(r, 150))
+          const after = await osc.query('/live/clip/get/notes', t, c)
+          const actual = parseOscNotes(extractArgs(after))
+          const matched = countMatchedNotes(midiNotes, actual)
+          if (matched === midiNotes.length) {
+            confirmed = true
+            readback = `Read-back confirmed: all ${matched} notes present (clip now holds ${actual.length} notes).`
+          } else {
+            readback = `NOT confirmed: read-back found ${matched} of ${midiNotes.length} written notes (clip holds ${actual.length} notes). Some notes may have been rejected (out-of-range pitch/time?).`
+          }
+        } catch (err) {
+          readback = `Read-back FAILED (${(err as Error).message}). Notes may or may not have been written — verify in Live (does the slot hold a MIDI clip?).`
+        }
+        return `${confirmed ? 'Wrote' : 'Sent'} **${midiNotes.length} notes** to track ${args.track}, clip ${c + 1}: ${noteList}${extra}\n${readback}`
       } catch (err) {
         return `Ableton connection failed: ${(err as Error).message}\n\n${formatAbletonError()}`
       }
@@ -1127,25 +1286,24 @@ return "ok"
     parameters: {
       track: { type: 'number', description: 'Track number with Drum Rack (1-based)', required: true },
       pad: { type: 'number', description: 'MIDI note for the pad: 36=C1(kick), 37=C#1, 38=D1(snare), 39=Eb1(clap), 40=E1, 41=F1, 42=F#1(hihat), 43=G1, 44=Ab1, 45=A1, 46=Bb1(open hat)', required: true },
-      sample: { type: 'string', description: 'Sample filename to search for (e.g. "kick_808", "snare", "hihat")', required: true },
+      sample: { type: 'string', description: 'Sample filename to search for (e.g. "kick_808", "snare", "hihat"), or an absolute path to a sample file on disk', required: true },
     },
     tier: 'free',
-    timeout: 10_000,
+    timeout: 45_000, // browser/load + drum/build_pad handlers may take up to 20 s each
     async execute(args) {
       const t = userTrack(args.track)
       const pad = Number(args.pad)
       const sample = String(args.sample)
 
       try {
-        const osc = await ensureAbleton()
-        const result = await osc.query('/live/kbot/load_sample_file', t, pad, sample)
-        const status = extractArgs(result)
+        await ensureAbleton()
+        const result = await loadSampleToPad(t, pad, sample)
 
-        if (status[0] === 'ok') {
+        if (result.ok) {
           const noteNames: Record<number, string> = { 36: 'C1', 37: 'C#1', 38: 'D1', 39: 'Eb1', 40: 'E1', 41: 'F1', 42: 'F#1', 43: 'G1', 44: 'Ab1', 45: 'A1', 46: 'Bb1' }
-          return `Loaded **${status[1]}** onto pad ${noteNames[pad] || pad} (track ${args.track})`
+          return `Loaded onto pad ${noteNames[pad] || pad} (track ${args.track}) via /live/kbot/${result.via}. Live read-back:\n${JSON.stringify(result.reply, null, 2)}`
         }
-        return `Could not load "${sample}": ${status.join(', ')}`
+        return `Could not load "${sample}" via /live/kbot/${result.via}: ${result.reply.error ?? JSON.stringify(result.reply)}`
       } catch (err) {
         return `Ableton connection failed: ${(err as Error).message}\n\n${formatAbletonError()}`
       }
@@ -1167,7 +1325,7 @@ return "ok"
       bars: { type: 'number', description: 'Number of bars (default: 16)' },
     },
     tier: 'free',
-    timeout: 30_000,
+    timeout: 120_000, // four sequential browser loads (up to 20 s each) + clip + notes
     async execute(args) {
       const t = userTrack(args.track)
       const bars = Number(args.bars) || 16
@@ -1189,9 +1347,11 @@ return "ok"
         for (const pad of padMap) {
           if (pad.search && pad.search !== 'undefined') {
             try {
-              const result = await osc.query('/live/kbot/load_sample_file', t, pad.note, pad.search)
-              const status = extractArgs(result)
-              lines.push(`- ${pad.name} (${pad.note}): ${status[0] === 'ok' ? '✓ ' + status[1] : '✗ ' + status.join(', ')}`)
+              const result = await loadSampleToPad(t, pad.note, pad.search)
+              const label = result.ok
+                ? String((result.reply as Record<string, unknown>).name ?? (result.reply as Record<string, unknown>).sample ?? pad.search)
+                : String(result.reply.error ?? 'unknown error')
+              lines.push(`- ${pad.name} (${pad.note}): ${result.ok ? '✓ ' + label : '✗ ' + label} [${result.via}]`)
             } catch {
               lines.push(`- ${pad.name}: failed to load`)
             }
@@ -1260,36 +1420,56 @@ return "ok"
       manufacturer: { type: 'string', description: 'Optional: plugin manufacturer (e.g. "Xfer Records")' },
     },
     tier: 'free',
-    timeout: 15_000,
+    timeout: 30_000, // track/create (8 s) + native fallback + optional device load
     async execute(args) {
       const trackType = String(args.type || 'midi').toLowerCase()
 
       try {
         const osc = await ensureAbleton()
 
-        // Create the track
-        if (trackType === 'audio') {
-          osc.send('/live/kbot/create_audio_track', -1)
-        } else if (trackType === 'return') {
-          // AbletonOSC native path for return tracks. kbot bridge may not
-          // wrap this, so we use the standard OSC address directly.
-          osc.send('/live/song/create_return_track')
+        // Create the track: /live/kbot/track/create <kind> [index] [name] answers
+        // {ok, index, name} (read-back). Falls back to native AbletonOSC
+        // /live/song/create_*_track when the kbot handler is not loaded.
+        const kind = trackType === 'audio' ? 'audio' : trackType === 'return' ? 'return' : 'midi'
+        const createArgs: (number | string)[] = args.name ? [kind, -1, String(args.name)] : [kind]
+        const created = await kbotTry('track/create', ...createArgs)
+        let newTrackIdx: number
+        let createdVia: string
+        let isReturn = trackType === 'return'
+        if (created.ok) {
+          const parsed = parseCreatedTrackIndex(created)
+          if (parsed === null) {
+            const countResult = await osc.query('/live/song/get/num_tracks')
+            newTrackIdx = Number(extractArgs(countResult)[0]) - 1
+          } else {
+            newTrackIdx = parsed.index
+            isReturn = parsed.kind === 'return'
+          }
+          createdVia = `kbot handler read-back: ${JSON.stringify(created)}`
         } else {
-          osc.send('/live/kbot/create_midi_track', -1)
-        }
-        await new Promise(r => setTimeout(r, 500))
+          if (trackType === 'audio') {
+            osc.send('/live/song/create_audio_track', -1)
+          } else if (trackType === 'return') {
+            osc.send('/live/song/create_return_track')
+          } else {
+            osc.send('/live/song/create_midi_track', -1)
+          }
+          await new Promise(r => setTimeout(r, 500))
 
-        // Get the new track count to find the new track's index
-        const countResult = await osc.query('/live/song/get/num_tracks')
-        const newTrackIdx = Number(extractArgs(countResult)[0]) - 1
+          // Get the new track count to find the new track's index
+          const countResult = await osc.query('/live/song/get/num_tracks')
+          newTrackIdx = Number(extractArgs(countResult)[0]) - 1
 
-        // Name it
-        if (args.name) {
-          osc.send('/live/track/set/name', newTrackIdx, String(args.name))
+          // Name it
+          if (args.name) {
+            osc.send('/live/track/set/name', newTrackIdx, String(args.name))
+          }
+          createdVia = `native AbletonOSC (kbot handler unavailable: ${created.error ?? 'no reply'}); index inferred from num_tracks, not read back`
         }
 
         // Load instrument if specified — try native OSC first, then load_plugin tool handles fallbacks
-        if (args.instrument) {
+        // (return tracks live in song.return_tracks, not song.tracks: a track index would hit the wrong track)
+        if (args.instrument && !isReturn) {
           try {
             const loadResult = await osc.query('/live/track/load/device', newTrackIdx, String(args.instrument))
             const loadStatus = extractArgs(loadResult)
@@ -1302,7 +1482,9 @@ return "ok"
           }
         }
 
-        return `Created ${trackType} track **${args.name || 'Track ' + (newTrackIdx + 1)}**${args.instrument ? ' with ' + args.instrument : ''} (track ${newTrackIdx + 1})`
+        const where = isReturn ? `return track ${String.fromCharCode(65 + Math.min(Math.max(newTrackIdx, 0), 25))} (return index ${newTrackIdx})` : `track ${newTrackIdx + 1}`
+        const withInst = args.instrument ? (isReturn ? ` (instrument "${args.instrument}" NOT loaded: return tracks take audio effects only)` : ' with ' + args.instrument) : ''
+        return `Created ${trackType} track **${args.name || (isReturn ? where : 'Track ' + (newTrackIdx + 1))}**${withInst} (${where})\nVia ${createdVia}`
       } catch (err) {
         return `Ableton connection failed: ${(err as Error).message}\n\n${formatAbletonError()}`
       }
@@ -1706,9 +1888,16 @@ return "ok"
           lines.push('')
         }
 
-        // Always show master output
-        const masterLeft = await readMeter('/live/master/get/output_meter_left')
-        const masterRight = await readMeter('/live/master/get/output_meter_right')
+        // Always show master output. AbletonOSC has no /live/master/* addresses;
+        // read the master track meters through the kbot LOM handler instead.
+        async function readMasterMeter(side: 'left' | 'right'): Promise<number> {
+          const reply = await kbotTry('lom/get', 'master_track', `output_meter_${side}`)
+          if (!reply.ok) return -1
+          const v = replyNumber(reply)
+          return v === null ? -1 : v
+        }
+        const masterLeft = await readMasterMeter('left')
+        const masterRight = await readMasterMeter('right')
 
         lines.push('**Master Output**')
         lines.push(`  Left:  ${meterBar(masterLeft)}`)

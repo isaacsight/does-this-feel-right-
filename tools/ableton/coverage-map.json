@@ -1,0 +1,1538 @@
+{
+ "_meta": {
+  "about": "Coverage map consumed by tools/ableton/gen-coverage.mjs. Keys are '<Class>.<member>' or '<Class>.*' globs; values {via, ref, note?}. via: tool = typed kbot handler (kbot_ext.py + ableton_lom/ableton_browser/ableton_structure), lom = generic ableton_lom get/set/call plane, osc = stock AbletonOSC address (upstream 0ca6821 + local edits, enumerated 2026-08-18 from ~/Music/Ableton/User Library/Remote Scripts/AbletonOSC/abletonosc/*.py), ui = the LOM cannot do it; Live menu path for Plane D, na = constant/record class, not addressed. Anything not listed defaults to via:lom (properties: get/set, methods: call). Exact keys win over globs; classes listed in _inherits fall back to their base class entries.",
+  "sources": {
+   "lom": "docs/ableton/lom-dump-12.4.5b5.json",
+   "spec": "docs/superpowers/specs/2026-08-18-ableton-full-control-design.md",
+   "osc": "AbletonOSC handlers: song.py track.py clip.py clip_slot.py device.py scene.py view.py application.py midimap.py"
+  },
+  "tool_action_naming": "TS action names as shipped in packages/kbot/src/tools/ableton-lom.ts (reconciled 2026-08-18 against the code, not the address): ableton_lom get|set|call|describe|children|exec|snapshot|snapshot_file|list|ping; ableton_browser search|load|preview|stop_preview|presets|load_preset|insert_device; ableton_structure create_track|delete_track|duplicate_track|delete_device|move_device|set_device_active|insert_chain|add_macro|macros|build_pad|clip_notes (op=get|set|add|remove)|quantize|automation|arr_create_clip|arr_dup_from_session|arr_clips|undo_begin|undo_end|data_get|data_set|dialog_press|message. The raw /live/kbot/* handler is named where its arg forms are wider than the TS action (e.g. track/delete return:N, clip/notes/get <clip path>). Refs are written as '<tool> <action> <params>'.",
+  "authored": "2026-08-18",
+  "reconciled": "2026-08-18: refs rewritten to the shipped TS action names; via flipped to lom for members no typed handler actually touches (Application.show_message, Browser.hotswap_target, Browser.colors, Browser.legacy_libraries, BrowserItem.is_selected/source, Chain.delete_device, Clip.clear_envelope, Clip.set_notes, RackDevice.remove_macro, Song.find_device_position); Clip.add_new_notes / remove_notes_extended stay osc (stock address verified) with the clip_notes op=add|remove path named in the note."
+ },
+ "_inherits": {
+  "RackDevice": "Device",
+  "SimplerDevice": "Device",
+  "PluginDevice": "Device",
+  "MaxDevice": "Device",
+  "CompressorDevice": "Device",
+  "Eq8Device": "Device",
+  "WavetableDevice": "Device",
+  "HybridReverbDevice": "Device",
+  "SpectralResonatorDevice": "Device",
+  "DriftDevice": "Device",
+  "MeldDevice": "Device",
+  "RoarDevice": "Device",
+  "ShifterDevice": "Device",
+  "DrumChain": "Chain"
+ },
+ "Application.ControlDescription.*": {
+  "via": "na",
+  "ref": "control-surface descriptor record"
+ },
+ "Application.ControlDescriptionVector.*": {
+  "via": "na",
+  "ref": "value/vector class \u2014 ableton_lom returns these as JSON arrays/objects; not addressed directly"
+ },
+ "Application.ControlSurfaceProxy.*": {
+  "via": "lom",
+  "ref": "ableton_lom describe `app control_surfaces N`",
+  "note": "AbletonOSC / KBotBridge proxies"
+ },
+ "Application.MessageButtons.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Application.PushDialogType.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Application.UnavailableFeature.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Application.UnavailableFeatureVector.*": {
+  "via": "na",
+  "ref": "value/vector class \u2014 ableton_lom returns these as JSON arrays/objects; not addressed directly"
+ },
+ "Application.Variants.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Application.View.focus_view": {
+  "via": "lom",
+  "ref": "ableton_lom call `app view` focus_view [\"Session\"]"
+ },
+ "Application.View.scroll_view": {
+  "via": "lom",
+  "ref": "ableton_lom call `app view` scroll_view [direction, \"Arranger\", modifier]"
+ },
+ "Application.View.show_view": {
+  "via": "lom",
+  "ref": "ableton_lom call `app view` show_view [\"Detail/Clip\"]",
+  "note": "views: Browser, Arranger, Session, Detail, Detail/Clip, Detail/DeviceChain"
+ },
+ "Application.View.zoom_view": {
+  "via": "lom",
+  "ref": "ableton_lom call `app view` zoom_view [direction, \"Arranger\", modifier]"
+ },
+ "Application.average_process_usage": {
+  "via": "osc",
+  "ref": "/live/application/get/average_process_usage"
+ },
+ "Application.browser": {
+  "via": "tool",
+  "ref": "ableton_browser search|load|preview|stop_preview|presets|load_preset|insert_device",
+  "note": "or ableton_lom describe `app browser`"
+ },
+ "Application.control_surfaces": {
+  "via": "lom",
+  "ref": "ableton_lom get app control_surfaces",
+  "note": "AbletonOSC + KBotBridge appear here"
+ },
+ "Application.current_dialog_button_count": {
+  "via": "tool",
+  "ref": "ableton_structure dialog_press index=N (read-back button_count) \u00b7 ableton_lom get app current_dialog_button_count",
+  "note": "raw handler /live/kbot/app/dialog info reads without pressing (verified 2026-08-18: open_dialog_count 0)"
+ },
+ "Application.current_dialog_message": {
+  "via": "tool",
+  "ref": "ableton_structure dialog_press index=N (read-back message) \u00b7 ableton_lom get app current_dialog_message",
+  "note": "raw handler /live/kbot/app/dialog info reads without pressing"
+ },
+ "Application.get_document": {
+  "via": "lom",
+  "ref": "ableton_lom call app get_document (returns the Song)"
+ },
+ "Application.get_major_version": {
+  "via": "osc",
+  "ref": "/live/application/get/version",
+  "note": "returns (major, minor)"
+ },
+ "Application.get_minor_version": {
+  "via": "osc",
+  "ref": "/live/application/get/version"
+ },
+ "Application.open_dialog_count": {
+  "via": "tool",
+  "ref": "ableton_structure dialog_press index=N (read-back open_dialog_count / open_dialog_count_after) \u00b7 ableton_lom get app open_dialog_count",
+  "note": "raw handler /live/kbot/app/dialog info reads without pressing"
+ },
+ "Application.press_current_dialog_button": {
+  "via": "tool",
+  "ref": "ableton_structure dialog_press index=N",
+  "note": "read-back = open_dialog_count_after + current message; press path unit-tested against the fake only (no dialog was open during the 2026-08-18 Live run)"
+ },
+ "Application.show_message": {
+  "via": "lom",
+  "ref": "ableton_lom call app show_message [\"text\"] -- WARNING: in 12.4.5 this is a MODAL message box (blocks Live until a button is pressed; measured 2026-08-18, VERIFICATION bug G). For a status-bar message use ableton_structure message text=<text> (ControlSurface.show_message via the AbletonOSC manager) or stock /live/api/show_message <text>",
+  "note": "the kbot handler /live/kbot/app/message deliberately does NOT call this member"
+ },
+ "Browser.BrowserItem.children": {
+  "via": "tool",
+  "ref": "ableton_browser search (recursion)",
+  "note": "search walks BrowserItem.children (Vector); iter_children only as fallback. Or ableton_lom children `app browser instruments`"
+ },
+ "Browser.BrowserItem.is_device": {
+  "via": "tool",
+  "ref": "ableton_browser search (result field)",
+  "note": "uri is what ableton_browser load takes"
+ },
+ "Browser.BrowserItem.is_folder": {
+  "via": "tool",
+  "ref": "ableton_browser search (result field)",
+  "note": "result field of ableton_browser search; uri is what ableton_browser load takes"
+ },
+ "Browser.BrowserItem.is_loadable": {
+  "via": "tool",
+  "ref": "ableton_browser search (result field)",
+  "note": "uri is what ableton_browser load takes"
+ },
+ "Browser.BrowserItem.is_selected": {
+  "via": "lom",
+  "ref": "ableton_lom describe `app browser instruments` (member) \u00b7 get <item path> is_selected",
+  "note": "not part of the ableton_browser search result (fields: name, uri, is_loadable, is_device, is_folder, category, path)"
+ },
+ "Browser.BrowserItem.iter_children": {
+  "via": "tool",
+  "ref": "ableton_browser search (fallback when .children is missing)"
+ },
+ "Browser.BrowserItem.name": {
+  "via": "tool",
+  "ref": "ableton_browser search (result field)",
+  "note": "uri is what ableton_browser load takes"
+ },
+ "Browser.BrowserItem.source": {
+  "via": "lom",
+  "ref": "ableton_lom get <item path> source",
+  "note": "not part of the ableton_browser search result (fields: name, uri, is_loadable, is_device, is_folder, category, path)"
+ },
+ "Browser.BrowserItem.uri": {
+  "via": "tool",
+  "ref": "ableton_browser search (result field)",
+  "note": "uri is what ableton_browser load takes"
+ },
+ "Browser.BrowserItemVector.*": {
+  "via": "na",
+  "ref": "value/vector class \u2014 ableton_lom returns these as JSON arrays/objects; not addressed directly"
+ },
+ "Browser.FilterType.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Browser.Relation.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Browser.audio_effects": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=audio_effects [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.clips": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=clips [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.colors": {
+  "via": "lom",
+  "ref": "ableton_lom get `app browser` colors (BrowserItemVector) \u00b7 describe `app browser`",
+  "note": "not a browser/search category (handler categories: instruments, audio_effects, midi_effects, drums, sounds, samples, max_for_live, plugins, user_library, packs, clips, current_project, user_folders, devices, all)"
+ },
+ "Browser.current_project": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=current_project [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.drums": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=drums [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.filter_type": {
+  "via": "lom",
+  "ref": "ableton_lom get/set `app browser` filter_type",
+  "note": "Browser.FilterType int"
+ },
+ "Browser.hotswap_target": {
+  "via": "lom",
+  "ref": "ableton_lom get `app browser` hotswap_target",
+  "note": "no typed handler reads it (ableton_browser presets returns presets:[] + reason for non-PluginDevices; it does not fall back to hotswap children)"
+ },
+ "Browser.instruments": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=instruments [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.legacy_libraries": {
+  "via": "lom",
+  "ref": "ableton_lom get `app browser` legacy_libraries (BrowserItemVector) \u00b7 describe `app browser`",
+  "note": "not a browser/search category (see Browser.colors)"
+ },
+ "Browser.load_item": {
+  "via": "tool",
+  "ref": "ableton_browser load item=<uri|name> target=track:N|pad:N:note|chain:<path>|return:N|master|selected",
+  "note": "read-back = device list / pad chains of the target; raw handler browser/load takes an optional 3rd arg [category]; stock-ish OSC alternative: /live/track/load/device (local edit, not upstream)"
+ },
+ "Browser.max_for_live": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=max_for_live [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.midi_effects": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=midi_effects [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.packs": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=packs [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.plugins": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=plugins [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.preview_item": {
+  "via": "tool",
+  "ref": "ableton_browser preview item=<uri|name>",
+  "note": "no LOM read-back exists for preview state; reply echoes the item (verified 2026-08-18)"
+ },
+ "Browser.relation_to_hotswap_target": {
+  "via": "lom",
+  "ref": "ableton_lom call `app browser` relation_to_hotswap_target [<item>]"
+ },
+ "Browser.samples": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=samples [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.sounds": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=sounds [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.stop_preview": {
+  "via": "tool",
+  "ref": "ableton_browser stop_preview",
+  "note": "reply {stopped:true}; no LOM read-back exists"
+ },
+ "Browser.user_folders": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=user_folders [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Browser.user_library": {
+  "via": "tool",
+  "ref": "ableton_browser search query=<text> category=user_library [limit=N]",
+  "note": "walks this root; returns [{name,uri,is_loadable,is_device,is_folder,category,path}]"
+ },
+ "Chain.delete_device": {
+  "via": "lom",
+  "ref": "ableton_lom call <chain path> delete_device [index]",
+  "note": "the TS ableton_structure delete_device action takes an int track only; the raw handler /live/kbot/device/delete accepts a chain path as its first arg but that form was not exercised against Live"
+ },
+ "Chain.insert_device": {
+  "via": "tool",
+  "ref": "ableton_browser load item=<device name> target=chain:<chain path>",
+  "note": "handler tries chain.insert_device(name) first, falls back to select chain + browser.load_item (verified 2026-08-18: Compressor into a drum chain, method chain.insert_device)"
+ },
+ "Clip.ClipLaunchQuantization.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Clip.GridQuantization.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Clip.LaunchMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Clip.MidiNote.*": {
+  "via": "na",
+  "ref": "note record \u2014 fields of the JSON that clip_notes op=get returns / op=add|set takes"
+ },
+ "Clip.MidiNoteVector.*": {
+  "via": "na",
+  "ref": "value/vector class \u2014 ableton_lom returns these as JSON arrays/objects; not addressed directly"
+ },
+ "Clip.WarpMarker.*": {
+  "via": "na",
+  "ref": "warp-marker record \u2014 returned as JSON by ableton_lom get <clip path> warp_markers"
+ },
+ "Clip.WarpMarkerVector.*": {
+  "via": "na",
+  "ref": "value/vector class \u2014 ableton_lom returns these as JSON arrays/objects; not addressed directly"
+ },
+ "Clip.WarpMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Clip.add_new_notes": {
+  "via": "osc",
+  "ref": "/live/clip/add/notes <track> <slot> pitch start dur vel mute ...",
+  "note": "kbot: ableton_midi add (stock OSC); ableton_structure clip_notes op=add track=N slot=S value=<json notes> calls the same member with JSON read-back. Both verified 2026-08-18"
+ },
+ "Clip.automation_envelope": {
+  "via": "tool",
+  "ref": "ableton_structure automation path=<clip path> param_path=<param path> value=<points> (read side of the same handler)",
+  "note": "read side of the same handler"
+ },
+ "Clip.clear_all_envelopes": {
+  "via": "lom",
+  "ref": "ableton_lom call <clip path> clear_all_envelopes"
+ },
+ "Clip.clear_envelope": {
+  "via": "lom",
+  "ref": "ableton_lom call <clip path> clear_envelope [{\"_path\":\"<param path>\"}]",
+  "note": "verified 2026-08-18 (result null). No typed handler clears an envelope: ableton_structure automation with an empty point list creates the envelope if missing and writes nothing -- it does NOT clear"
+ },
+ "Clip.color": {
+  "via": "osc",
+  "ref": "/live/clip/get/color <track> <slot> \u00b7 /live/clip/set/color <track> <slot> <v>"
+ },
+ "Clip.color_index": {
+  "via": "osc",
+  "ref": "/live/clip/get/color_index <track> <slot> \u00b7 /live/clip/set/color_index <track> <slot> <v>"
+ },
+ "Clip.create_automation_envelope": {
+  "via": "tool",
+  "ref": "ableton_structure automation path=<clip path> param_path=<param path> value=[[time,len,value]...]",
+  "note": "creates the envelope on demand, then insert_step; read-back = envelope value_at_time at each step midpoint, values in the parameter's own units (verified 2026-08-18)"
+ },
+ "Clip.duplicate_loop": {
+  "via": "osc",
+  "ref": "/live/clip/duplicate_loop <track> <slot>"
+ },
+ "Clip.end_marker": {
+  "via": "osc",
+  "ref": "/live/clip/get/end_marker <track> <slot> \u00b7 /live/clip/set/end_marker <track> <slot> <v>"
+ },
+ "Clip.end_time": {
+  "via": "osc",
+  "ref": "/live/clip/get/end_time <track> <slot> \u00b7 /live/clip/start_listen/end_time"
+ },
+ "Clip.file_path": {
+  "via": "osc",
+  "ref": "/live/clip/get/file_path <track> <slot> \u00b7 /live/clip/start_listen/file_path"
+ },
+ "Clip.fire": {
+  "via": "osc",
+  "ref": "/live/clip/fire <track> <slot>",
+  "note": "kbot: ableton_clip fire"
+ },
+ "Clip.gain": {
+  "via": "osc",
+  "ref": "/live/clip/get/gain <track> <slot> \u00b7 /live/clip/set/gain <track> <slot> <v>"
+ },
+ "Clip.gain_display_string": {
+  "via": "osc",
+  "ref": "/live/clip/get/gain_display_string <track> <slot> \u00b7 /live/clip/start_listen/gain_display_string"
+ },
+ "Clip.get_all_notes_extended": {
+  "via": "tool",
+  "ref": "ableton_structure clip_notes op=get track=N slot=S",
+  "note": "returns [{pitch,start,duration,velocity,mute,probability,velocity_deviation,release_velocity,note_id}]; raw handler /live/kbot/clip/notes/get also takes a <clip path> (verified on a session clip 2026-08-18)"
+ },
+ "Clip.get_notes_extended": {
+  "via": "osc",
+  "ref": "/live/clip/get/notes <track> <slot> [pitch_from pitch_count time_from time_count]",
+  "note": "kbot: ableton_midi read (session clip). clip_notes op=get uses get_all_notes_extended and falls back to this. Verified 2026-08-18: read-back exact"
+ },
+ "Clip.has_groove": {
+  "via": "osc",
+  "ref": "/live/clip/get/has_groove <track> <slot> \u00b7 /live/clip/start_listen/has_groove"
+ },
+ "Clip.is_audio_clip": {
+  "via": "osc",
+  "ref": "/live/clip/get/is_audio_clip <track> <slot> \u00b7 /live/clip/start_listen/is_audio_clip"
+ },
+ "Clip.is_midi_clip": {
+  "via": "osc",
+  "ref": "/live/clip/get/is_midi_clip <track> <slot> \u00b7 /live/clip/start_listen/is_midi_clip"
+ },
+ "Clip.is_overdubbing": {
+  "via": "osc",
+  "ref": "/live/clip/get/is_overdubbing <track> <slot> \u00b7 /live/clip/start_listen/is_overdubbing"
+ },
+ "Clip.is_playing": {
+  "via": "osc",
+  "ref": "/live/clip/get/is_playing <track> <slot> \u00b7 /live/clip/start_listen/is_playing"
+ },
+ "Clip.is_recording": {
+  "via": "osc",
+  "ref": "/live/clip/get/is_recording <track> <slot> \u00b7 /live/clip/start_listen/is_recording"
+ },
+ "Clip.is_triggered": {
+  "via": "osc",
+  "ref": "/live/clip/get/is_triggered <track> <slot> \u00b7 /live/clip/start_listen/is_triggered"
+ },
+ "Clip.launch_mode": {
+  "via": "osc",
+  "ref": "/live/clip/get/launch_mode <track> <slot> \u00b7 /live/clip/set/launch_mode <track> <slot> <v>"
+ },
+ "Clip.launch_quantization": {
+  "via": "osc",
+  "ref": "/live/clip/get/launch_quantization <track> <slot> \u00b7 /live/clip/set/launch_quantization <track> <slot> <v>"
+ },
+ "Clip.legato": {
+  "via": "osc",
+  "ref": "/live/clip/get/legato <track> <slot> \u00b7 /live/clip/set/legato <track> <slot> <v>"
+ },
+ "Clip.length": {
+  "via": "osc",
+  "ref": "/live/clip/get/length <track> <slot> \u00b7 /live/clip/start_listen/length",
+  "note": "kbot: ableton_clip info"
+ },
+ "Clip.loop_end": {
+  "via": "osc",
+  "ref": "/live/clip/get/loop_end <track> <slot> \u00b7 /live/clip/set/loop_end <track> <slot> <v>"
+ },
+ "Clip.loop_start": {
+  "via": "osc",
+  "ref": "/live/clip/get/loop_start <track> <slot> \u00b7 /live/clip/set/loop_start <track> <slot> <v>"
+ },
+ "Clip.looping": {
+  "via": "osc",
+  "ref": "/live/clip/get/looping <track> <slot> \u00b7 /live/clip/set/looping <track> <slot> <v>",
+  "note": "kbot: ableton_clip info/set"
+ },
+ "Clip.muted": {
+  "via": "osc",
+  "ref": "/live/clip/get/muted <track> <slot> \u00b7 /live/clip/set/muted <track> <slot> <v>"
+ },
+ "Clip.name": {
+  "via": "osc",
+  "ref": "/live/clip/get/name <track> <slot> \u00b7 /live/clip/set/name <track> <slot> <v>",
+  "note": "kbot: ableton_clip info/set name"
+ },
+ "Clip.pitch_coarse": {
+  "via": "osc",
+  "ref": "/live/clip/get/pitch_coarse <track> <slot> \u00b7 /live/clip/set/pitch_coarse <track> <slot> <v>"
+ },
+ "Clip.pitch_fine": {
+  "via": "osc",
+  "ref": "/live/clip/get/pitch_fine <track> <slot> \u00b7 /live/clip/set/pitch_fine <track> <slot> <v>"
+ },
+ "Clip.playing_position": {
+  "via": "osc",
+  "ref": "/live/clip/get/playing_position <track> <slot> \u00b7 /live/clip/start_listen/playing_position"
+ },
+ "Clip.position": {
+  "via": "osc",
+  "ref": "/live/clip/get/position <track> <slot> \u00b7 /live/clip/set/position <track> <slot> <v>"
+ },
+ "Clip.quantize": {
+  "via": "tool",
+  "ref": "ableton_structure quantize track=N slot=S grid=<1/16|1/8|1/4|1/2|bar|g_* name> amount=0..1",
+  "note": "quantization grid is a Clip.GridQuantization int (g_bar=4 g_half=5 g_quarter=6 g_eighth=7 g_sixteenth=8, measured); read-back = note count"
+ },
+ "Clip.ram_mode": {
+  "via": "osc",
+  "ref": "/live/clip/get/ram_mode <track> <slot> \u00b7 /live/clip/set/ram_mode <track> <slot> <v>"
+ },
+ "Clip.remove_notes_by_id": {
+  "via": "osc",
+  "ref": "/live/clip/remove_notes_by_id <track> <slot>"
+ },
+ "Clip.remove_notes_extended": {
+  "via": "osc",
+  "ref": "/live/clip/remove/notes <track> <slot> [pitch_from pitch_count time_from time_count]",
+  "note": "kbot: ableton_midi clear (stock OSC); ableton_structure clip_notes op=remove track=N slot=S [value={pitch,pitch_span,start,time_span}] calls the same member (no value = remove all, read-back = remaining notes). Verified 2026-08-18"
+ },
+ "Clip.sample_length": {
+  "via": "osc",
+  "ref": "/live/clip/get/sample_length <track> <slot> \u00b7 /live/clip/start_listen/sample_length"
+ },
+ "Clip.set_notes": {
+  "via": "lom",
+  "ref": "ableton_lom call <clip path> set_notes [...] (deprecated Live API)",
+  "note": "ableton_structure clip_notes op=set replaces all notes with remove_notes_extended + add_new_notes and does not call this member"
+ },
+ "Clip.start_marker": {
+  "via": "osc",
+  "ref": "/live/clip/get/start_marker <track> <slot> \u00b7 /live/clip/set/start_marker <track> <slot> <v>"
+ },
+ "Clip.start_time": {
+  "via": "osc",
+  "ref": "/live/clip/get/start_time <track> <slot> \u00b7 /live/clip/start_listen/start_time"
+ },
+ "Clip.stop": {
+  "via": "osc",
+  "ref": "/live/clip/stop <track> <slot>",
+  "note": "kbot: ableton_clip stop"
+ },
+ "Clip.velocity_amount": {
+  "via": "osc",
+  "ref": "/live/clip/get/velocity_amount <track> <slot> \u00b7 /live/clip/set/velocity_amount <track> <slot> <v>"
+ },
+ "Clip.warp_mode": {
+  "via": "osc",
+  "ref": "/live/clip/get/warp_mode <track> <slot> \u00b7 /live/clip/set/warp_mode <track> <slot> <v>"
+ },
+ "Clip.warping": {
+  "via": "osc",
+  "ref": "/live/clip/get/warping <track> <slot> \u00b7 /live/clip/set/warping <track> <slot> <v>"
+ },
+ "Clip.will_record_on_start": {
+  "via": "osc",
+  "ref": "/live/clip/get/will_record_on_start <track> <slot> \u00b7 /live/clip/start_listen/will_record_on_start"
+ },
+ "ClipSlot.ClipSlotPlayingState.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "ClipSlot.controls_other_clips": {
+  "via": "osc",
+  "ref": "/live/clip_slot/get/controls_other_clips <track> <slot> \u00b7 /live/clip_slot/start_listen/controls_other_clips"
+ },
+ "ClipSlot.create_clip": {
+  "via": "osc",
+  "ref": "/live/clip_slot/create_clip <track> <slot> <length_beats>",
+  "note": "kbot: ableton_clip create (now read-back gated). Verified 2026-08-18: works"
+ },
+ "ClipSlot.delete_clip": {
+  "via": "osc",
+  "ref": "/live/clip_slot/delete_clip <track> <slot>",
+  "note": "kbot: ableton_clip delete"
+ },
+ "ClipSlot.duplicate_clip_to": {
+  "via": "osc",
+  "ref": "/live/clip_slot/duplicate_clip_to <track> <slot> <dst_track> <dst_slot>",
+  "note": "kbot: ableton_clip duplicate"
+ },
+ "ClipSlot.fire": {
+  "via": "osc",
+  "ref": "/live/clip_slot/fire <track> <slot>",
+  "note": "kbot: ableton_clip fire"
+ },
+ "ClipSlot.has_clip": {
+  "via": "osc",
+  "ref": "/live/clip_slot/get/has_clip <track> <slot> \u00b7 /live/clip_slot/start_listen/has_clip",
+  "note": "kbot: ableton_clip info"
+ },
+ "ClipSlot.has_stop_button": {
+  "via": "osc",
+  "ref": "/live/clip_slot/get/has_stop_button \u00b7 /live/clip_slot/set/has_stop_button <track> <slot> <0|1>"
+ },
+ "ClipSlot.is_group_slot": {
+  "via": "osc",
+  "ref": "/live/clip_slot/get/is_group_slot <track> <slot> \u00b7 /live/clip_slot/start_listen/is_group_slot"
+ },
+ "ClipSlot.is_playing": {
+  "via": "osc",
+  "ref": "/live/clip_slot/get/is_playing <track> <slot> \u00b7 /live/clip_slot/start_listen/is_playing"
+ },
+ "ClipSlot.is_triggered": {
+  "via": "osc",
+  "ref": "/live/clip_slot/get/is_triggered <track> <slot> \u00b7 /live/clip_slot/start_listen/is_triggered"
+ },
+ "ClipSlot.playing_status": {
+  "via": "osc",
+  "ref": "/live/clip_slot/get/playing_status <track> <slot> \u00b7 /live/clip_slot/start_listen/playing_status"
+ },
+ "ClipSlot.stop": {
+  "via": "osc",
+  "ref": "/live/clip_slot/stop <track> <slot>",
+  "note": "kbot: ableton_clip stop"
+ },
+ "ClipSlot.will_record_on_start": {
+  "via": "osc",
+  "ref": "/live/clip_slot/get/will_record_on_start <track> <slot> \u00b7 /live/clip_slot/start_listen/will_record_on_start"
+ },
+ "Device.ATimeableValueVector.*": {
+  "via": "na",
+  "ref": "value/vector class \u2014 ableton_lom returns these as JSON arrays/objects; not addressed directly"
+ },
+ "Device.DeviceType.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Device.class_name": {
+  "via": "osc",
+  "ref": "/live/device/get/class_name <track> <device> \u00b7 /live/device/get/type_info (local edit)",
+  "note": "kbot: ableton_device list"
+ },
+ "Device.is_active": {
+  "via": "tool",
+  "ref": "ableton_structure set_device_active track=N device=M active=true|false",
+  "note": "sets parameters[0] (\"Device On\") when present, else Device.is_active; read-back = is_active. NOTE: /live/device/set/enabled (used by ableton_device enable/disable) does not exist in AbletonOSC"
+ },
+ "Device.name": {
+  "via": "osc",
+  "ref": "/live/device/get/name <track> <device>",
+  "note": "kbot: ableton_device list"
+ },
+ "Device.parameters": {
+  "via": "osc",
+  "ref": "/live/device/get/num_parameters \u00b7 /live/device/get/parameters/name|value|min|max|is_quantized <track> <device> \u00b7 /live/device/set/parameters/value <track> <device> <v...>",
+  "note": "kbot: ableton_device params/set; racks/chains only via ableton_lom `... devices M parameters K`"
+ },
+ "Device.type": {
+  "via": "osc",
+  "ref": "/live/device/get/type <track> <device>",
+  "note": "0 undefined, 1 instrument, 2 audio_effect, 4 midi_effect"
+ },
+ "Device.view": {
+  "via": "lom",
+  "ref": "ableton_lom get <device path> view",
+  "note": "Device.View.is_collapsed etc."
+ },
+ "DeviceParameter.AutomationState.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "DeviceParameter.ParameterState.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "DeviceParameter.is_quantized": {
+  "via": "osc",
+  "ref": "/live/device/get/parameters/is_quantized <track> <device>"
+ },
+ "DeviceParameter.max": {
+  "via": "osc",
+  "ref": "/live/device/get/parameters/max <track> <device>"
+ },
+ "DeviceParameter.min": {
+  "via": "osc",
+  "ref": "/live/device/get/parameters/min <track> <device>"
+ },
+ "DeviceParameter.name": {
+  "via": "osc",
+  "ref": "/live/device/get/parameter/name <track> <device> <param>",
+  "note": "kbot: ableton_device params"
+ },
+ "DeviceParameter.str_for_value": {
+  "via": "osc",
+  "ref": "/live/device/get/parameter/value_string <track> <device> <param>"
+ },
+ "DeviceParameter.value": {
+  "via": "osc",
+  "ref": "/live/device/get/parameter/value <track> <device> <param> \u00b7 /live/device/set/parameter/value <track> <device> <param> <v> \u00b7 /live/device/start_listen/parameter/value",
+  "note": "kbot: ableton_device set; ableton_lom set <param path> value <v> for chains/racks/mixer params"
+ },
+ "DrumChain.choke_group": {
+  "via": "lom",
+  "ref": "ableton_lom set <chain path> choke_group <n>"
+ },
+ "DrumChain.in_note": {
+  "via": "tool",
+  "ref": "ableton_structure build_pad path=<rack path> note=N sample=<abs path> [name=...]",
+  "note": "build_pad = insert chain \u2192 Simpler \u2192 replace_sample \u2192 set in_note; also ableton_lom set <chain path> in_note <n>"
+ },
+ "DrumChain.out_note": {
+  "via": "lom",
+  "ref": "ableton_lom set <chain path> out_note <n>"
+ },
+ "DrumPad.chains": {
+  "via": "tool",
+  "ref": "ableton_structure build_pad path=<rack path> note=N sample=<abs path> [name=...] (read-back)"
+ },
+ "DrumPad.name": {
+  "via": "tool",
+  "ref": "ableton_structure build_pad (read-back pad name)"
+ },
+ "Eq8Device.EditMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Eq8Device.GlobalMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Groove.Base.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "MixerDevice.crossfader": {
+  "via": "lom",
+  "ref": "ableton_lom get `master_track mixer_device crossfader` value",
+  "note": "master track only (getter raises elsewhere)"
+ },
+ "MixerDevice.cue_volume": {
+  "via": "lom",
+  "ref": "ableton_lom get `master_track mixer_device cue_volume` value",
+  "note": "master track only"
+ },
+ "MixerDevice.panning": {
+  "via": "osc",
+  "ref": "/live/track/get/panning <track> \u00b7 /live/track/set/panning <track> <-1..1>",
+  "note": "kbot: ableton_track pan"
+ },
+ "MixerDevice.sends": {
+  "via": "osc",
+  "ref": "/live/track/get/send <track> <send> \u00b7 /live/track/set/send <track> <send> <0..1>",
+  "note": "kbot: ableton_mixer send"
+ },
+ "MixerDevice.song_tempo": {
+  "via": "lom",
+  "ref": "ableton_lom get `master_track mixer_device song_tempo` value",
+  "note": "master track only"
+ },
+ "MixerDevice.volume": {
+  "via": "osc",
+  "ref": "/live/track/get/volume <track> \u00b7 /live/track/set/volume <track> <0..1> \u00b7 /live/track/start_listen/volume",
+  "note": "kbot: ableton_track volume / ableton_mixer. Master track: ableton_lom get `master_track mixer_device volume` value (no /live/master/* address exists)"
+ },
+ "PluginDevice.get_parameter_names": {
+  "via": "osc",
+  "ref": "/live/device/get/parameters/name <track> <device> \u00b7 /live/device/configure_all (local edit: force-configure VST3 params)"
+ },
+ "PluginDevice.is_editor_open": {
+  "via": "ui",
+  "ref": "/live/device/show_gui <track> <device> (local edit) opens the floating window; interacting with the plugin GUI itself is UI automation (peekaboo)",
+  "note": "the LOM cannot click inside a plugin window"
+ },
+ "PluginDevice.presets": {
+  "via": "tool",
+  "ref": "ableton_browser presets track=N device=M",
+  "note": "PluginDevice.presets when the device exposes them; non-plugin devices get presets:[] + reason (native presets are browser items: ableton_browser search)"
+ },
+ "PluginDevice.selected_preset_index": {
+  "via": "tool",
+  "ref": "ableton_browser load_preset track=N device=M preset=<index|name>",
+  "note": "read-back = selected_preset_index + name"
+ },
+ "RackDevice.add_macro": {
+  "via": "tool",
+  "ref": "ableton_structure add_macro path=<rack path>",
+  "note": "read-back = visible_macro_count (Live adds macros in pairs: 8 -> 10, measured)"
+ },
+ "RackDevice.chains": {
+  "via": "tool",
+  "ref": "ableton_structure insert_chain (read-back) \u00b7 ableton_lom children <rack path>"
+ },
+ "RackDevice.drum_pads": {
+  "via": "tool",
+  "ref": "ableton_structure build_pad (read-back) \u00b7 ableton_lom children <rack path>",
+  "note": "128 pads, index = MIDI note"
+ },
+ "RackDevice.insert_chain": {
+  "via": "tool",
+  "ref": "ableton_structure insert_chain path=<rack path> [name=...]",
+  "note": "read-back = chain list"
+ },
+ "RackDevice.parameters": {
+  "via": "tool",
+  "ref": "ableton_structure macros path=<rack path> [value=<json>] (get when value omitted, set otherwise)",
+  "note": "Macro 1..16 are the rack's DeviceParameters; other rack params via ableton_lom"
+ },
+ "RackDevice.remove_macro": {
+  "via": "lom",
+  "ref": "ableton_lom call <rack path> remove_macro []",
+  "note": "no typed handler removes macros (add_macro only adds)"
+ },
+ "RackDevice.visible_macro_count": {
+  "via": "tool",
+  "ref": "ableton_structure macros path=<rack path> (get)"
+ },
+ "Sample.SlicingBeatDivision.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Sample.SlicingStyle.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Sample.TransientLoopMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Scene.clip_slots": {
+  "via": "lom",
+  "ref": "ableton_lom children `scenes N` \u2192 clip_slots; slot ops via ClipSlot"
+ },
+ "Scene.color": {
+  "via": "osc",
+  "ref": "/live/scene/get/color <scene> \u00b7 /live/scene/set/color <scene> <v>"
+ },
+ "Scene.color_index": {
+  "via": "osc",
+  "ref": "/live/scene/get/color_index <scene> \u00b7 /live/scene/set/color_index <scene> <v>"
+ },
+ "Scene.fire": {
+  "via": "osc",
+  "ref": "/live/scene/fire <scene>",
+  "note": "kbot: ableton_scene fire"
+ },
+ "Scene.fire_as_selected": {
+  "via": "osc",
+  "ref": "/live/scene/fire_as_selected <scene> \u00b7 /live/scene/fire_selected"
+ },
+ "Scene.is_empty": {
+  "via": "osc",
+  "ref": "/live/scene/get/is_empty <scene> \u00b7 /live/scene/start_listen/is_empty"
+ },
+ "Scene.is_triggered": {
+  "via": "osc",
+  "ref": "/live/scene/get/is_triggered <scene> \u00b7 /live/scene/start_listen/is_triggered"
+ },
+ "Scene.name": {
+  "via": "osc",
+  "ref": "/live/scene/get/name <scene> \u00b7 /live/scene/set/name <scene> <v>",
+  "note": "kbot: ableton_scene rename/list"
+ },
+ "Scene.tempo": {
+  "via": "osc",
+  "ref": "/live/scene/get/tempo <scene> \u00b7 /live/scene/set/tempo <scene> <v>"
+ },
+ "Scene.tempo_enabled": {
+  "via": "osc",
+  "ref": "/live/scene/get/tempo_enabled <scene> \u00b7 /live/scene/set/tempo_enabled <scene> <v>"
+ },
+ "Scene.time_signature_denominator": {
+  "via": "osc",
+  "ref": "/live/scene/get/time_signature_denominator <scene> \u00b7 /live/scene/set/time_signature_denominator <scene> <v>"
+ },
+ "Scene.time_signature_enabled": {
+  "via": "osc",
+  "ref": "/live/scene/get/time_signature_enabled <scene> \u00b7 /live/scene/set/time_signature_enabled <scene> <v>"
+ },
+ "Scene.time_signature_numerator": {
+  "via": "osc",
+  "ref": "/live/scene/get/time_signature_numerator <scene> \u00b7 /live/scene/set/time_signature_numerator <scene> <v>"
+ },
+ "SimplerDevice.PlaybackMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "SimplerDevice.SlicingPlaybackMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "SimplerDevice.replace_sample": {
+  "via": "tool",
+  "ref": "ableton_structure build_pad path=<rack path> note=N sample=<abs path> [name=...]",
+  "note": "read-back = sample.file_path; standalone Simpler: ableton_lom call <device path> replace_sample [\"/abs/path.wav\"]"
+ },
+ "SimplerDevice.sample": {
+  "via": "tool",
+  "ref": "ableton_structure build_pad (read-back file_path) \u00b7 ableton_lom describe <device path> sample"
+ },
+ "Song.BeatTime.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Song.CaptureDestination.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Song.CaptureMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Song.CuePoint.jump": {
+  "via": "osc",
+  "ref": "/live/song/cue_point/jump <index>",
+  "note": "kbot: ableton_song cue_jump"
+ },
+ "Song.CuePoint.name": {
+  "via": "osc",
+  "ref": "/live/song/get/cue_points \u00b7 /live/song/cue_point/set/name <index> <name>"
+ },
+ "Song.CuePoint.time": {
+  "via": "osc",
+  "ref": "/live/song/get/cue_points (returns name,time pairs)"
+ },
+ "Song.Quantization.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Song.RecordingQuantization.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Song.SessionRecordStatus.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Song.SmptTime.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Song.TimeFormat.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Song.View.detail_clip": {
+  "via": "lom",
+  "ref": "ableton_lom get `view` detail_clip \u00b7 set to a clip path to open it in Detail View"
+ },
+ "Song.View.highlighted_clip_slot": {
+  "via": "osc",
+  "ref": "/live/view/get/selected_clip \u00b7 /live/view/set/selected_clip <track> <scene>",
+  "note": "kbot: ableton_view clip (sets track+scene selection)"
+ },
+ "Song.View.select_device": {
+  "via": "osc",
+  "ref": "/live/view/set/selected_device <track> <device>",
+  "note": "kbot: ableton_view device"
+ },
+ "Song.View.selected_scene": {
+  "via": "osc",
+  "ref": "/live/view/get/selected_scene \u00b7 /live/view/set/selected_scene <scene> \u00b7 /live/view/start_listen/selected_scene",
+  "note": "kbot: ableton_view scene"
+ },
+ "Song.View.selected_track": {
+  "via": "osc",
+  "ref": "/live/view/get/selected_track \u00b7 /live/view/set/selected_track <track> \u00b7 /live/view/start_listen/selected_track",
+  "note": "kbot: ableton_view track"
+ },
+ "Song.arrangement_overdub": {
+  "via": "osc",
+  "ref": "/live/song/get/arrangement_overdub \u00b7 /live/song/set/arrangement_overdub \u00b7 /live/song/start_listen/arrangement_overdub"
+ },
+ "Song.back_to_arranger": {
+  "via": "osc",
+  "ref": "/live/song/get/back_to_arranger \u00b7 /live/song/set/back_to_arranger \u00b7 /live/song/start_listen/back_to_arranger",
+  "note": "kbot: ableton_song back_to_arranger"
+ },
+ "Song.begin_undo_step": {
+  "via": "tool",
+  "ref": "ableton_structure undo_begin",
+  "note": "wrap multi-step ops so one Cmd-Z reverts"
+ },
+ "Song.can_redo": {
+  "via": "osc",
+  "ref": "/live/song/get/can_redo \u00b7 /live/song/start_listen/can_redo"
+ },
+ "Song.can_undo": {
+  "via": "osc",
+  "ref": "/live/song/get/can_undo \u00b7 /live/song/start_listen/can_undo"
+ },
+ "Song.capture_and_insert_scene": {
+  "via": "osc",
+  "ref": "/live/song/capture_and_insert_scene"
+ },
+ "Song.capture_midi": {
+  "via": "osc",
+  "ref": "/live/song/capture_midi",
+  "note": "kbot: ableton_song capture_midi"
+ },
+ "Song.clip_trigger_quantization": {
+  "via": "osc",
+  "ref": "/live/song/get/clip_trigger_quantization \u00b7 /live/song/set/clip_trigger_quantization \u00b7 /live/song/start_listen/clip_trigger_quantization",
+  "note": "kbot: ableton_clip fire (sets quantization)"
+ },
+ "Song.continue_playing": {
+  "via": "osc",
+  "ref": "/live/song/continue_playing"
+ },
+ "Song.create_audio_track": {
+  "via": "tool",
+  "ref": "ableton_structure create_track kind=audio [index=N] [name=...]",
+  "note": "read-back {index,name}. Replaces dead /live/kbot/create_audio_track"
+ },
+ "Song.create_midi_track": {
+  "via": "tool",
+  "ref": "ableton_structure create_track kind=midi [index=N] [name=...]",
+  "note": "read-back {index,name}. Replaces dead /live/kbot/create_midi_track; stock OSC /live/song/create_midi_track <index> has no read-back"
+ },
+ "Song.create_return_track": {
+  "via": "tool",
+  "ref": "ableton_structure create_track kind=return [name=...]",
+  "note": "read-back {index:\"return:N\",name}; also /live/song/create_return_track"
+ },
+ "Song.create_scene": {
+  "via": "osc",
+  "ref": "/live/song/create_scene",
+  "note": "kbot: ableton_scene create"
+ },
+ "Song.cue_points": {
+  "via": "osc",
+  "ref": "/live/song/get/cue_points \u00b7 /live/song/cue_point/jump \u00b7 /live/song/cue_point/add_or_delete \u00b7 /live/song/cue_point/set/name",
+  "note": "kbot: ableton_song cue_jump / cue_add / cue_delete"
+ },
+ "Song.current_song_time": {
+  "via": "osc",
+  "ref": "/live/song/get/current_song_time \u00b7 /live/song/set/current_song_time \u00b7 /live/song/start_listen/current_song_time",
+  "note": "kbot: ableton_transport position"
+ },
+ "Song.delete_return_track": {
+  "via": "tool",
+  "ref": "raw handler /live/kbot/track/delete return:N (verified 2026-08-18)",
+  "note": "the TS ableton_structure delete_track action takes an int track index only; also /live/song/delete_return_track <index>"
+ },
+ "Song.delete_scene": {
+  "via": "osc",
+  "ref": "/live/song/delete_scene"
+ },
+ "Song.delete_track": {
+  "via": "tool",
+  "ref": "ableton_structure delete_track track=N",
+  "note": "also /live/song/delete_track <index>"
+ },
+ "Song.duplicate_scene": {
+  "via": "osc",
+  "ref": "/live/song/duplicate_scene"
+ },
+ "Song.duplicate_track": {
+  "via": "tool",
+  "ref": "ableton_structure duplicate_track track=N",
+  "note": "also /live/song/duplicate_track <index>"
+ },
+ "Song.end_undo_step": {
+  "via": "tool",
+  "ref": "ableton_structure undo_end"
+ },
+ "Song.file_path": {
+  "via": "ui",
+  "ref": "File > Save Live Set (Cmd-S) / File > Save Live Set As... / File > Open Live Set (Cmd-O)",
+  "note": "read the path: ableton_lom get live_set file_path. No save/open method in the LOM"
+ },
+ "Song.find_device_position": {
+  "via": "lom",
+  "ref": "ableton_lom call live_set find_device_position [{\"_path\":\"<device path>\"},{\"_path\":\"<target path>\"},position]",
+  "note": "not called by the move_device handler (it reads the final index back by identity instead)"
+ },
+ "Song.force_link_beat_time": {
+  "via": "osc",
+  "ref": "/live/song/force_link_beat_time"
+ },
+ "Song.get_data": {
+  "via": "tool",
+  "ref": "ableton_structure data_get key=<key>",
+  "note": "per-Set persistent key/value; read-back = value"
+ },
+ "Song.groove_amount": {
+  "via": "osc",
+  "ref": "/live/song/get/groove_amount \u00b7 /live/song/set/groove_amount \u00b7 /live/song/start_listen/groove_amount",
+  "note": "kbot: ableton_song groove"
+ },
+ "Song.groove_pool": {
+  "via": "lom",
+  "ref": "ableton_lom children `live_set groove_pool` \u2192 grooves"
+ },
+ "Song.is_ableton_link_enabled": {
+  "via": "osc",
+  "ref": "/live/song/get/is_ableton_link_enabled \u00b7 /live/song/set/is_ableton_link_enabled \u00b7 /live/song/start_listen/is_ableton_link_enabled"
+ },
+ "Song.is_playing": {
+  "via": "osc",
+  "ref": "/live/song/get/is_playing \u00b7 /live/song/start_listen/is_playing",
+  "note": "kbot: ableton_transport status"
+ },
+ "Song.jump_by": {
+  "via": "osc",
+  "ref": "/live/song/jump_by",
+  "note": "kbot: ableton_song jump_by"
+ },
+ "Song.jump_to_next_cue": {
+  "via": "osc",
+  "ref": "/live/song/jump_to_next_cue",
+  "note": "kbot: ableton_song cue_next"
+ },
+ "Song.jump_to_prev_cue": {
+  "via": "osc",
+  "ref": "/live/song/jump_to_prev_cue",
+  "note": "kbot: ableton_song cue_prev"
+ },
+ "Song.loop": {
+  "via": "osc",
+  "ref": "/live/song/get/loop \u00b7 /live/song/set/loop \u00b7 /live/song/start_listen/loop",
+  "note": "kbot: ableton_song loop"
+ },
+ "Song.loop_length": {
+  "via": "osc",
+  "ref": "/live/song/get/loop_length \u00b7 /live/song/set/loop_length \u00b7 /live/song/start_listen/loop_length",
+  "note": "kbot: ableton_song loop_length"
+ },
+ "Song.loop_start": {
+  "via": "osc",
+  "ref": "/live/song/get/loop_start \u00b7 /live/song/set/loop_start \u00b7 /live/song/start_listen/loop_start",
+  "note": "kbot: ableton_song loop_start"
+ },
+ "Song.master_track": {
+  "via": "lom",
+  "ref": "ableton_lom describe master_track \u00b7 get `master_track mixer_device volume` value",
+  "note": "there is no /live/master/* address in AbletonOSC; ableton_audio_analysis reads master meters through /live/kbot/lom/get master_track output_meter_left|right (since 2026-08-18)"
+ },
+ "Song.metronome": {
+  "via": "osc",
+  "ref": "/live/song/get/metronome \u00b7 /live/song/set/metronome \u00b7 /live/song/start_listen/metronome",
+  "note": "kbot: ableton_song metronome"
+ },
+ "Song.midi_recording_quantization": {
+  "via": "osc",
+  "ref": "/live/song/get/midi_recording_quantization \u00b7 /live/song/set/midi_recording_quantization \u00b7 /live/song/start_listen/midi_recording_quantization"
+ },
+ "Song.move_device": {
+  "via": "tool",
+  "ref": "ableton_structure move_device track=N device=M index=<final index>",
+  "note": "raw handler /live/kbot/device/move <track> <device> <newpos> [target track|chain path]; the handler compensates for Live's insertion-slot semantics and reads the final index back by identity (bug D, verified 2026-08-18); read-back = device list"
+ },
+ "Song.name": {
+  "via": "ui",
+  "ref": "File > Save Live Set As... (the name follows the file)",
+  "note": "read: ableton_lom get live_set name"
+ },
+ "Song.nudge_down": {
+  "via": "osc",
+  "ref": "/live/song/get/nudge_down \u00b7 /live/song/set/nudge_down \u00b7 /live/song/start_listen/nudge_down"
+ },
+ "Song.nudge_up": {
+  "via": "osc",
+  "ref": "/live/song/get/nudge_up \u00b7 /live/song/set/nudge_up \u00b7 /live/song/start_listen/nudge_up"
+ },
+ "Song.punch_in": {
+  "via": "osc",
+  "ref": "/live/song/get/punch_in \u00b7 /live/song/set/punch_in \u00b7 /live/song/start_listen/punch_in",
+  "note": "kbot: ableton_song punch_in"
+ },
+ "Song.punch_out": {
+  "via": "osc",
+  "ref": "/live/song/get/punch_out \u00b7 /live/song/set/punch_out \u00b7 /live/song/start_listen/punch_out",
+  "note": "kbot: ableton_song punch_out"
+ },
+ "Song.re_enable_automation": {
+  "via": "osc",
+  "ref": "/live/song/re_enable_automation"
+ },
+ "Song.record_mode": {
+  "via": "osc",
+  "ref": "/live/song/get/record_mode \u00b7 /live/song/set/record_mode \u00b7 /live/song/start_listen/record_mode",
+  "note": "kbot: ableton_transport record"
+ },
+ "Song.redo": {
+  "via": "osc",
+  "ref": "/live/song/redo",
+  "note": "kbot: ableton_song redo"
+ },
+ "Song.return_tracks": {
+  "via": "lom",
+  "ref": "ableton_lom children live_set \u2192 return_tracks; path `return_tracks N`"
+ },
+ "Song.root_note": {
+  "via": "osc",
+  "ref": "/live/song/get/root_note \u00b7 /live/song/set/root_note \u00b7 /live/song/start_listen/root_note"
+ },
+ "Song.scale_name": {
+  "via": "osc",
+  "ref": "/live/song/get/scale_name \u00b7 /live/song/set/scale_name \u00b7 /live/song/start_listen/scale_name"
+ },
+ "Song.scenes": {
+  "via": "osc",
+  "ref": "/live/song/get/num_scenes \u00b7 /live/song/get/scenes/name",
+  "note": "kbot: ableton_scene list"
+ },
+ "Song.session_record": {
+  "via": "osc",
+  "ref": "/live/song/get/session_record \u00b7 /live/song/set/session_record \u00b7 /live/song/start_listen/session_record"
+ },
+ "Song.session_record_status": {
+  "via": "osc",
+  "ref": "/live/song/get/session_record_status \u00b7 /live/song/start_listen/session_record_status"
+ },
+ "Song.set_data": {
+  "via": "tool",
+  "ref": "ableton_structure data_set key=<key> value=<json>",
+  "note": "read-back = data_get"
+ },
+ "Song.set_or_delete_cue": {
+  "via": "osc",
+  "ref": "/live/song/set_or_delete_cue",
+  "note": "kbot: ableton_song cue_add/cue_delete"
+ },
+ "Song.signature_denominator": {
+  "via": "osc",
+  "ref": "/live/song/get/signature_denominator \u00b7 /live/song/set/signature_denominator \u00b7 /live/song/start_listen/signature_denominator",
+  "note": "kbot: ableton_transport time_sig"
+ },
+ "Song.signature_numerator": {
+  "via": "osc",
+  "ref": "/live/song/get/signature_numerator \u00b7 /live/song/set/signature_numerator \u00b7 /live/song/start_listen/signature_numerator",
+  "note": "kbot: ableton_transport time_sig"
+ },
+ "Song.song_length": {
+  "via": "osc",
+  "ref": "/live/song/get/song_length \u00b7 /live/song/start_listen/song_length"
+ },
+ "Song.start_playing": {
+  "via": "osc",
+  "ref": "/live/song/start_playing",
+  "note": "kbot: ableton_transport play"
+ },
+ "Song.stop_all_clips": {
+  "via": "osc",
+  "ref": "/live/song/stop_all_clips",
+  "note": "kbot: ableton_song stop_all_clips"
+ },
+ "Song.stop_playing": {
+  "via": "osc",
+  "ref": "/live/song/stop_playing",
+  "note": "kbot: ableton_transport stop"
+ },
+ "Song.tap_tempo": {
+  "via": "osc",
+  "ref": "/live/song/tap_tempo",
+  "note": "kbot: ableton_song tap_tempo"
+ },
+ "Song.tempo": {
+  "via": "osc",
+  "ref": "/live/song/get/tempo \u00b7 /live/song/set/tempo \u00b7 /live/song/start_listen/tempo",
+  "note": "kbot: ableton_transport tempo"
+ },
+ "Song.tracks": {
+  "via": "osc",
+  "ref": "/live/song/get/num_tracks \u00b7 /live/song/get/track_names \u00b7 /live/song/get/track_data \u00b7 /live/song/export/structure",
+  "note": "kbot: ableton_session_info / ableton_track info; per-track paths via ableton_lom `tracks N`"
+ },
+ "Song.trigger_session_record": {
+  "via": "osc",
+  "ref": "/live/song/trigger_session_record"
+ },
+ "Song.tuning_system": {
+  "via": "lom",
+  "ref": "ableton_lom describe `live_set tuning_system` (TuningSystem: name, note_tunings, reference_pitch...)"
+ },
+ "Song.undo": {
+  "via": "osc",
+  "ref": "/live/song/undo",
+  "note": "kbot: ableton_song undo"
+ },
+ "Song.visible_tracks": {
+  "via": "lom",
+  "ref": "ableton_lom get live_set visible_tracks"
+ },
+ "Track.DeviceInsertMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Track.RoutingChannel.*": {
+  "via": "na",
+  "ref": "routing record {display_name, layout}"
+ },
+ "Track.RoutingChannelLayout.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Track.RoutingChannelVector.*": {
+  "via": "na",
+  "ref": "value/vector class \u2014 ableton_lom returns these as JSON arrays/objects; not addressed directly"
+ },
+ "Track.RoutingType.*": {
+  "via": "na",
+  "ref": "routing record {display_name, category, attached_object}; returned by ableton_lom get `tracks N` available_input_routing_types"
+ },
+ "Track.RoutingTypeCategory.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "Track.RoutingTypeVector.*": {
+  "via": "na",
+  "ref": "value/vector class \u2014 ableton_lom returns these as JSON arrays/objects; not addressed directly"
+ },
+ "Track.View.selected_device": {
+  "via": "osc",
+  "ref": "/live/view/get/selected_device \u00b7 /live/view/set/selected_device <track> <device>",
+  "note": "kbot: ableton_view device"
+ },
+ "Track.arm": {
+  "via": "osc",
+  "ref": "/live/track/get/arm <track> \u00b7 /live/track/set/arm <track> <v> \u00b7 /live/track/start_listen/arm",
+  "note": "kbot: ableton_track arm/disarm"
+ },
+ "Track.arrangement_clips": {
+  "via": "osc",
+  "ref": "/live/track/get/arrangement_clips/name|length|start_time <track>",
+  "note": "kbot: ableton_structure arr_clips track=N (JSON read-back)"
+ },
+ "Track.available_input_routing_channels": {
+  "via": "osc",
+  "ref": "/live/track/get/available_input_routing_channels <track>"
+ },
+ "Track.available_input_routing_types": {
+  "via": "osc",
+  "ref": "/live/track/get/available_input_routing_types <track>"
+ },
+ "Track.available_output_routing_channels": {
+  "via": "osc",
+  "ref": "/live/track/get/available_output_routing_channels <track>"
+ },
+ "Track.available_output_routing_types": {
+  "via": "osc",
+  "ref": "/live/track/get/available_output_routing_types <track>"
+ },
+ "Track.can_be_armed": {
+  "via": "osc",
+  "ref": "/live/track/get/can_be_armed <track> \u00b7 /live/track/start_listen/can_be_armed"
+ },
+ "Track.can_be_frozen": {
+  "via": "ui",
+  "ref": "read-only flag; Freeze via Track context menu > Freeze Track; Flatten via context menu > Flatten",
+  "note": "UI automation (peekaboo) \u2014 Plane D"
+ },
+ "Track.clip_slots": {
+  "via": "osc",
+  "ref": "/live/track/get/clips/name|length|color <track> \u00b7 /live/track/delete_clip <track> <slot>",
+  "note": "kbot: ableton_clip list; slot-level ops under ClipSlot"
+ },
+ "Track.color": {
+  "via": "osc",
+  "ref": "/live/track/get/color <track> \u00b7 /live/track/set/color <track> <v> \u00b7 /live/track/start_listen/color"
+ },
+ "Track.color_index": {
+  "via": "osc",
+  "ref": "/live/track/get/color_index <track> \u00b7 /live/track/set/color_index <track> <v> \u00b7 /live/track/start_listen/color_index",
+  "note": "kbot: ableton_track color"
+ },
+ "Track.create_audio_clip": {
+  "via": "lom",
+  "ref": "ableton_lom call `tracks N` create_audio_clip [\"/abs/file.wav\", start_beats]",
+  "note": "arrangement audio clip from a file path (12.4 LOM)"
+ },
+ "Track.create_midi_clip": {
+  "via": "tool",
+  "ref": "ableton_structure arr_create_clip track=N start=<beats> length=<beats>",
+  "note": "arrangement MIDI clip; read-back = arr_clips. Replaces the ClipSlot-only path"
+ },
+ "Track.create_take_lane": {
+  "via": "lom",
+  "ref": "ableton_lom call `tracks N` create_take_lane"
+ },
+ "Track.current_monitoring_state": {
+  "via": "osc",
+  "ref": "/live/track/get/current_monitoring_state <track> \u00b7 /live/track/set/current_monitoring_state <track> <v> \u00b7 /live/track/start_listen/current_monitoring_state",
+  "note": "kbot: ableton_track monitoring"
+ },
+ "Track.delete_clip": {
+  "via": "osc",
+  "ref": "/live/track/delete_clip <track> <slot>",
+  "note": "kbot: ableton_clip delete"
+ },
+ "Track.delete_device": {
+  "via": "tool",
+  "ref": "ableton_structure delete_device track=N device=M",
+  "note": "also /live/track/delete_device <track> <device>"
+ },
+ "Track.devices": {
+  "via": "osc",
+  "ref": "/live/track/get/num_devices \u00b7 /live/track/get/devices/name|type|class_name|can_have_chains <track>",
+  "note": "kbot: ableton_device list; per-device paths via ableton_lom `tracks N devices M`"
+ },
+ "Track.duplicate_clip_slot": {
+  "via": "lom",
+  "ref": "ableton_lom call `tracks N` duplicate_clip_slot [slot]",
+  "note": "or /live/clip_slot/duplicate_clip_to"
+ },
+ "Track.duplicate_clip_to_arrangement": {
+  "via": "tool",
+  "ref": "ableton_structure arr_dup_from_session track=N slot=S time=<beats>",
+  "note": "read-back = arr_clips"
+ },
+ "Track.fired_slot_index": {
+  "via": "osc",
+  "ref": "/live/track/get/fired_slot_index <track> \u00b7 /live/track/start_listen/fired_slot_index"
+ },
+ "Track.fold_state": {
+  "via": "osc",
+  "ref": "/live/track/get/fold_state <track> \u00b7 /live/track/set/fold_state <track> <v> \u00b7 /live/track/start_listen/fold_state"
+ },
+ "Track.get_data": {
+  "via": "lom",
+  "ref": "ableton_lom call `tracks N` get_data [\"key\", default]"
+ },
+ "Track.has_audio_input": {
+  "via": "osc",
+  "ref": "/live/track/get/has_audio_input <track> \u00b7 /live/track/start_listen/has_audio_input"
+ },
+ "Track.has_audio_output": {
+  "via": "osc",
+  "ref": "/live/track/get/has_audio_output <track> \u00b7 /live/track/start_listen/has_audio_output"
+ },
+ "Track.has_midi_input": {
+  "via": "osc",
+  "ref": "/live/track/get/has_midi_input <track> \u00b7 /live/track/start_listen/has_midi_input"
+ },
+ "Track.has_midi_output": {
+  "via": "osc",
+  "ref": "/live/track/get/has_midi_output <track> \u00b7 /live/track/start_listen/has_midi_output"
+ },
+ "Track.input_routing_channel": {
+  "via": "osc",
+  "ref": "/live/track/get/input_routing_channel <track> \u00b7 /live/track/set/input_routing_channel <track> <name>",
+  "note": "kbot: ableton_track input_routing"
+ },
+ "Track.input_routing_type": {
+  "via": "osc",
+  "ref": "/live/track/get/input_routing_type <track> \u00b7 /live/track/set/input_routing_type <track> <name>",
+  "note": "kbot: ableton_track input_routing"
+ },
+ "Track.insert_device": {
+  "via": "tool",
+  "ref": "ableton_browser insert_device track=N name=<device> [position=P]",
+  "note": "handler tries Track.insert_device(name) (12.4 LOM method) and falls back to select track + Browser.load_item; read-back = device list. Or ableton_lom call `tracks N` insert_device [\"Operator\"]"
+ },
+ "Track.is_foldable": {
+  "via": "osc",
+  "ref": "/live/track/get/is_foldable <track> \u00b7 /live/track/start_listen/is_foldable"
+ },
+ "Track.is_frozen": {
+  "via": "ui",
+  "ref": "Track context menu > Freeze Track (read state: ableton_lom get `tracks N` is_frozen)",
+  "note": "the LOM exposes is_frozen/can_be_frozen as read-only; no freeze/flatten method exists in 12.4.5b5"
+ },
+ "Track.is_grouped": {
+  "via": "osc",
+  "ref": "/live/track/get/is_grouped <track> \u00b7 /live/track/start_listen/is_grouped"
+ },
+ "Track.is_visible": {
+  "via": "osc",
+  "ref": "/live/track/get/is_visible <track> \u00b7 /live/track/start_listen/is_visible"
+ },
+ "Track.mixer_device": {
+  "via": "lom",
+  "ref": "ableton_lom describe `tracks N mixer_device`",
+  "note": "volume/panning/sends/track_activator/crossfade_assign"
+ },
+ "Track.mute": {
+  "via": "osc",
+  "ref": "/live/track/get/mute <track> \u00b7 /live/track/set/mute <track> <v> \u00b7 /live/track/start_listen/mute",
+  "note": "kbot: ableton_track mute/unmute"
+ },
+ "Track.name": {
+  "via": "osc",
+  "ref": "/live/track/get/name <track> \u00b7 /live/track/set/name <track> <v> \u00b7 /live/track/start_listen/name",
+  "note": "kbot: ableton_track rename"
+ },
+ "Track.output_meter_left": {
+  "via": "osc",
+  "ref": "/live/track/get/output_meter_left <track> \u00b7 /live/track/start_listen/output_meter_left",
+  "note": "kbot: ableton_audio_analysis"
+ },
+ "Track.output_meter_level": {
+  "via": "osc",
+  "ref": "/live/track/get/output_meter_level <track> \u00b7 /live/track/start_listen/output_meter_level"
+ },
+ "Track.output_meter_right": {
+  "via": "osc",
+  "ref": "/live/track/get/output_meter_right <track> \u00b7 /live/track/start_listen/output_meter_right",
+  "note": "kbot: ableton_audio_analysis"
+ },
+ "Track.output_routing_channel": {
+  "via": "osc",
+  "ref": "/live/track/get/output_routing_channel <track> \u00b7 /live/track/set/output_routing_channel <track> <name>",
+  "note": "kbot: ableton_track output_routing"
+ },
+ "Track.output_routing_type": {
+  "via": "osc",
+  "ref": "/live/track/get/output_routing_type <track> \u00b7 /live/track/set/output_routing_type <track> <name>",
+  "note": "kbot: ableton_track output_routing"
+ },
+ "Track.playing_slot_index": {
+  "via": "osc",
+  "ref": "/live/track/get/playing_slot_index <track> \u00b7 /live/track/start_listen/playing_slot_index"
+ },
+ "Track.set_data": {
+  "via": "lom",
+  "ref": "ableton_lom call `tracks N` set_data [\"key\", value]"
+ },
+ "Track.solo": {
+  "via": "osc",
+  "ref": "/live/track/get/solo <track> \u00b7 /live/track/set/solo <track> <v> \u00b7 /live/track/start_listen/solo",
+  "note": "kbot: ableton_track solo/unsolo"
+ },
+ "Track.stop_all_clips": {
+  "via": "osc",
+  "ref": "/live/track/stop_all_clips <track>"
+ },
+ "Track.take_lanes": {
+  "via": "lom",
+  "ref": "ableton_lom children `tracks N` \u2192 take_lanes (TakeLane: name, clips ...)"
+ },
+ "TuningSystem.PitchClassAndOctave.*": {
+  "via": "na",
+  "ref": "value/vector class \u2014 ableton_lom returns these as JSON arrays/objects; not addressed directly"
+ },
+ "TuningSystem.ReferencePitch.*": {
+  "via": "na",
+  "ref": "value/vector class \u2014 ableton_lom returns these as JSON arrays/objects; not addressed directly"
+ },
+ "WavetableDevice.EffectMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "WavetableDevice.FilterRouting.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "WavetableDevice.ModulationSource.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "WavetableDevice.UnisonMode.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "WavetableDevice.VoiceCount.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ },
+ "WavetableDevice.Voicing.*": {
+  "via": "na",
+  "ref": "enum constant \u2014 pass the int (or the name string) to the property that takes it"
+ }
+}

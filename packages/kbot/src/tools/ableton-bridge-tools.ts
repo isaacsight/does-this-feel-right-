@@ -1,8 +1,12 @@
 /**
  * ableton-bridge-tools.ts — Ableton Browser & Device Loading Tools
  *
- * Uses AbletonBridge (port 9001) for full Ableton Browser API access.
- * Falls back to KBotBridge (port 9998) if AbletonBridge is unavailable.
+ * Three-tier routing (each tool reports which plane answered):
+ *   1. AbletonBridge (TCP 9001) — full browser API (optional; often not running)
+ *   2. KBotBridge    (TCP 9997) — kbot's thin Remote Script
+ *   3. AbletonOSC kbot handlers (UDP 11000) — /live/kbot/browser/search,
+ *      /live/kbot/track/insert_device, /live/kbot/device/load_preset
+ *      (kbot_ext.py inside AbletonOSC; replies are JSON read-backs)
  *
  * Tools:
  *   ableton_load_effect  — Load any Ableton native effect by name onto a track
@@ -21,6 +25,7 @@ import {
   formatBridgeError,
   type BrowserItem,
 } from '../integrations/ableton-bridge.js'
+import { kbotTry, type KbotReply } from './ableton-lom.js'
 
 // ── Helpers ─────────────────────────────────────────────────────────────
 
@@ -78,6 +83,51 @@ function formatBrowserItems(items: BrowserItem[], limit = 20): string {
   return result
 }
 
+// ── Tier 3: AbletonOSC kbot handlers ─────────────────────────────────────
+
+/** Map a /live/kbot/browser/search reply to BrowserItem[] (accepts items|results|any array field). */
+export function browserItemsFromKbotReply(reply: KbotReply): BrowserItem[] {
+  let list: unknown = reply.items ?? reply.results
+  if (!Array.isArray(list)) {
+    list = Object.values(reply).find((v) => Array.isArray(v)) ?? []
+  }
+  return (list as Array<Record<string, unknown>>).map((it) => ({
+    name: String(it.name ?? ''),
+    uri: String(it.uri ?? ''),
+    isLoadable: Boolean(it.is_loadable ?? it.isLoadable ?? false),
+    isDevice: Boolean(it.is_device ?? it.isDevice ?? false),
+    isFolder: Boolean(it.is_folder ?? it.isFolder ?? false),
+  }))
+}
+
+function oscUnavailableNote(reply: KbotReply): string {
+  return `AbletonOSC kbot handler also failed: ${reply.error ?? 'no reply'}`
+}
+
+/** Device names from a /live/kbot/track/insert_device read-back (`devices` may hold strings or {name}). */
+function deviceNamesFromReply(reply: KbotReply): string[] {
+  const list = reply.devices
+  if (!Array.isArray(list)) return []
+  return list.map((d) => (typeof d === 'string' ? d : String((d as Record<string, unknown>)?.name ?? '')))
+}
+
+/**
+ * Did the kbot track/insert_device read-back actually show a new device? `added` is the
+ * device-count delta Live reported; when it is missing, fall back to the device list.
+ * Never trust `ok` alone: browser.load_item can hot-swap or load nothing and still be ok.
+ */
+export function insertDeviceConfirmed(reply: KbotReply, requestedName: string): boolean {
+  if (!reply.ok) return false
+  if (typeof reply.added === 'number') return reply.added >= 1
+  const want = requestedName.trim().toLowerCase()
+  return deviceNamesFromReply(reply).some((n) => n.toLowerCase().includes(want))
+}
+
+const OSC_TIER_HINT =
+  '**Option 3 — AbletonOSC kbot handlers (UDP 11000)**\n' +
+  '  kbot_ext.py registered inside AbletonOSC (send /live/api/reload after install).\n' +
+  '  Verify: ableton_lom action=ping'
+
 // ── Tool Registration ───────────────────────────────────────────────────
 
 export function registerAbletonBridgeTools(): void {
@@ -89,8 +139,9 @@ export function registerAbletonBridgeTools(): void {
     description:
       'Load any Ableton native audio effect by name onto a track. ' +
       'This is the primary tool for adding effects like Saturator, Reverb, Compressor, EQ Eight, Auto Filter, etc. ' +
-      'Searches Ableton\'s browser via AbletonBridge and loads the device directly. ' +
-      'Supports position control to place the effect before or after existing devices.',
+      'Routes through AbletonBridge (9001), then KBotBridge (9997), then the AbletonOSC kbot handler ' +
+      '/live/kbot/track/insert_device (UDP 11000); the output states which plane answered and, on the OSC plane, ' +
+      'Live\'s read-back device list. Supports position control to place the effect before or after existing devices.',
     parameters: {
       track: { type: 'number', description: 'Track number (1-based)', required: true },
       name: { type: 'string', description: 'Effect name (e.g. "Saturator", "Reverb", "Compressor", "EQ Eight", "Auto Filter", "Chorus-Ensemble")', required: true },
@@ -100,7 +151,7 @@ export function registerAbletonBridgeTools(): void {
       },
     },
     tier: 'free',
-    timeout: 15_000,
+    timeout: 45_000, // bridge probes + up to 20 s for /live/kbot/track/insert_device
     async execute(args) {
       const t = userTrack(args.track)
       const name = String(args.name).trim()
@@ -130,7 +181,7 @@ export function registerAbletonBridgeTools(): void {
             )
             if (broadMatch) {
               await ab.loadDevice(t, broadMatch.uri)
-              return `Loaded **${broadMatch.name}** on track ${args.track} (via browser search)`
+              return `Loaded **${broadMatch.name}** on track ${args.track} (via AbletonBridge browser search)`
             }
             return `Effect "${name}" not found in Ableton's browser. Check the exact name (e.g. "EQ Eight" not "EQ8").`
           }
@@ -142,11 +193,11 @@ export function registerAbletonBridgeTools(): void {
             const chain = await ab.getEffectChain(t)
             if (chain.length > 1) {
               // The newly loaded device is at the end — note this for the user
-              return `Loaded **${target.name}** on track ${args.track} (at end of chain — ${chain.length} devices total). Note: position reordering requires manual adjustment in Ableton.`
+              return `Loaded **${target.name}** on track ${args.track} (via AbletonBridge; at end of chain — ${chain.length} devices total). Note: position reordering requires manual adjustment in Ableton.`
             }
           }
 
-          return `Loaded **${target.name}** on track ${args.track}`
+          return `Loaded **${target.name}** on track ${args.track} (via AbletonBridge)`
         }
 
         // Fallback to KBotBridge Remote Script
@@ -159,10 +210,21 @@ export function registerAbletonBridgeTools(): void {
           return `KBotBridge could not load "${name}". The device may not be found in the browser.`
         }
 
-        // Neither bridge available
-        return formatBridgeError()
+        // Tier 3: AbletonOSC kbot handler — insert by name, position 0 = start of chain
+        const oscArgs: (number | string)[] = position === 'before' ? [t, name, 0] : [t, name]
+        const osc = await kbotTry('track/insert_device', ...oscArgs)
+        if (osc.ok) {
+          if (insertDeviceConfirmed(osc, name)) {
+            return `Loaded **${name}** on track ${args.track} (via AbletonOSC kbot handler /live/kbot/track/insert_device). Live read-back:\n${JSON.stringify(osc, null, 2)}`
+          }
+          return `NOT confirmed: sent "${name}" to track ${args.track} via /live/kbot/track/insert_device but Live's read-back shows no new device ` +
+            `(added=${String(osc.added ?? 'n/a')}, devices=${JSON.stringify(deviceNamesFromReply(osc))}). Live read-back:\n${JSON.stringify(osc, null, 2)}`
+        }
+
+        // No plane available
+        return `${oscUnavailableNote(osc)}\n\n${formatBridgeError()}\n\n${OSC_TIER_HINT}`
       } catch (err) {
-        return `Failed to load effect: ${(err as Error).message}\n\n${formatBridgeError()}`
+        return `Failed to load effect: ${(err as Error).message}\n\n${formatBridgeError()}\n\n${OSC_TIER_HINT}`
       }
     },
   })
@@ -174,6 +236,8 @@ export function registerAbletonBridgeTools(): void {
     description:
       'Search Ableton\'s browser for instruments, effects, presets, samples, packs, and plugins. ' +
       'Returns matching items with their URIs for loading. ' +
+      'Routes through AbletonBridge (9001), then KBotBridge (9997), then the AbletonOSC kbot handler ' +
+      '/live/kbot/browser/search (UDP 11000); the header states which plane answered. ' +
       'Use category to narrow results: "instruments", "audio_effects", "midi_effects", "drums", "sounds", "packs", "plugins", "samples", "presets".',
     parameters: {
       query: { type: 'string', description: 'Search query (e.g. "reverb", "piano", "808")', required: true },
@@ -183,7 +247,7 @@ export function registerAbletonBridgeTools(): void {
       },
     },
     tier: 'free',
-    timeout: 15_000,
+    timeout: 45_000, // bridge probes + up to 20 s for /live/kbot/browser/search
     async execute(args) {
       const query = String(args.query).trim()
       const category = resolveCategory(args.category as string | undefined)
@@ -194,8 +258,8 @@ export function registerAbletonBridgeTools(): void {
         if (ab) {
           const items = await ab.searchBrowser(query, category)
           const header = category
-            ? `## Browser Search: "${query}" in ${category}`
-            : `## Browser Search: "${query}"`
+            ? `## Browser Search: "${query}" in ${category} (via AbletonBridge)`
+            : `## Browser Search: "${query}" (via AbletonBridge)`
           return `${header}\n\n${formatBrowserItems(items)}`
         }
 
@@ -206,9 +270,20 @@ export function registerAbletonBridgeTools(): void {
           return `## Browser Search: "${query}" (via KBotBridge)\n\n${formatBrowserItems(items)}`
         }
 
-        return formatBridgeError()
+        // Tier 3: AbletonOSC kbot handler
+        const oscArgs: (number | string)[] = category ? [query, category] : [query]
+        const osc = await kbotTry('browser/search', ...oscArgs)
+        if (osc.ok) {
+          const items = browserItemsFromKbotReply(osc)
+          const header = category
+            ? `## Browser Search: "${query}" in ${category} (via AbletonOSC kbot handler)`
+            : `## Browser Search: "${query}" (via AbletonOSC kbot handler)`
+          return `${header}\n\n${formatBrowserItems(items)}`
+        }
+
+        return `${oscUnavailableNote(osc)}\n\n${formatBridgeError()}\n\n${OSC_TIER_HINT}`
       } catch (err) {
-        return `Browse failed: ${(err as Error).message}\n\n${formatBridgeError()}`
+        return `Browse failed: ${(err as Error).message}\n\n${formatBridgeError()}\n\n${OSC_TIER_HINT}`
       }
     },
   })
@@ -219,6 +294,8 @@ export function registerAbletonBridgeTools(): void {
     name: 'ableton_load_preset',
     description:
       'Load a preset onto a device on a track. Searches available presets for the device and loads the best match. ' +
+      'Routes through AbletonBridge (9001); when it is not running, falls back to the AbletonOSC kbot handler ' +
+      '/live/kbot/device/load_preset (UDP 11000) which answers with a JSON read-back; the output states which plane answered. ' +
       'Use ableton_browse first to find the device URI if needed.',
     parameters: {
       track: { type: 'number', description: 'Track number (1-based)', required: true },
@@ -226,7 +303,7 @@ export function registerAbletonBridgeTools(): void {
       preset_name: { type: 'string', description: 'Preset name to search for (e.g. "Warm Pad", "Clean Lead")', required: true },
     },
     tier: 'free',
-    timeout: 15_000,
+    timeout: 45_000, // bridge probe + up to 20 s for /live/kbot/device/load_preset
     async execute(args) {
       const t = userTrack(args.track)
       const deviceIdx = Number(args.device)
@@ -235,7 +312,12 @@ export function registerAbletonBridgeTools(): void {
       try {
         const ab = await tryAbletonBridge()
         if (!ab) {
-          return 'Preset loading requires AbletonBridge (port 9001). KBotBridge does not support preset browsing.\n\n' + formatBridgeError()
+          // KBotBridge (9997) has no preset API; go straight to the AbletonOSC kbot handler.
+          const osc = await kbotTry('device/load_preset', t, deviceIdx, presetName)
+          if (osc.ok) {
+            return `Loaded preset **${presetName}** onto device ${deviceIdx} on track ${args.track} (via AbletonOSC kbot handler /live/kbot/device/load_preset). Live read-back:\n${JSON.stringify(osc, null, 2)}`
+          }
+          return `Preset loading needs AbletonBridge (port 9001) or the AbletonOSC kbot handler. ${oscUnavailableNote(osc)}\n\n${formatBridgeError()}\n\n${OSC_TIER_HINT}`
         }
 
         // Get the device chain to find the device URI
@@ -276,7 +358,7 @@ export function registerAbletonBridgeTools(): void {
         }
 
         await ab.loadPreset(t, deviceIdx, target.uri)
-        return `Loaded preset **${target.name}** onto **${device.name}** (track ${args.track}, device ${deviceIdx})`
+        return `Loaded preset **${target.name}** onto **${device.name}** (track ${args.track}, device ${deviceIdx}) (via AbletonBridge)`
       } catch (err) {
         return `Failed to load preset: ${(err as Error).message}`
       }
@@ -290,6 +372,8 @@ export function registerAbletonBridgeTools(): void {
     description:
       'Apply a full chain of audio effects to a track in sequence. ' +
       'Loads each effect one by one from Ableton\'s browser. ' +
+      'Routes through AbletonBridge (9001), then KBotBridge (9997), then the AbletonOSC kbot handler ' +
+      '/live/kbot/track/insert_device (UDP 11000); the summary line states which plane answered. ' +
       'Great for setting up standard chains like "Compressor → EQ Eight → Saturator → Reverb".',
     parameters: {
       track: { type: 'number', description: 'Track number (1-based)', required: true },
@@ -301,7 +385,7 @@ export function registerAbletonBridgeTools(): void {
       },
     },
     tier: 'free',
-    timeout: 60_000,
+    timeout: 120_000, // one insert_device round trip (up to 20 s) per effect
     async execute(args) {
       const t = userTrack(args.track)
       const chain = args.chain as string[]
@@ -345,7 +429,7 @@ export function registerAbletonBridgeTools(): void {
           }
 
           results.push('')
-          results.push(`**${loaded}** loaded, **${failed}** failed out of ${chain.length} effects.`)
+          results.push(`**${loaded}** loaded, **${failed}** failed out of ${chain.length} effects (via AbletonBridge).`)
           return results.join('\n')
         }
 
@@ -374,9 +458,36 @@ export function registerAbletonBridgeTools(): void {
           return results.join('\n')
         }
 
-        return formatBridgeError()
+        // Tier 3: AbletonOSC kbot handler — insert each device by name, read back
+        const first = await kbotTry('track/insert_device', t, String(chain[0]).trim())
+        if (first.ok || !/timeout|not connected|Could not connect/i.test(first.error ?? '')) {
+          const outcomes: KbotReply[] = [first]
+          for (let i = 1; i < chain.length; i++) {
+            outcomes.push(await kbotTry('track/insert_device', t, String(chain[i]).trim()))
+          }
+          outcomes.forEach((r, i) => {
+            const name = String(chain[i]).trim()
+            if (r.ok && insertDeviceConfirmed(r, name)) {
+              results.push(`- **${name}** loaded`)
+              loaded++
+            } else if (r.ok) {
+              results.push(`- **${name}** — NOT confirmed (read-back shows no new device; added=${String(r.added ?? 'n/a')})`)
+              failed++
+            } else {
+              results.push(`- **${name}** — ${r.error ?? 'error'}`)
+              failed++
+            }
+          })
+          const last = [...outcomes].reverse().find((r) => r.ok)
+          results.push('')
+          results.push(`**${loaded}** loaded, **${failed}** failed out of ${chain.length} effects (via AbletonOSC kbot handler).`)
+          if (last) results.push(`Live read-back after last successful insert:\n${JSON.stringify(last, null, 2)}`)
+          return results.join('\n')
+        }
+
+        return `${oscUnavailableNote(first)}\n\n${formatBridgeError()}\n\n${OSC_TIER_HINT}`
       } catch (err) {
-        return `Effect chain failed: ${(err as Error).message}\n\n${formatBridgeError()}`
+        return `Effect chain failed: ${(err as Error).message}\n\n${formatBridgeError()}\n\n${OSC_TIER_HINT}`
       }
     },
   })

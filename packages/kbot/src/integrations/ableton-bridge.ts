@@ -558,7 +558,8 @@ export function formatBridgeError(): string {
   return [
     '**No Ableton bridge connected**',
     '',
-    'kbot tried two connection methods and neither is available:',
+    'kbot tried its bridge connection methods and none is available',
+    '(the AbletonOSC kbot handlers on UDP 11000 are the third tier — see ableton_lom action=ping):',
     '',
     '**Option 1 — AbletonBridge (recommended)**',
     '  Full browser API with 353 tools. Install:',

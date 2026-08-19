@@ -202,6 +202,20 @@ export function decodeOscMessage(buf: Buffer): OscMessage {
         args.push({ type: 'b', value });
         break;
       }
+      case 'd': { // OSC float64 — decode as 'f' (python-osc emits these for some values)
+        if (offset + 8 > buf.length) throw new Error('OSC buffer underflow reading float64');
+        const value = buf.readDoubleBE(offset);
+        offset += 8;
+        args.push({ type: 'f', value });
+        break;
+      }
+      case 'h': { // OSC int64 — decode as 'i' (lossy above 2^53, acceptable for LOM indexes)
+        if (offset + 8 > buf.length) throw new Error('OSC buffer underflow reading int64');
+        const value = Number(buf.readBigInt64BE(offset));
+        offset += 8;
+        args.push({ type: 'i', value });
+        break;
+      }
       case 'T': // OSC True — decode as integer 1
         args.push({ type: 'i', value: 1 });
         break;
@@ -365,7 +379,11 @@ export class AbletonOSC {
 
   private tryBindRecv(port: number): Promise<void> {
     return new Promise((resolve, reject) => {
-      const socket = dgram.createSocket({ type: 'udp4', reuseAddr: false });
+      // recvBufferSize: the kbot LOM handlers reply with one JSON string per
+      // datagram (up to the 65507-byte UDP ceiling). A large SO_RCVBUF keeps the
+      // kernel from dropping those replies under a burst of queries. Node hands
+      // us whole datagrams, so nothing is truncated on this side.
+      const socket = dgram.createSocket({ type: 'udp4', reuseAddr: false, recvBufferSize: 1 << 20 });
 
       const onError = (err: Error) => {
         socket.removeListener('listening', onListening);
@@ -478,8 +496,17 @@ export class AbletonOSC {
    * Includes one auto-reconnect attempt on failure.
    */
   async query(address: string, ...args: (number | string)[]): Promise<OscArg[]> {
+    return this.queryWithTimeout(AbletonOSC.TIMEOUT, address, ...args);
+  }
+
+  /**
+   * Like query(), but with a per-call timeout (ms). Used by the /live/kbot/*
+   * handlers whose replies (browser search, snapshot, exec) can take longer
+   * than the default TIMEOUT.
+   */
+  async queryWithTimeout(timeoutMs: number, address: string, ...args: (number | string)[]): Promise<OscArg[]> {
     try {
-      return await this.queryOnce(address, ...args);
+      return await this.queryOnce(timeoutMs, address, ...args);
     } catch (err) {
       // If not connected or timed out, try one reconnect
       if (this.connected) {
@@ -487,14 +514,14 @@ export class AbletonOSC {
         this.closeSocketsSilently();
         const reconnected = await this.connect();
         if (reconnected) {
-          return await this.queryOnce(address, ...args);
+          return await this.queryOnce(timeoutMs, address, ...args);
         }
       }
       throw err;
     }
   }
 
-  private queryOnce(address: string, ...args: (number | string)[]): Promise<OscArg[]> {
+  private queryOnce(timeoutMs: number, address: string, ...args: (number | string)[]): Promise<OscArg[]> {
     return new Promise((resolve, reject) => {
       if (!this.sendSocket) {
         reject(new Error('AbletonOSC: not connected. Call connect() first.'));
@@ -504,8 +531,8 @@ export class AbletonOSC {
       const timer = setTimeout(() => {
         // Remove this specific pending entry
         this.removePending(address, entry);
-        reject(new Error(`AbletonOSC: timeout waiting for response on ${address} (${AbletonOSC.TIMEOUT}ms)`));
-      }, AbletonOSC.TIMEOUT);
+        reject(new Error(`AbletonOSC: timeout waiting for response on ${address} (${timeoutMs}ms)`));
+      }, timeoutMs);
 
       const entry: PendingQuery = { resolve, reject, timer };
 

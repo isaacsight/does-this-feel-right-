@@ -1,3 +1,64 @@
+## Session 2026-08-18 (evening) — Ableton full control: kbot_ext.py + LOM plane, live-verified on 12.4.5b11
+
+Isaac: "make sure you can control all of Ableton and make anything for it",
+then "make sure my Live 12 beta is up to date". Spec:
+`docs/superpowers/specs/2026-08-18-ableton-full-control-design.md`.
+
+**Ground truth measured first** (all in the spec §1): AbletonOSC (UDP 11000/
+11001) + KBotBridge (TCP 9997) loaded; AbletonBridge 9001 NOT running; the March
+`kbot_bridge.py` was never installed into the loaded AbletonOSC (so
+`ableton_create_track`/`load_sample`/`build_drum_rack` called dead addresses);
+`/live/master/*` never existed; the June "OSC clip bug" is GONE (create_clip ->
+add/notes -> get/notes read back exact); a local `/live/exec` handler gives
+arbitrary Python inside Live. Dumped the real LOM from inside Live:
+`docs/ableton/lom-dump-12.4.5b5.json` (114 classes, 43 modules).
+
+**Built (ultracode workflow, 7 agents, 0 errors):**
+- `packages/kbot/ableton/remote-script/kbot_ext.py` v0.1.2 — KbotHandler with 41
+  `/live/kbot/*` addresses: generic `lom/get|set|call|describe|children` over
+  Max-style paths (0-based), `exec`, `snapshot(_file)`, browser search/load/
+  preview/presets, track/device/rack/drum/clip/arrangement/undo/data/app ops.
+  Every reply = one JSON string, never raises, mutations read back.
+  `install.sh` + `patch_abletonosc.py` (idempotent; hooks reload_imports so
+  `/live/api/reload` really reloads it); `kbot_ext_test.py` 42/42 offline.
+- `packages/kbot/src/tools/ableton-lom.ts` — `ableton_lom`, `ableton_browser`,
+  `ableton_structure` (registered in index.ts); dead addresses in `ableton.ts`
+  rerouted; `ableton-bridge-tools.ts` gained a 3rd-tier OSC fallback and
+  "NOT confirmed" gating; 48 vitest.
+- `packages/kbot/src/ableton/formats/` — `.als` read/write, `.adg`/`.adv`,
+  `.mid`, `.maxpat` M4L skeleton, Remote Script scaffold; skeletons derived from
+  real Factory Pack files; round-trip tests (41). NOT yet opened inside Live.
+- `tools/ableton/`: `osc-probe.mjs`, `osc-lib.mjs`, `kbot-reload.mjs`
+  (reload+ping, bootstraps first install via exec), `e2e.mjs` (14-step
+  acceptance, re-runnable), `gen-coverage.mjs` + `coverage-map.json`.
+- Docs: `docs/ableton/CONTROL.md` (operator manual), `lom-coverage.md`
+  (1158 members: tool 76 / osc 226 / lom 583 / ui 5 / na 268),
+  `VERIFICATION-2026-08-18.md` + raw smoke log (209 rows).
+
+**Verified on Live:** 41/41 handlers PASS with read-back; e2e 14/14 (three
+runs on b5/b10, then again on b11 with 0.1.2); TS tools via tsx against Live
+returned real read-backs; kbot suite 1398/1398; tsc clean. 10 Live-found bugs
+fixed (Component shadows `_song`; replies >9216 B silently dropped until
+SO_SNDBUF raised; etc — list in VERIFICATION doc).
+
+**Ableton update:** latest beta 12.4.5b11 (2026-08-12); Live's own WebConnector
+auto-updater chained deltas b5->b11 (~250 MB each) and relaunched Live itself
+at 20:26 — nothing downloaded by hand. Bridges all reloaded on b11. Stable
+channel is 12.4.3 (Jul 14); the 12.2 Suite install was not touched.
+
+**Rules learned:** only ONE process may bind UDP 11001 (kbot MCP included) —
+serialize Live probes; `Application.show_message` is a MODAL box in 12.4.5
+(use ControlSurface.show_message); `Track.insert_device(name)` exists in 12.4.5
+and beats browser.load_item; `device/move` takes the final index.
+
+**Still UI-only (no LOM):** freeze/flatten, export audio, save/open Set, prefs,
+plugin GUIs — listed with menu paths in lom-coverage.md. `/live/exec` is an
+unauthenticated 0.0.0.0 UDP escape hatch — dev rig only.
+
+**Next:** open a generated .als/.adg inside Live (first real load), Plane D UI
+automation for export/freeze, retire producer-engine.ts/sound-designer.ts
+callers of the dead March addresses (CONTROL.md §10 lists them).
+
 ## Session 2026-08-18 — nanopore sequencer purchase brief filed
 
 Isaac sent the ONT store pages for the MinION Mk1D and the PromethION 2

@@ -820,16 +820,29 @@ Key OSC addresses used by AbletonOSC for programmatic control:
 /live/device/get/parameter/value <track_index> <device_index> <param_index>
 /live/device/set/parameter/value <track_index> <device_index> <param_index> <float>
 
-# kbot Bridge Extensions (custom)
-/live/kbot/load_plugin <track> <search> <category>
-/live/kbot/load_sample_file <path> <pad_note>
-/live/kbot/create_midi_track <name> <index>
-/live/kbot/create_audio_track <name> <index>
-/live/kbot/get_all_parameters <track_index> <device_index>
-/live/kbot/set_parameter_by_name <track_index> <device_index> <param_name> <value>
-/live/kbot/lom_get <path> <property>
-/live/kbot/lom_set <path> <property> <value>
+# kbot extension handlers (kbot_ext.py, registered in AbletonOSC; replies are one JSON string)
+/live/kbot/lom/get <path> <prop>            # generic Live Object Model plane, 0-based
+/live/kbot/lom/set <path> <prop> <json>     # Max-LiveAPI-style paths: "tracks 0 devices 1 parameters 4"
+/live/kbot/lom/call <path> <method> <json>
+/live/kbot/lom/describe <path>              # members + kinds + current values
+/live/kbot/lom/children <path>              # counts of list props
+/live/kbot/browser/search <query> [category] [limit]
+/live/kbot/browser/load <uri|name> <track:N|pad:N:note|selected>
+/live/kbot/track/create midi|audio|return [index] [name]
+/live/kbot/drum/build_pad <rack path> <note> <sample abs path> [name]
+/live/kbot/clip/notes/get|set|add|remove <clip path> [json]
+/live/kbot/arrangement/create_clip <track> <start> <length>
+/live/kbot/song/undo_group begin|end
+/live/kbot/exec <code>                      # escape hatch, unauthenticated: keep 11000 off untrusted networks
 ```
+
+*Corrected 2026-08-18.* The March `kbot_bridge.py` addresses previously listed here
+(`/live/kbot/load_plugin`, `/live/kbot/load_sample_file`, `/live/kbot/create_midi_track`,
+`/live/kbot/create_audio_track`, `/live/kbot/get_all_parameters`, `/live/kbot/set_parameter_by_name`,
+`/live/kbot/lom_get`, `/live/kbot/lom_set`) were **never installed** in the AbletonOSC that Live loads
+(measured 2026-08-18) and are superseded by the `kbot_ext.py` set above. `/live/master/*` does not exist.
+The full address list, the LOM member-by-member matrix and the operator manual are in
+`docs/ableton/CONTROL.md` and `docs/ableton/lom-coverage.md`.
 
 ## APPENDIX D: KEYBOARD SHORTCUTS (ESSENTIAL)
 
