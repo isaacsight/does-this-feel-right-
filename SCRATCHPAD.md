@@ -1,3 +1,64 @@
+## Session 2026-08-18 — nanopore sequencer purchase brief filed
+
+Isaac sent the ONT store pages for the MinION Mk1D and the PromethION 2
+and asked for "something in my repo for investing in this". Filed
+`docs/hardware/nanopore-sequencer.md` (new `docs/hardware/` lane for
+purchase briefs; pointer added to KERNEL.md's directory map).
+
+Facts captured 2026-08-18: MinION Mk1D Pack **$5,150** (device + 5 flow
+cells + kit + wash kit + 12 mo support), device-only **$3,150**. P2
+Integrated page has **no public price** ("talk to a specialist"); P2 Solo
+has no store page at all (two candidate URLs 404). Historical P2 prices in
+the doc are marked UNVERIFIED.
+
+The brief's position: MinION Pack is the only one that makes sense this
+year (laptop-hosted, no quote cycle, cheap cells to burn while learning);
+P2 Solo would need the RTX 5090 inference box as its host, so it couples
+two unbought hardware bets. Five decision gates listed, first one being a
+written first experiment. Ties to provenance-substrate (real POD5 -> FASTQ
+-> claim pipeline as the JOSS "real data" answer). **Nothing bought.**
+
+## Session 2026-08-17 (later) — muse-glimmer:30b pulled and benched vs qwen3.8:27b (kbot local model)
+
+Isaac asked "how powerful is Ollama now" after the Aug 10-15 wave (Meta Muse
+Glimmer 30B, Qwen3.8-27B, Nemotron 3.5 Lightning; Ollama 0.32.8->0.32.14 in
+eight days), then "pull muse-glimmer and bench it against qwen3.6". qwen3.6
+is not installed; kbot runs qwen3.8:27b (pinned 08-14), so benched against
+that. **Nothing in ~/.kbot/config.json was changed.**
+
+**Harness:** new `tools/bench/ollama-run.mjs` reuses the 8 deterministic
+BYOK tasks from `byok-v4flash-tasks.mjs` and adds the three things that
+decide a model inside kbot on this 36 GB M3 Max: prompt-eval tok/s at ~10k
+tokens (kbot ships ~8k/turn), gen tok/s, native `/api/chat` tools call, and
+resident memory. Streams responses (a non-streamed 250-word probe tripped
+Node's 300s headers timeout while qwen3.8 was thinking), `think:false`,
+ctx 16384 to match `qwen3.8-16k:27b`. Results in
+`tools/bench/results/ollama.jsonl` (first qwen line is contaminated by the
+concurrent 16 GB pull — swap thrash; ignore its speed fields).
+
+**Result (both models, same swap-loaded machine, back to back):**
+| | muse-glimmer:30b (Q4_K_M, 18 GB) | qwen3.8:27b |
+|---|---|---|
+| tasks | 7/8 (fail: testgen wrote no assertions) | 7/8 (fail: testgen used `require` in ESM) |
+| native tool call | PASS | PASS |
+| prompt-eval cold @~10k | **128 tok/s (82 s)** | 96.5 tok/s (120 s) |
+| gen | 9.7-14.9 tok/s | 5.3-5.8 tok/s |
+| resident @16k ctx | 16.1 GB | 16.8 GB |
+| hidden reasoning w/ think:false | **~130 tok/turn** (12-token reply billed 141) | ~0 |
+Glimmer is ~1.3x faster on prompt-eval (the metric that dominates kbot turns)
+and ~1.8x on gen, same quality on this suite, has vision + Apache 2.0. Cost:
+residual reasoning burst that think:false does not fully suppress (with
+think:true it wrote a 4k-char trace, 1032 tokens, for a one-line commit msg).
+Net per-turn wall time is roughly a wash to slightly better; the real win is
+the 38 s saved on a cold 10k prompt-eval. Absolute numbers are depressed —
+10-11 GB swap was allocated the whole session (macOS never releases it) — but
+the relative comparison holds.
+
+**Not done:** switching kbot to Glimmer (Isaac's call; he chose quality over
+latency on 08-14 and pinned all three slots on purpose). To try it:
+`ollama create muse-glimmer-16k:30b` with `PARAMETER num_ctx 16384` then
+point the three slots at it. qwen3.6 was not pulled.
+
 ## Session 2026-08-17 — provenance-substrate: the ledger substrate goes to academia (Python, 6 wedges, 2 conformance suites)
 
 Started as "what would put my repo in the .01 percent?" Answer given: one
@@ -51,6 +112,30 @@ combination + language-neutral conformance suite: not found. Cited in paper.bib.
 strict-pass. ruff clean.
 
 **Moved out (same day).** Canonical home is now github.com/isaacsight/provenance-substrate (subtree split, history kept; PR #74 merged first, then pointer left in packages/provenance/). Monorepo workflow removed; standalone has its own CI.
+
+**Released (same day).** Standalone repo github.com/isaacsight/provenance-substrate.
+v0.1.0 + v0.1.1 on PyPI via Trusted Publishing (`pypi` env; no token exists).
+GitHub Releases carry wheel/sdist/SHA256SUMS. **Zenodo concept DOI
+10.5281/zenodo.21984095** (version 10.5281/zenodo.21984096); webhook installed,
+future releases auto-archive. JOSS paper compiles under JOSS's own action;
+`docs/joss-submission.md` is paste-ready. **Blocked only on ORCID** (Isaac
+thought it needed an institution — it does not; orcid.org/register, name+email).
+Gotchas learned: PyPI silently redirects the trusted-publisher page to 2FA setup
+until 2FA is finished; Zenodo's toggle needs a real click + "synced" flash —
+verify with `gh api repos/<r>/hooks`; GitHub API 503'd repeatedly — release
+workflow now retries. Next real moves: benchmark numbers on 2–3 real models,
+one real Lean run, invite a port in another language.
+
+**E2E fixed (#76, merged 243072b42).** E2E Tests had been cancelled at the
+15-min ceiling on every run since 2026-06-10 (last green 2026-04-13). Cause:
+July magazine pivot removed `.engine-body`/`.ka-landing`; 15 specs waited 15s
+x 2 retries x 2 browsers; dot reporter's newline-free output made the log
+look like a hang. Fix: `e2e/fixtures/selectors.ts` (APP_READY/LANDING) used
+by every spec; landing tests wait for the lazy `.pop-landing`; dark-mode
+specs poll computed style (a 300ms sleep == --duration-normal, coin flip on
+WebKit); auth check uses a locator (page.$ died on first-load navigation);
+CI reporter line+html, maxFailures 15, retries 1; e2e.yml build now gets
+VITE_SUPABASE_URL/KEY. Result: 116 passed in 1.7 min on the runner.
 
 **Not done / next.** (1) `provsub` wedge subcommands + `mcp_tools()` per wedge
 and docs/<wedge>.md were delegated at end of session — verify present.

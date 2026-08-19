@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run Folio — Specimen 00</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#FAF9F6;--cream:#F3E9D2;--ledger:#F2EFE2;--kraft:#C8A97E;--sepia:#D4C5A9;
+  --coffee:#6B4E3D;--ink:#1F1E1D;--tomato:#E24E1B;--tomato-soft:rgba(226,78,27,.08);
+  --hair:rgba(31,30,29,.85);--hair-soft:rgba(31,30,29,.16);
+  --serif:"EB Garamond",Georgia,serif;--mono:"Courier Prime","Courier New",monospace;
+}
+*{box-sizing:border-box}
+html{background:var(--ink)}
+body{margin:0;font-family:var(--serif);font-size:19px;line-height:1.6;color:var(--ink);background:var(--ink)}
+.page{max-width:900px;margin:0 auto;padding:64px 56px;min-height:100vh;position:relative}
+.stock-cream{background:var(--cream)}.stock-ivory{background:var(--ivory)}.stock-ledger{background:var(--ledger)}
+.stock-ledger{background-image:linear-gradient(var(--hair-soft) 1px,transparent 1px);background-size:100% 32px;background-position:0 12px}
+.kicker{font-family:var(--mono);font-size:12.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.kicker::before{content:"[ "}.kicker::after{content:" ]"}
+.kicker.tomato{color:var(--tomato)}
+.jp{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--coffee)}
+.rule{border:0;height:1px;background:var(--hair);margin:0}.rule.soft{background:var(--hair-soft)}
+.rule.tomato{height:3px;background:var(--tomato)}
+h1.display{font-weight:700;line-height:.98;letter-spacing:-.025em;font-size:clamp(44px,8vw,88px);margin:24px 0 20px}
+h2.section{font-weight:700;line-height:.95;letter-spacing:-.025em;font-size:clamp(34px,5vw,56px);margin:16px 0 8px}
+.num{font-family:var(--mono);font-size:12.8px;letter-spacing:.14em;color:var(--coffee)}
+.folio{position:absolute;bottom:28px;left:56px;right:56px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:12.8px;letter-spacing:.14em;color:var(--coffee);text-transform:uppercase}
+.swash{font-style:italic;font-weight:500;color:var(--coffee)}
+.lede{font-size:23px;line-height:1.45;font-style:italic;color:var(--coffee);max-width:40ch}
+.monument{display:inline-block;padding:14px 22px;background:var(--ink);color:var(--ivory);font-family:var(--mono);font-size:12.8px;letter-spacing:.2em;text-transform:uppercase;box-shadow:8px 8px 0 var(--tomato);margin:28px 0}
+.notice{border:1px solid var(--hair);padding:18px 22px;font-size:16px;line-height:1.5;background:var(--tomato-soft);margin:32px 0}
+.notice b{font-family:var(--mono);font-size:12.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--tomato);display:block;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:16.5px}
+th,td{text-align:left;vertical-align:top;padding:10px 8px 10px 0;border-bottom:1px solid var(--hair-soft)}
+th{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:400;color:var(--coffee);border-bottom:1px solid var(--hair)}
+td.lbl{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--coffee);width:32%}
+.hash{font-family:var(--mono);font-size:13px;color:var(--coffee);letter-spacing:.02em}
+.spec{color:var(--tomato);font-family:var(--mono);font-size:13px}
+.big{font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1;display:block;margin:6px 0 2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px 28px;margin:24px 0}
+.grid .cell{border-top:1px solid var(--hair);padding-top:10px}
+.glyph{color:var(--tomato)}
+.wrap{overflow-x:auto}
+p{margin:0 0 1em}
+@media (max-width:640px){.page{padding:44px 24px}.folio{left:24px;right:24px}}
+@media print{html,body{background:var(--ivory)}.page{min-height:auto;page-break-after:always}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page stock-cream">
+  <div class="kicker tomato">Kernel Press · Run Folio · Specimen 00</div>
+  <h1 class="display">A sequencing run,<br>filed in public.</h1>
+  <p class="lede">The four-page record we hand you after a nanopore run: what was claimed, what was measured, what it means, and what it cost. Every number on the ledger page can be re-derived by anyone holding the raw data.</p>
+  <div class="jp">公開された配列決定記録 · ONE RUN, ONE FOLIO</div>
+  <div class="monument">Issue · Specimen 00 · August 2026</div>
+  <div class="notice"><b>This is Specimen 00 — no run has been performed</b>
+    Fields marked <span class="spec">◇</span> show the shape of a real folio using typical figures from published home nanopore runs (Menon, 2026-05); hashes read <span class="hash">computed at run</span>. A client folio replaces every <span class="spec">◇</span> with a measurement and every <span class="hash">computed at run</span> with a SHA-256.</div>
+  <div class="folio"><span>kernel.chat</span><span>cover</span></div>
+</section>
+
+<!-- I. CLAIM -->
+<section class="page stock-ivory">
+  <div class="num">I</div>
+  <h2 class="section">The claim</h2>
+  <div class="jp">主張 · WHAT WAS ASKED, AND WHAT THIS DOES NOT SHOW</div>
+  <hr class="rule tomato" style="margin:20px 0 8px">
+  <table>
+    <tr><td class="lbl">What was asked</td><td><strong>Whole-genome long-read sequence of one human buccal sample, sufficient for a targeted-panel reading; not sufficient for clinical-grade variant calling.</strong></td></tr>
+    <tr><td class="lbl">For</td><td><span class="spec">◇</span> Client name · engagement reference</td></tr>
+    <tr><td class="lbl">Sample</td><td><span class="spec">◇</span> Buccal swab, collected by the client, extracted same day (Monarch gDNA)</td></tr>
+    <tr><td class="lbl">Dateline</td><td><span class="spec">◇</span> Los Angeles · YYYY-MM-DD → YYYY-MM-DD · 72 h run</td></tr>
+    <tr><td class="lbl">Does not show</td><td>Diagnosis. Ancestry claims. Anything requiring more than 15x coverage. Anything the ledger overleaf cannot reproduce.</td></tr>
+  </table>
+  <p class="swash" style="margin-top:28px">A claim is small on purpose. The ledger is where it earns its size.</p>
+  <div class="folio"><span>Run Folio · Specimen 00</span><span>I · 01</span></div>
+</section>
+
+<!-- II. LEDGER -->
+<section class="page stock-ledger">
+  <div class="num">II</div>
+  <h2 class="section">The ledger</h2>
+  <div class="jp">台帳 · MACHINE-CHECKABLE · RAW READS NEVER ENTER THIS REPOSITORY</div>
+  <hr class="rule tomato" style="margin:20px 0 8px">
+  <div class="wrap">
+  <table>
+    <tr><th>#</th><th>Step</th><th>Tool · version</th><th>Input</th><th>Output</th></tr>
+    <tr><td class="num">01</td><td>Flow-cell check</td><td>MinKNOW <span class="spec">◇</span> 24.x · cell FAX····· · <span class="spec">◇</span> 1,412 active pores</td><td>—</td><td class="hash">computed at run</td></tr>
+    <tr><td class="num">02</td><td>Library prep</td><td>SQK-LSK114 ligation · NEBNext Companion · lot <span class="spec">◇</span></td><td>—</td><td class="hash">prep sheet, signed</td></tr>
+    <tr><td class="num">03</td><td>Sequencing</td><td>MinION Mk1D · R10.4.1 · <span class="spec">◇</span> 72 h · 30.1 Gb raw</td><td>—</td><td class="hash">POD5 set: computed at run (◇ 98 GB)</td></tr>
+    <tr><td class="num">04</td><td>Basecalling</td><td>Dorado <span class="spec">◇</span> 0.9 · dna_r10.4.1_e8.2_400bps_sup · M3 Max</td><td class="hash">POD5 hash</td><td class="hash">FASTQ: computed at run</td></tr>
+    <tr><td class="num">05</td><td>Alignment</td><td>minimap2 <span class="spec">◇</span> 2.28 · -ax map-ont · GRCh38</td><td class="hash">FASTQ hash</td><td class="hash">BAM: computed at run</td></tr>
+    <tr><td class="num">06</td><td>Variant calls</td><td>Clair3 <span class="spec">◇</span> 1.0 · ONT R10 model</td><td class="hash">BAM hash</td><td class="hash">VCF: computed at run</td></tr>
+    <tr><td class="num">07</td><td>Ledger seal</td><td>provenance-substrate <span class="spec">◇</span> 0.1.x</td><td class="hash">steps 01–06</td><td class="hash">ledger.json: computed at run</td></tr>
+  </table>
+  </div>
+  <div class="kicker" style="margin-top:28px">Yield, as measured</div>
+  <div class="grid">
+    <div class="cell"><span class="num">RAW BASES</span><span class="big"><span class="spec">◇</span>30.1 Gb</span><span class="hash">one MinION cell, typical</span></div>
+    <div class="cell"><span class="num">READ N50</span><span class="big"><span class="spec">◇</span>11.4 kb</span><span class="hash">intact DNA</span></div>
+    <div class="cell"><span class="num">MEAN DEPTH</span><span class="big"><span class="spec">◇</span>9.7x</span><span class="hash">a reading, not a diagnosis</span></div>
+    <div class="cell"><span class="num">Q ≥ 20</span><span class="big"><span class="spec">◇</span>91%</span><span class="hash">sup basecalling</span></div>
+    <div class="cell"><span class="num">PORES 0h → 24h → END</span><span class="big" style="font-size:26px"><span class="spec">◇</span>1,412 → 880 → 310</span><span class="hash">the cell dying, as designed</span></div>
+  </div>
+  <div class="folio"><span>Run Folio · Specimen 00</span><span>II · 02</span></div>
+</section>
+
+<!-- III. READING -->
+<section class="page stock-ivory">
+  <div class="num">III</div>
+  <h2 class="section">The reading</h2>
+  <div class="jp">読み · PLAIN REGISTER · WHERE THE DATA IS THIN, IT SAYS SO</div>
+  <hr class="rule tomato" style="margin:20px 0 24px">
+  <p><span class="spec">◇</span> At about 10x depth this run supports confident calls across the targeted panel regions and a genome-wide sketch. It does not support clinical interpretation, which begins near 30x — one PromethION cell, or three MinION cells pooled.</p>
+  <p>Read length (N50 11.4 kb) shows the extraction preserved DNA integrity, the step where most first runs fail. The pore-decay curve is normal for a 72 h run. A wash-and-reload could have recovered roughly 5 Gb more and was not attempted.</p>
+  <p>What we would do next, and what it would cost, is on the last page.</p>
+  <hr class="rule soft" style="margin:36px 0 16px">
+  <p class="swash">No "may indicate". If a sentence cannot point at a row of the ledger, it is not in the reading.</p>
+  <div class="folio"><span>Run Folio · Specimen 00</span><span>III · 03</span></div>
+</section>
+
+<!-- IV. COLOPHON -->
+<section class="page stock-cream">
+  <div class="num">IV</div>
+  <h2 class="section">The colophon</h2>
+  <div class="jp">奥付 · WHO, ON WHAT, FOR HOW MUCH</div>
+  <hr class="rule tomato" style="margin:20px 0 8px">
+  <table>
+    <tr><td class="lbl">Ran by</td><td><span class="spec">◇</span> Isaac Hernandez · kernel.chat</td></tr>
+    <tr><td class="lbl">Hardware</td><td>MinION Mk1D · Apple M3 Max, 36 GB · external NVMe</td></tr>
+    <tr><td class="lbl">Cost of this run</td><td><span class="spec">◇</span> flow cell $1,050 · kit share $102 · NEBNext share $53 · extraction $150 · time: 3 h bench, 72 h run, 6 h basecall</td></tr>
+    <tr><td class="lbl">Cost of the next run</td><td><span class="spec">◇</span> ~$1,100 — the flow cell is the ink</td></tr>
+    <tr><td class="lbl">Reproduce it</td><td><span class="hash">git clone</span> the bundle · <span class="hash">sh commands.sh</span> · compare hashes to <span class="hash">ledger.json</span></td></tr>
+    <tr><td class="lbl">Filed</td><td>this folio, this repository, in public</td></tr>
+  </table>
+  <p style="margin-top:40px;font-family:var(--mono);font-size:12.8px;letter-spacing:.14em;text-transform:uppercase;color:var(--coffee)"><span class="glyph">★</span> count what gets read · cut what doesn't · file the audit in public</p>
+  <p class="hash" style="margin-top:32px">Specimen 00 assembled 2026-08-18 without hardware, from docs/hardware/nanopore-sequencer.md. github.com/isaacsight/kernel</p>
+  <div class="folio"><span>kernel.chat</span><span>IV · 04</span></div>
+</section>
+
+</body>
+</html>

@@ -129,7 +129,9 @@ kernel.chat/                        ← repo root
 ├── README.md                       ← public landing for the repo
 │
 ├── docs/
-│   └── design-language.md          ← magazine visual grammar (POPEYE, PAPERSKY, WIRED)
+│   ├── design-language.md          ← magazine visual grammar (POPEYE, PAPERSKY, WIRED)
+│   └── hardware/                   ← purchase briefs; nothing here is bought until its gates pass
+│       └── nanopore-sequencer.md   ← MinION Mk1D vs PromethION 2, filed 2026-08-18
 │
 ├── packages/kbot/                  ← the agent (npm @kernel.chat/kbot)
 │   ├── README.md                   ← npm-facing
