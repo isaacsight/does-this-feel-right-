@@ -221,7 +221,7 @@ model run three ways; adds the optional `dialLabel` field),
 `411.ts` for tutor (interactive manual teaching all four shapes — first instance),
 `412.ts` for margin (interactive writable margin — first contribution control),
 `413.ts` for press (interactive composing instrument — first artifact control),
-`423.ts` for plate (interactive working model — established pattern; routing proof),
+`429.ts` for plate (interactive working model — fourth instance; squiggle proof, specimen register; see `423.ts` for the routing variant),
 `420.ts` for bore (interactive descent — first depth control, artifact-first),
 `421.ts` for fourier (interactive waveform summation — first audible control),
 `422.ts` for audit (the session control — first merger issue, apparatus whole)). Every issue needs:
@@ -503,12 +503,13 @@ branch — only main publishes.
 
 ---
 
-_Last updated: ISSUE 427 · FEB 2027 (THE MOAT IS REALITY — the
-second `interview` instance, and the first with a real named subject
-(Alex Hormozi) rather than a composite. Nine exchanges trimmed, not
-invented, from a reader-supplied transcript of a real broadcast
-interview — no artifact edition, since a Q&A transcript has no depth
-axis to reduce from; the interview format's own dossier-plus-exchanges
-grammar already is that reduction. Prior: 426 THE WEATHER OVER THE
-QUEUE (`forecast`, operable dispatch board) and 425 ONE OF ONE
-(`sequence`, second instance).)_
+_Last updated: ISSUE 429 · MAR 2027 (THE INK IS THE CELL — fourth
+`plate` instance, first `squiggle` proof grammar: a materials review
+of the Oxford Nanopore MinION in the specimen register, nothing
+bought and no run performed, declared on the cover seal. The issue
+number skipped 428 — two branches had already claimed it (THE ONE
+PERCENT, NOTHING NEW WAS ADDED) per §VII's renumber rule. Prior:
+427 THE MOAT IS REALITY (`interview`, second instance, first real
+named subject — no artifact edition, since a Q&A transcript has no
+depth axis to reduce from) and 426 THE WEATHER OVER THE QUEUE
+(`forecast`, operable dispatch board).)_

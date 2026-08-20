@@ -164,6 +164,79 @@ function drawProof(
     return
   }
 
+  if (style === 'squiggle') {
+    /* The chart-recorder grammar: a stepped ionic-current trace,
+     * quantized to discrete dwell levels the way a pore reports
+     * them. One seeded window is raised into the issue accent and
+     * given its base call — the one-spot-colour discipline decides
+     * WHETHER, the seed only decides WHERE. */
+    ctx.strokeStyle = faint
+    ctx.lineWidth = 0.5
+    for (let gy = 18.5; gy < h - 40; gy += 22) {
+      ctx.beginPath()
+      ctx.moveTo(0, gy)
+      ctx.lineTo(w, gy)
+      ctx.stroke()
+    }
+
+    const top = 14
+    const floor = h - 40
+    const levels = 6
+    const levelY = (lvl: number) => top + ((floor - top) * lvl) / (levels - 1)
+    const drift = sway ? Math.sin(sway / 900) * 3 : 0
+
+    const callStart = w * (0.18 + rnd() * 0.5)
+    const callEnd = callStart + w * 0.18
+    const bases = ['A', 'C', 'G', 'T']
+    let call = ''
+
+    let x = 0
+    let lvl = Math.floor(rnd() * levels)
+    while (x < w) {
+      const dwell = 4 + rnd() * 12
+      const next = Math.min(x + dwell, w)
+      const inCall = x >= callStart && x < callEnd
+      ctx.strokeStyle = inCall ? accent : ink
+      ctx.lineWidth = inCall ? 1.6 : 1.05
+      const y = levelY(lvl) + drift + (rnd() - 0.5) * 1.4
+      ctx.beginPath()
+      ctx.moveTo(x, y)
+      ctx.lineTo(next, y)
+      ctx.stroke()
+      const newLvl = Math.max(0, Math.min(levels - 1, lvl + (Math.floor(rnd() * 5) - 2)))
+      if (newLvl !== lvl && next < w) {
+        ctx.beginPath()
+        ctx.moveTo(next, y)
+        ctx.lineTo(next, levelY(newLvl) + drift)
+        ctx.stroke()
+      }
+      if (inCall && call.length < 5) call += bases[lvl % 4]
+      lvl = newLvl
+      x = next
+    }
+    while (call.length < 5) call += bases[Math.floor(rnd() * 4)]
+
+    ctx.strokeStyle = accent
+    ctx.lineWidth = 1
+    ctx.beginPath()
+    ctx.moveTo(callStart, floor + 8)
+    ctx.lineTo(callStart, floor + 12)
+    ctx.lineTo(callEnd, floor + 12)
+    ctx.lineTo(callEnd, floor + 8)
+    ctx.stroke()
+    ctx.fillStyle = accent
+    ctx.font = '9px "Courier Prime", Courier, monospace'
+    ctx.fillText(call.split('').join(' '), callStart + 4, floor + 22)
+
+    ctx.fillStyle = ink
+    ctx.globalAlpha = 0.7
+    ctx.font = '9px "Courier Prime", Courier, monospace'
+    ctx.fillText('IONIC CURRENT · pA', 0, h - 7)
+    ctx.fillText(`No.${String(seed % 1000).padStart(3, '0')}`, w - 44, h - 7)
+    ctx.globalAlpha = 1
+    return
+  }
+
   ctx.strokeStyle = faint
   ctx.lineWidth = 0.5
   for (let gx = 32.5; gx < w; gx += 32) {

@@ -347,6 +347,13 @@
 }
 
 .pop-plate-run {
+  /* The thumb is the turn-of-page: 44px floor, mobile-first.
+     Without min-height this computed to 39px (found in the 429
+     mobile pass), under the house tap-target minimum. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.16em;

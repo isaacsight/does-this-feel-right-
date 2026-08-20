@@ -1058,8 +1058,10 @@ export interface PlateSpread extends SpreadCommon {
   type: 'plate'
   /** Rendering grammar for proof canvases. The default preserves
    *  419's botanical engravings; routing renders expert fields;
-   *  studio renders local media receipts and contact sheets. */
-  proofStyle?: 'botanical' | 'routing' | 'studio'
+   *  studio renders local media receipts and contact sheets;
+   *  squiggle renders a chart-recorder ionic-current trace with a
+   *  raised base-call window (introduced 429). */
+  proofStyle?: 'botanical' | 'routing' | 'studio' | 'squiggle'
   dossier?: SpreadDossier
   intro?: SpreadSection[]
   /** Monument headline, stacked — the galley register's header.

@@ -204,9 +204,12 @@ Concrete lanes, ranked by how well they pay for the box:
   before buying.
 - Storage: ~100 GB per run of POD5. External SSD for raw data; the repo
   gets hashes and reports, never the reads.
-- Downstream stack is all open source: MinKNOW -> Dorado -> minimap2 ->
-  Clair3 or PEPPER-Margin-DeepVariant -> VCF. Every step is a
-  provenance-substrate step.
+- Downstream stack runs free end to end: MinKNOW (ONT proprietary, free
+  with the device) -> Dorado (source-published under ONT's licence) ->
+  minimap2 -> Clair3 or PEPPER-Margin-DeepVariant -> VCF (those last
+  open source outright). Every step is a provenance-substrate step.
+  (Corrected 2026-08-19 — an earlier line here called the whole stack
+  "all open source"; MinKNOW is not, and Dorado's licence is ONT's own.)
 - The inference box (if built) would basecall faster with `dorado` on
   CUDA, but it is not required. Do not couple the two purchases.
 

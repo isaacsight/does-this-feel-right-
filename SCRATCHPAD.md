@@ -1,3 +1,70 @@
+## Session 2026-08-19 — ISSUE 429: THE INK IS THE CELL (nanopore issue, ready to ship)
+
+Isaac: "make the next issue about the rna and dna kit we can now make locally."
+Subject = the MinION purchase brief (docs/hardware/nanopore-sequencer.md) +
+Run Folio Specimen 00. SPECIMEN REGISTER throughout: nothing bought, no run
+performed, declared on the cover seal (SPECIMEN 00 · NO RUN YET · III·27).
+
+**Numbering:** 428 was claimed twice on other branches (e8b83bb2b THE ONE
+PERCENT, d8c89fb77 NOTHING NEW WAS ADDED) -> renumbered to 429 per
+PUBLISHING §VII. registry.test.ts contiguity check amended to a declared-gap
+allowlist (PENDING_OFF_BRANCH = [428]); remove the entry when a 428 merges.
+
+**Built (ultracode workflow, 10 agents: 3 writers -> judge -> 3 checkers +
+artifact builder -> 2 inspectors; all fixes applied by hand after):**
+- src/content/issues/429.ts — ivory · classic · warty-spots (369's ornament
+  re-read as PORES) · ivy · plate (4th instance) · price "$1,100 · THE INK".
+- `squiggle` proof grammar: schema.ts union + drawProof branch in
+  PlateFeature.tsx (stepped ionic-current trace, seeded base-call window).
+- artifacts/429-the-ink-is-the-cell.html — six-stratum descent (bench ->
+  extraction -> library -> pore -> basecall -> folio), sample choice
+  (buccal/coffee/RNA) + basecall model (fast/hac/sup) carried down; resting
+  state pre-rendered (no-JS legible); live-verified: probe, ledger, re-ink,
+  roving tabindex, deterministic seed 429.
+- docs/design-language.md catalog row; PUBLISHING.md hygiene pass.
+
+**Fact catch that matters:** the draft (and the brief itself) claimed the
+MinKNOW->Clair3 stack is "all open source" — FALSE. MinKNOW is ONT
+proprietary (free), Dorado is source-published under ONT's licence; only
+minimap2 + Clair3 are open outright. Corrected in the issue AND the brief.
+Also fixed: Gb (gigabases) uppercased to GB (gigabytes) by ticker CSS ->
+units spelled out (GIGABASES/KILOBASES) in caps slots; run-cost dollars are
+Menon's too and now inside the third-party disclaimer; every third-party
+figure marked with a diamond in print.
+
+**Verification:** tsc clean; npm run build clean; **833/833 tests pass**;
+site verified live on localhost:5173 (cover = 429, plate threads, proofs
+paint, /issues + /archive both pick 429 up with no extra work); artifact
+verified operable, zero external requests, both themes wired, canvas
+re-inks on theme change, seed 429 confirmed deterministic (same seed ->
+identical frame). Pre-existing failure (NOT mine): vitest can't load
+tools/ableton/gen-coverage.test.mjs (node:test file caught by the glob) —
+task chip filed, fixed in a separate session.
+
+**44px LAW VIOLATION FOUND + FIXED (pre-existing, all plate issues):**
+the mobile pass at 375px caught `.pop-plate-run` computing to 39px — under
+the house tap-target floor — because it had no min-height. Fixed in
+PlateFeature.css (inline-flex + min-height 44px); this repairs 419, 423,
+424 and 429 at once. Same defect fixed in the artifact's #probe-btn (~36px)
+and .choice chips (~30px). No horizontal overflow at 375px; the wide plate
+stage/ticker correctly live inside `.pop-plate-scroll` (overflow-x: auto).
+
+**Artifact edition published** (private, per artifact-language §VI):
+https://claude.ai/code/artifact/25daa4f3-c2e6-4205-9ea5-dcfaf5ad46ac
+Title aligned to the house plate convention (423's `· ROUTING PLATE No.2`):
+"THE INK IS THE CELL · SPECIMEN PLATE No.4". Favicon ★ — keep both stable
+across redeploys. The public site never links claude.ai proofs, so the
+issue's audit block cites the repo path only.
+
+**NOT DONE (needs Isaac):** commit + push to main (push IS the deploy).
+Everything is in the working tree, uncommitted. Commit title:
+"ISSUE 429 — THE INK IS THE CELL". Also uncommitted alongside: the earlier
+grammar-proposals canvas is a claude.ai artifact only (not repo material).
+
+Browser-pane note: screenshots return blank ivory in this pane even with
+content verified visible (known quirk); verify via get_page_text /
+javascript_tool instead.
+
 ## Session 2026-08-18 (evening) — Ableton full control: kbot_ext.py + LOM plane, live-verified on 12.4.5b11
 
 Isaac: "make sure you can control all of Ableton and make anything for it",

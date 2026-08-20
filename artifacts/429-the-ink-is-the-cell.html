@@ -1,0 +1,1279 @@
+<meta charset="utf-8">
+<title>THE INK IS THE CELL · SPECIMEN PLATE No.4</title>
+<style>
+  :root {
+    --paper: #FAF9F6;
+    --stock: #F3E9D2;
+    --ink: #1F1E1D;
+    --meta: #6E675F;
+    --line: #D8D2C6;
+    --accent: #2E4A2E;
+    --serif: "EB Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --mono: "Courier Prime", "Courier New", Courier, monospace;
+    --jp: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #171614;
+      --stock: #21201C;
+      --ink: #EFEAE0;
+      --meta: #9A938A;
+      --line: #3A3731;
+      --accent: #7BA37B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #171614;
+    --stock: #21201C;
+    --ink: #EFEAE0;
+    --meta: #9A938A;
+    --line: #3A3731;
+    --accent: #7BA37B;
+  }
+  :root[data-theme="light"] {
+    --paper: #FAF9F6;
+    --stock: #F3E9D2;
+    --ink: #1F1E1D;
+    --meta: #6E675F;
+    --line: #D8D2C6;
+    --accent: #2E4A2E;
+  }
+
+  html, body {
+    /* the room cools slightly as the probe descends toward the folio */
+    background: color-mix(in oklab, var(--paper), var(--ink) calc(var(--live-depth, 0) * 4%));
+    transition: background 0.8s ease;
+  }
+  body {
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: var(--paper); }
+  .jp { font-family: var(--jp); }
+
+  .sheet {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 20px 64px;
+  }
+
+  /* ---------- running head ---------- */
+  .running-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14px 2px 10px;
+    border-bottom: 1px solid var(--ink);
+    position: relative;
+  }
+  .running-head::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .running-head .mid { color: var(--meta); }
+  .star { color: var(--accent); font-style: normal; }
+
+  /* ---------- masthead ---------- */
+  .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--meta);
+    margin: 44px 0 0;
+  }
+  .kicker b { color: var(--accent); font-weight: 400; }
+  h1.monument {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(48px, 9vw, 110px);
+    line-height: 0.94;
+    letter-spacing: -0.015em;
+    margin: 14px 0 0;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  h1.monument .accent { color: var(--accent); }
+  .monument-jp {
+    font-family: var(--jp);
+    font-size: 14px;
+    letter-spacing: 0.42em;
+    color: var(--meta);
+    margin-top: 10px;
+  }
+  .dek {
+    max-width: 60ch;
+    font-size: clamp(17px, 2.1vw, 21px);
+    line-height: 1.5;
+    margin: 24px 0 0;
+  }
+  .dek em { font-style: italic; }
+
+  /* ---------- dossier ---------- */
+  .dossier {
+    margin-top: 40px;
+    border: 1px solid var(--ink);
+    background: var(--stock);
+  }
+  .dossier-head {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 10px 14px 9px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .dossier-head .jp { color: var(--meta); letter-spacing: 0.3em; margin-left: 10px; }
+  .dossier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .dossier-item {
+    padding: 12px 14px 13px;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+  }
+  .dossier-item b {
+    display: block;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 0.16em;
+    margin-bottom: 2px;
+  }
+  .dossier-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--meta);
+    padding: 11px 14px 12px;
+    margin: 0;
+  }
+
+  /* ---------- ticker (weather) ---------- */
+  .ticker-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--meta);
+    margin: 40px 2px 6px;
+  }
+  .ticker {
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0 7px;
+  }
+  .ticker-inner {
+    display: inline-block;
+    white-space: nowrap;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    animation: ticker-roll 64s linear infinite;
+  }
+  .ticker-inner .sep { color: var(--accent); padding: 0 14px; }
+  @keyframes ticker-roll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-inner { animation: none; }
+  }
+
+  /* ---------- the bore: gauge rail + strata ---------- */
+  .bore {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 0 28px;
+    margin-top: 56px;
+    position: relative;
+  }
+  @media (max-width: 720px) {
+    .bore { grid-template-columns: 46px 1fr; gap: 0 14px; }
+  }
+
+  .gauge { position: relative; }
+  .gauge-line {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: var(--line);
+  }
+  #probe-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--accent);
+    transform: translate(-50%, -4px);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 20%, transparent);
+  }
+  .gauge-stop {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--meta);
+    transform: translateY(-50%);
+    line-height: 1.5;
+  }
+  .gauge-stop .jp { font-size: 10px; letter-spacing: 0.14em; }
+  .gauge-stop::before {
+    content: "";
+    display: block;
+    width: 7px; height: 7px;
+    margin: 0 auto 4px;
+    border: 1px solid var(--meta);
+    border-radius: 50%;
+    background: var(--paper);
+  }
+  .gauge-stop.lit { color: var(--accent); }
+  .gauge-stop.lit::before { border-color: var(--accent); background: var(--accent); }
+
+  .strata { min-width: 0; }
+
+  .stratum {
+    --depth: 0;
+    border: 1px solid var(--ink);
+    background: color-mix(in oklab, var(--stock), var(--ink) calc(var(--depth) * 6%));
+    margin-bottom: 30px;
+    transition: box-shadow 0.35s ease, transform 0.45s ease;
+  }
+  .stratum.active { box-shadow: 5px 5px 0 var(--accent); }
+  .stratum.raised { transform: translateY(-3px); }
+  @media (prefers-reduced-motion: reduce) {
+    .stratum { transition: none; }
+    .stratum.raised { transform: none; }
+  }
+  .stratum-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6px 18px;
+    padding: 10px 14px 9px;
+    border-bottom: 1px solid var(--ink);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .stratum-head .jp { color: var(--meta); letter-spacing: 0.3em; }
+  .stratum-status { color: var(--meta); }
+  .stratum.reached .stratum-status { color: var(--accent); }
+  .stratum-body { padding: 16px; }
+  .stratum-body p.prose {
+    margin: 0 0 14px;
+    max-width: 66ch;
+    font-size: 15.5px;
+  }
+  .stratum-body p.prose:last-child { margin-bottom: 0; }
+  .stratum-caption {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--meta);
+    padding: 9px 14px 10px;
+    border-top: 1px solid var(--line);
+    margin: 0;
+  }
+
+  /* re-inked figure lines (carried context made visible) */
+  .fig-line {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.8;
+    border-left: 3px solid var(--accent);
+    padding: 6px 0 6px 14px;
+    margin: 14px 0 0;
+    transition: opacity 0.3s ease;
+  }
+  .fig-line b { color: var(--accent); font-weight: 400; }
+  .fig-line .dim { color: var(--meta); }
+
+  .menon-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    margin: 0 0 12px;
+    max-width: 60ch;
+  }
+  .menon-quote .who {
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--meta);
+  }
+
+  /* ---------- radio controls ---------- */
+  .choice-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 4px;
+  }
+  .choice-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--meta);
+    margin-right: 6px;
+  }
+  .choice {
+    /* 44px floor — the thumb is the turn-of-page */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, color 0.2s ease;
+  }
+  .choice:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .choice[aria-checked="true"] {
+    background: var(--accent);
+    color: var(--paper);
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+  @media (prefers-reduced-motion: reduce) { .choice { transition: none; } }
+
+  /* ---------- probe button ---------- */
+  #probe-btn {
+    /* 44px floor — the thumb is the turn-of-page */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--accent);
+    border: 1px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 10px 22px;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  #probe-btn:hover:not(:disabled) { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--ink); }
+  #probe-btn:active:not(:disabled) { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--ink); }
+  #probe-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  #probe-btn:disabled { opacity: 0.55; cursor: wait; }
+
+  /* ---------- the plate (squiggle) ---------- */
+  .plate-frame { position: relative; }
+  .stratum canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    background: color-mix(in oklab, var(--paper), var(--ink) calc(var(--depth) * 5%));
+  }
+
+  /* ---------- the folio receipt (the floor) ---------- */
+  .folio {
+    position: relative;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    padding: 0;
+    margin: 4px 0 0;
+  }
+  .folio-head {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 10px 180px 9px 14px;
+    border-bottom: 1px dashed var(--line);
+  }
+  @media (max-width: 560px) {
+    .folio-head { padding-right: 14px; }
+  }
+  .folio-head .star { margin-right: 6px; }
+  .folio-sec {
+    padding: 10px 14px 11px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .folio-sec:last-of-type { border-bottom: none; }
+  .folio-sec h3 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+    margin: 0 0 6px;
+  }
+  .folio-sec pre {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    line-height: 1.9;
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-variant-numeric: tabular-nums;
+  }
+  .folio-sec .reading-line {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 62ch;
+  }
+  .folio-sellable {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16.5px;
+    padding: 12px 14px 13px;
+    border-top: 1px solid var(--ink);
+    margin: 0;
+  }
+  .folio-sellable b { color: var(--accent); font-weight: 500; }
+  .stamp {
+    position: absolute;
+    top: 12px; right: 14px;
+    transform: rotate(-7deg);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 5px 10px 4px;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  @media (max-width: 560px) {
+    .stamp { position: static; display: inline-block; margin: 12px 14px 0; }
+  }
+
+  /* ---------- session ledger ---------- */
+  .ledger-block {
+    border: 1px solid var(--ink);
+    background: var(--stock);
+    margin-top: 8px;
+    padding: 14px 16px;
+  }
+  .ledger-kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--meta);
+    margin: 0 0 8px;
+  }
+  #ledger {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+  }
+  .ledger-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink);
+    border-left: 3px solid var(--accent);
+    padding-left: 14px;
+    margin: 14px 0 0;
+    max-width: 64ch;
+  }
+
+  /* ---------- pull quote + signoff ---------- */
+  .pull {
+    margin: 72px auto 0;
+    max-width: 30ch;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: clamp(24px, 4vw, 38px);
+    line-height: 1.3;
+    font-style: italic;
+  }
+  .pull .accent { color: var(--accent); }
+  .pull-attr {
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--meta);
+    margin-top: 14px;
+  }
+  .signoff {
+    margin: 56px auto 0;
+    max-width: 58ch;
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--meta);
+  }
+
+  /* ---------- honesty core: reduced motion stills everything ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    html, body { transition: none; }
+    .fig-line { transition: none; }
+  }
+
+  /* ---------- print: the descent stacks; the machine hides ---------- */
+  @media print {
+    .gauge { display: none; }
+    .bore { grid-template-columns: 1fr; }
+    #probe-btn { display: none; }
+    .ticker-inner { animation: none; }
+    .stratum { break-inside: avoid; }
+  }
+
+  /* ---------- colophon ---------- */
+  .colophon {
+    margin-top: 64px;
+    border-top: 1px solid var(--ink);
+    padding-top: 14px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--meta);
+    line-height: 2;
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="running-head">
+    <span>KERNEL<span class="star">&nbsp;&#9733;&nbsp;</span>CHAT</span>
+    <span class="mid">ISSUE 429 &mdash; THE INK IS THE CELL &middot; ARTIFACT EDITION &middot; <span class="jp">インクが本体</span></span>
+    <span>MARCH 2027</span>
+  </header>
+
+  <p class="kicker">[ MATERIALS REVIEW &middot; <span class="jp">材料審査</span> ] <b>SPECIMEN EDITION</b> &mdash; NO SEQUENCER OWNED &middot; NO RUN PERFORMED &middot; EVERY RUN FIGURE MARKED &#9671;</p>
+
+  <h1 class="monument">THE INK IS<br>THE <span class="accent">CELL</span>.</h1>
+  <p class="monument-jp jp">インクが本体 &mdash; 台所から台帳まで</p>
+
+  <p class="dek">Oxford Nanopore's MinION puts a sequencing run on a kitchen table &mdash; USB-C to a laptop, reads filling in as they happen. The purchase brief says the device is not the decision. The flow cell is: <em>it expires, it ships on ice, and it meters every page the press will ever print.</em> A materials review, written before anything is bought. Choose a sample at the bench; the choice descends with you.</p>
+
+  <section class="dossier" aria-label="The dossier">
+    <div class="dossier-head">THE DOSSIER <span class="jp">要目</span></div>
+    <div class="dossier-grid">
+      <div class="dossier-item"><b>INSTRUMENT</b>MINION MK1D &middot; PALM-SIZED &middot; USB-C TO A LAPTOP &middot; DNA OR RNA</div>
+      <div class="dossier-item"><b>PRICE</b>PACK $5,150 &middot; DEVICE ONLY $3,150 &mdash; ONT US STORE, READ 2026-08-18</div>
+      <div class="dossier-item"><b>THE INK</b>FLOW CELLS &middot; EXPIRE &middot; SHIP ON ICE &middot; ~$1,100 PER LATER RUN &#9671;</div>
+      <div class="dossier-item"><b>YIELD</b>~30 Gb PER CELL &#9671; &middot; ~10X HUMAN GENOME &#9671; &middot; PROMETHION ~100 Gb, ~30X &#9671;</div>
+      <div class="dossier-item"><b>STACK</b>MINKNOW FREE &middot; DORADO SOURCE-PUBLISHED &middot; MINIMAP2 + CLAIR3 OPEN SOURCE</div>
+      <div class="dossier-item"><b>STATUS</b>NOTHING BOUGHT &middot; NO RUN PERFORMED &middot; RUN FIGURES THIRD-PARTY &mdash; MENON, 2026-05</div>
+    </div>
+    <p class="dossier-note">Store prices were read from the ONT US store on 2026-08-18. Run figures &mdash; pore counts, N50, read quality, POD5 size, and the run-cost dollars &mdash; are representative numbers from a third-party home-run ledger, Menon, 2026-05, not ours: nothing has been bought and no run has been performed. The plate is this magazine's drawing, not instrument telemetry.</p>
+  </section>
+
+  <p class="ticker-label">THE CONSUMABLES LEDGER &middot; <span class="jp">消耗品台帳</span> &mdash; STORE PRICES READ 2026-08-18 &middot; &#9671; RUN FIGURES AND COSTS THIRD-PARTY, MENON 2026-05</p>
+  <div class="ticker" aria-hidden="true">
+    <span class="ticker-inner" id="ticker-inner"></span>
+  </div>
+
+  <div class="bore">
+    <div class="gauge" aria-hidden="true">
+      <span class="gauge-line"></span>
+      <span id="probe-dot"></span>
+      <span class="gauge-stop" data-stop="0" style="top: 5%">0<br><span class="jp">台所</span></span>
+      <span class="gauge-stop" data-stop="1" style="top: 23%">&minus;1<br><span class="jp">抽出</span></span>
+      <span class="gauge-stop" data-stop="2" style="top: 41%">&minus;2<br><span class="jp">調製</span></span>
+      <span class="gauge-stop" data-stop="3" style="top: 59%">&minus;3<br><span class="jp">細孔</span></span>
+      <span class="gauge-stop" data-stop="4" style="top: 77%">&minus;4<br><span class="jp">解読</span></span>
+      <span class="gauge-stop" data-stop="5" style="top: 94%">FLR<br><span class="jp">台帳</span></span>
+    </div>
+
+    <div class="strata">
+
+      <section class="stratum" id="s0" style="--depth:0" aria-label="Stratum 0 — the bench">
+        <div class="stratum-head">
+          <span>STRATUM 0 &middot; THE BENCH</span><span class="jp">台所</span>
+          <span class="stratum-status" data-status>PROBE HERE &middot; <span class="jp">探針在位</span></span>
+        </div>
+        <div class="stratum-body">
+          <p class="prose">The Mk1D Pack is $5,150 with five cells and a kit; the device alone is $3,150 and sequences nothing out of the box &mdash; no flow cell, no kit. A press, delivered without ink; choose what walks up to it.</p>
+          <div class="choice-row" role="radiogroup" aria-label="Sample — the carried choice, re-inks every stratum below" id="sample-group">
+            <span class="choice-label">SAMPLE</span>
+            <button type="button" class="choice" role="radio" aria-checked="true" data-sample="buccal">BUCCAL SWAB &middot; <span class="jp">頬</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-sample="coffee">COFFEE LEAF &middot; <span class="jp">珈琲葉</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-sample="rna">DIRECT RNA &middot; <span class="jp">直接</span></button>
+          </div>
+          <p class="fig-line" id="bench-line"><b>THE BENCH FOR THIS SAMPLE &#9671;</b> — CHEEK SWAB · MONARCH gDNA KIT ~$150 · SQK-LSK114 ~$610 · NEBNEXT ~$1,275 · R10.4.1 CELL $900–1,200 <span class="dim">· RUN ONE ~$3,200–4,100 IN REAGENTS AND BENCH (MENON, 2026-05)</span></p>
+          <button id="probe-btn" type="button">&#9733; LOWER THE PROBE &mdash; <span class="jp">降下</span></button>
+        </div>
+        <p class="stratum-caption">FIG. 0 &mdash; THE KIT ON A KITCHEN TABLE. MK1D PACK $5,150 &middot; DEVICE ONLY $3,150 &mdash; ONT US STORE, READ 2026-08-18. THE SAMPLE CHOICE RE-INKS EVERY STRATUM BELOW.</p>
+      </section>
+
+      <section class="stratum" id="s1" style="--depth:0.2" aria-label="Stratum minus one — the extraction">
+        <div class="stratum-head">
+          <span>STRATUM &minus;1 &middot; THE EXTRACTION</span><span class="jp">抽出</span>
+          <span class="stratum-status" data-status>UNREACHED &middot; <span class="jp">未達</span></span>
+        </div>
+        <div class="stratum-body">
+          <p class="menon-quote">&ldquo;DNA quality matters more than quantity.&rdquo; <span class="who">&mdash; MENON, 2026-05, THIRD PARTY</span></p>
+          <p class="prose">Sequencing wants extracted, <em>intact</em> strands &mdash; rough handling fragments them and shortens every read the press will print.</p>
+          <p class="fig-line" id="extraction-line"><b>MONARCH gDNA KIT · ~$150 &#9671;</b> — INTACT DOUBLE STRANDS FROM A CHEEK SWAB; LONG STRANDS IN, LONG READS OUT</p>
+        </div>
+        <p class="stratum-caption">FIG. 1 &mdash; THE STRAND LEAVES THE SAMPLE WHOLE OR NOT AT ALL. KIT LINE RE-INKED BY THE SAMPLE CARRIED FROM THE BENCH.</p>
+      </section>
+
+      <section class="stratum" id="s2" style="--depth:0.4" aria-label="Stratum minus two — the library">
+        <div class="stratum-head">
+          <span>STRATUM &minus;2 &middot; THE LIBRARY</span><span class="jp">調製</span>
+          <span class="stratum-status" data-status>UNREACHED &middot; <span class="jp">未達</span></span>
+        </div>
+        <div class="stratum-body">
+          <p class="menon-quote">Library prep &ldquo;is where most failures happen.&rdquo; <span class="who">&mdash; MENON, 2026-05, THIRD PARTY</span></p>
+          <p class="prose">Adapters and a motor protein are ligated onto each strand in a roughly three-hour prep. Kits are sized for labs, and a solo bench pays the lab price: the surplus is the cost of practicing a craft alone.</p>
+          <p class="fig-line" id="library-line"><b>SQK-LSK114 LIGATION KIT · ~$610 &#9671;</b> — ADAPTERS + MOTOR PROTEIN ON EACH DNA STRAND · 6 PREPS BOUGHT, 1 USED</p>
+          <p class="fig-line"><b>THE HIDDEN LINE &#9671;</b> &mdash; NEBNEXT COMPANION MODULE ~$1,275 &middot; 24 PREPS BOUGHT, 1 USED <span class="dim">(MENON, 2026-05)</span></p>
+        </div>
+        <p class="stratum-caption">FIG. 2 &mdash; THE MOTOR PROTEIN IS THE FEED MECHANISM OF THE PRESS. KIT LINE RE-INKED BY SAMPLE; THE RNA EDITION IS AUTHORED-REPRESENTATIVE.</p>
+      </section>
+
+      <section class="stratum" id="s3" style="--depth:0.6" aria-label="Stratum minus three — the pore">
+        <div class="stratum-head">
+          <span>STRATUM &minus;3 &middot; THE PORE</span><span class="jp">細孔</span>
+          <span class="stratum-status" data-status>UNREACHED &middot; <span class="jp">未達</span></span>
+        </div>
+        <div class="stratum-body">
+          <p class="prose">A single strand threads a protein pore in a membrane, and the ionic current wiggles as each base passes. The mechanism fits in a sentence; the economics do not &mdash; the cell opens at 1,412 active pores and closes 72 hours later at 310 &#9671;. The decay is not a malfunction. It is the unit of account.</p>
+          <div class="plate-frame">
+            <canvas id="cv-squiggle" width="880" height="330" aria-label="A drawn ionic-current squiggle — this magazine's drawing, seeded, not instrument telemetry"></canvas>
+          </div>
+        </div>
+        <p class="stratum-caption">FIG. 3 &mdash; THE SQUIGGLE, DRAWN IN-HOUSE FROM SEED 429 &mdash; NO RUN PERFORMED, NOTHING GENERATED. THE TRACE'S CHARACTER RE-INKS WITH THE CARRIED SAMPLE.</p>
+      </section>
+
+      <section class="stratum" id="s4" style="--depth:0.8" aria-label="Stratum minus four — the basecall">
+        <div class="stratum-head">
+          <span>STRATUM &minus;4 &middot; THE BASECALL</span><span class="jp">解読</span>
+          <span class="stratum-status" data-status>UNREACHED &middot; <span class="jp">未達</span></span>
+        </div>
+        <div class="stratum-body">
+          <p class="prose">Dorado decodes bases from the squiggle on the laptop itself &mdash; local-first means the wait happens on your own bench. Pick the model; accuracy and hours trade against each other, and the choice is carried to the folio.</p>
+          <div class="choice-row" role="radiogroup" aria-label="Basecall model — carried to the folio" id="model-group">
+            <span class="choice-label">MODEL</span>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-model="fast">FAST &middot; <span class="jp">速</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-model="hac">HAC &middot; <span class="jp">高</span></button>
+            <button type="button" class="choice" role="radio" aria-checked="true" data-model="sup">SUP &middot; <span class="jp">超</span></button>
+          </div>
+          <p class="fig-line" id="model-line"><b>DORADO SUP &#9671;</b> — Q&ge;20 FOR 91% OF READS · SEVERAL HOURS ON AN M3-CLASS MACHINE <span class="dim">· MENON, 2026-05, THIRD PARTY</span></p>
+        </div>
+        <p class="stratum-caption">FIG. 4 &mdash; ALL FIGURES AUTHORED-REPRESENTATIVE; THE SUP ROW IS MENON'S OWN (2026-05, THIRD PARTY): Q&ge;20 FOR 91% OF READS, SEVERAL HOURS ON AN M3-CLASS MACHINE. THIS M3 MAX CARRIES 36 GB AGAINST A RECOMMENDED 64.</p>
+      </section>
+
+      <section class="stratum" id="s5" style="--depth:1" aria-label="The floor — the folio">
+        <div class="stratum-head">
+          <span>FLOOR &middot; THE FOLIO</span><span class="jp">台帳</span>
+          <span class="stratum-status" data-status>UNREACHED &middot; <span class="jp">未達</span></span>
+        </div>
+        <div class="stratum-body">
+          <div class="folio" id="folio">
+            <span class="stamp">NOTHING BOUGHT</span>
+            <div class="folio-head"><span class="star">&#9733;</span>RUN FOLIO &mdash; SPECIMEN 00 &middot; <span class="jp">台帳</span> &middot; SEED 429 &middot; &#9671; = THIRD-PARTY (MENON) OR AUTHORED &mdash; NEVER OURS</div>
+            <div class="folio-sec">
+              <h3>I &middot; CLAIM</h3>
+              <pre id="folio-claim">WOULD MEASURE ◇: ONE HUMAN GENOME AT ~10X, FROM A BUCCAL SWAB
+ON A KITCHEN TABLE. NOT SHOWN: CLINICAL-GRADE VARIANT
+CALLS — 30X BELONGS TO A PROMETHION CELL ◇.</pre>
+            </div>
+            <div class="folio-sec">
+              <h3>II &middot; LEDGER</h3>
+              <pre id="folio-ledger">SAMPLE            BUCCAL SWAB
+FLOW CELL         R10.4.1 ◇ · $900–1,200 · EXPIRES · SHIPS ON ICE
+PORES             1,412 → 310 OVER 72 H ◇
+YIELD             ~30 Gb PER CELL ◇ · ~10X HUMAN GENOME ◇
+N50               11.4 kb ◇
+RAW DATA          ~98–100 GB POD5 ◇
+BASECALL          DORADO SUP · Q≥20 FOR 91% OF READS ◇ (MENON, 2026-05)
+WALL CLOCK        SEVERAL HOURS, M3-CLASS ◇ (MENON, 2026-05)
+SHA-256           POD5 / BASECALL / ALIGNMENT / CALLS — COMPUTED AT RUN (NO RUN)</pre>
+            </div>
+            <div class="folio-sec">
+              <h3>III &middot; READING</h3>
+              <p class="reading-line" id="folio-reading">The coverage supports targeted panels and ancestry-scale reads; confident small-variant calling would need the ~30x a PromethION cell yields ◇. Specimen values throughout — borrowed from Menon, 2026-05, until a real run replaces them.</p>
+            </div>
+            <div class="folio-sec">
+              <h3>IV &middot; COLOPHON</h3>
+              <pre id="folio-colophon">RUN BY            NO ONE YET · SPECIMEN 00
+HARDWARE          M3 MAX · 36 GB AGAINST A RECOMMENDED 64 ◇
+STACK             MINKNOW (FREE) · DORADO (SOURCE-PUBLISHED) · MINIMAP2 + CLAIR3 (OPEN SOURCE)
+COST TO DATE      $0 — NOTHING BOUGHT
+SEED              429 · SOURCES: ONT US STORE 2026-08-18 · MENON 2026-05 (THIRD PARTY)</pre>
+            </div>
+            <p class="folio-sellable"><b>The folio is sellable before the sequencer exists</b> &mdash; the instrument is justified by the first paid folio, never the other way round.</p>
+          </div>
+        </div>
+        <p class="stratum-caption">FIG. 5 &mdash; THE RESOLUTION OF THE DESCENT: FOUR PAGES, EVERY STEP HASHABLE, EVERY SPECIMEN VALUE MARKED &#9671;. THE HASHES READ COMPUTED AT RUN, BECAUSE THERE HAS BEEN NO RUN.</p>
+      </section>
+
+      <div class="ledger-block">
+        <p class="ledger-kicker">THE SESSION LEDGER &middot; <span class="jp">帳簿</span></p>
+        <p id="ledger">DEPTH 0 &middot; DESCENTS 00 &middot; SAMPLE SWITCHES 00 &middot; MODEL SWITCHES 00 &middot; SESSION 00:00</p>
+        <p class="ledger-note">The ledger counts only your own hand: how deep the probe sits, how many descents you began, which sample and model you switched to, and how long this page has been open. Counted in your browser, recorded by no one, session-only &mdash; reload and it resets. The strata themselves are a drawing of a run that never happened; nothing here is instrument telemetry.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="pull">&ldquo;The cell dies as designed. <span class="accent">The ledger does not.</span>&rdquo;</p>
+  <p class="pull-attr">THE INK IS THE CELL &middot; ISSUE 429</p>
+
+  <p class="signoff"><span class="jp">街のコーダーたちへ</span> &mdash; price the ink before the press, file the ledger before the run, and never buy a cell without a page waiting for it.</p>
+
+  <footer class="colophon">
+    SET IN GARAMOND &amp; COURIER, NOTO SERIF JP FOR THE LOCKUPS <span class="star">&#9733;</span> SIMULATED, NOT MEASURED &mdash; THE PLATE IS DRAWN IN-HOUSE FROM SEED 429; NO RUN PERFORMED, NOTHING GENERATED <span class="star">&#9733;</span> SOURCES: ONT US STORE, READ 2026-08-18 &middot; MENON HOME-RUN LEDGER, 2026-05, THIRD PARTY &middot; PURCHASE BRIEF docs/hardware/nanopore-sequencer.md <span class="star">&#9733;</span> THE SESSION LEDGER IS COUNTED IN YOUR BROWSER, KEPT BY NO ONE, GONE ON RELOAD <span class="star">&#9733;</span> NOTHING BOUGHT <span class="star">&#9733;</span> KERNEL.CHAT PRESSROOM
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var RMQ = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var REDUCED = RMQ.matches;
+  RMQ.addEventListener("change", function (ev) { REDUCED = ev.matches; paintSquiggle(); });
+  var SEED = 429; /* the resting plate is identical on every copy */
+
+  /* one animation step that cannot stall — rAF raced against a timer
+     (the artifact-language honesty core: timer-robust motion) */
+  function tick(fn) {
+    var fired = false;
+    function fire() { if (fired) return; fired = true; fn(performance.now()); }
+    requestAnimationFrame(fire);
+    setTimeout(fire, 42);
+  }
+
+  function mulberry32(a) {
+    var s = a | 0;
+    return function () {
+      s = (s + 0x6D2B79F5) | 0;
+      var t = Math.imul(s ^ (s >>> 15), 1 | s);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function tokens() {
+    var cs = getComputedStyle(document.documentElement);
+    return {
+      ink: cs.getPropertyValue("--ink").trim(),
+      meta: cs.getPropertyValue("--meta").trim(),
+      line: cs.getPropertyValue("--line").trim(),
+      accent: cs.getPropertyValue("--accent").trim()
+    };
+  }
+
+  /* ---------- the material ---------- */
+  var SAMPLES = {
+    buccal: {
+      name: "BUCCAL SWAB",
+      bench: '<b>THE BENCH FOR THIS SAMPLE &#9671;</b> — CHEEK SWAB · MONARCH gDNA KIT ~$150 · SQK-LSK114 ~$610 · NEBNEXT ~$1,275 · R10.4.1 CELL $900–1,200 <span class="dim">· RUN ONE ~$3,200–4,100 IN REAGENTS AND BENCH (MENON, 2026-05)</span>',
+      extraction: '<b>MONARCH gDNA KIT · ~$150 &#9671;</b> — INTACT DOUBLE STRANDS FROM A CHEEK SWAB; LONG STRANDS IN, LONG READS OUT',
+      library: '<b>SQK-LSK114 LIGATION KIT · ~$610 &#9671;</b> — ADAPTERS + MOTOR PROTEIN ON EACH DNA STRAND · 6 PREPS BOUGHT, 1 USED',
+      yieldLine: "YIELD             ~30 Gb PER CELL ◇ · ~10X HUMAN GENOME ◇",
+      n50Line: "N50               11.4 kb ◇",
+      claim: "WOULD MEASURE ◇: ONE HUMAN GENOME AT ~10X, FROM A BUCCAL SWAB\nON A KITCHEN TABLE. NOT SHOWN: CLINICAL-GRADE VARIANT\nCALLS — 30X BELONGS TO A PROMETHION CELL ◇.",
+      reading: "The coverage supports targeted panels and ancestry-scale reads; confident small-variant calling would need the ~30x a PromethION cell yields ◇. Specimen values throughout — borrowed from Menon, 2026-05, until a real run replaces them.",
+      mode: "dna",
+      traceNote: "DNA · FAST TRANSLOCATION · DENSE DWELLS"
+    },
+    coffee: {
+      name: "COFFEE LEAF",
+      bench: '<b>THE BENCH FOR THIS SAMPLE &#9671;</b> — ONE LEAF, ONE ORIGIN MARKER · LEAF EXTRACTION + AMPLICON LINE (AUTHORED-REPRESENTATIVE) · SQK-LSK114 ~$610 <span class="dim">· AMPLICON RUNS SUIT CHEAP FLONGLE-CLASS CELLS</span>',
+      extraction: '<b>LEAF EXTRACTION (CTAB) · AUTHORED-REPRESENTATIVE</b> — DNA FROM A SINGLE LEAF; THE TARGET IS ONE ORIGIN AMPLICON, NOT A GENOME',
+      library: '<b>SQK-LSK114 ON AN ORIGIN AMPLICON &#9671;</b> — THE SAME LIGATION CHEMISTRY POINTED AT ONE AMPLIFIED REGION · 6 PREPS BOUGHT, 1 USED',
+      yieldLine: "YIELD             AMPLICON PANEL ◇ — SMALL TARGET; A FLONGLE-CLASS CELL COULD CARRY IT",
+      n50Line: "N50               ≈ THE AMPLICON LENGTH ◇ — ONE REGION, ONE SIZE",
+      claim: "WOULD MEASURE ◇: AN ORIGIN FINGERPRINT FOR ONE NAMED COFFEE\nLOT — MARKETING-GRADE PROVENANCE, NOT A GENOME.\nNOT SHOWN: ANYTHING BEYOND THE AMPLIFIED REGION.",
+      reading: "An amplicon run answers one question — is this lot what its label says — and the folio is the answer a roaster can hang on a wall. Specimen register: no leaf has been swabbed, no lot named.",
+      mode: "amplicon",
+      traceNote: "AMPLICON · ONE REGION, REPEATED · PERIODIC DWELLS"
+    },
+    rna: {
+      name: "DIRECT RNA",
+      bench: '<b>THE BENCH FOR THIS SAMPLE &#9671;</b> — RNASE-FREE BENCH · RNA EXTRACTION + DIRECT RNA KIT LINE (AUTHORED-REPRESENTATIVE) · AN RNA-EDITION FLOW CELL <span class="dim">· SHIPS ON ICE, EXPIRES THE SAME</span>',
+      extraction: '<b>RNASE-FREE TOTAL RNA PULL · AUTHORED-REPRESENTATIVE</b> — RNA DEGRADES FASTER THAN THE BENCH FORGIVES; THE CLOCK STARTS AT THE PULL',
+      library: '<b>DIRECT RNA KIT LINE · AUTHORED-REPRESENTATIVE</b> — NO REVERSE TRANSCRIPTION; THE PORE READS THE TRANSCRIPT ITSELF, MODIFICATIONS AND ALL',
+      yieldLine: "YIELD             LOWER THAN DNA ◇ — SLOWER TRANSLOCATION, LONGER DWELLS",
+      n50Line: "N50               TRANSCRIPT-LENGTH BOUND ◇ — THE MESSAGE SETS THE READ",
+      claim: "WOULD MEASURE ◇: A TRANSCRIPT CENSUS READ DIRECTLY FROM RNA —\nNOTHING COPIED FIRST, MODIFICATIONS VISIBLE.\nNOT SHOWN: THE GENOME THE TRANSCRIPTS CAME FROM.",
+      reading: "Direct RNA reads the message as written, base modifications included — the one mode where the pore sees what a copying step would erase. Specimen register: authored-representative end to end.",
+      mode: "rna",
+      traceNote: "RNA · SLOW TRANSLOCATION · LONG DWELLS"
+    }
+  };
+
+  var MODELS = {
+    fast: {
+      name: "FAST",
+      line: '<b>DORADO FAST &#9671;</b> — Q&ge;20 FOR ~72% OF READS · WELL UNDER AN HOUR ON THE M3 MAX <span class="dim">· AUTHORED-REPRESENTATIVE</span>',
+      q: "Q≥20 ~72% OF READS ◇ (AUTHORED)",
+      hours: "WELL UNDER AN HOUR ◇ (AUTHORED)"
+    },
+    hac: {
+      name: "HAC",
+      line: '<b>DORADO HAC &#9671;</b> — Q&ge;20 FOR ~85% OF READS · AN HOUR OR TWO ON THE M3 MAX <span class="dim">· AUTHORED-REPRESENTATIVE</span>',
+      q: "Q≥20 ~85% OF READS ◇ (AUTHORED)",
+      hours: "AN HOUR OR TWO ◇ (AUTHORED)"
+    },
+    sup: {
+      name: "SUP",
+      line: '<b>DORADO SUP &#9671;</b> — Q&ge;20 FOR 91% OF READS · SEVERAL HOURS ON AN M3-CLASS MACHINE <span class="dim">· MENON, 2026-05, THIRD PARTY</span>',
+      q: "Q≥20 FOR 91% OF READS ◇ (MENON, 2026-05)",
+      hours: "SEVERAL HOURS, M3-CLASS ◇ (MENON, 2026-05)"
+    }
+  };
+
+  var TICKER = [
+    "PACK $5,150", "DEVICE ONLY $3,150", "LATER RUN ~$1,100 ◇",
+    "RUN ONE ~$3,200–4,100 ◇", "NEBNEXT ~$1,275 ◇ — 24 PREPS, 1 USED",
+    "~30 GIGABASES PER CELL ◇ · ~10X GENOME", "PROMETHION ~100 GIGABASES ◇ · ~30X",
+    "1,412 → 310 PORES / 72 H ◇", "N50 11.4 KILOBASES ◇", "NOTHING BOUGHT"
+  ];
+
+  /* ---------- state ---------- */
+  var depth = 0;
+  var descents = 0;
+  var sampleSwitches = 0;
+  var modelSwitches = 0;
+  var sample = "buccal";
+  var model = "sup";
+  var dropping = false;
+  var t0session = Date.now();
+
+  /* ---------- ticker (weather; content doubled for the roll) ---------- */
+  (function buildTicker() {
+    var inner = document.getElementById("ticker-inner");
+    var one = TICKER.map(function (item) {
+      return item + '<span class="sep">★</span>';
+    }).join("");
+    inner.innerHTML = one + one;
+  })();
+
+  /* ---------- gauge geometry ---------- */
+  var gauge = document.querySelector(".gauge");
+  var probeDot = document.getElementById("probe-dot");
+  var stops = Array.prototype.slice.call(document.querySelectorAll(".gauge-stop"));
+  var strata = [0, 1, 2, 3, 4, 5].map(function (i) { return document.getElementById("s" + i); });
+
+  function placeStops() {
+    var gr = gauge.getBoundingClientRect();
+    strata.forEach(function (sec, i) {
+      var r = sec.getBoundingClientRect();
+      var y = r.top + r.height / 2 - gr.top;
+      stops[i].style.top = y + "px";
+      stops[i].dataset.y = String(y);
+    });
+    moveProbe(depth, true);
+  }
+
+  var moveGen = 0;
+  function moveProbe(toDepth, instant) {
+    var gen = ++moveGen; /* a resize or new move cancels the in-flight easing */
+    var y = parseFloat(stops[toDepth].dataset.y || "0");
+    if (instant || REDUCED) {
+      probeDot.style.top = y + "px";
+      return;
+    }
+    var from = parseFloat(probeDot.style.top || "0");
+    var start = performance.now(), DUR = 700;
+    (function step(now) {
+      if (gen !== moveGen) return;
+      var k = Math.min(1, (now - start) / DUR);
+      var e = 1 - Math.pow(1 - k, 3);
+      probeDot.style.top = (from + (y - from) * e) + "px";
+      if (k < 1) tick(step);
+    })(start);
+  }
+
+  /* ---------- strata activation ---------- */
+  function setStatus(i, text, reached) {
+    var sec = strata[i];
+    sec.querySelector("[data-status]").innerHTML = text;
+    sec.classList.toggle("reached", !!reached);
+  }
+  function activate(i) {
+    strata.forEach(function (sec, j) {
+      sec.classList.toggle("active", j === i);
+    });
+    stops.forEach(function (st, j) { st.classList.toggle("lit", j <= i); });
+    document.documentElement.style.setProperty("--live-depth", String(i / 5));
+  }
+  /* the one choreographed moment: as the probe passes, the strata
+     already traversed raise briefly on a stagger, then settle */
+  function raiseWake(upto) {
+    if (REDUCED) return;
+    for (var j = 0; j <= upto; j++) {
+      (function (idx) {
+        setTimeout(function () {
+          strata[idx].classList.add("raised");
+          setTimeout(function () { strata[idx].classList.remove("raised"); }, 380);
+        }, idx * 90);
+      })(j);
+    }
+  }
+
+  /* ---------- carried context: the sample ---------- */
+  var benchLine = document.getElementById("bench-line");
+  var extractionLine = document.getElementById("extraction-line");
+  var libraryLine = document.getElementById("library-line");
+  var modelLine = document.getElementById("model-line");
+
+  function applySample() {
+    var S = SAMPLES[sample];
+    benchLine.innerHTML = S.bench;
+    extractionLine.innerHTML = S.extraction;
+    libraryLine.innerHTML = S.library;
+    paintSquiggle();
+    renderFolio();
+  }
+  function applyModel() {
+    modelLine.innerHTML = MODELS[model].line;
+    renderFolio();
+  }
+
+  /* ---------- radiogroups (buttons; arrow keys walk the group) ---------- */
+  function wireGroup(groupId, attr, onPick) {
+    var group = document.getElementById(groupId);
+    var radios = Array.prototype.slice.call(group.querySelectorAll('[role="radio"]'));
+    radios.forEach(function (b, i) {
+      b.tabIndex = b.getAttribute("aria-checked") === "true" ? 0 : -1;
+      b.addEventListener("click", function () { pick(i); });
+      b.addEventListener("keydown", function (ev) {
+        var next = -1;
+        if (ev.key === "ArrowRight" || ev.key === "ArrowDown") next = (i + 1) % radios.length;
+        if (ev.key === "ArrowLeft" || ev.key === "ArrowUp") next = (i - 1 + radios.length) % radios.length;
+        if (ev.key === "Home") next = 0;
+        if (ev.key === "End") next = radios.length - 1;
+        if (next < 0) return;
+        ev.preventDefault();
+        pick(next);
+        radios[next].focus();
+      });
+    });
+    function pick(i) {
+      var val = radios[i].dataset[attr];
+      radios.forEach(function (x) {
+        var on = x === radios[i];
+        x.setAttribute("aria-checked", on ? "true" : "false");
+        x.tabIndex = on ? 0 : -1;
+      });
+      onPick(val);
+    }
+  }
+
+  wireGroup("sample-group", "sample", function (val) {
+    if (val === sample) return;
+    sample = val;
+    sampleSwitches++;
+    applySample();
+    updateLedger();
+  });
+  wireGroup("model-group", "model", function (val) {
+    if (val === model) return;
+    model = val;
+    modelSwitches++;
+    applyModel();
+    updateLedger();
+  });
+
+  /* ---------- the plate: a seeded squiggle, drawn in-house ---------- */
+  var cvS = document.getElementById("cv-squiggle");
+
+  function traceLevels(mode) {
+    /* deterministic per sample from the printed seed */
+    var offset = mode === "dna" ? 0 : mode === "amplicon" ? 101 : 202;
+    var rnd = mulberry32(SEED + offset);
+    var dwell = mode === "rna" ? 20 : mode === "amplicon" ? 8 : 6;
+    var levels = [];
+    if (mode === "amplicon") {
+      /* one region, repeated: a short seeded motif looping */
+      var motif = [];
+      for (var m = 0; m < 11; m++) motif.push(rnd());
+      var n = Math.ceil(700 / dwell);
+      for (var i = 0; i < n; i++) levels.push(motif[i % motif.length]);
+    } else {
+      var count = Math.ceil(700 / dwell);
+      for (var k = 0; k < count; k++) {
+        /* quantized current states with seeded jitter */
+        var state = Math.floor(rnd() * 5) / 4;
+        levels.push(state * 0.8 + rnd() * 0.2);
+      }
+    }
+    return { levels: levels, dwell: dwell };
+  }
+
+  function paintSquiggle(t) {
+    var ctx = cvS.getContext("2d");
+    var w = cvS.width, h = cvS.height;
+    var c = tokens();
+    var S = SAMPLES[sample];
+    ctx.clearRect(0, 0, w, h);
+
+    /* registration ticks on the plate frame */
+    ctx.strokeStyle = c.meta;
+    ctx.lineWidth = 1;
+    [[8, 8, 1, 1], [w - 8, 8, -1, 1], [8, h - 8, 1, -1], [w - 8, h - 8, -1, -1]].forEach(function (tk) {
+      ctx.beginPath();
+      ctx.moveTo(tk[0], tk[1] + 8 * tk[3]); ctx.lineTo(tk[0], tk[1]); ctx.lineTo(tk[0] + 8 * tk[2], tk[1]);
+      ctx.stroke();
+    });
+
+    /* faint grid */
+    ctx.strokeStyle = c.line;
+    ctx.lineWidth = 0.5;
+    for (var gx = 40.5; gx < w; gx += 40) { ctx.beginPath(); ctx.moveTo(gx, 20); ctx.lineTo(gx, h - 34); ctx.stroke(); }
+    for (var gy = 40.5; gy < h - 34; gy += 40) { ctx.beginPath(); ctx.moveTo(20, gy); ctx.lineTo(w - 20, gy); ctx.stroke(); }
+
+    /* ambient sway, <= 4px, only when the pore is the active stratum */
+    var sway = (t && !REDUCED) ? Math.sin(t / 950) * 3 : 0;
+
+    /* ---- left: the membrane and the pore, strand threading ---- */
+    var px = 78, midY = h / 2 + sway;
+    ctx.strokeStyle = c.ink;
+    ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(24, midY - 9); ctx.lineTo(px - 13, midY - 9); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(px + 13, midY - 9); ctx.lineTo(132, midY - 9); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(24, midY + 9); ctx.lineTo(px - 13, midY + 9); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(px + 13, midY + 9); ctx.lineTo(132, midY + 9); ctx.stroke();
+    /* the pore: a funnel in the gap */
+    ctx.strokeStyle = c.accent;
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(px - 12, midY - 10); ctx.lineTo(px - 5, midY + 10); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(px + 12, midY - 10); ctx.lineTo(px + 5, midY + 10); ctx.stroke();
+    /* the strand threading through — the operational motion */
+    var phase = (t && !REDUCED) ? (t / 320) : 0;
+    ctx.strokeStyle = c.accent;
+    ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    for (var sy = 26; sy <= h - 46; sy += 3) {
+      var rel = (sy - 26) / (h - 72);
+      var pinch = Math.abs(sy - midY) < 26 ? 0.25 : 1;
+      var sx = px + Math.sin(sy / 13 + phase) * 9 * pinch;
+      if (sy === 26) ctx.moveTo(sx, sy); else ctx.lineTo(sx, sy);
+    }
+    ctx.stroke();
+    /* base beads on the strand */
+    ctx.fillStyle = c.ink;
+    for (var by = 30; by <= h - 50; by += 21) {
+      var bp = Math.abs(by - midY) < 26 ? 0.25 : 1;
+      var bx = px + Math.sin(by / 13 + phase) * 9 * bp;
+      ctx.beginPath(); ctx.arc(bx, by, 2, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.fillStyle = c.meta;
+    ctx.font = "9px Courier, monospace";
+    ctx.textAlign = "center";
+    ctx.fillText("MEMBRANE", px, midY - 20);
+    ctx.fillText("PORE", px, midY + 28);
+    ctx.textAlign = "left";
+
+    /* ---- right: the ionic current trace ---- */
+    var tr = traceLevels(S.mode);
+    var x0 = 160, x1 = w - 24;
+    var yTop = 44, yBot = h - 64;
+    ctx.strokeStyle = c.line;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x0, yBot + 0.5); ctx.lineTo(x1, yBot + 0.5); ctx.stroke();
+    ctx.fillStyle = c.meta;
+    ctx.font = "9px Courier, monospace";
+    ctx.fillText("IONIC CURRENT · pA (REPRESENTATIVE)", x0, yTop - 12);
+    ctx.fillText(S.traceNote, x0, yBot + 16);
+
+    var span = x1 - x0;
+    var steps = tr.levels.length;
+    var headStart = Math.floor(steps * 0.88);
+    ctx.lineWidth = 1.4;
+    ctx.beginPath();
+    var prevY = null;
+    for (var iS = 0; iS < steps; iS++) {
+      var lx = x0 + (iS / steps) * span;
+      var lx2 = x0 + ((iS + 1) / steps) * span;
+      var ly = yBot - tr.levels[iS] * (yBot - yTop) + sway * 0.5;
+      if (iS === headStart) {
+        ctx.strokeStyle = c.ink;
+        ctx.stroke();
+        ctx.beginPath();
+        if (prevY !== null) ctx.moveTo(lx, prevY);
+      }
+      if (iS === 0) ctx.moveTo(lx, ly);
+      else { ctx.lineTo(lx, prevY); ctx.lineTo(lx, ly); }
+      ctx.lineTo(lx2, ly);
+      prevY = ly;
+    }
+    ctx.strokeStyle = c.accent;
+    ctx.stroke();
+    /* the reading head: where the base is passing NOW */
+    ctx.fillStyle = c.accent;
+    ctx.beginPath(); ctx.arc(x1, prevY, 3.5, 0, Math.PI * 2); ctx.fill();
+
+    /* the plate's own disclosure + seed */
+    ctx.fillStyle = c.meta;
+    ctx.font = "9px Courier, monospace";
+    ctx.fillText("SEED " + SEED + " · DRAWN IN-HOUSE — NO RUN PERFORMED, NOTHING GENERATED", 24, h - 14);
+    ctx.textAlign = "right";
+    ctx.fillText("No." + SEED, w - 24, h - 14);
+    ctx.textAlign = "left";
+  }
+
+  /* ---------- the floor: the folio receipt ---------- */
+  var folioClaim = document.getElementById("folio-claim");
+  var folioLedger = document.getElementById("folio-ledger");
+  var folioReading = document.getElementById("folio-reading");
+  var folioColophon = document.getElementById("folio-colophon");
+
+  function renderFolio() {
+    var S = SAMPLES[sample];
+    var M = MODELS[model];
+    folioClaim.textContent = S.claim;
+    folioLedger.textContent =
+      "SAMPLE            " + S.name + "\n" +
+      "FLOW CELL         R10.4.1 ◇ · $900–1,200 · EXPIRES · SHIPS ON ICE\n" +
+      "PORES             1,412 → 310 OVER 72 H ◇\n" +
+      S.yieldLine + "\n" +
+      S.n50Line + "\n" +
+      "RAW DATA          ~98–100 GB POD5 ◇\n" +
+      "BASECALL          DORADO " + M.name + " · " + M.q + "\n" +
+      "WALL CLOCK        " + M.hours + "\n" +
+      "SHA-256           POD5 / BASECALL / ALIGNMENT / CALLS — COMPUTED AT RUN (NO RUN)";
+    folioReading.textContent = S.reading;
+    folioColophon.textContent =
+      "RUN BY            NO ONE YET · SPECIMEN 00\n" +
+      "HARDWARE          M3 MAX · 36 GB AGAINST A RECOMMENDED 64 ◇\n" +
+      "STACK             MINKNOW (FREE) · DORADO (SOURCE-PUBLISHED) · MINIMAP2 + CLAIR3 (OPEN SOURCE)\n" +
+      "COST TO DATE      $0 — NOTHING BOUGHT\n" +
+      "SEED              " + SEED + " · SOURCES: ONT US STORE 2026-08-18 · MENON 2026-05 (THIRD PARTY)";
+  }
+
+  /* ---------- the probe ---------- */
+  var probeBtn = document.getElementById("probe-btn");
+  var STATUS_HERE = 'PROBE HERE · <span class="jp">探針在位</span>';
+  var STATUS_UNREACHED = 'UNREACHED · <span class="jp">未達</span>';
+  var STATUS_PASSED = 'PASSED · <span class="jp">通過</span>';
+  var STATUS_REACHED = 'REACHED · <span class="jp">到達</span>';
+  var STATUS_FLOOR = 'THE FLOOR · <span class="jp">台帳</span>';
+
+  probeBtn.addEventListener("click", function () {
+    if (dropping) return;
+    if (depth >= 5) {
+      /* winch back to the bench — the reader can descend again */
+      depth = 0;
+      strata.forEach(function (_, i) {
+        setStatus(i, i === 0 ? STATUS_HERE : STATUS_UNREACHED, i === 0);
+      });
+      activate(0);
+      moveProbe(0);
+      paintSquiggle(); /* settle the plate back to the seed-429 resting frame */
+      probeBtn.innerHTML = "★ LOWER THE PROBE — <span class=\"jp\">降下</span>";
+      updateLedger();
+      return;
+    }
+    dropping = true;
+    probeBtn.disabled = true;
+    var next = depth + 1;
+    setStatus(depth, STATUS_PASSED, true);
+    moveProbe(next);
+    raiseWake(next);
+    setTimeout(function () {
+      depth = next;
+      setStatus(depth, depth === 5 ? STATUS_FLOOR : STATUS_REACHED, true);
+      activate(depth);
+      if (depth !== 3) paintSquiggle(); /* leaving the pore settles the plate to rest */
+      if (depth === 5) {
+        probeBtn.innerHTML = "★ WINCH UP — <span class=\"jp\">巻上げ</span>";
+      }
+      if (depth === 1) descents++; /* one descent = one lowering begun */
+      dropping = false;
+      probeBtn.disabled = false;
+      updateLedger();
+    }, REDUCED ? 40 : 760);
+  });
+
+  /* ---------- session ledger (yours alone; nothing recorded) ---------- */
+  var ledger = document.getElementById("ledger");
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function updateLedger() {
+    var secs = Math.floor((Date.now() - t0session) / 1000);
+    var clock = pad(Math.floor(secs / 60)) + ":" + pad(secs % 60);
+    ledger.textContent =
+      "DEPTH " + (depth === 0 ? "0 · THE BENCH" : depth === 5 ? "FLOOR · THE FOLIO" : "−" + depth) +
+      " · DESCENTS " + pad(descents) +
+      " · SAMPLE " + SAMPLES[sample].name +
+      " · SWITCHES " + pad(sampleSwitches) +
+      " · MODEL " + MODELS[model].name +
+      " · SWITCHES " + pad(modelSwitches) +
+      " · SESSION " + clock;
+  }
+  setInterval(updateLedger, 1000);
+
+  /* ---------- ambient loop (timer-driven; the pore only, when active) ---------- */
+  setInterval(function () {
+    if (REDUCED) return;
+    if (depth === 3) paintSquiggle(performance.now());
+  }, 90);
+
+  /* ---------- theme re-ink ---------- */
+  function repaint() { paintSquiggle(); }
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", repaint);
+  new MutationObserver(repaint).observe(document.documentElement,
+    { attributes: true, attributeFilter: ["data-theme"] });
+
+  /* ---------- init: the resting page is complete, top to floor ---------- */
+  applySample();
+  applyModel();
+  updateLedger();
+  activate(0);
+  setStatus(0, STATUS_HERE, true);
+  placeStops();
+  window.addEventListener("resize", placeStops);
+  setTimeout(placeStops, 250); /* after fonts settle */
+})();
+</script>

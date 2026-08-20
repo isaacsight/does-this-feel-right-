@@ -14,9 +14,20 @@ describe('issue registry — catalog integrity', () => {
     expect(new Set(numbers).size).toBe(numbers.length)
   })
 
-  it('issue numbers are contiguous and ascending (no gaps, no reorder)', () => {
+  /* PUBLISHING.md §VII: when another branch already claimed a number,
+   * the later issue renumbers to the next free slot — so the registry
+   * may carry a DECLARED gap until the other branch merges. Each entry
+   * cites the off-branch claim; remove the entry when that issue lands. */
+  const PENDING_OFF_BRANCH = [
+    428, // claimed twice off-branch: e8b83bb2b (THE ONE PERCENT) + d8c89fb77 (NOTHING NEW WAS ADDED); 429 shipped around it
+  ]
+
+  it('issue numbers are ascending with no undeclared gaps (no reorder)', () => {
     for (let i = 1; i < numbers.length; i++) {
-      expect(numbers[i], `expected ${numbers[i - 1] + 1} after ${numbers[i - 1]}`).toBe(numbers[i - 1] + 1)
+      expect(numbers[i], `expected a number above ${numbers[i - 1]}`).toBeGreaterThan(numbers[i - 1])
+      for (let n = numbers[i - 1] + 1; n < numbers[i]; n++) {
+        expect(PENDING_OFF_BRANCH, `gap at ${n} is not declared in PENDING_OFF_BRANCH`).toContain(n)
+      }
     }
   })
 
