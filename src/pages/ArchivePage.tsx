@@ -2,7 +2,7 @@
    The ledger (real headings + links below) is the resting
    structure: complete, keyboard-first, screen-reader-first. The
    drifting bodies mount on top only when WebGL2 exists. */
-import { lazy, Suspense, useMemo } from 'react'
+import { lazy, Suspense, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { ALL_ISSUES } from '../content/issues'
 import { groupIntoVolumes } from '../stacks/volumes'
@@ -14,6 +14,15 @@ const StacksScene = lazy(() =>
 )
 
 export function ArchivePage() {
+  // The app shell locks body scroll (position: fixed, overflow:
+  // hidden); the room needs the page to actually scroll — the Rig
+  // reads window.scrollY to descend, and every volume below the
+  // first is unreachable otherwise.
+  useEffect(() => {
+    document.body.classList.add('ka-scrollable-page')
+    return () => { document.body.classList.remove('ka-scrollable-page') }
+  }, [])
+
   const volumes = useMemo(() => groupIntoVolumes(ALL_ISSUES), [])
   const walkable = useMemo(() => webglAvailable(), [])
 
