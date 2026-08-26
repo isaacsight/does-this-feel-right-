@@ -1,5 +1,7 @@
-// node --test tools/ableton/gen-coverage.test.mjs
-import { test } from 'node:test'
+// npx vitest run tools/ableton/gen-coverage.test.mjs
+// (vitest `test`, not node:test — the root vitest suite globs this file,
+// and vite cannot bundle the node:test builtin under the jsdom config)
+import { test } from 'vitest'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import {
