@@ -1,0 +1,57 @@
+{
+  "_comment": "SAMPLE DATA — invented numbers for the demo post. Replace with the weekly POS export. Shop 5 and Shop 6 are placeholders: edit the names to match the roster.",
+  "weekStart": "2026-08-17",
+  "weekEnd": "2026-08-23",
+  "laborTarget": 0.3,
+  "locations": [
+    {
+      "name": "Newport Beach",
+      "sales": 41230,
+      "prevSales": 39800,
+      "transactions": 3120,
+      "prevTransactions": 3050,
+      "laborCost": 11960
+    },
+    {
+      "name": "Buena Park",
+      "sales": 36410,
+      "prevSales": 36900,
+      "transactions": 2840,
+      "prevTransactions": 2810,
+      "laborCost": 10560
+    },
+    {
+      "name": "Echo Park",
+      "sales": 24880,
+      "prevSales": 26350,
+      "transactions": 2110,
+      "prevTransactions": 2190,
+      "laborCost": 7710,
+      "notes": ["Grinder burrs due for replacement — ordered, lands Thursday"]
+    },
+    {
+      "name": "Hollywood",
+      "sales": 21540,
+      "prevSales": 21100,
+      "transactions": 1890,
+      "prevTransactions": 1850,
+      "laborCost": 7190
+    },
+    {
+      "name": "Shop 5 (edit name)",
+      "sales": 18320,
+      "prevSales": 17900,
+      "transactions": 1610,
+      "prevTransactions": 1580,
+      "laborCost": 5310
+    },
+    {
+      "name": "Shop 6 (edit name)",
+      "sales": 15200,
+      "prevSales": 15050,
+      "transactions": 1390,
+      "prevTransactions": 1400,
+      "laborCost": 4420
+    }
+  ]
+}

@@ -21,6 +21,8 @@
     "monitor": "npx tsx tools/kernel-monitor.ts",
     "discord": "npx tsx tools/discord-bot.ts",
     "slack": "npx tsx tools/slack-bot.ts",
+    "stereoscope:bot": "npx tsx tools/stereoscope/bot.ts",
+    "stereoscope:brief": "npx tsx tools/stereoscope/post-brief.ts",
     "cap:sync": "npx cap sync",
     "cap:ios": "npm run build && npx cap sync ios && npx cap open ios",
     "cap:android": "npm run build && npx cap sync android && npx cap open android",
