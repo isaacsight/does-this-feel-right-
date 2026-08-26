@@ -1,3 +1,47 @@
+## Session 2026-08-26 — Stereoscope Slack bot (remote session, branch claude/slack-bot-stereoscope-xad4q3)
+
+Task title: "Slack bot for stereoscope." Context recovered from the
+Stereoscope workspace itself (this session has Slack connected):
+2026-07-14 DM with James (U04EL3YJL7J, ops) — Isaac pitched the 11-item
+integration menu, then committed to the one James checkmarked: "every
+monday, one post in this slack — how all 6 shops did last week + the one
+thing to fix. i'll make a sample and drop it here." **The sample was never
+delivered** (same class as the `feedback_adapter_sent_is_not_sent` lesson).
+Note: the 08-12 "Stereoscope declared DEAD — do not re-pitch" entry is
+about job/sales pitching; this is delivering something already promised
+and accepted. NOT posted to James — Isaac should review + send the sample
+himself (dry-run output is ready to paste).
+
+**Built (`tools/stereoscope/`, all pushed to the branch):**
+- `brief.ts` — Monday brief composer. Deterministic: per-shop sales +
+  WoW delta + avg ticket + labor %, company totals, ranked findings
+  (labor-over-target weighted 1.5, sales decline 1.0 with 2% floor,
+  ticket drift 0.8 with 3% floor) -> "the one thing to fix" + Watch list
+  + manager notes passthrough. No LLM in the loop, unit-tested.
+- `post-brief.ts` — CLI. Dry-run by default; `--post` sends via
+  chat.postMessage. `npm run stereoscope:brief`.
+- `bot.ts` — Socket Mode presence, same architecture as tools/slack-bot.ts
+  (per-thread history, claude-proxy per backend rule). Personality scoped
+  hard: never invents policy/recipes/prices/numbers; wage+sales questions
+  routed to managers/private ops channel. `npm run stereoscope:bot`.
+- `sample-week.json` — 6 shops (Newport Beach, Buena Park, Echo Park,
+  Hollywood confirmed from their Slack; shops 5-6 are named placeholders —
+  EDIT before demoing). Invented numbers, marked as such.
+- Env is deliberately separate (STEREOSCOPE_SLACK_BOT_TOKEN /
+  _APP_TOKEN / STEREOSCOPE_BRIEF_CHANNEL) so neither workspace can ever
+  receive the other's posts. Tokens not yet created — Slack app setup
+  steps in tools/stereoscope/README.md.
+
+**Verification:** 14/14 vitest tests pass (tools/stereoscope/brief.test.ts);
+`npx tsc --noEmit` clean; scoped strict tsc over the four new files clean;
+dry-run renders the exact post shape promised in the DM.
+
+**Next:** Isaac reviews the dry-run output, fixes shop 5/6 names, DMs the
+sample to James; then create the Slack app in their workspace and wire
+Zapier -> week JSON -> `post-brief.ts --post` on Monday cron.
+
+---
+
 ## Session 2026-08-19 — ISSUE 429: THE INK IS THE CELL (nanopore issue, ready to ship)
 
 Isaac: "make the next issue about the rna and dna kit we can now make locally."
