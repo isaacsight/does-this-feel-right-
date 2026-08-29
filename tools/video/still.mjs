@@ -30,9 +30,15 @@ if (!prompt || !dest) {
   process.exit(1)
 }
 
-const FAL_KEY = readFileSync(join(REPO, '.env'), 'utf8')
-  .split('\n').find(l => l.startsWith('FAL_KEY='))?.slice('FAL_KEY='.length).trim().replace(/^["']|["']$/g, '')
-if (!FAL_KEY) { console.error('FAL_KEY not found in .env'); process.exit(1) }
+// Env var first (cloud sessions inject it), .env file second (local machines).
+let FAL_KEY = process.env.FAL_KEY
+if (!FAL_KEY) {
+  try {
+    FAL_KEY = readFileSync(join(REPO, '.env'), 'utf8')
+      .split('\n').find(l => l.startsWith('FAL_KEY='))?.slice('FAL_KEY='.length).trim().replace(/^["']|["']$/g, '')
+  } catch { /* no .env */ }
+}
+if (!FAL_KEY) { console.error('FAL_KEY not in environment or .env'); process.exit(1) }
 
 const H = { 'content-type': 'application/json', authorization: `Key ${FAL_KEY}` }
 const sleep = ms => new Promise(r => setTimeout(r, ms))
