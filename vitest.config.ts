@@ -11,6 +11,8 @@ export default defineConfig({
     // and must not be globbed here — jsdom breaks their builtin-module mocks.
     // Run those with `npm test` inside the package.
     // kbot-control-standalone uses `node --test` against dist/, not vitest.
+    // tools/ableton is the same: gen-coverage.test.mjs declares `node --test`
+    // in its own header, and vitest cannot bundle node:test.
     // kbot-ableton-extension is deliberately absent: it owns no runner, so
     // its tests only execute as part of this root suite.
     exclude: [
@@ -24,6 +26,7 @@ export default defineConfig({
       'packages/kbot-finance/**',
       'packages/agent-os/**',
       'packages/kbot-control-standalone/**',
+      'tools/ableton/**',
     ],
   },
   resolve: {
